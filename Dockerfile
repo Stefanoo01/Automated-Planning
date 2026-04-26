@@ -13,6 +13,8 @@ RUN planutils install -y downward
 # Modify the configuration file to enable hostfs, i.e. use the host file system
 RUN perl -pi.bak -e "s/mount hostfs = no/mount hostfs = yes/g" /etc/apptainer/apptainer.conf
 
+RUN apt-get update && apt-get install -y bc
+
 CMD /bin/bash
 
 # To build the docker image
