@@ -1,0 +1,1 @@
+docker run -v .:/project -it --privileged --rm myplanutils bash
