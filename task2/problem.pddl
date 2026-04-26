@@ -40,6 +40,8 @@
 
         (= (battery-level rov1) 20)
         (= (battery-level rov2) 20)
+        (= (battery-level rov3) 20)
+        (= (battery-level rov4) 20)
         (= (capacity rov1) 1)
         (= (capacity rov2) 3)
         (= (capacity rov3) 1)
