@@ -1,0 +1,1 @@
+planutils run enhsp "-o domain.pddl -f problem.pddl -s AStar" | grep '^[0-9]' > solution.plan

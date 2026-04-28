@@ -1,5 +1,5 @@
 (define (domain abyssus-base)
-    (:requirements :strips :typing :negative-preconditions :equality :disjunctive-preconditions :quantified-preconditions :conditional-effects :fluents)
+    (:requirements :strips :typing :negative-preconditions :equality :disjunctive-preconditions :quantified-preconditions :conditional-effects :fluents :action-costs)
     (:types
         locatable location - object
         rov sample - locatable
