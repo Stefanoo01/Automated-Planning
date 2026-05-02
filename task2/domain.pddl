@@ -72,7 +72,7 @@
 
     (:action recharge
         :parameters (?r - rov ?l - docking-station)
-        :precondition (and (at ?r ?l) (<= (battery-level ?r) 20))
+        :precondition (and (at ?r ?l) (< (battery-level ?r) 20))
         :effect (and (assign (battery-level ?r) 20) (increase (total-cost) 4))
     )
     
