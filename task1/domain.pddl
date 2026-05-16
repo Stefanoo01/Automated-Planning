@@ -60,7 +60,7 @@
             (not (at ?r ?from))
             (at ?r ?to)
             (decrease (battery-level ?r) 2)
-            (increase (total-cost) 2)
+            (increase (total-cost) 10000)
         )
     )
 
@@ -99,7 +99,7 @@
             (at ?s ?l)
             (handempty ?r)
             (decrease (battery-level ?r) 1)
-            (increase (total-cost) 1)
+            (increase (total-cost) 50)
         )
     )
 
@@ -117,7 +117,7 @@
             (stored ?s)
             (handempty ?r)
             (decrease (battery-level ?r) 1)
-            (increase (total-cost) 2)
+            (increase (total-cost) 0)
         )
     )
 
@@ -125,22 +125,40 @@
     ;; Pressure-sensitive sample handling with capsules
     ;; ------------------------------------------------------------
 
-    (:action encapsulate-sample
-        :parameters (?r - rov ?s - pressure-sensitive ?c - capsule ?l - location)
+    (:action take-empty-capsule
+        :parameters (?r - rov ?c - capsule ?l - location)
         :precondition (and
             (at ?r ?l)
-            (at ?s ?l)
             (at ?c ?l)
             (empty-capsule ?c)
             (handempty ?r)
             (>= (battery-level ?r) 1)
         )
         :effect (and
+            (not (at ?c ?l))
+            (not (handempty ?r))
+            (carrying ?r ?c)
+            (decrease (battery-level ?r) 1)
+            (increase (total-cost) 1)
+        )
+    )
+
+    (:action encapsulate-sample
+        :parameters (?r - rov ?s - pressure-sensitive ?c - capsule ?l - location)
+        :precondition (and
+            (at ?r ?l)
+            (at ?s ?l)
+            (carrying ?r ?c)
+            (empty-capsule ?c)
+            (>= (battery-level ?r) 1)
+        )
+        :effect (and
             (not (empty-capsule ?c))
+            (not (at ?s ?l))
             (sample-in-capsule ?s ?c)
             (capsule-sealed ?c)
             (decrease (battery-level ?r) 1)
-            (increase (total-cost) 2)
+            (increase (total-cost) 5)
         )
     )
 
@@ -148,7 +166,6 @@
         :parameters (?r - rov ?s - pressure-sensitive ?c - capsule ?l - location)
         :precondition (and
             (at ?r ?l)
-            (at ?s ?l)
             (at ?c ?l)
             (sample-in-capsule ?s ?c)
             (capsule-sealed ?c)
@@ -157,9 +174,8 @@
         )
         :effect (and
             (not (handempty ?r))
-            (not (at ?s ?l))
-            (not (at ?c ?l))
-            (carrying ?r ?s)
+            (not (at ?c ?l)) 
+            (carrying ?r ?c) ; the robot is carrying the capsule with the sample inside
             (decrease (battery-level ?r) 1)
             (increase (total-cost) 1)
         )
@@ -169,18 +185,17 @@
         :parameters (?r - rov ?s - pressure-sensitive ?c - capsule ?l - location)
         :precondition (and
             (at ?r ?l)
-            (carrying ?r ?s)
+            (carrying ?r ?c)
             (sample-in-capsule ?s ?c)
             (capsule-sealed ?c)
             (>= (battery-level ?r) 1)
         )
         :effect (and
-            (not (carrying ?r ?s))
-            (at ?s ?l)
+            (not (carrying ?r ?c))
             (at ?c ?l)
             (handempty ?r)
             (decrease (battery-level ?r) 1)
-            (increase (total-cost) 1)
+            (increase (total-cost) 100)
         )
     )
 
@@ -188,17 +203,14 @@
         :parameters (?r - rov ?s - pressure-sensitive ?c - capsule ?l - pressure-stabilizer)
         :precondition (and
             (at ?r ?l)
-            (at ?s ?l)
             (at ?c ?l)
             (sample-in-capsule ?s ?c)
             (capsule-sealed ?c)
             (not (stabilized ?s))
-            (>= (battery-level ?r) 2)
         )
         :effect (and
             (stabilized ?s)
-            (decrease (battery-level ?r) 2)
-            (increase (total-cost) 3)
+            (increase (total-cost) 10)
         )
     )
 
@@ -207,17 +219,21 @@
         :precondition (and
             (at ?r ?l)
             (bio-vault ?l)
-            (carrying ?r ?s)
+            (carrying ?r ?c)
             (sample-in-capsule ?s ?c)
             (capsule-sealed ?c)
             (stabilized ?s)
             (>= (battery-level ?r) 1)
         )
         :effect (and
-            (not (carrying ?r ?s))
+            (not (capsule-sealed ?c))
             (stored ?s)
+            (empty-capsule ?c)
+            (not (sample-in-capsule ?s ?c))
+            (not (carrying ?r ?c))
+            (at ?c ?l)
             (handempty ?r)
-            (increase (total-cost) 2)
+            (increase (total-cost) 1)
             (decrease (battery-level ?r) 1)
         )
     )
@@ -234,7 +250,7 @@
         )
         :effect (and
             (assign (battery-level ?r) 30)
-            (increase (total-cost) 4)
+            (increase (total-cost) 1000)
         )
     )
 )

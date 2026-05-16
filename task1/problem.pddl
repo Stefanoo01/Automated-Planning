@@ -7,7 +7,7 @@
         s1 s2 s6 - sample
         s3 s4 s5 - pressure-sensitive
 
-        cap1 cap2 cap3 - capsule
+        cap1 cap2 - capsule
 
         wing_alpha wing_beta transfer_zone decompression_chamber bio_vault - location
         docking_station - docking-station
@@ -31,11 +31,12 @@
         (connected decompression_chamber pressure_stabilizer)
         (connected pressure_stabilizer decompression_chamber)
 
+        (connected pressure_stabilizer bio_vault)
+        (connected bio_vault pressure_stabilizer)
+        
         (connected decompression_chamber bio_vault)
         (connected bio_vault decompression_chamber)
 
-        (connected pressure_stabilizer bio_vault)
-        (connected bio_vault pressure_stabilizer)
 
         ;; Special locations
         (bio-vault bio_vault)
@@ -60,11 +61,9 @@
         ;; Capsules
         (at cap1 wing_alpha)
         (at cap2 wing_alpha)
-        (at cap3 wing_beta)
 
         (empty-capsule cap1)
         (empty-capsule cap2)
-        (empty-capsule cap3)
 
         ;; Numeric values
         (= (battery-level rov1) 30)
