@@ -38,7 +38,7 @@
         (connected bio_vault pressure_stabilizer)
 
         ;; Special locations
-        (bio_vault bio_vault)
+        (bio-vault bio_vault)
 
         ;; ROV initial state
         (at rov1 docking_station)
