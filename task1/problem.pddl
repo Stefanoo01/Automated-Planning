@@ -9,36 +9,36 @@
 
         cap1 cap2 cap3 - capsule
 
-        wing-alpha wing-beta transfer-zone decompression-chamber bio-vault - location
+        wing_alpha wing_beta transfer_zone decompression_chamber bio_vault - location
         docking_station - docking-station
         pressure_stabilizer - pressure-stabilizer
     )
 
     (:init
         ;; Connections
-        (connected transfer-zone wing-alpha)
-        (connected wing-alpha transfer-zone)
+        (connected transfer_zone wing_alpha)
+        (connected wing_alpha transfer_zone)
 
-        (connected transfer-zone wing-beta)
-        (connected wing-beta transfer-zone)
+        (connected transfer_zone wing_beta)
+        (connected wing_beta transfer_zone)
 
-        (connected transfer-zone docking_station)
-        (connected docking_station transfer-zone)
+        (connected transfer_zone docking_station)
+        (connected docking_station transfer_zone)
 
-        (connected transfer-zone decompression-chamber)
-        (connected decompression-chamber transfer-zone)
+        (connected transfer_zone decompression_chamber)
+        (connected decompression_chamber transfer_zone)
 
-        (connected decompression-chamber pressure_stabilizer)
-        (connected pressure_stabilizer decompression-chamber)
+        (connected decompression_chamber pressure_stabilizer)
+        (connected pressure_stabilizer decompression_chamber)
 
-        (connected decompression-chamber bio-vault)
-        (connected bio-vault decompression-chamber)
+        (connected decompression_chamber bio_vault)
+        (connected bio_vault decompression_chamber)
 
-        (connected pressure_stabilizer bio-vault)
-        (connected bio-vault pressure_stabilizer)
+        (connected pressure_stabilizer bio_vault)
+        (connected bio_vault pressure_stabilizer)
 
         ;; Special locations
-        (bio-vault bio-vault)
+        (bio_vault bio_vault)
 
         ;; ROV initial state
         (at rov1 docking_station)
@@ -50,17 +50,17 @@
         (regular-sample s6)
 
         ;; Sample positions
-        (at s1 wing-alpha)
-        (at s2 wing-alpha)
-        (at s3 wing-alpha)
-        (at s4 wing-alpha)
-        (at s5 wing-beta)
-        (at s6 wing-beta)
+        (at s1 wing_alpha)
+        (at s2 wing_alpha)
+        (at s3 wing_alpha)
+        (at s4 wing_alpha)
+        (at s5 wing_beta)
+        (at s6 wing_beta)
 
         ;; Capsules
-        (at cap1 wing-alpha)
-        (at cap2 wing-alpha)
-        (at cap3 wing-beta)
+        (at cap1 wing_alpha)
+        (at cap2 wing_alpha)
+        (at cap3 wing_beta)
 
         (empty-capsule cap1)
         (empty-capsule cap2)
