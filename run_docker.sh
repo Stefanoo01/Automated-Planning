@@ -1,1 +1,2 @@
-docker run -v .:/project -it --privileged --rm myplanutils bash
+#!/bin/bash
+docker run -v "$(pwd)":/project -w /project -it --privileged --platform linux/amd64 --rm myplanutils bash

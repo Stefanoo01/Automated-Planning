@@ -23,7 +23,7 @@
 
         ;; ROV state
         (handempty ?r - rov)
-        (carrying ?r - rov ?s - sample)
+        (carrying ?r - rov ?x - locatable)
 
         ;; Sample categories and final state
         (regular-sample ?s - sample)
