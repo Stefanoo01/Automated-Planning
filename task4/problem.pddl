@@ -4,7 +4,7 @@
     (:objects
         rov1 - rov
 
-        s1 - sample
+        s1 s2 - sample
         s3 s4 - pressure-sensitive
 
         cap1 - capsule
@@ -48,11 +48,13 @@
 
         ;; Regular samples
         (regular-sample s1)
+        (regular-sample s2)
         (unstabilized s3)
         (unstabilized s4)
 
         ;; Sample positions
         (at s1 wing-alpha)
+        (at s2 wing-alpha)
         (at s3 wing-alpha)
         (at s4 wing-alpha)
 
@@ -69,6 +71,7 @@
     (:goal
         (and
             (stored s1)
+            (stored s2)
             (stored s3)
             (stored s4)
         )
