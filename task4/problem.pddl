@@ -1,79 +1,64 @@
-(define (problem t1)
+(define (problem t4)
     (:domain abyssus-base)
 
     (:objects
-        rov1 - rov
-
-        s1 s2 - sample
-        s3 s4 - pressure-sensitive
-
-        cap1 - capsule
-
-        wing-alpha wing-beta transfer-zone decompression-chamber biovault1 dock1 stabilizer1 - location
+        rov1 rov2 - rov
+        s1 - sample
+        s3 - pressure-sensitive
+        cap1 cap2 - capsule
+        wing-alpha wing-beta transfer-zone decompression-chamber bio-vault dock1 stabilizer1 - location
     )
 
     (:init
-        ;; Connections
-        (connected transfer-zone wing-alpha)
-        (connected wing-alpha transfer-zone)
-
+        (narrow-connected transfer-zone wing-alpha)
+        (narrow-connected wing-alpha transfer-zone)
         (connected transfer-zone wing-beta)
         (connected wing-beta transfer-zone)
-
         (connected transfer-zone dock1)
         (connected dock1 transfer-zone)
-
         (connected transfer-zone decompression-chamber)
         (connected decompression-chamber transfer-zone)
-
         (connected decompression-chamber stabilizer1)
         (connected stabilizer1 decompression-chamber)
+        (connected decompression-chamber bio-vault)
+        (connected bio-vault decompression-chamber)
+        (connected stabilizer1 bio-vault)
+        (connected bio-vault stabilizer1)
 
-        (connected stabilizer1 biovault1)
-        (connected biovault1 stabilizer1)
-        
-        (connected decompression-chamber biovault1)
-        (connected biovault1 decompression-chamber)
-
-        (is-docking-station dock1)
+        (is-bio-vault bio-vault)
+        ;;(is-docking-station dock1)
         (is-pressure-stabilizer stabilizer1)
 
-
-        ;; Special locations
-        (bio-vault biovault1)
-
-        ;; ROV initial state
         (at rov1 dock1)
-        (handempty rov1)
+        (at rov2 dock1)
+        (small-robot rov1)
+        (at s1 wing-alpha)
+        (at s3 wing-alpha)
+        (at cap1 dock1)
+        (at cap2 dock1)
+        (empty-capsule cap1)
+        (empty-capsule cap2)
 
         ;; Regular samples
         (regular-sample s1)
-        (regular-sample s2)
         (unstabilized s3)
-        (unstabilized s4)
 
-        ;; Sample positions
-        (at s1 wing-alpha)
-        (at s2 wing-alpha)
-        (at s3 wing-alpha)
-        (at s4 wing-alpha)
-
-        ;; Capsules
-        (at cap1 wing-alpha)
-
-        (empty-capsule cap1)
-
-        ;; Numeric values
-        ;(= (battery-level rov1) 30)
+        ; (= (battery-level rov1) 30)
+        ; (= (battery-level rov2) 30)
+        ; (= (capacity rov1) 1)
+        ; (= (capacity rov2) 3)
         ; (= (total-cost) 0)
     )
 
     (:goal
         (and
-            (stored s1)
-            (stored s2)
-            (stored s3)
-            (stored s4)
+            (forall (?s - sample)
+                (stored ?s)
+            )
+
+            (forall (?s - pressure-sensitive)
+                (stabilized ?s)
+            )
         )
     )
 

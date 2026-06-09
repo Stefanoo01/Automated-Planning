@@ -1,3 +1,12 @@
+;; changed wrt task 2:
+;; - added duration to all actions (with :durative-actions requirement), because no solver allows for instantaneous and durative actions in the same domain
+;; - added over all conditions to ensure that the rover and samples remain in the same location during the entire action duration (otherwise problem instances would become unsolvable due to the possibility of moving while holding a sample, which is not intended)
+;; - added new actions for handling pressure-sensitive samples with capsules
+;; - added predicates for is.docking-station and is.pressure-stabilizer (otherwise segmentation fault)
+
+
+;; TODO: check if a precondition that is stated as over-all needs to be also at-start
+
 (define (domain abyssus-base)
 
 (:requirements
@@ -8,35 +17,33 @@
 )
 
 (:types
-    locatable - object
-    location - object
-
-    rov - locatable
-
-    sample - locatable
+    locatable location - object
+    rov sample capsule - locatable
     pressure-sensitive - sample
-
-    capsule - locatable
 )
 
 (:predicates
     ;; spatial
     (at ?x - locatable ?l - location)
     (connected ?from - location ?to - location)
+    (narrow-connected ?from - location ?to - location)
 
     ;; rover
-    (handempty ?r - rov)
+    ;; (handempty ?r - rov) ;; -> not present in task2, but it is present in task 1
     (carrying ?r - rov ?x - locatable)
 
     ;; samples
     (regular-sample ?s - sample)
     (stabilized ?s - sample)
-    (unstabilized ?s - sample)
+    (unstabilized ?s - sample) ;; added because optic does not allow negative preconditions
     (stored ?s - sample)
 
+    ;; Robot categories
+    (small-robot ?r - rov)
+
     ;; environment
-    (bio-vault ?l - location)
-    (is-docking-station ?l - location)
+    (is-bio-vault ?l - location)
+    ;; (is-docking-station ?l - location)
     (is-pressure-stabilizer ?l - location)
 
     ;; capsule system
@@ -46,27 +53,48 @@
 )
 
 ;; ------------------------------------------------------------
-;; MOVE
+;; Movement
 ;; ------------------------------------------------------------
 
 (:durative-action move
     :parameters (?r - rov ?from - location ?to - location)
-    :duration (= ?duration 0.01)
+    :duration (= ?duration 0.01) ;; TODO: increase duration for move action
 
     :condition (and
         (at start (at ?r ?from))
-
         (over all (connected ?from ?to))
+        ;; (over all >= (battery-level ?r) 2)
     )
 
     :effect (and
         (at start (not (at ?r ?from)))
         (at end (at ?r ?to))
+        ;; at end (decrease (battery-level ?r) 2)
+        ;; at end (increase (total-cost) 2))
+    )
+)
+
+(:durative-action move-through-narrow
+    :parameters (?r - rov ?from - location ?to - location)
+    :duration (= ?duration 0.01) ;; TODO: increase duration for move action
+
+    :condition (and
+        (at start (at ?r ?from))
+        (over all (narrow-connected ?from ?to))
+        (over all (small-robot ?r))
+        ;; (over all >= (battery-level ?r) 2)
+    )
+
+    :effect (and
+        (at start (not (at ?r ?from)))
+        (at end (at ?r ?to))
+        ;; at end (decrease (battery-level ?r) 2)
+        ;; at end (increase (total-cost) 2))
     )
 )
 
 ;; ------------------------------------------------------------
-;; REGULAR SAMPLES
+;; Regular sample handling
 ;; ------------------------------------------------------------
 
 (:durative-action pickup-regular-sample
@@ -77,16 +105,20 @@
         (at start (at ?r ?l))
         (at start (at ?s ?l))
         (at start (regular-sample ?s))
-        (at start (handempty ?r))
-
+        ;; (at start (handempty ?r))
+        ;; (at start >= (battery-level ?r) 1)
+        ;; (>= (capacity ?r) 1)
         (over all (at ?r ?l))
         (over all (at ?s ?l))
     )
 
     :effect (and
-        (at end (not (handempty ?r)))
+        ;; (at end (not (handempty ?r)))
         (at end (not (at ?s ?l)))
         (at end (carrying ?r ?s))
+        ;; at end (decrease (battery-level ?r) 1)
+        ;; at end (decrease (capacity ?r) 1)
+        ;; at end (increase (total-cost) 1))
     )
 )
 
@@ -106,7 +138,10 @@
     :effect (and
         (at end (not (carrying ?r ?s)))
         (at end (at ?s ?l))
-        (at end (handempty ?r))
+        ;; (at end (handempty ?r))
+        ; (increase (capacity ?r) 1)
+        ; (decrease (battery-level ?r) 1)
+        ; (increase (total-cost) 50)
     )
 )
 
@@ -116,23 +151,27 @@
 
     :condition (and
         (at start (at ?r ?l))
-        (at start (bio-vault ?l))
+        (at start (is-bio-vault ?l))
         (at start (carrying ?r ?s))
         (at start (regular-sample ?s))
 
         (over all (at ?r ?l))
         (over all (carrying ?r ?s))
+
+        ;; (>= (battery-level ?r) 1)
     )
 
     :effect (and
         (at end (not (carrying ?r ?s)))
         (at end (stored ?s))
-        (at end (handempty ?r))
+        ;; (at end (handempty ?r))
+        ;; at end (decrease (battery-level ?r) 1)
+        ;; at end (increase (total-cost) 0))
     )
 )
 
 ;; ------------------------------------------------------------
-;; CAPSULE HANDLING
+;; Pressure-sensitive sample handling with capsules
 ;; ------------------------------------------------------------
 
 (:durative-action take-empty-capsule
@@ -143,7 +182,8 @@
         (at start (at ?r ?l))
         (at start (at ?c ?l))
         (at start (empty-capsule ?c))
-        (at start (handempty ?r))
+        ;; (at start (handempty ?r))
+        ;; (at start >= (battery-level ?r) 1)
 
         (over all (at ?r ?l))
         (over all (at ?c ?l))
@@ -151,8 +191,11 @@
 
     :effect (and
         (at end (not (at ?c ?l)))
-        (at end (not (handempty ?r)))
+        ;; (at end (not (handempty ?r)))
         (at end (carrying ?r ?c))
+        ;; at end (decrease (battery-level ?r) 1)
+        ;; at end (increase (total-cost) 1))
+        ;; at end (increase (capacity ?r) 1)
     )
 )
 
@@ -178,6 +221,8 @@
         (at end (sample-in-capsule ?s ?c))
         (at end (not (at ?s ?l)))
         (at end (capsule-sealed ?c))
+        ;; at end (decrease (battery-level ?r) 1)
+        ;; at end (increase (total-cost) 5))
     )
 )
 
@@ -190,16 +235,21 @@
         (at start (at ?c ?l))
         (at start (sample-in-capsule ?s ?c))
         (at start (capsule-sealed ?c))
-        (at start (handempty ?r))
+        ;; (at start (handempty ?r))
+        ;; (at start >= (battery-level ?r) 1)
+        ;; (at start >= (capacity ?r) 1)
 
         (over all (at ?r ?l))
         (over all (at ?c ?l))
     )
 
     :effect (and
-        (at end (not (handempty ?r)))
+        ;; (at end (not (handempty ?r)))
         (at end (not (at ?c ?l)))
         (at end (carrying ?r ?c))
+        ;; at end (decrease (battery-level ?r) 1)
+        ;; at end (decrease (capacity ?r) 1)
+        ;; at end (increase (total-cost) 1))
     )
 )
 
@@ -212,6 +262,7 @@
         (at start (carrying ?r ?c))
         (at start (sample-in-capsule ?s ?c))
         (at start (capsule-sealed ?c))
+        ;; at start >= (battery-level ?r) 1)
 
         (over all (at ?r ?l))
         (over all (carrying ?r ?c))
@@ -220,7 +271,10 @@
     :effect (and
         (at end (not (carrying ?r ?c)))
         (at end (at ?c ?l))
-        (at end (handempty ?r))
+        ;; (at end (handempty ?r))
+        ;; at end (decrease (battery-level ?r) 1)
+        ;; at end (increase (total-cost) 1))
+        ;; at end (increase (capacity ?r) 1)
     )
 )
 
@@ -238,10 +292,13 @@
         (over all (at ?r ?l))
         (over all (carrying ?r ?c))
         (over all (is-pressure-stabilizer ?l))
+
+        ; why here not (at ?c ?l)
     )
 
     :effect (and
         (at end (stabilized ?s))
+        ;; at end (increase (total-cost) 10))
     )
 )
 
@@ -251,7 +308,7 @@
 
     :condition (and
         (at start (at ?r ?l))
-        (at start (bio-vault ?l))
+        (at start (is-bio-vault ?l))
         (at start (carrying ?r ?c))
         (at start (sample-in-capsule ?s ?c))
         (at start (capsule-sealed ?c))
@@ -259,6 +316,9 @@
 
         (over all (at ?r ?l))
         (over all (carrying ?r ?c))
+        (over all (is-bio-vault ?l))
+
+        ;; (at start >= (battery-level ?r) 1)
     )
 
     :effect (and
@@ -267,8 +327,21 @@
         (at end (not (sample-in-capsule ?s ?c)))
         (at end (not (carrying ?r ?c)))
         (at end (at ?c ?l))
-        (at end (handempty ?r))
+        ;; (at end (handempty ?r))
+        ;; at end (decrease (battery-level ?r) 1)
+        ;; at end (increase (total-cost) 1))
+        ;; at end (increase (capacity ?r) 1)
     )
 )
+
+;; ------------------------------------------------------------
+;; Recharge
+;; ------------------------------------------------------------
+
+; (:action recharge
+;     :parameters (?r - rov ?l - docking-station)
+;     :precondition (and (at ?r ?l) (< (battery-level ?r) 30))
+;     :effect (and (assign (battery-level ?r) 30) (increase (total-cost) 4))
+; )
 
 )
