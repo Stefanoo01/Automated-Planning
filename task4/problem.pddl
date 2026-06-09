@@ -45,8 +45,8 @@
 
         ; (= (battery-level rov1) 30)
         ; (= (battery-level rov2) 30)
-        ; (= (capacity rov1) 1)
-        ; (= (capacity rov2) 3)
+        (= (capacity rov1) 1)
+        (= (capacity rov2) 3)
         ; (= (total-cost) 0)
     )
 

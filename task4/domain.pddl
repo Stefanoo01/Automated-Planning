@@ -14,6 +14,11 @@
     :typing
     :equality
     :durative-actions
+    :numeric-fluents
+)
+
+(:functions
+    (capacity ?r - rov)
 )
 
 (:types
@@ -107,9 +112,9 @@
         (at start (regular-sample ?s))
         ;; (at start (handempty ?r))
         ;; (at start >= (battery-level ?r) 1)
-        ;; (>= (capacity ?r) 1)
         (over all (at ?r ?l))
         (over all (at ?s ?l))
+        (over all (>= (capacity ?r) 1))
     )
 
     :effect (and
@@ -117,7 +122,7 @@
         (at end (not (at ?s ?l)))
         (at end (carrying ?r ?s))
         ;; at end (decrease (battery-level ?r) 1)
-        ;; at end (decrease (capacity ?r) 1)
+        (at end (decrease (capacity ?r) 1))
         ;; at end (increase (total-cost) 1))
     )
 )
@@ -139,7 +144,7 @@
         (at end (not (carrying ?r ?s)))
         (at end (at ?s ?l))
         ;; (at end (handempty ?r))
-        ; (increase (capacity ?r) 1)
+        (at end (increase (capacity ?r) 1))
         ; (decrease (battery-level ?r) 1)
         ; (increase (total-cost) 50)
     )
@@ -167,6 +172,7 @@
         ;; (at end (handempty ?r))
         ;; at end (decrease (battery-level ?r) 1)
         ;; at end (increase (total-cost) 0))
+        (at end (increase (capacity ?r) 1))
     )
 )
 
@@ -187,6 +193,7 @@
 
         (over all (at ?r ?l))
         (over all (at ?c ?l))
+        (over all (>= (capacity ?r) 1))
     )
 
     :effect (and
@@ -195,7 +202,7 @@
         (at end (carrying ?r ?c))
         ;; at end (decrease (battery-level ?r) 1)
         ;; at end (increase (total-cost) 1))
-        ;; at end (increase (capacity ?r) 1)
+        (at end (decrease (capacity ?r) 1))
     )
 )
 
@@ -237,10 +244,10 @@
         (at start (capsule-sealed ?c))
         ;; (at start (handempty ?r))
         ;; (at start >= (battery-level ?r) 1)
-        ;; (at start >= (capacity ?r) 1)
 
         (over all (at ?r ?l))
         (over all (at ?c ?l))
+        (over all (>= (capacity ?r) 1))
     )
 
     :effect (and
@@ -248,7 +255,7 @@
         (at end (not (at ?c ?l)))
         (at end (carrying ?r ?c))
         ;; at end (decrease (battery-level ?r) 1)
-        ;; at end (decrease (capacity ?r) 1)
+        (at end (decrease (capacity ?r) 1))
         ;; at end (increase (total-cost) 1))
     )
 )
@@ -274,7 +281,7 @@
         ;; (at end (handempty ?r))
         ;; at end (decrease (battery-level ?r) 1)
         ;; at end (increase (total-cost) 1))
-        ;; at end (increase (capacity ?r) 1)
+        (at end (increase (capacity ?r) 1))
     )
 )
 
@@ -330,7 +337,7 @@
         ;; (at end (handempty ?r))
         ;; at end (decrease (battery-level ?r) 1)
         ;; at end (increase (total-cost) 1))
-        ;; at end (increase (capacity ?r) 1)
+        (at end (increase (capacity ?r) 1))
     )
 )
 
