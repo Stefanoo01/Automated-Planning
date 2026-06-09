@@ -26,7 +26,7 @@
         (connected bio-vault stabilizer1)
 
         (is-bio-vault bio-vault)
-        ;;(is-docking-station dock1)
+        (is-docking-station dock1)
         (is-pressure-stabilizer stabilizer1)
 
         (at rov1 dock1)
@@ -43,8 +43,8 @@
         (regular-sample s1)
         (unstabilized s3)
 
-        ; (= (battery-level rov1) 30)
-        ; (= (battery-level rov2) 30)
+        (= (battery-level rov1) 30)
+        (= (battery-level rov2) 30)
         (= (capacity rov1) 1)
         (= (capacity rov2) 3)
         ; (= (total-cost) 0)

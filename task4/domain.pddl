@@ -19,6 +19,7 @@
 
 (:functions
     (capacity ?r - rov)
+    (battery-level ?r - rov)
 )
 
 (:types
@@ -48,7 +49,7 @@
 
     ;; environment
     (is-bio-vault ?l - location)
-    ;; (is-docking-station ?l - location)
+    (is-docking-station ?l - location)
     (is-pressure-stabilizer ?l - location)
 
     ;; capsule system
@@ -63,37 +64,38 @@
 
 (:durative-action move
     :parameters (?r - rov ?from - location ?to - location)
-    :duration (= ?duration 0.01) ;; TODO: increase duration for move action
+    :duration (= ?duration 1) ;; TODO: increase duration for move action
 
     :condition (and
         (at start (at ?r ?from))
+        
         (over all (connected ?from ?to))
-        ;; (over all >= (battery-level ?r) 2)
+        (over all (>= (battery-level ?r) 2))
     )
 
     :effect (and
         (at start (not (at ?r ?from)))
         (at end (at ?r ?to))
-        ;; at end (decrease (battery-level ?r) 2)
+        (at end (decrease (battery-level ?r) 2))
         ;; at end (increase (total-cost) 2))
     )
 )
 
 (:durative-action move-through-narrow
     :parameters (?r - rov ?from - location ?to - location)
-    :duration (= ?duration 0.01) ;; TODO: increase duration for move action
+    :duration (= ?duration 1) ;; TODO: increase duration for move action
 
     :condition (and
         (at start (at ?r ?from))
         (over all (narrow-connected ?from ?to))
         (over all (small-robot ?r))
-        ;; (over all >= (battery-level ?r) 2)
+        (over all (>= (battery-level ?r) 2))
     )
 
     :effect (and
         (at start (not (at ?r ?from)))
         (at end (at ?r ?to))
-        ;; at end (decrease (battery-level ?r) 2)
+        (at end (decrease (battery-level ?r) 2))
         ;; at end (increase (total-cost) 2))
     )
 )
@@ -104,24 +106,24 @@
 
 (:durative-action pickup-regular-sample
     :parameters (?r - rov ?s - sample ?l - location)
-    :duration (= ?duration 0.01)
+    :duration (= ?duration 1)
 
     :condition (and
         (at start (at ?r ?l))
         (at start (at ?s ?l))
         (at start (regular-sample ?s))
         ;; (at start (handempty ?r))
-        ;; (at start >= (battery-level ?r) 1)
         (over all (at ?r ?l))
         (over all (at ?s ?l))
         (over all (>= (capacity ?r) 1))
+        (over all (>= (battery-level ?r) 1))
     )
 
     :effect (and
         ;; (at end (not (handempty ?r)))
         (at end (not (at ?s ?l)))
         (at end (carrying ?r ?s))
-        ;; at end (decrease (battery-level ?r) 1)
+        (at end (decrease (battery-level ?r) 1))
         (at end (decrease (capacity ?r) 1))
         ;; at end (increase (total-cost) 1))
     )
@@ -129,7 +131,7 @@
 
 (:durative-action drop-regular-sample
     :parameters (?r - rov ?s - sample ?l - location)
-    :duration (= ?duration 0.01)
+    :duration (= ?duration 1)
 
     :condition (and
         (at start (at ?r ?l))
@@ -138,6 +140,7 @@
 
         (over all (at ?r ?l))
         (over all (carrying ?r ?s))
+        (over all (>= (battery-level ?r) 1))
     )
 
     :effect (and
@@ -145,32 +148,32 @@
         (at end (at ?s ?l))
         ;; (at end (handempty ?r))
         (at end (increase (capacity ?r) 1))
-        ; (decrease (battery-level ?r) 1)
-        ; (increase (total-cost) 50)
+        (at end (decrease (battery-level ?r) 1))
+        ;; (at end (increase (total-cost) 50))
     )
 )
 
 (:durative-action store-regular-sample
     :parameters (?r - rov ?s - sample ?l - location)
-    :duration (= ?duration 0.01)
+    :duration (= ?duration 1)
 
     :condition (and
         (at start (at ?r ?l))
         (at start (is-bio-vault ?l))
         (at start (carrying ?r ?s))
         (at start (regular-sample ?s))
+        (at start (>= (battery-level ?r) 1))
 
         (over all (at ?r ?l))
         (over all (carrying ?r ?s))
-
-        ;; (>= (battery-level ?r) 1)
+        (over all (>= (battery-level ?r) 1))
     )
 
     :effect (and
         (at end (not (carrying ?r ?s)))
         (at end (stored ?s))
         ;; (at end (handempty ?r))
-        ;; at end (decrease (battery-level ?r) 1)
+        (at end (decrease (battery-level ?r) 1))
         ;; at end (increase (total-cost) 0))
         (at end (increase (capacity ?r) 1))
     )
@@ -182,25 +185,25 @@
 
 (:durative-action take-empty-capsule
     :parameters (?r - rov ?c - capsule ?l - location)
-    :duration (= ?duration 0.01)
+    :duration (= ?duration 1)
 
     :condition (and
         (at start (at ?r ?l))
         (at start (at ?c ?l))
         (at start (empty-capsule ?c))
         ;; (at start (handempty ?r))
-        ;; (at start >= (battery-level ?r) 1)
 
         (over all (at ?r ?l))
         (over all (at ?c ?l))
         (over all (>= (capacity ?r) 1))
+        (over all (>= (battery-level ?r) 1))
     )
 
     :effect (and
         (at end (not (at ?c ?l)))
         ;; (at end (not (handempty ?r)))
         (at end (carrying ?r ?c))
-        ;; at end (decrease (battery-level ?r) 1)
+        (at end (decrease (battery-level ?r) 1))
         ;; at end (increase (total-cost) 1))
         (at end (decrease (capacity ?r) 1))
     )
@@ -221,6 +224,7 @@
         (over all (at ?s ?l))
         (over all (carrying ?r ?c))
         (over all (empty-capsule ?c))
+        (over all(>= (battery-level ?r) 1))
     )
 
     :effect (and
@@ -228,14 +232,15 @@
         (at end (sample-in-capsule ?s ?c))
         (at end (not (at ?s ?l)))
         (at end (capsule-sealed ?c))
-        ;; at end (decrease (battery-level ?r) 1)
+        
+        (at end (decrease (battery-level ?r) 1))
         ;; at end (increase (total-cost) 5))
     )
 )
 
 (:durative-action pickup-sensitive-sample
     :parameters (?r - rov ?s - pressure-sensitive ?c - capsule ?l - location)
-    :duration (= ?duration 0.01)
+    :duration (= ?duration 1)
 
     :condition (and
         (at start (at ?r ?l))
@@ -243,10 +248,10 @@
         (at start (sample-in-capsule ?s ?c))
         (at start (capsule-sealed ?c))
         ;; (at start (handempty ?r))
-        ;; (at start >= (battery-level ?r) 1)
 
         (over all (at ?r ?l))
         (over all (at ?c ?l))
+        (over all (>= (battery-level ?r) 1))
         (over all (>= (capacity ?r) 1))
     )
 
@@ -254,7 +259,7 @@
         ;; (at end (not (handempty ?r)))
         (at end (not (at ?c ?l)))
         (at end (carrying ?r ?c))
-        ;; at end (decrease (battery-level ?r) 1)
+        (at end (decrease (battery-level ?r) 1))
         (at end (decrease (capacity ?r) 1))
         ;; at end (increase (total-cost) 1))
     )
@@ -262,24 +267,24 @@
 
 (:durative-action drop-sensitive-sample
     :parameters (?r - rov ?s - pressure-sensitive ?c - capsule ?l - location)
-    :duration (= ?duration 0.01)
+    :duration (= ?duration 1)
 
     :condition (and
         (at start (at ?r ?l))
         (at start (carrying ?r ?c))
         (at start (sample-in-capsule ?s ?c))
         (at start (capsule-sealed ?c))
-        ;; at start >= (battery-level ?r) 1)
 
         (over all (at ?r ?l))
         (over all (carrying ?r ?c))
+        (over all (>= (battery-level ?r) 1))
     )
 
     :effect (and
         (at end (not (carrying ?r ?c)))
         (at end (at ?c ?l))
         ;; (at end (handempty ?r))
-        ;; at end (decrease (battery-level ?r) 1)
+        (at end (decrease (battery-level ?r) 1))
         ;; at end (increase (total-cost) 1))
         (at end (increase (capacity ?r) 1))
     )
@@ -311,7 +316,7 @@
 
 (:durative-action store-sensitive-sample
     :parameters (?r - rov ?s - pressure-sensitive ?c - capsule ?l - location)
-    :duration (= ?duration 0.01)
+    :duration (= ?duration 1)
 
     :condition (and
         (at start (at ?r ?l))
@@ -324,8 +329,7 @@
         (over all (at ?r ?l))
         (over all (carrying ?r ?c))
         (over all (is-bio-vault ?l))
-
-        ;; (at start >= (battery-level ?r) 1)
+        (over all (>= (battery-level ?r) 1))
     )
 
     :effect (and
@@ -335,7 +339,7 @@
         (at end (not (carrying ?r ?c)))
         (at end (at ?c ?l))
         ;; (at end (handempty ?r))
-        ;; at end (decrease (battery-level ?r) 1)
+        (at end (decrease (battery-level ?r) 1))
         ;; at end (increase (total-cost) 1))
         (at end (increase (capacity ?r) 1))
     )
@@ -345,10 +349,19 @@
 ;; Recharge
 ;; ------------------------------------------------------------
 
-; (:action recharge
-;     :parameters (?r - rov ?l - docking-station)
-;     :precondition (and (at ?r ?l) (< (battery-level ?r) 30))
-;     :effect (and (assign (battery-level ?r) 30) (increase (total-cost) 4))
-; )
+(:durative-action recharge
+    :parameters (?r - rov ?l - location)
+    :duration (= ?duration 5)
+    :condition (and 
+        (at start (is-docking-station ?l))
+        (over all (at ?r ?l))
+        (over all (< (battery-level ?r) 10))
+    )
+
+    :effect (and 
+        (at end (assign (battery-level ?r) 30))  ;; TODO: assign could give problem!!
+        ;; (at end (increase (total-cost) 4))
+    )
+)
 
 )
