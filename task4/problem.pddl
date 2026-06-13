@@ -1,5 +1,5 @@
 (define (problem t4)
-    (:domain abyssus-base)
+    (:domain abyssus-base-t4)
 
     (:objects
         rov1 rov2 - rov

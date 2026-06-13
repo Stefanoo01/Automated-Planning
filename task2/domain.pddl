@@ -1,4 +1,4 @@
-(define (domain abyssus-base)
+(define (domain abyssus-base-t2)
     (
         :requirements
         :strips

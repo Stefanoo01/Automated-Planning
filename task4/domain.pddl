@@ -4,7 +4,7 @@
 ;; - added new actions for handling pressure-sensitive samples with capsules
 ;; - added predicates for is.docking-station and is.pressure-stabilizer (otherwise segmentation fault)
 
-(define (domain abyssus-base)
+(define (domain abyssus-base-t4)
 
 (:requirements
     :strips
