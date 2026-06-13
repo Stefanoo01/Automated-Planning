@@ -1,5 +1,16 @@
 (define (domain abyssus-base)
-    (:requirements :strips :typing :negative-preconditions :equality :disjunctive-preconditions :quantified-preconditions :conditional-effects :fluents :action-costs)
+    (
+        :requirements
+        :strips
+        :typing
+        :negative-preconditions
+        :equality
+        :disjunctive-preconditions
+        :quantified-preconditions
+        :conditional-effects
+        :fluents
+        :action-costs
+    )
     (:types
         locatable location - object
         rov sample capsule - locatable
@@ -47,19 +58,37 @@
     (:action move
         :parameters (?r - rov ?from - location ?to - location)
         :precondition 
-        (and 
+        (and
+            (not (= ?from ?to))
             (at ?r ?from)
             (connected ?from ?to) 
-            (not (= ?from ?to))
             (>= (battery-level ?r) 2)
         )
-        :effect (and (at ?r ?to) (not (at ?r ?from)) (decrease (battery-level ?r) 2) (increase (total-cost) 2))
+        :effect
+        (and
+            (not (at ?r ?from))
+            (at ?r ?to)
+            (decrease (battery-level ?r) 2)
+            (increase (total-cost) 2)
+        )
     )
 
     (:action move-through-narrow
         :parameters (?r - rov ?from - location ?to - location)
-        :precondition (and (at ?r ?from) (narrow-connected ?from ?to) (small-robot ?r) (>= (battery-level ?r) 2))
-        :effect (and (at ?r ?to) (not (at ?r ?from)) (decrease (battery-level ?r) 2) (increase (total-cost) 2))
+        :precondition
+        (and
+            (at ?r ?from)
+            (narrow-connected ?from ?to)
+            (small-robot ?r)
+            (>= (battery-level ?r) 2)
+        )
+        :effect
+        (and
+            (not (at ?r ?from))
+            (at ?r ?to)
+            (decrease (battery-level ?r) 2)
+            (increase (total-cost) 2)
+        )
     )
 
     ;; ------------------------------------------------------------
