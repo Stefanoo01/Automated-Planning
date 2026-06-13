@@ -12,11 +12,13 @@
     :equality
     :durative-actions
     :numeric-fluents
+    :action-costs
 )
 
 (:functions
     (capacity ?r - rov)
     (battery-level ?r - rov)
+    (total-cost)
 )
 
 (:types
@@ -61,7 +63,7 @@
 
 (:durative-action move
     :parameters (?r - rov ?from - location ?to - location)
-    :duration (= ?duration 1) ;; TODO: increase duration for move action
+    :duration (= ?duration 5) ;; TODO: increase duration for move action
 
     :condition (and
         (at start (at ?r ?from))
@@ -74,13 +76,13 @@
         (at start (not (at ?r ?from)))
         (at end (at ?r ?to))
         (at end (decrease (battery-level ?r) 2))
-        ;; at end (increase (total-cost) 2))
+        (at end (increase (total-cost) 2))
     )
 )
 
 (:durative-action move-through-narrow
     :parameters (?r - rov ?from - location ?to - location)
-    :duration (= ?duration 1) ;; TODO: increase duration for move action
+    :duration (= ?duration 7) ;; TODO: increase duration for move action
 
     :condition (and
         (at start (at ?r ?from))
@@ -93,7 +95,7 @@
         (at start (not (at ?r ?from)))
         (at end (at ?r ?to))
         (at end (decrease (battery-level ?r) 2))
-        ;; at end (increase (total-cost) 2))
+        (at end (increase (total-cost) 2))
     )
 )
 
@@ -122,7 +124,7 @@
         (at end (carrying ?r ?s))
         (at end (decrease (battery-level ?r) 1))
         (at end (decrease (capacity ?r) 1))
-        ;; at end (increase (total-cost) 1))
+        (at end (increase (total-cost) 1))
     )
 )
 
@@ -146,7 +148,7 @@
         ;; (at end (handempty ?r))
         (at end (increase (capacity ?r) 1))
         (at end (decrease (battery-level ?r) 1))
-        ;; (at end (increase (total-cost) 50))
+        (at end (increase (total-cost) 50))
     )
 )
 
@@ -171,7 +173,7 @@
         (at end (stored ?s))
         ;; (at end (handempty ?r))
         (at end (decrease (battery-level ?r) 1))
-        ;; at end (increase (total-cost) 0))
+        (at end (increase (total-cost) 0))
         (at end (increase (capacity ?r) 1))
     )
 )
@@ -201,7 +203,7 @@
         ;; (at end (not (handempty ?r)))
         (at end (carrying ?r ?c))
         (at end (decrease (battery-level ?r) 1))
-        ;; at end (increase (total-cost) 1))
+        (at end (increase (total-cost) 1))
         (at end (decrease (capacity ?r) 1))
     )
 )
@@ -231,7 +233,7 @@
         (at end (capsule-sealed ?c))
         
         (at end (decrease (battery-level ?r) 1))
-        ;; at end (increase (total-cost) 5))
+        (at end (increase (total-cost) 5))
     )
 )
 
@@ -258,7 +260,7 @@
         (at end (carrying ?r ?c))
         (at end (decrease (battery-level ?r) 1))
         (at end (decrease (capacity ?r) 1))
-        ;; at end (increase (total-cost) 1))
+        (at end (increase (total-cost) 1))
     )
 )
 
@@ -282,7 +284,7 @@
         (at end (at ?c ?l))
         ;; (at end (handempty ?r))
         (at end (decrease (battery-level ?r) 1))
-        ;; at end (increase (total-cost) 1))
+        (at end (increase (total-cost) 1))
         (at end (increase (capacity ?r) 1))
     )
 )
@@ -307,7 +309,7 @@
 
     :effect (and
         (at end (stabilized ?s))
-        ;; at end (increase (total-cost) 10))
+        (at end (increase (total-cost) 10))
     )
 )
 
@@ -337,7 +339,7 @@
         (at end (at ?c ?l))
         ;; (at end (handempty ?r))
         (at end (decrease (battery-level ?r) 1))
-        ;; at end (increase (total-cost) 1))
+        (at end (increase (total-cost) 1))
         (at end (increase (capacity ?r) 1))
     )
 )
@@ -357,7 +359,7 @@
 
     :effect (and 
         (at end (assign (battery-level ?r) 30))
-        ;; (at end (increase (total-cost) 4))
+        (at end (increase (total-cost) 4))
     )
 )
 

@@ -3,7 +3,7 @@
 
     (:objects
         rov1 rov2 - rov
-        s1 - sample
+        s1 s2 - sample
         s3 - pressure-sensitive
         cap1 cap2 - capsule
         wing-alpha wing-beta transfer-zone decompression-chamber bio-vault dock1 stabilizer1 - location
@@ -29,24 +29,38 @@
         (is-docking-station dock1)
         (is-pressure-stabilizer stabilizer1)
 
-        (at rov1 dock1)
-        (at rov2 dock1)
+        ;; -- ROVs --
+        ;; rov 1
         (small-robot rov1)
+        (at rov1 dock1)
+        (= (battery-level rov1) 30)
+        (= (capacity rov1) 1)
+
+        ;; rov 2
+        (at rov2 dock1)
+        (= (battery-level rov2) 30)
+        (= (capacity rov2) 3)
+
+        ;; -- Regular samples --
+        ;; s1
         (at s1 wing-alpha)
-        (at s3 wing-alpha)
+        (regular-sample s1)
+        
+        ;; s2
+        (at s2 wing-beta)
+        (regular-sample s2)
+
+        ;; -- Pressure-sensitive samples --
+        (at s3 wing-beta)
+        (unstabilized s3)
+
+        ;; -- Capsules --
         (at cap1 dock1)
         (at cap2 dock1)
         (empty-capsule cap1)
         (empty-capsule cap2)
 
-        ;; Regular samples
-        (regular-sample s1)
-        (unstabilized s3)
-
-        (= (battery-level rov1) 30)
-        (= (battery-level rov2) 30)
-        (= (capacity rov1) 1)
-        (= (capacity rov2) 3)
+        (= (total-cost) 0)
     )
 
     (:goal
@@ -61,5 +75,5 @@
         )
     )
 
-    ; (:metric minimize (total-cost))
+    (:metric minimize (total-cost))
 )
