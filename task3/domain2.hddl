@@ -1,0 +1,793 @@
+(define (domain abyssus-htn)
+    (:requirements
+        :strips
+        :typing
+        :negative-preconditions
+        :equality
+        :disjunctive-preconditions
+        :quantified-preconditions
+        :hierachie
+    )
+
+    (:types
+        locatable location - object
+        rov sample capsule - locatable
+        pressure-sensitive - sample
+        pressure-stabilizer docking-station - location
+        capacity-number - object
+    )
+
+    (:predicates
+        ;; Positions and movement
+        (at ?x - locatable ?l - location)
+        (connected ?from - location ?to - location)
+        (narrow-connected ?from - location ?to - location)
+
+        ;; ROV state
+        (carrying ?r - rov ?x - locatable)
+
+        ;; Sample categories and final state
+        (regular-sample ?s - sample)
+        (stabilized ?s - sample)
+        (stored ?s - sample)
+
+        ;; Robot categories
+        (small-robot ?r - rov)
+
+        ;; Special locations
+        (bio-vault ?l - location)
+
+        ;; Capsule state
+        (empty-capsule ?c - capsule)
+        (sample-in-capsule ?s - sample ?c - capsule)
+        (capsule-sealed ?c - capsule)
+
+        ;; HTN control predicates
+        (todo-sensitive ?s - pressure-sensitive)
+        (todo-regular ?s - sample)
+        (visited ?r - rov ?l - location)
+
+        ;; Discrete capacity
+        (capacity ?r - rov ?c - capacity-number)
+        (capacity-predecessor ?lower - capacity-number ?higher - capacity-number)
+    )
+
+    ;; ------------------------------------------------------------
+    ;; Abstract HTN tasks
+    ;; ------------------------------------------------------------
+
+    (:task complete-mission
+        :parameters ()
+        :precondition ()
+        :effect ()
+    )
+
+    (:task process-all-sensitive-samples
+        :parameters ()
+        :precondition ()
+        :effect ()
+    )
+
+    (:task process-sensitive-sample
+        :parameters (?s - pressure-sensitive)
+        :precondition ()
+        :effect ()
+    )
+
+    (:task process-all-regular-samples
+        :parameters ()
+        :precondition ()
+        :effect ()
+    )
+
+    (:task process-regular-sample
+        :parameters (?s - sample)
+        :precondition ()
+        :effect ()
+    )
+
+    (:task navigate-to
+        :parameters (?r - rov ?to - location)
+        :precondition ()
+        :effect ()
+    )
+
+    (:task bring-regular-to-handover
+        :parameters (?s - sample ?h - location)
+        :precondition ()
+        :effect ()
+    )
+
+    (:task continue-regular-from-handover
+        :parameters (?s - sample ?h - location ?vault - location)
+        :precondition ()
+        :effect ()
+    )
+
+    (:task bring-sensitive-to-handover
+        :parameters (?s - pressure-sensitive ?c - capsule ?h - location)
+        :precondition ()
+        :effect ()
+    )
+
+    (:task continue-sensitive-from-handover
+        :parameters (?s - pressure-sensitive ?c - capsule ?h - location ?st - pressure-stabilizer ?vault - location)
+        :precondition ()
+        :effect ()
+    )
+
+    (:method m_complete_mission_ordering_0
+        :parameters ()
+        :task (complete-mission)
+        :precondition ()
+        :subtasks (and
+            (task0 (process-all-sensitive-samples))
+            (task1 (process-all-regular-samples))
+        )
+        ; :ordering (and
+        ;     (task0 < task1)
+        ; )
+    )
+
+    (:method m_process_all_sensitive_recursive_ordering_0
+        :parameters (?s - pressure-sensitive)
+        :task (process-all-sensitive-samples)
+        :precondition (and
+            (todo-sensitive ?s)
+        )
+        :subtasks (and
+            (task0 (process-sensitive-sample ?s))
+            (task1 (mark-sensitive-done ?s))
+            (task2 (process-all-sensitive-samples))
+        )
+        :ordering (and
+            (task0 < task1)
+            (task1 < task2)
+        )
+    )
+
+    (:method m_process_all_sensitive_base_ordering_0
+        :parameters ()
+        :task (process-all-sensitive-samples)
+        :precondition (and
+            (forall (?s - pressure-sensitive)
+                (not (todo-sensitive ?s))
+            )
+        )
+        :subtasks ()
+    )
+
+    (:method m_process_sensitive_sample_ordering_0
+        :parameters (
+            ?r - rov
+            ?s - pressure-sensitive
+            ?c - capsule
+            ?sample-loc - location
+            ?capsule-loc - location
+            ?stabilizer - pressure-stabilizer
+            ?vault - location
+            ?cap-low1 - capacity-number
+            ?cap-high1 - capacity-number
+            ?cap-low2 - capacity-number
+            ?cap-high2 - capacity-number
+            ?cap-low3 - capacity-number
+            ?cap-high3 - capacity-number
+            ?cap-low4 - capacity-number
+            ?cap-high4 - capacity-number
+        )
+        :task (process-sensitive-sample ?s)
+        :precondition (and
+            (todo-sensitive ?s)
+            (at ?s ?sample-loc)
+            (at ?c ?capsule-loc)
+            (empty-capsule ?c)
+            (bio-vault ?vault)
+        )
+        :subtasks (and
+            (task0 (navigate-to ?r ?capsule-loc))
+            (task1 (take-empty-capsule ?r ?c ?capsule-loc ?cap-low1 ?cap-high1))
+            (task2 (navigate-to ?r ?sample-loc))
+            (task3 (encapsulate-sample ?r ?s ?c ?sample-loc))
+            (task4 (navigate-to ?r ?stabilizer))
+            (task5 (drop-sensitive-sample ?r ?s ?c ?stabilizer ?cap-low2 ?cap-high2))
+            (task6 (stabilize-capsule ?r ?s ?c ?stabilizer))
+            (task7 (pickup-sensitive-sample ?r ?s ?c ?stabilizer ?cap-low3 ?cap-high3))
+            (task8 (navigate-to ?r ?vault))
+            (task9 (store-sensitive-sample ?r ?s ?c ?vault ?cap-low4 ?cap-high4))
+        )
+        :ordering (and
+            (task0 < task1)
+            (task1 < task2)
+            (task2 < task3)
+            (task3 < task4)
+            (task4 < task5)
+            (task5 < task6)
+            (task6 < task7)
+            (task7 < task8)
+            (task8 < task9)
+        )
+    )
+
+    (:method m_process_all_regular_recursive_ordering_0
+        :parameters (?s - sample)
+        :task (process-all-regular-samples)
+        :precondition (and
+            (todo-regular ?s)
+        )
+        :subtasks (and
+            (task0 (process-regular-sample ?s))
+            (task1 (mark-regular-done ?s))
+            (task2 (process-all-regular-samples))
+        )
+        :ordering (and
+            (task0 < task1)
+            (task1 < task2)
+        )
+    )
+
+    (:method m_process_all_regular_base_ordering_0
+        :parameters ()
+        :task (process-all-regular-samples)
+        :precondition (and
+            (forall (?s - sample)
+                (not (todo-regular ?s))
+            )
+        )
+        :subtasks ()
+    )
+
+    (:method m_process_regular_sample_ordering_0
+        :parameters (
+            ?r - rov
+            ?s - sample
+            ?sample-loc - location
+            ?vault - location
+            ?cap-low1 - capacity-number
+            ?cap-high1 - capacity-number
+            ?cap-low2 - capacity-number
+            ?cap-high2 - capacity-number
+        )
+        :task (process-regular-sample ?s)
+        :precondition (and
+            (todo-regular ?s)
+            (regular-sample ?s)
+            (at ?s ?sample-loc)
+            (bio-vault ?vault)
+        )
+        :subtasks (and
+            (task0 (navigate-to ?r ?sample-loc))
+            (task1 (pickup-regular-sample ?r ?s ?sample-loc ?cap-low1 ?cap-high1))
+            (task2 (navigate-to ?r ?vault))
+            (task3 (store-regular-sample ?r ?s ?vault ?cap-low2 ?cap-high2))
+        )
+        :ordering (and
+            (task0 < task1)
+            (task1 < task2)
+            (task2 < task3)
+        )
+    )
+
+    (:method m_navigate_already_there_ordering_0
+        :parameters (?r - rov ?to - location)
+        :task (navigate-to ?r ?to)
+        :precondition (and
+            (at ?r ?to)
+        )
+        :subtasks ()
+    )
+
+    (:method m_navigate_direct_connected_ordering_0
+        :parameters (?r - rov ?from - location ?to - location)
+        :task (navigate-to ?r ?to)
+        :precondition (and
+            (at ?r ?from)
+            (connected ?from ?to)
+            (not (= ?from ?to))
+        )
+        :subtasks (and
+            (task0 (move ?r ?from ?to))
+        )
+    )
+
+    (:method m_navigate_direct_narrow_ordering_0
+        :parameters (?r - rov ?from - location ?to - location)
+        :task (navigate-to ?r ?to)
+        :precondition (and
+            (at ?r ?from)
+            (narrow-connected ?from ?to)
+            (small-robot ?r)
+            (not (= ?from ?to))
+        )
+        :subtasks (and
+            (task0 (move-through-narrow ?r ?from ?to))
+        )
+    )
+
+    (:method m_navigate_recursive_connected_ordering_0
+        :parameters (?r - rov ?from - location ?mid - location ?to - location)
+        :task (navigate-to ?r ?to)
+        :precondition (and
+            (at ?r ?from)
+            (connected ?from ?mid)
+            (not (= ?from ?mid))
+            (not (= ?mid ?to))
+            (not (visited ?r ?mid))
+        )
+        :subtasks (and
+            (task0 (visit ?r ?from))
+            (task1 (move ?r ?from ?mid))
+            (task2 (navigate-to ?r ?to))
+            (task3 (unvisit ?r ?from))
+        )
+        :ordering (and
+            (task0 < task1)
+            (task1 < task2)
+            (task2 < task3)
+        )
+    )
+
+    (:method m_navigate_recursive_narrow_ordering_0
+        :parameters (?r - rov ?from - location ?mid - location ?to - location)
+        :task (navigate-to ?r ?to)
+        :precondition (and
+            (at ?r ?from)
+            (narrow-connected ?from ?mid)
+            (small-robot ?r)
+            (not (= ?from ?mid))
+            (not (= ?mid ?to))
+            (not (visited ?r ?mid))
+        )
+        :subtasks (and
+            (task0 (visit ?r ?from))
+            (task1 (move-through-narrow ?r ?from ?mid))
+            (task2 (navigate-to ?r ?to))
+            (task3 (unvisit ?r ?from))
+        )
+        :ordering (and
+            (task0 < task1)
+            (task1 < task2)
+            (task2 < task3)
+        )
+    )
+
+    (:method m_process_regular_sample_handover_ordering_0
+        :parameters (
+            ?s - sample
+            ?sample-loc - location
+            ?h - location
+            ?vault - location
+        )
+        :task (process-regular-sample ?s)
+        :precondition (and
+            (todo-regular ?s)
+            (regular-sample ?s)
+            (at ?s ?sample-loc)
+            (narrow-connected ?sample-loc ?h)
+            (bio-vault ?vault)
+        )
+        :subtasks (and
+            (task0 (bring-regular-to-handover ?s ?h))
+            (task1 (continue-regular-from-handover ?s ?h ?vault))
+        )
+        :ordering (and
+            (task0 < task1)
+        )
+    )
+
+    (:method m_bring_regular_to_handover_ordering_0
+        :parameters (
+            ?r - rov
+            ?s - sample
+            ?sample-loc - location
+            ?h - location
+            ?cap-low1 - capacity-number
+            ?cap-high1 - capacity-number
+            ?cap-low2 - capacity-number
+            ?cap-high2 - capacity-number
+        )
+        :task (bring-regular-to-handover ?s ?h)
+        :precondition (and
+            (todo-regular ?s)
+            (regular-sample ?s)
+            (at ?s ?sample-loc)
+            (narrow-connected ?sample-loc ?h)
+            (small-robot ?r)
+        )
+        :subtasks (and
+            (task0 (navigate-to ?r ?sample-loc))
+            (task1 (pickup-regular-sample ?r ?s ?sample-loc ?cap-low1 ?cap-high1))
+            (task2 (navigate-to ?r ?h))
+            (task3 (drop-regular-sample ?r ?s ?h ?cap-low2 ?cap-high2))
+        )
+        :ordering (and
+            (task0 < task1)
+            (task1 < task2)
+            (task2 < task3)
+        )
+    )
+
+    (:method m_continue_regular_from_handover_ordering_0
+        :parameters (
+            ?r - rov
+            ?s - sample
+            ?h - location
+            ?vault - location
+            ?cap-low1 - capacity-number
+            ?cap-high1 - capacity-number
+            ?cap-low2 - capacity-number
+            ?cap-high2 - capacity-number
+        )
+        :task (continue-regular-from-handover ?s ?h ?vault)
+        :precondition (and
+            (todo-regular ?s)
+            (regular-sample ?s)
+            (at ?s ?h)
+            (bio-vault ?vault)
+        )
+        :subtasks (and
+            (task0 (navigate-to ?r ?h))
+            (task1 (pickup-regular-sample ?r ?s ?h ?cap-low1 ?cap-high1))
+            (task2 (navigate-to ?r ?vault))
+            (task3 (store-regular-sample ?r ?s ?vault ?cap-low2 ?cap-high2))
+        )
+        :ordering (and
+            (task0 < task1)
+            (task1 < task2)
+            (task2 < task3)
+        )
+    )
+
+    (:method m_process_sensitive_sample_handover_ordering_0
+        :parameters (
+            ?s - pressure-sensitive
+            ?c - capsule
+            ?sample-loc - location
+            ?h - location
+            ?st - pressure-stabilizer
+            ?vault - location
+        )
+        :task (process-sensitive-sample ?s)
+        :precondition (and
+            (todo-sensitive ?s)
+            (at ?s ?sample-loc)
+            (narrow-connected ?sample-loc ?h)
+            (bio-vault ?vault)
+        )
+        :subtasks (and
+            (task0 (bring-sensitive-to-handover ?s ?c ?h))
+            (task1 (continue-sensitive-from-handover ?s ?c ?h ?st ?vault))
+        )
+        :ordering (and
+            (task0 < task1)
+        )
+    )
+
+    (:method m_bring_sensitive_to_handover_ordering_0
+        :parameters (
+            ?r - rov
+            ?s - pressure-sensitive
+            ?c - capsule
+            ?sample-loc - location
+            ?capsule-loc - location
+            ?h - location
+            ?cap-low1 - capacity-number
+            ?cap-high1 - capacity-number
+            ?cap-low2 - capacity-number
+            ?cap-high2 - capacity-number
+        )
+        :task (bring-sensitive-to-handover ?s ?c ?h)
+        :precondition (and
+            (todo-sensitive ?s)
+            (at ?s ?sample-loc)
+            (at ?c ?capsule-loc)
+            (empty-capsule ?c)
+            (narrow-connected ?sample-loc ?h)
+            (small-robot ?r)
+        )
+        :subtasks (and
+            (task0 (navigate-to ?r ?capsule-loc))
+            (task1 (take-empty-capsule ?r ?c ?capsule-loc ?cap-low1 ?cap-high1))
+            (task2 (navigate-to ?r ?sample-loc))
+            (task3 (encapsulate-sample ?r ?s ?c ?sample-loc))
+            (task4 (navigate-to ?r ?h))
+            (task5 (drop-sensitive-sample ?r ?s ?c ?h ?cap-low2 ?cap-high2))
+        )
+        :ordering (and
+            (task0 < task1)
+            (task1 < task2)
+            (task2 < task3)
+            (task3 < task4)
+            (task4 < task5)
+        )
+    )
+
+    (:method m_continue_sensitive_from_handover_ordering_0
+        :parameters (
+            ?r - rov
+            ?s - pressure-sensitive
+            ?c - capsule
+            ?h - location
+            ?st - pressure-stabilizer
+            ?vault - location
+            ?cap-low1 - capacity-number
+            ?cap-high1 - capacity-number
+            ?cap-low2 - capacity-number
+            ?cap-high2 - capacity-number
+            ?cap-low3 - capacity-number
+            ?cap-high3 - capacity-number
+            ?cap-low4 - capacity-number
+            ?cap-high4 - capacity-number
+        )
+        :task (continue-sensitive-from-handover ?s ?c ?h ?st ?vault)
+        :precondition (and
+            (todo-sensitive ?s)
+            (at ?c ?h)
+            (sample-in-capsule ?s ?c)
+            (capsule-sealed ?c)
+            (bio-vault ?vault)
+        )
+        :subtasks (and
+            (task0 (navigate-to ?r ?h))
+            (task1 (pickup-sensitive-sample ?r ?s ?c ?h ?cap-low1 ?cap-high1))
+            (task2 (navigate-to ?r ?st))
+            (task3 (drop-sensitive-sample ?r ?s ?c ?st ?cap-low2 ?cap-high2))
+            (task4 (stabilize-capsule ?r ?s ?c ?st))
+            (task5 (pickup-sensitive-sample ?r ?s ?c ?st ?cap-low3 ?cap-high3))
+            (task6 (navigate-to ?r ?vault))
+            (task7 (store-sensitive-sample ?r ?s ?c ?vault ?cap-low4 ?cap-high4))
+        )
+        :ordering (and
+            (task0 < task1)
+            (task1 < task2)
+            (task2 < task3)
+            (task3 < task4)
+            (task4 < task5)
+            (task5 < task6)
+            (task6 < task7)
+        )
+    )
+
+    ;; ------------------------------------------------------------
+    ;; Auxiliary HTN control actions
+    ;; ------------------------------------------------------------
+
+    (:action visit
+        :parameters (?r - rov ?l - location)
+        :precondition ()
+        :effect (and
+            (visited ?r ?l)
+        )
+    )
+
+    (:action unvisit
+        :parameters (?r - rov ?l - location)
+        :precondition ()
+        :effect (and
+            (not (visited ?r ?l))
+        )
+    )
+
+    (:action mark-sensitive-done
+        :parameters (?s - pressure-sensitive)
+        :precondition (and
+            (todo-sensitive ?s)
+            (stored ?s)
+            (stabilized ?s)
+        )
+        :effect (and
+            (not (todo-sensitive ?s))
+        )
+    )
+
+    (:action mark-regular-done
+        :parameters (?s - sample)
+        :precondition (and
+            (todo-regular ?s)
+            (stored ?s)
+        )
+        :effect (and
+            (not (todo-regular ?s))
+        )
+    )
+
+    ;; ------------------------------------------------------------
+    ;; Movement
+    ;; ------------------------------------------------------------
+
+    (:action move
+        :parameters (?r - rov ?from - location ?to - location)
+        :precondition 
+        (and
+            (not (= ?from ?to))
+            (at ?r ?from)
+            (connected ?from ?to) 
+        )
+        :effect
+        (and
+            (not (at ?r ?from))
+            (at ?r ?to)
+        )
+    )
+
+    (:action move-through-narrow
+        :parameters (?r - rov ?from - location ?to - location)
+        :precondition
+        (and
+            (at ?r ?from)
+            (narrow-connected ?from ?to)
+            (small-robot ?r)
+        )
+        :effect
+        (and
+            (not (at ?r ?from))
+            (at ?r ?to)
+        )
+    )
+
+    ;; ------------------------------------------------------------
+    ;; Regular sample handling
+    ;; ------------------------------------------------------------
+
+    (:action pickup-regular-sample
+        :parameters (?r - rov ?s - sample ?l - location ?c-low - capacity-number ?c-high - capacity-number)
+        :precondition (and
+            (at ?r ?l)
+            (at ?s ?l)
+            (regular-sample ?s)
+            (capacity ?r ?c-high)
+            (capacity-predecessor ?c-low ?c-high)
+        )
+        :effect (and
+            (not (at ?s ?l))
+            (carrying ?r ?s)
+            (not (capacity ?r ?c-high))
+            (capacity ?r ?c-low)
+        )
+    )
+
+    (:action drop-regular-sample
+        :parameters (?r - rov ?s - sample ?l - location ?c-low - capacity-number ?c-high - capacity-number)
+        :precondition (and
+            (at ?r ?l)
+            (carrying ?r ?s)
+            (regular-sample ?s)
+            (capacity ?r ?c-low)
+            (capacity-predecessor ?c-low ?c-high)
+        )
+        :effect (and
+            (not (carrying ?r ?s))
+            (at ?s ?l)
+            (not (capacity ?r ?c-low))
+            (capacity ?r ?c-high)
+        )
+    )
+
+    (:action store-regular-sample
+        :parameters (?r - rov ?s - sample ?l - location ?c-low - capacity-number ?c-high - capacity-number)
+        :precondition (and
+            (at ?r ?l)
+            (bio-vault ?l)
+            (carrying ?r ?s)
+            (regular-sample ?s)
+            (capacity ?r ?c-low)
+            (capacity-predecessor ?c-low ?c-high)
+        )
+        :effect (and
+            (not (carrying ?r ?s))
+            (stored ?s)
+            (not (capacity ?r ?c-low))
+            (capacity ?r ?c-high)
+        )
+    )
+
+    ;; ------------------------------------------------------------
+    ;; Pressure-sensitive sample handling with capsules
+    ;; ------------------------------------------------------------
+
+    (:action take-empty-capsule
+        :parameters (?r - rov ?c - capsule ?l - location ?c-low - capacity-number ?c-high - capacity-number)
+        :precondition (and
+            (at ?r ?l)
+            (at ?c ?l)
+            (empty-capsule ?c)
+            (capacity ?r ?c-high)
+            (capacity-predecessor ?c-low ?c-high)
+        )
+        :effect (and
+            (not (at ?c ?l))
+            (carrying ?r ?c)
+            (not (capacity ?r ?c-high))
+            (capacity ?r ?c-low)
+        )
+    )
+
+    (:action encapsulate-sample
+        :parameters (?r - rov ?s - pressure-sensitive ?c - capsule ?l - location)
+        :precondition (and
+            (at ?r ?l)
+            (at ?s ?l)
+            (carrying ?r ?c)
+            (empty-capsule ?c)
+        )
+        :effect (and
+            (not (empty-capsule ?c))
+            (not (at ?s ?l))
+            (sample-in-capsule ?s ?c)
+            (capsule-sealed ?c)
+        )
+    )
+
+    (:action pickup-sensitive-sample
+        :parameters (?r - rov ?s - pressure-sensitive ?c - capsule ?l - location ?c-low - capacity-number ?c-high - capacity-number)
+        :precondition (and
+            (at ?r ?l)
+            (at ?c ?l)
+            (sample-in-capsule ?s ?c)
+            (capsule-sealed ?c)
+            (capacity ?r ?c-high)
+            (capacity-predecessor ?c-low ?c-high)
+        )
+        :effect (and
+            (not (at ?c ?l))
+            (carrying ?r ?c)
+            (not (capacity ?r ?c-high))
+            (capacity ?r ?c-low)
+        )
+    )
+
+    (:action drop-sensitive-sample
+        :parameters (?r - rov ?s - pressure-sensitive ?c - capsule ?l - location ?c-low - capacity-number ?c-high - capacity-number)
+        :precondition (and
+            (at ?r ?l)
+            (carrying ?r ?c)
+            (sample-in-capsule ?s ?c)
+            (capsule-sealed ?c)
+            (capacity ?r ?c-low)
+            (capacity-predecessor ?c-low ?c-high)
+        )
+        :effect (and
+            (not (carrying ?r ?c))
+            (at ?c ?l)
+            (not (capacity ?r ?c-low))
+            (capacity ?r ?c-high)
+        )
+    )
+
+    (:action stabilize-capsule
+        :parameters (?r - rov ?s - pressure-sensitive ?c - capsule ?l - pressure-stabilizer)
+        :precondition (and
+            (at ?r ?l)
+            (at ?c ?l)
+            (sample-in-capsule ?s ?c)
+            (capsule-sealed ?c)
+            (not (stabilized ?s))
+        )
+        :effect (and
+            (stabilized ?s)
+        )
+    )
+
+    (:action store-sensitive-sample
+        :parameters (?r - rov ?s - pressure-sensitive ?c - capsule ?l - location ?c-low - capacity-number ?c-high - capacity-number)
+        :precondition (and
+            (at ?r ?l)
+            (bio-vault ?l)
+            (carrying ?r ?c)
+            (sample-in-capsule ?s ?c)
+            (capsule-sealed ?c)
+            (stabilized ?s)
+            (capacity ?r ?c-low)
+            (capacity-predecessor ?c-low ?c-high)
+        )
+        :effect (and
+            (not (capsule-sealed ?c))
+            (stored ?s)
+            (empty-capsule ?c)
+            (not (sample-in-capsule ?s ?c))
+            (not (carrying ?r ?c))
+            (at ?c ?l)
+            (not (capacity ?r ?c-low))
+            (capacity ?r ?c-high)
+        )
+    )
+)

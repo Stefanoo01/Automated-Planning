@@ -1,4 +1,4 @@
-(define (problem t2)
+(define (problem t3)
     (:domain abyssus-base)
 
     (:objects
@@ -9,6 +9,13 @@
         wing_alpha wing_beta transfer_zone decompression_chamber bio_vault - location
         docking_station - docking-station
         pressure_stabilizer - pressure-stabilizer
+    )
+
+    (:htn
+        :parameters ()
+        :subtasks (and
+            (task0 (complete-mission))
+        )
     )
 
     (:init
@@ -38,6 +45,8 @@
         (at cap2 docking_station)
         (empty-capsule cap1)
         (empty-capsule cap2)
+        (todo-regular s1)
+        (todo-sensitive s3)
 
         (= (battery-level rov1) 30)
         (= (battery-level rov2) 30)
