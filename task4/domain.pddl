@@ -4,9 +4,6 @@
 ;; - added new actions for handling pressure-sensitive samples with capsules
 ;; - added predicates for is.docking-station and is.pressure-stabilizer (otherwise segmentation fault)
 
-
-;; TODO: check if a precondition that is stated as over-all needs to be also at-start
-
 (define (domain abyssus-base)
 
 (:requirements
@@ -359,7 +356,7 @@
     )
 
     :effect (and 
-        (at end (assign (battery-level ?r) 30))  ;; TODO: assign could give problem!!
+        (at end (assign (battery-level ?r) 30))
         ;; (at end (increase (total-cost) 4))
     )
 )
