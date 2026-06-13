@@ -201,7 +201,6 @@
         :parameters (?r - rov ?s - pressure-sensitive ?c - capsule ?l - pressure-stabilizer)
         :precondition (and
             (at ?r ?l)
-            (at ?c ?l)
             (sample-in-capsule ?s ?c)
             (capsule-sealed ?c)
             (not (stabilized ?s))

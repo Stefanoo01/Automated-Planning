@@ -34,7 +34,6 @@
         (regular-sample s1)
         (at s1 wing_alpha)
         (at s3 wing_alpha)
-        (at s4 wing_alpha)
         (at cap1 docking_station)
         (at cap2 docking_station)
         (empty-capsule cap1)

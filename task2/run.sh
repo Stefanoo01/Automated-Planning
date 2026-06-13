@@ -6,4 +6,4 @@ planutils run enhsp "-o domain.pddl -f problem.pddl -planner sat-hadd" | grep '^
 
 end=$(date +%s.%N)
 
-echo "Execution time: $(echo "$end - $start" | bc) seconds"
+echo "Execution time: $(awk -v start="$start" -v end="$end" 'BEGIN { print end - start }') seconds"
