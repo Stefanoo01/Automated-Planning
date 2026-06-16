@@ -17,6 +17,3 @@ RUN perl -pi.bak -e "s/mount hostfs = no/mount hostfs = yes/g" /etc/apptainer/ap
 RUN apt-get update && apt-get install -y bc
 
 CMD /bin/bash
-
-# To build the docker image
-# docker build --rm  --tag myplanutils . --file Dockerfile
