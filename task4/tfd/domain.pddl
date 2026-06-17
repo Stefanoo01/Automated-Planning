@@ -63,7 +63,7 @@
 
 (:durative-action move
     :parameters (?r - rov ?from - location ?to - location)
-    :duration (= ?duration 5) ;; TODO: increase duration for move action
+    :duration (= ?duration 5)
 
     :condition (and
         (at start (at ?r ?from))
@@ -82,7 +82,7 @@
 
 (:durative-action move-through-narrow
     :parameters (?r - rov ?from - location ?to - location)
-    :duration (= ?duration 7) ;; TODO: increase duration for move action
+    :duration (= ?duration 7)
 
     :condition (and
         (at start (at ?r ?from))
