@@ -1,5 +1,6 @@
 import re
 from tokenize import tokenize
+import argparse
 
 class PDDLProblemParser:
     def __init__(self, problem_file):
@@ -150,5 +151,24 @@ class PDDLProblemParser:
         return output_file
 
 if __name__ == "__main__":
-    parser = PDDLProblemParser("task4/tfd/problem.pddl")
-    parser.convert_and_write_output("task5/launch/problem")
+    
+    arg_parser = argparse.ArgumentParser(
+        description="Convert a PDDL problem file into the target format."
+    )
+
+    arg_parser.add_argument(
+        "input_file",
+        help="Path to the PDDL problem file"
+    )
+
+    arg_parser.add_argument(
+        "output_file",
+        help="Path to the output file"
+    )
+
+    args = arg_parser.parse_args()
+
+    parser = PDDLProblemParser(args.input_file)
+    parser.convert_and_write_output(args.output_file)
+
+    print(f"Written output to {args.output_file}")
