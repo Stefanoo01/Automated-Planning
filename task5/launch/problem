@@ -1,0 +1,53 @@
+set instance rov1 rov
+set instance rov2 rov
+set instance s1 sample
+set instance s2 sample
+set instance s3 pressure-sensitive
+set instance cap1 capsule
+set instance cap2 capsule
+set instance wing-alpha location
+set instance wing-beta location
+set instance transfer-zone location
+set instance decompression-chamber location
+set instance bio-vault location
+set instance dock1 location
+set instance stabilizer1 location
+
+set predicate (narrow-connected transfer-zone wing-alpha)
+set predicate (narrow-connected wing-alpha transfer-zone)
+set predicate (connected transfer-zone wing-beta)
+set predicate (connected wing-beta transfer-zone)
+set predicate (connected transfer-zone dock1)
+set predicate (connected dock1 transfer-zone)
+set predicate (connected transfer-zone decompression-chamber)
+set predicate (connected decompression-chamber transfer-zone)
+set predicate (connected decompression-chamber stabilizer1)
+set predicate (connected stabilizer1 decompression-chamber)
+set predicate (connected decompression-chamber bio-vault)
+set predicate (connected bio-vault decompression-chamber)
+set predicate (connected stabilizer1 bio-vault)
+set predicate (connected bio-vault stabilizer1)
+set predicate (is-bio-vault bio-vault)
+set predicate (is-docking-station dock1)
+set predicate (is-pressure-stabilizer stabilizer1)
+set predicate (small-robot rov1)
+set predicate (at rov1 dock1)
+set predicate (at rov2 dock1)
+set predicate (at s1 wing-alpha)
+set predicate (regular-sample s1)
+set predicate (at s2 wing-beta)
+set predicate (regular-sample s2)
+set predicate (at s3 wing-beta)
+set predicate (unstabilized s3)
+set predicate (at cap1 dock1)
+set predicate (at cap2 dock1)
+set predicate (empty-capsule cap1)
+set predicate (empty-capsule cap2)
+
+set function (= (battery-level rov1) 30)
+set function (= (capacity rov1) 1)
+set function (= (battery-level rov2) 30)
+set function (= (capacity rov2) 3)
+set function (= (total-cost) 0)
+
+set goal (and (forall (?s - sample) (stored ?s)) (forall (?s - pressure-sensitive) (stabilized ?s)))
