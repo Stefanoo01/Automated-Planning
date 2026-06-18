@@ -12,7 +12,8 @@
     :typing
     :equality
     :durative-actions
-    :numeric-fluents
+    ;; :numeric-fluents
+    :fluents
 )
 
 (:types

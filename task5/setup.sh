@@ -1,0 +1,1 @@
+python3 utils/pddl_parser.py pddl/problem.pddl launch/problem
