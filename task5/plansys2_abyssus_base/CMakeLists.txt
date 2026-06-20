@@ -53,6 +53,15 @@ ament_target_dependencies(store_sensitive_sample_action_node ${dependencies})
 add_executable(recharge_action_node src/recharge_action_node.cpp)
 ament_target_dependencies(recharge_action_node ${dependencies})
 
+# Load environment variables from config.env
+file(STRINGS "${CMAKE_SOURCE_DIR}/config.env" ENV_LINES)
+
+foreach(line ${ENV_LINES})
+  if(line MATCHES "^([^=]+)=(.*)$")
+    set(${CMAKE_MATCH_1} "${CMAKE_MATCH_2}")
+  endif()
+endforeach()
+
 install(DIRECTORY launch pddl DESTINATION share/${PROJECT_NAME})
 
 install(TARGETS

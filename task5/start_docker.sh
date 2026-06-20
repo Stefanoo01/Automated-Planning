@@ -1,7 +1,6 @@
 #!/bin/bash
 
-IMAGE_NAME="ros-humble"
-PROJECT_NAME="plansys2_abissus_base"
+source plansys2_abyssus_base/config.env
 
 if ! docker image inspect "$IMAGE_NAME" >/dev/null 2>&1; then
     echo "Image $IMAGE_NAME not found. Building..."
@@ -10,10 +9,13 @@ fi
 
 docker run \
     -v /tmp/.X11-unix/:/tmp/.X11-unix/ \
-    -v "$(pwd)/../task5:/root/plansys2_ws/src/$PROJECT_NAME" \
-    -v "$(pwd)/../task4/tfd:/root/plansys2_ws/src/$PROJECT_NAME/pddl" \
+    -v "$(pwd)/$PROJECT_NAME:$PLANSYS2_WS/$PROJECT_NAME" \
+    -v "$(pwd)/terminal_1.sh:$PLANSYS2_WS/terminal_1.sh" \
+    -v "$(pwd)/terminal_2.sh:$PLANSYS2_WS/terminal_2.sh" \
+    -v "$(pwd)/setup.sh:$PLANSYS2_WS/setup.sh" \
     --volume="$HOME/.Xauthority:/root/.Xauthority:rw" \
     --network=host \
     --name ubuntu_bash \
     --env DISPLAY \
+    -w "$PLANSYS2_WS" \
     --rm -it "$IMAGE_NAME" bash

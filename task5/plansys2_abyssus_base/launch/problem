@@ -1,0 +1,53 @@
+set instance rov1 rov
+set instance rov2 rov
+set instance s1 sample
+set instance s2 sample
+set instance s3 pressure_sensitive
+set instance cap1 capsule
+set instance cap2 capsule
+set instance wing_alpha location
+set instance wing_beta location
+set instance transfer_zone location
+set instance decompression_chamber location
+set instance bio_vault location
+set instance dock1 location
+set instance stabilizer1 location
+
+set predicate (narrow_connected transfer_zone wing_alpha)
+set predicate (narrow_connected wing_alpha transfer_zone)
+set predicate (connected transfer_zone wing_beta)
+set predicate (connected wing_beta transfer_zone)
+set predicate (connected transfer_zone dock1)
+set predicate (connected dock1 transfer_zone)
+set predicate (connected transfer_zone decompression_chamber)
+set predicate (connected decompression_chamber transfer_zone)
+set predicate (connected decompression_chamber stabilizer1)
+set predicate (connected stabilizer1 decompression_chamber)
+set predicate (connected decompression_chamber bio_vault)
+set predicate (connected bio_vault decompression_chamber)
+set predicate (connected stabilizer1 bio_vault)
+set predicate (connected bio_vault stabilizer1)
+set predicate (is_bio_vault bio_vault)
+set predicate (is_docking_station dock1)
+set predicate (is_pressure_stabilizer stabilizer1)
+set predicate (small_robot rov1)
+set predicate (at rov1 dock1)
+set predicate (at rov2 dock1)
+set predicate (at s1 wing_alpha)
+set predicate (regular_sample s1)
+set predicate (at s2 wing_beta)
+set predicate (regular_sample s2)
+set predicate (at s3 wing_beta)
+set predicate (unstabilized s3)
+set predicate (at cap1 dock1)
+set predicate (at cap2 dock1)
+set predicate (empty_capsule cap1)
+set predicate (empty_capsule cap2)
+
+set function ( (battery_level rov1) 30)
+set function ( (capacity rov1) 1)
+set function ( (battery_level rov2) 30)
+set function ( (capacity rov2) 3)
+set function ( (total_cost) 0)
+
+set goal (and (and (stored s1) (stored s2)) (and (stabilized s3)))
