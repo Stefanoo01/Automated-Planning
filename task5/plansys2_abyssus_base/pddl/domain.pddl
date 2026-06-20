@@ -1,11 +1,9 @@
-;; changed wrt task 2:
-;; - added duration to all actions (with :durative-actions requirement), because no solver allows for instantaneous and durative actions in the same domain
-;; - added over all conditions to ensure that the rover and samples remain in the same location during the entire action duration (otherwise problem instances would become unsolvable due to the possibility of moving while holding a sample, which is not intended)
-;; - added new actions for handling pressure_sensitive samples with capsules
-;; - added predicates for is.docking-station and is.pressure-stabilizer (otherwise segmentation fault)
-;; - removed :action-costs for TFD compatibility (cost handled via metric)
+;; changed wrt task 4:
+;; - changed from :numeric-fluents to :fluents
+;; - remove "-" symbols, substituted them with "_" symbols
+;; - deleted pressure_sensitive type, which will be managed simply with the already-defined predicates "stabilized" and "unstabilized" -> for this, we also added :disjunctive-preconditions requirement
 
-(define (domain abyssus-base-t4-tfd)
+(define (domain abyssus-base-t5)
 
 (:requirements
     :strips
@@ -21,7 +19,6 @@
     rov - locatable
     sample - locatable
     capsule - locatable
-    pressure_sensitive - sample
 )
 
 (:predicates
@@ -36,6 +33,7 @@
 
     ;; samples
     (regular_sample ?s - sample)
+    (pressure_sensitive_sample ?s - sample)
     (stabilized ?s - sample)
     (unstabilized ?s - sample) ;; added because optic does not allow negative preconditions
     (stored ?s - sample)
@@ -185,7 +183,7 @@
 ;; pressure_sensitive sample handling with capsules
 ;; ------------------------------------------------------------
 
-(:durative-action take-empty_capsule
+(:durative-action take_empty_capsule
     :parameters (?r - rov ?c - capsule ?l - location)
     :duration (= ?duration 1)
 
@@ -212,7 +210,7 @@
 )
 
 (:durative-action encapsulate-sample
-    :parameters (?r - rov ?s - pressure_sensitive ?c - capsule ?l - location)
+    :parameters (?r - rov ?s - sample ?c - capsule ?l - location)
     :duration (= ?duration 3)
 
     :condition (and
@@ -226,6 +224,7 @@
         (over all (at ?s ?l))
         (over all (carrying ?r ?c))
         (over all (empty_capsule ?c))
+        (over all (pressure_sensitive_sample ?s))
         (over all(>= (battery_level ?r) 1))
     )
 
@@ -241,7 +240,7 @@
 )
 
 (:durative-action pickup-sensitive-sample
-    :parameters (?r - rov ?s - pressure_sensitive ?c - capsule ?l - location)
+    :parameters (?r - rov ?s - sample ?c - capsule ?l - location)
     :duration (= ?duration 1)
 
     :condition (and
@@ -253,6 +252,7 @@
 
         (over all (at ?r ?l))
         (over all (at ?c ?l))
+        (over all (pressure_sensitive_sample ?s))
         (over all (>= (battery_level ?r) 1))
         (over all (>= (capacity ?r) 1))
     )
@@ -268,7 +268,7 @@
 )
 
 (:durative-action drop-sensitive-sample
-    :parameters (?r - rov ?s - pressure_sensitive ?c - capsule ?l - location)
+    :parameters (?r - rov ?s - sample ?c - capsule ?l - location)
     :duration (= ?duration 1)
 
     :condition (and
@@ -279,6 +279,7 @@
 
         (over all (at ?r ?l))
         (over all (carrying ?r ?c))
+        (over all (pressure_sensitive_sample ?s))
         (over all (>= (battery_level ?r) 1))
     )
 
@@ -293,7 +294,7 @@
 )
 
 (:durative-action stabilize-capsule
-    :parameters (?r - rov ?s - pressure_sensitive ?c - capsule ?l - location)
+    :parameters (?r - rov ?s - sample ?c - capsule ?l - location)
     :duration (= ?duration 5)
 
     :condition (and
@@ -306,6 +307,7 @@
         (over all (at ?r ?l))
         (over all (carrying ?r ?c))
         (over all (is_pressure_stabilizer ?l))
+        (over all (pressure_sensitive_sample ?s))
 
         ; why here not (at ?c ?l)
     )
@@ -317,7 +319,7 @@
 )
 
 (:durative-action store-sensitive-sample
-    :parameters (?r - rov ?s - pressure_sensitive ?c - capsule ?l - location)
+    :parameters (?r - rov ?s - sample ?c - capsule ?l - location)
     :duration (= ?duration 1)
 
     :condition (and
@@ -331,6 +333,7 @@
         (over all (at ?r ?l))
         (over all (carrying ?r ?c))
         (over all (is_bio_vault ?l))
+        (over all (pressure_sensitive_sample ?s))
         (over all (>= (battery_level ?r) 1))
     )
 

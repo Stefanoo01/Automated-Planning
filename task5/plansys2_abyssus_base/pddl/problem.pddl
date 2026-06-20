@@ -1,76 +1,77 @@
-(define (problem t4)
-    (:domain abyssus-base-t4-tfd)
+(define (problem t5)
+    (:domain abyssus-base-t5)
 
     (:objects
         rov1 rov2 - rov
-        s1 s2 - sample
-        s3 - pressure-sensitive
+        s1 s2 s3 - sample
         cap1 cap2 - capsule
-        wing-alpha wing-beta transfer-zone decompression-chamber bio-vault dock1 stabilizer1 - location
+        wing_alpha wing_beta transfer_zone decompression_chamber bio_vault dock1 stabilizer1 - location
     )
 
     (:init
-        (narrow-connected transfer-zone wing-alpha)
-        (narrow-connected wing-alpha transfer-zone)
-        (connected transfer-zone wing-beta)
-        (connected wing-beta transfer-zone)
-        (connected transfer-zone dock1)
-        (connected dock1 transfer-zone)
-        (connected transfer-zone decompression-chamber)
-        (connected decompression-chamber transfer-zone)
-        (connected decompression-chamber stabilizer1)
-        (connected stabilizer1 decompression-chamber)
-        (connected decompression-chamber bio-vault)
-        (connected bio-vault decompression-chamber)
-        (connected stabilizer1 bio-vault)
-        (connected bio-vault stabilizer1)
+        (narrow_connected transfer_zone wing_alpha)
+        (narrow_connected wing_alpha transfer_zone)
+        (connected transfer_zone wing_beta)
+        (connected wing_beta transfer_zone)
+        (connected transfer_zone dock1)
+        (connected dock1 transfer_zone)
+        (connected transfer_zone decompression_chamber)
+        (connected decompression_chamber transfer_zone)
+        (connected decompression_chamber stabilizer1)
+        (connected stabilizer1 decompression_chamber)
+        (connected decompression_chamber bio_vault)
+        (connected bio_vault decompression_chamber)
+        (connected stabilizer1 bio_vault)
+        (connected bio_vault stabilizer1)
 
-        (is-bio-vault bio-vault)
-        (is-docking-station dock1)
-        (is-pressure-stabilizer stabilizer1)
+        (is_bio_vault bio_vault)
+        (is_docking_station dock1)
+        (is_pressure_stabilizer stabilizer1)
 
         ;; -- ROVs --
         ;; rov 1
-        (small-robot rov1)
+        (small_robot rov1)
         (at rov1 dock1)
-        (= (battery-level rov1) 30)
+        (= (battery_level rov1) 30)
         (= (capacity rov1) 1)
 
         ;; rov 2
         (at rov2 dock1)
-        (= (battery-level rov2) 30)
+        (= (battery_level rov2) 30)
         (= (capacity rov2) 3)
 
         ;; -- Regular samples --
         ;; s1
-        (at s1 wing-alpha)
-        (regular-sample s1)
+        (at s1 wing_alpha)
+        (regular_sample s1) ;; TODO: probably we can remove regular_sample at this point
+        (stabilized s1)
         
         ;; s2
-        (at s2 wing-beta)
-        (regular-sample s2)
+        (at s2 wing_beta)
+        (regular_sample s2)
+        (stabilized s2)
 
         ;; -- Pressure-sensitive samples --
-        (at s3 wing-beta)
+        (at s3 wing_beta)
+        (pressure_sensitive_sample s3)
         (unstabilized s3)
 
         ;; -- Capsules --
         (at cap1 dock1)
         (at cap2 dock1)
-        (empty-capsule cap1)
-        (empty-capsule cap2)
+        (empty_capsule cap1)
+        (empty_capsule cap2)
 
-        (= (total-cost) 0)
+        (= (total_cost) 0)
     )
 
     (:goal
         (and
             (forall (?s - sample)
-                (stored ?s)
-            )
-
-            (forall (?s - pressure-sensitive)
-                (stabilized ?s)
+                (and 
+                    (stored ?s)
+                    (stabilized ?s)
+                )
             )
         )
     )

@@ -2,7 +2,7 @@ set instance rov1 rov
 set instance rov2 rov
 set instance s1 sample
 set instance s2 sample
-set instance s3 pressure_sensitive
+set instance s3 sample
 set instance cap1 capsule
 set instance cap2 capsule
 set instance wing_alpha location
@@ -35,9 +35,12 @@ set predicate (at rov1 dock1)
 set predicate (at rov2 dock1)
 set predicate (at s1 wing_alpha)
 set predicate (regular_sample s1)
+set predicate (stabilized s1)
 set predicate (at s2 wing_beta)
 set predicate (regular_sample s2)
+set predicate (stabilized s2)
 set predicate (at s3 wing_beta)
+set predicate (pressure_sensitive_sample s3)
 set predicate (unstabilized s3)
 set predicate (at cap1 dock1)
 set predicate (at cap2 dock1)
@@ -50,4 +53,4 @@ set function ( (battery_level rov2) 30)
 set function ( (capacity rov2) 3)
 set function ( (total_cost) 0)
 
-set goal (and (and (stored s1) (stored s2)) (and (stabilized s3)))
+set goal (and (and (and (stored s1) (stabilized s1)) (and (stored s2) (stabilized s2)) (and (stored s3) (stabilized s3))))
