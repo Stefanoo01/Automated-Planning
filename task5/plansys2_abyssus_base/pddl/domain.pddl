@@ -224,7 +224,7 @@
         (over all (at ?s ?l))
         (over all (carrying ?r ?c))
         (over all (empty_capsule ?c))
-        (over all (pressure_sensitive_sample ?s))
+        ;; (over all (pressure_sensitive_sample ?s))
         (over all(>= (battery_level ?r) 1))
     )
 
@@ -252,7 +252,7 @@
 
         (over all (at ?r ?l))
         (over all (at ?c ?l))
-        (over all (pressure_sensitive_sample ?s))
+        ;; (over all (pressure_sensitive_sample ?s))
         (over all (>= (battery_level ?r) 1))
         (over all (>= (capacity ?r) 1))
     )
@@ -279,7 +279,7 @@
 
         (over all (at ?r ?l))
         (over all (carrying ?r ?c))
-        (over all (pressure_sensitive_sample ?s))
+        ;; (over all (pressure_sensitive_sample ?s))
         (over all (>= (battery_level ?r) 1))
     )
 
@@ -307,7 +307,7 @@
         (over all (at ?r ?l))
         (over all (carrying ?r ?c))
         (over all (is_pressure_stabilizer ?l))
-        (over all (pressure_sensitive_sample ?s))
+        ;; (over all (pressure_sensitive_sample ?s))
 
         ; why here not (at ?c ?l)
     )
@@ -333,7 +333,7 @@
         (over all (at ?r ?l))
         (over all (carrying ?r ?c))
         (over all (is_bio_vault ?l))
-        (over all (pressure_sensitive_sample ?s))
+        ;; (over all (pressure_sensitive_sample ?s))
         (over all (>= (battery_level ?r) 1))
     )
 

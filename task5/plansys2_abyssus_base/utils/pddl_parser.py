@@ -1,10 +1,6 @@
 import re
 import argparse
 
-
-# ============================================================
-# BASE PARSER (S-expression loader)
-# ============================================================
 class Parser:
     def __init__(self, file_path):
         self.file_path = file_path
@@ -38,18 +34,12 @@ class Parser:
         tokens = self._tokenize(text)
         return self._parse_sexp(tokens)
 
-    # ----------------------------
-    # GLOBAL SANITIZER (ROS2 SAFE)
-    # ----------------------------
     def sanitize(self, name: str) -> str:
         name = re.sub(r"[^a-zA-Z0-9_]", "_", name)
         name = re.sub(r"_+", "_", name)
         return name.strip("_")
 
-
-# ============================================================
-# DOMAIN HIERARCHY (TYPE SYSTEM)
-# ============================================================
+# Domain hierarchy parser needed to expand goal states
 class DomainHierarchy(Parser):
     def __init__(self, domain_file):
         self.domain_file = domain_file
@@ -109,9 +99,7 @@ class DomainHierarchy(Parser):
         return {typ} | self.get_all_supertypes(typ)
 
 
-# ============================================================
-# PROBLEM PARSER
-# ============================================================
+# Actual problem parser
 class PDDLProblemParser(Parser):
     def __init__(self, problem_file, domain_hierarchy: DomainHierarchy):
         self.problem_file = problem_file
@@ -138,13 +126,6 @@ class PDDLProblemParser(Parser):
 
             if token == "-":
                 obj_type = self.sanitize(entries[i + 1])
-
-                # expanded_types = self.hierarchy.expand_type(obj_type)
-
-                # for obj in current:
-                #     obj = self.sanitize(obj)
-                #     for t in expanded_types:
-                #         instances.append((obj, t))
                 
                 for obj in current:
                     instances.append((self.sanitize(obj), self.sanitize(obj_type)))
@@ -174,9 +155,6 @@ class PDDLProblemParser(Parser):
             type_index.setdefault(typ, []).append(name)
         return type_index
 
-    # ----------------------------
-    # GOAL EXPANSION
-    # ----------------------------
     def expand_goal(self, expr, type_index):
         if isinstance(expr, str):
             return self.sanitize(expr)
@@ -204,21 +182,18 @@ class PDDLProblemParser(Parser):
 
         return expr
 
-    # ----------------------------
     def substitute(self, expr, var, value):
         if isinstance(expr, str):
             return self.sanitize(value) if expr == var else self.sanitize(expr)
 
         return [self.substitute(e, var, value) for e in expr]
 
-    # ----------------------------
     def predicate_to_string(self, expr):
         if isinstance(expr, str):
             return self.sanitize(expr)
 
         return "(" + " ".join(self.predicate_to_string(x) for x in expr) + ")"
 
-    # ----------------------------
     def parse_init(self, init_section):
         predicates = []
         functions = []
@@ -231,13 +206,11 @@ class PDDLProblemParser(Parser):
 
         return predicates, functions
 
-    # ----------------------------
     def flatten_goal(self, goal_section, type_index):
         goal_expr = goal_section[1]
         expanded = self.expand_goal(goal_expr, type_index)
         return self.predicate_to_string(expanded)
 
-    # ----------------------------
     def convert_pddl(self):
         tree = self.tree
 
@@ -284,10 +257,6 @@ class PDDLProblemParser(Parser):
             f.write(content)
         return output_file
 
-
-# ============================================================
-# CLI
-# ============================================================
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("pddl_dir")
