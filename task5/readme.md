@@ -43,4 +43,10 @@ Once the problem has been parsed correctly, type
 ```
 get plan
 ```
-to _____
+to generate a plan via the POPF planner.
+
+Once the plan is generated, simply type 
+```
+run
+```
+to see the plan being executed!

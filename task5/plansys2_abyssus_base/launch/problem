@@ -47,10 +47,5 @@ set predicate (at cap2 dock1)
 set predicate (empty_capsule cap1)
 set predicate (empty_capsule cap2)
 
-set function ( (battery_level rov1) 30)
-set function ( (capacity rov1) 1)
-set function ( (battery_level rov2) 30)
-set function ( (capacity rov2) 3)
-set function ( (total_cost) 0)
 
 set goal (and (and (and (stored s1) (stabilized s1)) (and (stored s2) (stabilized s2)) (and (stored s3) (stabilized s3))))

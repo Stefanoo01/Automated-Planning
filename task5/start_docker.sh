@@ -2,9 +2,22 @@
 
 source plansys2_abyssus_base/config.env
 
-if ! docker image inspect "$IMAGE_NAME" >/dev/null 2>&1; then
-    echo "Image $IMAGE_NAME not found. Building..."
-    sudo docker build --rm  --tag $IMAGE_NAME . --file Dockerfile
+FORCE_REBUILD=false
+
+if [[ "$1" == "--rebuild" ]]; then
+    FORCE_REBUILD=true
+fi
+
+if [[ "$FORCE_REBUILD" == "true" ]] || \
+   ! docker image inspect "$IMAGE_NAME" >/dev/null 2>&1; then
+
+    echo "Building image $IMAGE_NAME..."
+    sudo docker build \
+        --no-cache \
+        --rm \
+        --tag "$IMAGE_NAME" \
+        . \
+        --file Dockerfile
 fi
 
 docker run \

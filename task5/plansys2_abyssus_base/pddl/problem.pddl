@@ -32,13 +32,13 @@
         ;; rov 1
         (small_robot rov1)
         (at rov1 dock1)
-        (= (battery_level rov1) 30)
-        (= (capacity rov1) 1)
+        ; (= (battery_level rov1) 30)
+        ; (= (capacity rov1) 1)
 
         ;; rov 2
         (at rov2 dock1)
-        (= (battery_level rov2) 30)
-        (= (capacity rov2) 3)
+        ; (= (battery_level rov2) 30)
+        ; (= (capacity rov2) 3)
 
         ;; -- Regular samples --
         ;; s1
@@ -62,7 +62,7 @@
         (empty_capsule cap1)
         (empty_capsule cap2)
 
-        (= (total_cost) 0)
+        ; (= (total_cost) 0)
     )
 
     (:goal
@@ -76,5 +76,5 @@
         )
     )
 
-    (:metric minimize (total-cost))
+    ; (:metric minimize (total-cost))
 )
