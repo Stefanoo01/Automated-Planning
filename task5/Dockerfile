@@ -25,6 +25,6 @@ RUN cd ~/plansys2_ws && rosdep install -y -r -q --from-paths src --ignore-src --
 
 RUN apt-get install -y vim gdb terminator
 
-RUN cd ~/plansys2_ws && source /opt/ros/${ROS_DISTRO}/setup.bash && colcon build --symlink-install
+RUN cd ~/plansys2_ws && source /opt/ros/${ROS_DISTRO}/setup.bash && colcon build --symlink-install --parallel-workers 1
 
 CMD /bin/bash

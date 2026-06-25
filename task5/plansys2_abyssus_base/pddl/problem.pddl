@@ -6,6 +6,7 @@
         s1 s2 s3 - sample
         cap1 cap2 - capsule
         wing_alpha wing_beta transfer_zone decompression_chamber bio_vault dock1 stabilizer1 - location
+        c0 c1 c2 c3 - capacity_number
     )
 
     (:init
@@ -32,13 +33,16 @@
         ;; rov 1
         (small_robot rov1)
         (at rov1 dock1)
-        ; (= (battery_level rov1) 30)
-        ; (= (capacity rov1) 1)
 
         ;; rov 2
         (at rov2 dock1)
-        ; (= (battery_level rov2) 30)
-        ; (= (capacity rov2) 3)
+
+        ;; -- Discrete ROV capacity --
+        (capacity_predecessor c0 c1)
+        (capacity_predecessor c1 c2)
+        (capacity_predecessor c2 c3)
+        (capacity rov1 c1)
+        (capacity rov2 c3)
 
         ;; -- Regular samples --
         ;; s1
@@ -61,8 +65,6 @@
         (at cap2 dock1)
         (empty_capsule cap1)
         (empty_capsule cap2)
-
-        ; (= (total_cost) 0)
     )
 
     (:goal
@@ -75,6 +77,4 @@
             )
         )
     )
-
-    ; (:metric minimize (total-cost))
 )

@@ -1,7 +1,7 @@
 ;; changed wrt task 4:
-;; - changed from :numeric-fluents to :fluents
+;; - ROV capacity is represented with discrete predicates as in task 3
 ;; - remove "-" symbols, substituted them with "_" symbols
-;; - deleted pressure_sensitive type, which will be managed simply with the already-defined predicates "stabilized" and "unstabilized" -> for this, we also added :disjunctive-preconditions requirement
+;; - pressure-sensitive samples are represented with the predicates "stabilized" and "unstabilized"
 
 (define (domain abyssus-base-t5)
 
@@ -9,7 +9,6 @@
     :strips
     :typing
     :equality
-    :fluents
     :durative-actions
 )
 
@@ -19,6 +18,7 @@
     rov - locatable
     sample - locatable
     capsule - locatable
+    capacity_number - object
 )
 
 (:predicates
@@ -30,6 +30,10 @@
     ;; rover
     ;; (handempty ?r - rov) ;; -> not present in task2, but it is present in task 1
     (carrying ?r - rov ?x - locatable)
+
+    ;; discrete capacity
+    (capacity ?r - rov ?c - capacity_number)
+    (capacity_predecessor ?lower - capacity_number ?higher - capacity_number)
 
     ;; samples
     (regular_sample ?s - sample)
@@ -52,12 +56,6 @@
     (capsule_sealed ?c - capsule)
 )
 
-; (:functions ;; tfd expects a precise order of definitions
-;     (capacity ?r - rov)
-;     ; (battery_level ?r - rov)
-;     ; (total_cost)
-; )
-
 ;; ------------------------------------------------------------
 ;; Movement
 ;; ------------------------------------------------------------
@@ -70,14 +68,11 @@
         (at start (at ?r ?from))
         
         (over all (connected ?from ?to))
-        ; (over all (>= (battery_level ?r) 2))
     )
 
     :effect (and
         (at start (not (at ?r ?from)))
         (at end (at ?r ?to))
-        ; (at end (decrease (battery_level ?r) 2))
-        ; (at end (increase (total_cost) 2))
     )
 )
 
@@ -89,14 +84,11 @@
         (at start (at ?r ?from))
         (over all (narrow_connected ?from ?to))
         (over all (small_robot ?r))
-        ; (over all (>= (battery_level ?r) 2))
     )
 
     :effect (and
         (at start (not (at ?r ?from)))
         (at end (at ?r ?to))
-        ; (at end (decrease (battery_level ?r) 2))
-        ; (at end (increase (total_cost) 2))
     )
 )
 
@@ -105,56 +97,55 @@
 ;; ------------------------------------------------------------
 
 (:durative-action pickup_regular_sample
-    :parameters (?r - rov ?s - sample ?l - location)
+    :parameters (?r - rov ?s - sample ?l - location ?c_low - capacity_number ?c_high - capacity_number)
     :duration (= ?duration 1)
 
     :condition (and
         (at start (at ?r ?l))
         (at start (at ?s ?l))
         (at start (regular_sample ?s))
+        (at start (capacity ?r ?c_high))
+        (at start (capacity_predecessor ?c_low ?c_high))
         ;; (at start (handempty ?r))
         (over all (at ?r ?l))
         (over all (at ?s ?l))
-        ; (over all (>= (capacity ?r) 1))
-        ; (over all (>= (battery_level ?r) 1))
     )
 
     :effect (and
         ;; (at end (not (handempty ?r)))
         (at end (not (at ?s ?l)))
         (at end (carrying ?r ?s))
-        ; (at end (decrease (battery_level ?r) 1))
-        ; (at end (decrease (capacity ?r) 1))
-        ; (at end (increase (total_cost) 1))
+        (at start (not (capacity ?r ?c_high)))
+        (at start (capacity ?r ?c_low))
     )
 )
 
 (:durative-action drop_regular_sample
-    :parameters (?r - rov ?s - sample ?l - location)
+    :parameters (?r - rov ?s - sample ?l - location ?c_low - capacity_number ?c_high - capacity_number)
     :duration (= ?duration 1)
 
     :condition (and
         (at start (at ?r ?l))
         (at start (carrying ?r ?s))
         (at start (regular_sample ?s))
+        (at start (capacity ?r ?c_low))
+        (at start (capacity_predecessor ?c_low ?c_high))
 
         (over all (at ?r ?l))
         (over all (carrying ?r ?s))
-        ; (over all (>= (battery_level ?r) 1))
     )
 
     :effect (and
         (at end (not (carrying ?r ?s)))
         (at end (at ?s ?l))
         ;; (at end (handempty ?r))
-        ; (at end (increase (capacity ?r) 1))
-        ; (at end (decrease (battery_level ?r) 1))
-        ; (at end (increase (total_cost) 50))
+        (at end (not (capacity ?r ?c_low)))
+        (at end (capacity ?r ?c_high))
     )
 )
 
 (:durative-action store_regular_sample
-    :parameters (?r - rov ?s - sample ?l - location)
+    :parameters (?r - rov ?s - sample ?l - location ?c_low - capacity_number ?c_high - capacity_number)
     :duration (= ?duration 1)
 
     :condition (and
@@ -162,20 +153,19 @@
         (at start (is_bio_vault ?l))
         (at start (carrying ?r ?s))
         (at start (regular_sample ?s))
-        ; (at start (>= (battery_level ?r) 1))
+        (at start (capacity ?r ?c_low))
+        (at start (capacity_predecessor ?c_low ?c_high))
 
         (over all (at ?r ?l))
         (over all (carrying ?r ?s))
-        ; (over all (>= (battery_level ?r) 1))
     )
 
     :effect (and
         (at end (not (carrying ?r ?s)))
         (at end (stored ?s))
         ;; (at end (handempty ?r))
-        ; (at end (decrease (battery_level ?r) 1))
-        ; (at end (increase (total_cost) 0))
-        ; (at end (increase (capacity ?r) 1))
+        (at end (not (capacity ?r ?c_low)))
+        (at end (capacity ?r ?c_high))
     )
 )
 
@@ -184,28 +174,27 @@
 ;; ------------------------------------------------------------
 
 (:durative-action take_empty_capsule
-    :parameters (?r - rov ?c - capsule ?l - location)
+    :parameters (?r - rov ?c - capsule ?l - location ?c_low - capacity_number ?c_high - capacity_number)
     :duration (= ?duration 1)
 
     :condition (and
         (at start (at ?r ?l))
         (at start (at ?c ?l))
         (at start (empty_capsule ?c))
+        (at start (capacity ?r ?c_high))
+        (at start (capacity_predecessor ?c_low ?c_high))
         ;; (at start (handempty ?r))
 
         (over all (at ?r ?l))
         (over all (at ?c ?l))
-        ; (at start (>= (capacity ?r) 1))
-        ; (over all (>= (battery_level ?r) 1))
     )
 
     :effect (and
         (at end (not (at ?c ?l)))
         ;; (at end (not (handempty ?r)))
         (at end (carrying ?r ?c))
-        ; (at end (decrease (battery_level ?r) 1))
-        ; (at end (increase (total_cost) 1))
-        ; (at end (decrease (capacity ?r) 1))
+        (at start (not (capacity ?r ?c_high)))
+        (at start (capacity ?r ?c_low))
     )
 )
 
@@ -225,7 +214,6 @@
         (over all (carrying ?r ?c))
         (over all (empty_capsule ?c))
         ;; (over all (pressure_sensitive_sample ?s))
-        ; (over all(>= (battery_level ?r) 1))
     )
 
     :effect (and
@@ -233,14 +221,11 @@
         (at end (sample_in_capsule ?s ?c))
         (at end (not (at ?s ?l)))
         (at end (capsule_sealed ?c))
-        
-        ; (at end (decrease (battery_level ?r) 1))
-        ; (at end (increase (total_cost) 5))
     )
 )
 
 (:durative-action pickup_sensitive_sample
-    :parameters (?r - rov ?s - sample ?c - capsule ?l - location)
+    :parameters (?r - rov ?s - sample ?c - capsule ?l - location ?c_low - capacity_number ?c_high - capacity_number)
     :duration (= ?duration 1)
 
     :condition (and
@@ -248,27 +233,26 @@
         (at start (at ?c ?l))
         (at start (sample_in_capsule ?s ?c))
         (at start (capsule_sealed ?c))
+        (at start (capacity ?r ?c_high))
+        (at start (capacity_predecessor ?c_low ?c_high))
         ;; (at start (handempty ?r))
 
         (over all (at ?r ?l))
         (over all (at ?c ?l))
         ;; (over all (pressure_sensitive_sample ?s))
-        ; (over all (>= (battery_level ?r) 1))
-        ; (over all (>= (capacity ?r) 1))
     )
 
     :effect (and
         ;; (at end (not (handempty ?r)))
         (at end (not (at ?c ?l)))
         (at end (carrying ?r ?c))
-        ; (at end (decrease (battery_level ?r) 1))
-        ; (at end (decrease (capacity ?r) 1))
-        ; (at end (increase (total_cost) 1))
+        (at start (not (capacity ?r ?c_high)))
+        (at start (capacity ?r ?c_low))
     )
 )
 
 (:durative-action drop_sensitive_sample
-    :parameters (?r - rov ?s - sample ?c - capsule ?l - location)
+    :parameters (?r - rov ?s - sample ?c - capsule ?l - location ?c_low - capacity_number ?c_high - capacity_number)
     :duration (= ?duration 1)
 
     :condition (and
@@ -276,20 +260,20 @@
         (at start (carrying ?r ?c))
         (at start (sample_in_capsule ?s ?c))
         (at start (capsule_sealed ?c))
+        (at start (capacity ?r ?c_low))
+        (at start (capacity_predecessor ?c_low ?c_high))
 
         (over all (at ?r ?l))
         (over all (carrying ?r ?c))
         ;; (over all (pressure_sensitive_sample ?s))
-        ; (over all (>= (battery_level ?r) 1))
     )
 
     :effect (and
         (at end (not (carrying ?r ?c)))
         (at end (at ?c ?l))
         ;; (at end (handempty ?r))
-        ; (at end (decrease (battery_level ?r) 1))
-        ; (at end (increase (total_cost) 1))
-        ; (at end (increase (capacity ?r) 1))
+        (at end (not (capacity ?r ?c_low)))
+        (at end (capacity ?r ?c_high))
     )
 )
 
@@ -315,12 +299,11 @@
     :effect (and
         (at end (not (unstabilized ?s)))
         (at end (stabilized ?s))
-        ; (at end (increase (total_cost) 10))
     )
 )
 
 (:durative-action store_sensitive_sample
-    :parameters (?r - rov ?s - sample ?c - capsule ?l - location)
+    :parameters (?r - rov ?s - sample ?c - capsule ?l - location ?c_low - capacity_number ?c_high - capacity_number)
     :duration (= ?duration 1)
 
     :condition (and
@@ -330,12 +313,13 @@
         (at start (sample_in_capsule ?s ?c))
         (at start (capsule_sealed ?c))
         (at start (stabilized ?s))
+        (at start (capacity ?r ?c_low))
+        (at start (capacity_predecessor ?c_low ?c_high))
 
         (over all (at ?r ?l))
         (over all (carrying ?r ?c))
         (over all (is_bio_vault ?l))
         (over all (pressure_sensitive_sample ?s))
-        ; (over all (>= (battery_level ?r) 1))
     )
 
     :effect (and
@@ -345,29 +329,9 @@
         (at end (not (carrying ?r ?c)))
         (at end (at ?c ?l))
         ;; (at end (handempty ?r))
-        ; (at end (decrease (battery_level ?r) 1))
-        ; (at end (increase (total_cost) 1))
-        ; (at end (increase (capacity ?r) 1))
+        (at end (not (capacity ?r ?c_low)))
+        (at end (capacity ?r ?c_high))
     )
 )
-
-;; ------------------------------------------------------------
-;; Recharge
-;; ------------------------------------------------------------
-
-; (:durative-action recharge
-;     :parameters (?r - rov ?l - location)
-;     :duration (= ?duration 5)
-;     :condition (and 
-;         (at start (is_docking_station ?l))
-;         (over all (at ?r ?l))
-;         (over all (< (battery_level ?r) 10))
-;     )
-
-;     :effect (and 
-;         (at end (assign (battery_level ?r) 30))
-;         (at end (increase (total_cost) 4))
-;     )
-; )
 
 )

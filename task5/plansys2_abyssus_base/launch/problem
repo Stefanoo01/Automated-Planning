@@ -12,6 +12,10 @@ set instance decompression_chamber location
 set instance bio_vault location
 set instance dock1 location
 set instance stabilizer1 location
+set instance c0 capacity_number
+set instance c1 capacity_number
+set instance c2 capacity_number
+set instance c3 capacity_number
 
 set predicate (narrow_connected transfer_zone wing_alpha)
 set predicate (narrow_connected wing_alpha transfer_zone)
@@ -33,6 +37,11 @@ set predicate (is_pressure_stabilizer stabilizer1)
 set predicate (small_robot rov1)
 set predicate (at rov1 dock1)
 set predicate (at rov2 dock1)
+set predicate (capacity_predecessor c0 c1)
+set predicate (capacity_predecessor c1 c2)
+set predicate (capacity_predecessor c2 c3)
+set predicate (capacity rov1 c1)
+set predicate (capacity rov2 c3)
 set predicate (at s1 wing_alpha)
 set predicate (regular_sample s1)
 set predicate (stabilized s1)
