@@ -1,0 +1,75 @@
+82 take-empty-capsule rov1 cap1 docking_station c0 c1
+662363 move rov1 docking_station transfer_zone
+662378 move-through-narrow rov1 transfer_zone wing_alpha
+662380 encapsulate-sample rov1 s6 cap1 wing_alpha
+662417 move-through-narrow rov1 wing_alpha transfer_zone
+662432 move rov1 transfer_zone decompression_chamber
+664410 move rov1 decompression_chamber bio_vault
+664417 move rov1 bio_vault pressure_stabilizer
+664434 drop-sensitive-sample rov1 s6 cap1 pressure_stabilizer c0 c1
+664435 stabilize-capsule rov1 s6 cap1 pressure_stabilizer
+664440 pickup-sensitive-sample rov1 s6 cap1 pressure_stabilizer c0 c1
+664458 move rov1 pressure_stabilizer decompression_chamber
+664494 move rov1 decompression_chamber bio_vault
+664557 move rov1 bio_vault decompression_chamber
+664584 move rov1 decompression_chamber bio_vault
+664689 store-sensitive-sample rov1 s6 cap1 bio_vault c0 c1
+664693 move rov1 bio_vault pressure_stabilizer
+664758 move rov1 pressure_stabilizer decompression_chamber
+664828 move rov1 decompression_chamber transfer_zone
+664860 move-through-narrow rov1 transfer_zone wing_alpha
+664986 pickup-regular-sample rov1 s2 wing_alpha c0 c1
+665031 move-through-narrow rov1 wing_alpha transfer_zone
+665118 move rov1 transfer_zone decompression_chamber
+665223 move rov1 decompression_chamber bio_vault
+665254 store-regular-sample rov1 s2 bio_vault c0 c1
+665256 mark-regular-done s2
+665441 move rov2 docking_station transfer_zone
+665474 move rov2 transfer_zone wing_beta
+665512 pickup-regular-sample rov2 s3 wing_beta c2 c3
+665571 move rov2 wing_beta transfer_zone
+665632 move rov2 transfer_zone decompression_chamber
+665708 move rov2 decompression_chamber bio_vault
+665726 store-regular-sample rov2 s3 bio_vault c2 c3
+665728 mark-regular-done s3
+665969 move rov1 bio_vault decompression_chamber
+666007 move rov1 decompression_chamber transfer_zone
+666041 move-through-narrow rov1 transfer_zone wing_alpha
+666331 pickup-regular-sample rov1 s1 wing_alpha c0 c1
+666400 move-through-narrow rov1 wing_alpha transfer_zone
+666552 move rov1 transfer_zone decompression_chamber
+666641 mark-sensitive-done s6
+667499 move rov1 decompression_chamber bio_vault
+667536 move rov1 bio_vault decompression_chamber
+667584 move rov1 decompression_chamber bio_vault
+667591 store-regular-sample rov1 s1 bio_vault c0 c1
+667594 mark-regular-done s1
+667602 take-empty-capsule rov1 cap1 bio_vault c0 c1
+667613 move rov1 bio_vault pressure_stabilizer
+667657 move rov1 pressure_stabilizer decompression_chamber
+667668 move rov1 decompression_chamber transfer_zone
+667684 move rov1 transfer_zone wing_beta
+667688 encapsulate-sample rov1 s4 cap1 wing_beta
+667771 move rov1 wing_beta transfer_zone
+667792 move rov1 transfer_zone decompression_chamber
+667809 move rov1 decompression_chamber pressure_stabilizer
+667830 drop-sensitive-sample rov1 s4 cap1 pressure_stabilizer c0 c1
+667831 stabilize-capsule rov1 s4 cap1 pressure_stabilizer
+667836 pickup-sensitive-sample rov1 s4 cap1 pressure_stabilizer c0 c1
+667841 move rov1 pressure_stabilizer bio_vault
+667859 store-sensitive-sample rov1 s4 cap1 bio_vault c0 c1
+667860 mark-sensitive-done s4
+668042 take-empty-capsule rov1 cap1 bio_vault c0 c1
+668081 move rov1 bio_vault decompression_chamber
+668093 move rov1 decompression_chamber transfer_zone
+668112 move rov1 transfer_zone wing_beta
+668115 encapsulate-sample rov1 s5 cap1 wing_beta
+668142 move rov1 wing_beta transfer_zone
+668163 move rov1 transfer_zone decompression_chamber
+668180 move rov1 decompression_chamber pressure_stabilizer
+668201 drop-sensitive-sample rov1 s5 cap1 pressure_stabilizer c0 c1
+668202 stabilize-capsule rov1 s5 cap1 pressure_stabilizer
+668206 pickup-sensitive-sample rov1 s5 cap1 pressure_stabilizer c0 c1
+668212 move rov1 pressure_stabilizer bio_vault
+668230 store-sensitive-sample rov1 s5 cap1 bio_vault c0 c1
+668231 mark-sensitive-done s5

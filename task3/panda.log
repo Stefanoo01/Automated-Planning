@@ -1,7 +1,7 @@
 Random seed: 42
-Time limit: 900 seconds
-Reading input from output.sas.
-- State has 96 bits divided into 96 mutex groups.
+Time limit: 1800 seconds
+ReRandom seed: 42
+Time limit: 1800 seconds- State has 96 bits divided into 96 mutex g- State has 96 bits divided into 96 mutex groups.
 - Domain contains 410 actions.
 - Domain contains 573 tasks.
 - Domain contains 609 methods.
@@ -9,306 +9,530 @@ Reading input from output.sas.
 - The initial task is "__top[]".
 - State-based goal contains 9 bits.
 - Instance is totally-ordered: no
-- Instance has unique paths: yes
-- Instance is parallel sequences: yes
-Calculate SCCs...
+- Instance has unique paths:Calculate SCCs...
+- Number of SCCs: 573
+- TCalculate SCCs...
 - Number of SCCs: 573
 - The problem is cyclic
 - Number of cyclic SCCs: 13
 - Number of cyclic SCCs of size 1: 13
 Selected Planning Algorithm: progression searchParsing heuristics ...
-Number of specified heuristics: 0
-No heuristics given, setting default ... 
-Generate 3
-
-RC Factory: CMA 1
-- the option "store cuts" of the RC heuristic can only be used with the inner heuristic LM-Cut. It will be disabled.
+Number of specified h- the option "store cuts" of the RC heurist- the option "store cuts" of the RC heuristic can only be used with the inner heuristic LM-Cut. It will be disabled.
 - Calculating minimal implied distances and estimated costs (0 ms)
 Heuristic #0 = hhRC2(ff;distance;correct count)
 Search config:
- - type: cost optimal
- - weight: 1
- - suboptimal: false
-Visited List configured
+ - typVisited List configured
+- mode: parallel seVisited List configured
 - mode: parallel sequences order
 - hashs to use: state task task-sequence
 - memory information: topological ordering
 - Visited list allows deletion of search nodes: true
 Search Configuration
 - Using JAIR 2020 progression algorithm
-- Search is stopped after first solution is found.
-- A* Search
-- Distance G is "action costs"
-   1s visitime    0.04s generated nodes    100288 nodes/sec   99295 cur h   55 mod.depth   36 inserts     10145 dups      1901 size      8244 hash fail   1918 hash buckets   8227
-   2s visitime    0.08s generated nodes    205510 nodes/sec  101939 cur h   50 mod.depth   51 inserts     21560 dups      4206 size     17354 hash fail   4317 hash buckets  17243
-   3s visitime    0.13s generated nodes    310748 nodes/sec  101518 cur h   43 mod.depth   50 inserts     33923 dups      6711 size     27212 hash fail   6984 hash buckets  26939
-   4s visitime    0.17s generated nodes    420961 nodes/sec  102673 cur h   57 mod.depth   35 inserts     47414 dups     10107 size     37307 hash fail  10824 hash buckets  36590
-   5s visitime    0.21s generated nodes    521215 nodes/sec  101939 cur h   57 mod.depth   29 inserts     58248 dups     12207 size     46041 hash fail  12956 hash buckets  45292
-   6s visitime    0.24s generated nodes    631454 nodes/sec  101847 cur h   55 mod.depth   36 inserts     70206 dups     14549 size     55657 hash fail  15488 hash buckets  54718
-   7s visitime    0.28s generated nodes    731653 nodes/sec  101280 cur h   46 mod.depth   60 inserts     81553 dups     16772 size     64781 hash fail  17887 hash buckets  63666
-   8s visitime    0.32s generated nodes    841872 nodes/sec  102032 cur h   53 mod.depth   51 inserts     94458 dups     19415 size     75043 hash fail  20818 hash buckets  73640
-   9s visitime    0.35s generated nodes    937041 nodes/sec  101115 cur h   58 mod.depth   44 inserts    107346 dups     22938 size     84408 hash fail  24599 hash buckets  82747
-  10s visitime    0.39s generated nodes   1037260 nodes/sec  100597 cur h   53 mod.depth   45 inserts    120495 dups     27420 size     93075 hash fail  29193 hash buckets  91302
-  11s visitime    0.43s generated nodes   1137439 nodes/sec  100294 cur h   60 mod.depth   42 inserts    132402 dups     30235 size    102167 hash fail  32151 hash buckets 100251
-  12s visitime    0.46s generated nodes   1242640 nodes/sec  100229 cur h   52 mod.depth   45 inserts    145954 dups     34405 size    111549 hash fail  36452 hash buckets 109502
-  13s visitime    0.50s generated nodes   1332781 nodes/sec   99431 cur h   66 mod.depth   30 inserts    158415 dups     38910 size    119505 hash fail  41216 hash buckets 117199
-  14s visitime    0.54s generated nodes   1437967 nodes/sec   99527 cur h   66 mod.depth   30 inserts    172861 dups     43456 size    129405 hash fail  46193 hash buckets 126668
-  15s visitime    0.58s generated nodes   1533100 nodes/sec   99242 cur h   57 mod.depth   47 inserts    185856 dups     47541 size    138315 hash fail  50566 hash buckets 135290
-  16s visitime    0.62s generated nodes   1643343 nodes/sec   99632 cur h   57 mod.depth   50 inserts    199172 dups     50492 size    148680 hash fail  53707 hash buckets 145465
-  17s visitime    0.65s generated nodes   1738548 nodes/sec   99266 cur h   46 mod.depth   60 inserts    211413 dups     54671 size    156742 hash fail  57990 hash buckets 153423
-  18s visitime    0.69s generated nodes   1838750 nodes/sec   99075 cur h   57 mod.depth   52 inserts    225215 dups     59181 size    166034 hash fail  62687 hash buckets 162528
-  19s visitime    0.74s generated nodes   1943948 nodes/sec   99191 cur h   51 mod.depth   60 inserts    239419 dups     63366 size    176053 hash fail  67125 hash buckets 172294
-  20s visitime    0.78s generated nodes   2044149 nodes/sec   98995 cur h   53 mod.depth   55 inserts    253065 dups     67225 size    185840 hash fail  71278 hash buckets 181787
-  21s visitime    0.83s generated nodes   2144354 nodes/sec   98868 cur h   56 mod.depth   45 inserts    267990 dups     71927 size    196063 hash fail  76322 hash buckets 191668
-  22s visitime    0.87s generated nodes   2244587 nodes/sec   98719 cur h   71 mod.depth   22 inserts    280900 dups     75298 size    205602 hash fail  80051 hash buckets 200849
-  23s visitime    0.91s generated nodes   2349848 nodes/sec   98899 cur h   52 mod.depth   50 inserts    293777 dups     78104 size    215673 hash fail  83200 hash buckets 210577
-  24s visitime    0.94s generated nodes   2440014 nodes/sec   98486 cur h   65 mod.depth   28 inserts    306230 dups     83079 size    223151 hash fail  88334 hash buckets 217896
-  25s visitime    0.98s generated nodes   2535173 nodes/sec   98354 cur h   48 mod.depth   66 inserts    320402 dups     88786 size    231616 hash fail  94433 hash buckets 225969
-  26s visitime    1.02s generated nodes   2635360 nodes/sec   98330 cur h   66 mod.depth   26 inserts    332954 dups     92660 size    240294 hash fail  98618 hash buckets 234336
-  27s visitime    1.06s generated nodes   2740586 nodes/sec   98472 cur h   50 mod.depth   63 inserts    347078 dups     96621 size    250457 hash fail 102944 hash buckets 244134
-  28s visitime    1.10s generated nodes   2830795 nodes/sec   98076 cur h   58 mod.depth   45 inserts    360084 dups    101574 size    258510 hash fail 108300 hash buckets 251784
-  29s visitime    1.14s generated nodes   2931000 nodes/sec   98085 cur h   53 mod.depth   64 inserts    376063 dups    108373 size    267690 hash fail 115411 hash buckets 260652
-  30s visitime    1.18s generated nodes   3026168 nodes/sec   97896 cur h   51 mod.depth   57 inserts    390373 dups    113958 size    276415 hash fail 121516 hash buckets 268857
-  31s visitime    1.22s generated nodes   3126386 nodes/sec   97834 cur h   52 mod.depth   50 inserts    404944 dups    120118 size    284826 hash fail 127861 hash buckets 277083
-  33s visitime    1.27s generated nodes   3221582 nodes/sec   97600 cur h   59 mod.depth   47 inserts    419063 dups    125621 size    293442 hash fail 133842 hash buckets 285221
-  34s visitime    1.31s generated nodes   3321792 nodes/sec   97673 cur h   45 mod.depth   79 inserts    434157 dups    131022 size    303135 hash fail 139807 hash buckets 294350
-  35s visitime    1.36s generated nodes   3411970 nodes/sec   97454 cur h   54 mod.depth   58 inserts    448897 dups    136927 size    311970 hash fail 146077 hash buckets 302820
-  36s visitime    1.40s generated nodes   3517164 nodes/sec   97514 cur h   61 mod.depth   43 inserts    461768 dups    140183 size    321585 hash fail 149733 hash buckets 312035
-  37s visitime    1.44s generated nodes   3627360 nodes/sec   97780 cur h   57 mod.depth   53 inserts    475037 dups    143818 size    331219 hash fail 153733 hash buckets 321304
-  38s visitime    1.48s generated nodes   3727592 nodes/sec   97821 cur h   54 mod.depth   65 inserts    486897 dups    146729 size    340168 hash fail 157035 hash buckets 329862
-  39s visitime    1.53s generated nodes   3832807 nodes/sec   97960 cur h   42 mod.depth   69 inserts    500846 dups    150320 size    350526 hash fail 161184 hash buckets 339662
-  40s visitime    1.57s generated nodes   3917950 nodes/sec   97592 cur h   74 mod.depth   18 inserts    513856 dups    156225 size    357631 hash fail 167326 hash buckets 346530
-  41s visitime    1.63s generated nodes   4023079 nodes/sec   97661 cur h   56 mod.depth   54 inserts    527749 dups    160404 size    367345 hash fail 171843 hash buckets 355906
-  42s visitime    1.67s generated nodes   4118197 nodes/sec   97534 cur h   64 mod.depth   29 inserts    540614 dups    164180 size    376434 hash fail 176176 hash buckets 364438
-  43s visitime    1.72s generated nodes   4218436 nodes/sec   97504 cur h   41 mod.depth   78 inserts    557221 dups    169898 size    387323 hash fail 182338 hash buckets 374883
-  44s visitime    1.77s generated nodes   4313665 nodes/sec   97376 cur h   49 mod.depth   74 inserts    571114 dups    174569 size    396545 hash fail 187293 hash buckets 383821
-  45s visitime    1.82s generated nodes   4413879 nodes/sec   97342 cur h   49 mod.depth   61 inserts    585668 dups    179326 size    406342 hash fail 192490 hash buckets 393178
-  46s visitime    1.87s generated nodes   4504098 nodes/sec   97169 cur h   51 mod.depth   61 inserts    599263 dups    183960 size    415303 hash fail 197501 hash buckets 401762
-  47s visitime    1.92s generated nodes   4599257 nodes/sec   97096 cur h   53 mod.depth   59 inserts    614120 dups    189058 size    425062 hash fail 203103 hash buckets 411017
-  48s visitime    1.97s generated nodes   4694484 nodes/sec   96981 cur h   58 mod.depth   37 inserts    628444 dups    194152 size    434292 hash fail 208626 hash buckets 419818
-  49s visitime    2.03s generated nodes   4789674 nodes/sec   96919 cur h   64 mod.depth   29 inserts    643177 dups    199633 size    443544 hash fail 214677 hash buckets 428500
-  50s visitime    2.08s generated nodes   4879819 nodes/sec   96693 cur h   54 mod.depth   54 inserts    656995 dups    204413 size    452582 hash fail 220133 hash buckets 436862
-  51s visitime    2.13s generated nodes   4985006 nodes/sec   96803 cur h   58 mod.depth   53 inserts    669794 dups    207402 size    462392 hash fail 223633 hash buckets 446161
-  52s visitime    2.17s generated nodes   5085134 nodes/sec   96832 cur h   56 mod.depth   57 inserts    681893 dups    210340 size    471553 hash fail 226851 hash buckets 455042
-  53s visitime    2.22s generated nodes   5195432 nodes/sec   96998 cur h   61 mod.depth   36 inserts    695734 dups    213882 size    481852 hash fail 230848 hash buckets 464886
-  54s visitime    2.27s generated nodes   5295647 nodes/sec   97005 cur h   45 mod.depth   70 inserts    708240 dups    217148 size    491092 hash fail 234479 hash buckets 473761
-  55s visitime    2.32s generated nodes   5395791 nodes/sec   96989 cur h   53 mod.depth   71 inserts    721467 dups    220955 size    500512 hash fail 238646 hash buckets 482821
-  56s visitime    2.36s generated nodes   5495971 nodes/sec   96997 cur h   43 mod.depth   67 inserts    734719 dups    226130 size    508589 hash fail 244138 hash buckets 490581
-  57s visitime    2.39s generated nodes   5591204 nodes/sec   96965 cur h   47 mod.depth   57 inserts    746327 dups    230393 size    515934 hash fail 248609 hash buckets 497718
-  58s visitime    2.43s generated nodes   5691362 nodes/sec   97011 cur h   64 mod.depth   34 inserts    758671 dups    234848 size    523823 hash fail 253356 hash buckets 505315
-  59s visitime    2.47s generated nodes   5786522 nodes/sec   96960 cur h   55 mod.depth   53 inserts    770719 dups    238710 size    532009 hash fail 257583 hash buckets 513136
-  60s visitime    2.51s generated nodes   5886687 nodes/sec   96970 cur h   45 mod.depth   57 inserts    784356 dups    242636 size    541720 hash fail 261934 hash buckets 522422
-  61s visitime    2.55s generated nodes   5971861 nodes/sec   96771 cur h   57 mod.depth   41 inserts    799647 dups    248168 size    551479 hash fail 268010 hash buckets 531637
-  62s visitime    2.60s generated nodes   6067098 nodes/sec   96691 cur h   39 mod.depth   85 inserts    815461 dups    254009 size    561452 hash fail 274309 hash buckets 541152
-  63s visitime    2.64s generated nodes   6157284 nodes/sec   96556 cur h   42 mod.depth   90 inserts    830085 dups    259359 size    570726 hash fail 280191 hash buckets 549894
-  64s visitime    2.68s generated nodes   6252527 nodes/sec   96473 cur h   52 mod.depth   50 inserts    842932 dups    264512 size    578420 hash fail 285612 hash buckets 557320
-  65s visitime    2.72s generated nodes   6342811 nodes/sec   96351 cur h   41 mod.depth   65 inserts    856200 dups    270394 size    585806 hash fail 291793 hash buckets 564407
-  66s visitime    2.76s generated nodes   6437931 nodes/sec   96269 cur h   47 mod.depth   66 inserts    868946 dups    275562 size    593384 hash fail 297262 hash buckets 571684
-  67s visitime    2.80s generated nodes   6538204 nodes/sec   96287 cur h   51 mod.depth   48 inserts    882182 dups    280456 size    601726 hash fail 302484 hash buckets 579698
-  68s visitime    2.85s generated nodes   6633417 nodes/sec   96207 cur h   53 mod.depth   63 inserts    895963 dups    285670 size    610293 hash fail 308164 hash buckets 587799
-  69s visitime    2.89s generated nodes   6723639 nodes/sec   96094 cur h   59 mod.depth   42 inserts    912121 dups    292528 size    619593 hash fail 315547 hash buckets 596574
-  70s visitime    2.94s generated nodes   6813801 nodes/sec   96002 cur h   50 mod.depth   77 inserts    925174 dups    297381 size    627793 hash fail 320852 hash buckets 604322
-  71s visitime    2.98s generated nodes   6913974 nodes/sec   96030 cur h   57 mod.depth   48 inserts    938787 dups    302171 size    636616 hash fail 326019 hash buckets 612768
-  73s visitime    3.03s generated nodes   7004207 nodes/sec   95936 cur h   51 mod.depth   55 inserts    951798 dups    306930 size    644868 hash fail 331207 hash buckets 620591
-  74s visitime    3.08s generated nodes   7099442 nodes/sec   95903 cur h   47 mod.depth   48 inserts    967275 dups    313143 size    654132 hash fail 338154 hash buckets 629121
-  75s visitime    3.12s generated nodes   7184563 nodes/sec   95725 cur h   42 mod.depth   69 inserts    983040 dups    319107 size    663933 hash fail 344650 hash buckets 638390
-  76s visitime    3.17s generated nodes   7284753 nodes/sec   95713 cur h   49 mod.depth   60 inserts    999339 dups    325493 size    673846 hash fail 351676 hash buckets 647663
-  77s visitime    3.21s generated nodes   7374928 nodes/sec   95629 cur h   67 mod.depth   28 inserts   1014196 dups    332023 size    682173 hash fail 358606 hash buckets 655590
-  78s visitime    3.26s generated nodes   7465269 nodes/sec   95535 cur h   60 mod.depth   40 inserts   1029560 dups    338574 size    690986 hash fail 365624 hash buckets 663936
-  79s visitime    3.32s generated nodes   7560553 nodes/sec   95502 cur h   39 mod.depth   85 inserts   1044533 dups    344556 size    699977 hash fail 372032 hash buckets 672501
-  80s visitime    3.37s generated nodes   7650697 nodes/sec   95379 cur h   48 mod.depth   75 inserts   1057288 dups    349277 size    708011 hash fail 377231 hash buckets 680057
-  81s visitime    3.43s generated nodes   7750860 nodes/sec   95422 cur h   61 mod.depth   40 inserts   1070485 dups    353437 size    717048 hash fail 381914 hash buckets 688571
-  82s visitime    3.48s generated nodes   7846065 nodes/sec   95382 cur h   59 mod.depth   47 inserts   1083878 dups    358380 size    725498 hash fail 387383 hash buckets 696495
-  83s visitime    3.54s generated nodes   7936218 nodes/sec   95295 cur h   49 mod.depth   72 inserts   1096433 dups    362978 size    733455 hash fail 392418 hash buckets 704015
-  84s visitime    3.59s generated nodes   8031550 nodes/sec   95282 cur h   51 mod.depth   52 inserts   1110361 dups    368093 size    742268 hash fail 398057 hash buckets 712304
-  85s visitime    3.64s generated nodes   8121842 nodes/sec   95204 cur h   59 mod.depth   43 inserts   1123710 dups    373074 size    750636 hash fail 403526 hash buckets 720184
-  86s visitime    3.70s generated nodes   8217070 nodes/sec   95192 cur h   67 mod.depth   26 inserts   1138793 dups    379441 size    759352 hash fail 410369 hash buckets 728424
-  87s visitime    3.75s generated nodes   8302302 nodes/sec   95033 cur h   43 mod.depth   62 inserts   1154352 dups    385106 size    769246 hash fail 416632 hash buckets 737720
-  88s visitime    3.80s generated nodes   8392508 nodes/sec   94963 cur h   45 mod.depth   65 inserts   1170209 dups    391369 size    778840 hash fail 423563 hash buckets 746646
-  89s visitime    3.84s generated nodes   8487702 nodes/sec   94918 cur h   67 mod.depth   22 inserts   1186072 dups    397247 size    788825 hash fail 429983 hash buckets 756089
-  90s visitime    3.88s generated nodes   8577952 nodes/sec   94838 cur h   57 mod.depth   40 inserts   1198397 dups    401808 size    796589 hash fail 434951 hash buckets 763446
-  91s visitime    3.93s generated nodes   8673158 nodes/sec   94827 cur h   41 mod.depth   78 inserts   1213458 dups    408068 size    805390 hash fail 441701 hash buckets 771757
-  92s visitime    3.97s generated nodes   8758296 nodes/sec   94685 cur h   33 mod.depth   82 inserts   1228235 dups    413422 size    814813 hash fail 447721 hash buckets 780514
-  93s visitime    4.02s generated nodes   8853481 nodes/sec   94666 cur h   60 mod.depth   40 inserts   1245016 dups    420093 size    824923 hash fail 455143 hash buckets 789873
-  94s visitime    4.06s generated nodes   8943697 nodes/sec   94554 cur h   46 mod.depth   68 inserts   1259729 dups    426162 size    833567 hash fail 461766 hash buckets 797963
-  95s visitime    4.11s generated nodes   9038857 nodes/sec   94510 cur h   50 mod.depth   60 inserts   1274003 dups    431917 size    842086 hash fail 468050 hash buckets 805953
-  96s visitime    4.16s generated nodes   9124019 nodes/sec   94389 cur h   43 mod.depth   61 inserts   1288486 dups    438206 size    850280 hash fail 474819 hash buckets 813667
-  97s visitime    4.21s generated nodes   9214207 nodes/sec   94343 cur h   47 mod.depth   76 inserts   1303280 dups    444823 size    858457 hash fail 482081 hash buckets 821199
-  98s visitime    4.26s generated nodes   9309407 nodes/sec   94318 cur h   60 mod.depth   39 inserts   1315939 dups    449279 size    866660 hash fail 487004 hash buckets 828935
-  99s visitime    4.30s generated nodes   9404569 nodes/sec   94325 cur h   55 mod.depth   58 inserts   1328887 dups    455059 size    873828 hash fail 493218 hash buckets 835669
- 100s visitime    4.34s generated nodes   9504806 nodes/sec   94365 cur h   57 mod.depth   53 inserts   1342019 dups    459749 size    882270 hash fail 498341 hash buckets 843678
- 101s visitime    4.39s generated nodes   9595022 nodes/sec   94302 cur h   31 mod.depth   71 inserts   1355258 dups    464903 size    890355 hash fail 503970 hash buckets 851288
- 102s visitime    4.43s generated nodes   9685233 nodes/sec   94251 cur h   34 mod.depth  103 inserts   1369985 dups    471284 size    898701 hash fail 510828 hash buckets 859157
- 103s visitime    4.48s generated nodes   9770474 nodes/sec   94147 cur h   56 mod.depth   54 inserts   1383921 dups    477110 size    906811 hash fail 517457 hash buckets 866464
- 104s visitime    4.54s generated nodes   9865651 nodes/sec   94119 cur h   56 mod.depth   60 inserts   1399866 dups    484092 size    915774 hash fail 525080 hash buckets 874786
- 105s visitime    4.59s generated nodes   9955836 nodes/sec   94048 cur h   54 mod.depth   66 inserts   1415483 dups    491339 size    924144 hash fail 532904 hash buckets 882579
- 106s visitime    4.65s generated nodes  10051082 nodes/sec   94016 cur h   53 mod.depth   57 inserts   1428573 dups    495802 size    932771 hash fail 537864 hash buckets 890709
- 107s visitime    4.71s generated nodes  10146275 nodes/sec   94026 cur h   51 mod.depth   69 inserts   1441653 dups    500505 size    941148 hash fail 543214 hash buckets 898439
- 108s visitime    4.76s generated nodes  10236409 nodes/sec   93987 cur h   55 mod.depth   44 inserts   1454491 dups    504993 size    949498 hash fail 548184 hash buckets 906307
- 109s visitime    4.82s generated nodes  10331576 nodes/sec   93994 cur h   64 mod.depth   37 inserts   1469319 dups    510936 size    958383 hash fail 554736 hash buckets 914583
- 110s visitime    4.89s generated nodes  10421783 nodes/sec   93892 cur h   66 mod.depth   33 inserts   1483854 dups    516838 size    967016 hash fail 561305 hash buckets 922549
- 112s visitime    5.00s generated nodes  10501992 nodes/sec   93721 cur h   53 mod.depth   54 inserts   1498237 dups    523413 size    974824 hash fail 568448 hash buckets 929789
- 113s visitime    5.08s generated nodes  10572125 nodes/sec   93487 cur h   48 mod.depth   64 inserts   1509684 dups    527990 size    981694 hash fail 573613 hash buckets 936071
- 114s visitime    5.17s generated nodes  10657360 nodes/sec   93371 cur h   53 mod.depth   54 inserts   1524110 dups    534656 size    989454 hash fail 580817 hash buckets 943293
- 115s visitime    5.25s generated nodes  10742535 nodes/sec   93268 cur h   44 mod.depth   81 inserts   1536734 dups    539890 size    996844 hash fail 586594 hash buckets 950140
- 116s visitime    5.31s generated nodes  10837808 nodes/sec   93270 cur h   49 mod.depth   63 inserts   1549716 dups    544312 size   1005404 hash fail 591532 hash buckets 958184
- 117s visitime    5.38s generated nodes  10928089 nodes/sec   93220 cur h   46 mod.depth   65 inserts   1561998 dups    548507 size   1013491 hash fail 596417 hash buckets 965581
- 118s visitime    5.43s generated nodes  11018392 nodes/sec   93183 cur h   56 mod.depth   56 inserts   1576237 dups    553966 size   1022271 hash fail 602388 hash buckets 973849
- 119s visitime    5.50s generated nodes  11108560 nodes/sec   93134 cur h   64 mod.depth   35 inserts   1589423 dups    558877 size   1030546 hash fail 607810 hash buckets 981613
- 120s visitime    5.58s generated nodes  11198763 nodes/sec   93078 cur h   49 mod.depth   68 inserts   1601370 dups    562902 size   1038468 hash fail 612371 hash buckets 988999
- 121s visitime    5.66s generated nodes  11288909 nodes/sec   93026 cur h   48 mod.depth   71 inserts   1614079 dups    567823 size   1046256 hash fail 617881 hash buckets 996198
- 122s visitime    5.74s generated nodes  11379076 nodes/sec   92957 cur h   71 mod.depth   29 inserts   1626445 dups    572356 size   1054089 hash fail 622956 hash buckets 1003489
- 123s visitime    5.82s generated nodes  11469183 nodes/sec   92906 cur h   52 mod.depth   66 inserts   1639459 dups    577560 size   1061899 hash fail 628766 hash buckets 1010693
- 124s visitime    5.90s generated nodes  11549377 nodes/sec   92786 cur h   50 mod.depth   64 inserts   1650924 dups    581989 size   1068935 hash fail 633650 hash buckets 1017274
- 125s visitime    5.99s generated nodes  11634561 nodes/sec   92723 cur h   46 mod.depth   73 inserts   1663416 dups    587094 size   1076322 hash fail 639243 hash buckets 1024173
- 126s visitime    6.06s generated nodes  11714667 nodes/sec   92614 cur h   53 mod.depth   69 inserts   1675340 dups    591958 size   1083382 hash fail 644625 hash buckets 1030715
- 127s visitime    6.15s generated nodes  11799858 nodes/sec   92538 cur h   54 mod.depth   54 inserts   1687968 dups    596934 size   1091034 hash fail 650109 hash buckets 1037859
- 128s visitime    6.23s generated nodes  11880036 nodes/sec   92430 cur h   46 mod.depth   72 inserts   1700331 dups    601811 size   1098520 hash fail 655513 hash buckets 1044818
- 129s visitime    6.32s generated nodes  11960310 nodes/sec   92328 cur h   70 mod.depth   28 inserts   1712782 dups    606715 size   1106067 hash fail 660942 hash buckets 1051840
- 130s visitime    6.40s generated nodes  12050501 nodes/sec   92275 cur h   52 mod.depth   60 inserts   1726130 dups    612279 size   1113851 hash fail 667080 hash buckets 1059050
- 131s visitime    6.49s generated nodes  12130652 nodes/sec   92181 cur h   52 mod.depth   63 inserts   1738336 dups    617425 size   1120911 hash fail 672842 hash buckets 1065494
- 132s visitime    6.57s generated nodes  12210811 nodes/sec   92088 cur h   59 mod.depth   47 inserts   1751838 dups    623197 size   1128641 hash fail 679265 hash buckets 1072573
- 133s visitime    6.66s generated nodes  12285949 nodes/sec   91958 cur h   64 mod.depth   40 inserts   1763913 dups    628327 size   1135586 hash fail 684982 hash buckets 1078931
- 134s visitime    6.75s generated nodes  12371202 nodes/sec   91868 cur h   45 mod.depth   89 inserts   1778254 dups    634563 size   1143691 hash fail 691919 hash buckets 1086335
- 135s visitime    6.83s generated nodes  12451355 nodes/sec   91763 cur h   62 mod.depth   45 inserts   1791237 dups    640050 size   1151187 hash fail 698118 hash buckets 1093119
- 136s visitime    6.88s generated nodes  12536566 nodes/sec   91683 cur h   41 mod.depth   86 inserts   1804702 dups    646851 size   1157851 hash fail 705371 hash buckets 1099331
- 137s visitime    6.98s generated nodes  12621835 nodes/sec   91603 cur h   45 mod.depth   76 inserts   1819191 dups    653277 size   1165914 hash fail 712456 hash buckets 1106735
- 138s visitime    7.08s generated nodes  12696929 nodes/sec   91482 cur h   51 mod.depth   62 inserts   1831680 dups    658825 size   1172855 hash fail 718545 hash buckets 1113135
- 139s visitime    7.17s generated nodes  12782086 nodes/sec   91404 cur h   63 mod.depth   43 inserts   1845217 dups    664102 size   1181115 hash fail 725259 hash buckets 1119958
- 140s visitime    7.25s generated nodes  12872225 nodes/sec   91373 cur h   58 mod.depth   44 inserts   1856423 dups    667660 size   1188763 hash fail 729454 hash buckets 1126969
- 141s visitime    7.32s generated nodes  12957494 nodes/sec   91300 cur h   49 mod.depth   74 inserts   1869677 dups    672670 size   1197007 hash fail 735128 hash buckets 1134549
- 142s visitime    7.40s generated nodes  13047617 nodes/sec   91279 cur h   52 mod.depth   61 inserts   1881447 dups    676438 size   1205009 hash fail 739680 hash buckets 1141767
- 143s visitime    7.48s generated nodes  13132787 nodes/sec   91214 cur h   52 mod.depth   64 inserts   1892423 dups    680006 size   1212417 hash fail 743832 hash buckets 1148591
- 145s visitime    7.57s generated nodes  13223024 nodes/sec   91183 cur h   65 mod.depth   40 inserts   1904695 dups    684276 size   1220419 hash fail 748742 hash buckets 1155953
- 146s visitime    7.69s generated nodes  13298213 nodes/sec   91073 cur h   55 mod.depth   66 inserts   1915306 dups    688282 size   1227024 hash fail 753330 hash buckets 1161976
- 147s visitime    7.80s generated nodes  13378409 nodes/sec   90987 cur h   60 mod.depth   43 inserts   1927562 dups    692836 size   1234726 hash fail 758496 hash buckets 1169066
- 148s visitime    7.92s generated nodes  13458583 nodes/sec   90877 cur h   47 mod.depth   70 inserts   1938914 dups    696502 size   1242412 hash fail 762841 hash buckets 1176073
- 149s visitime    8.04s generated nodes  13533753 nodes/sec   90744 cur h   46 mod.depth   87 inserts   1950379 dups    701275 size   1249104 hash fail 768118 hash buckets 1182261
- 150s visitime    8.17s generated nodes  13603873 nodes/sec   90603 cur h   61 mod.depth   36 inserts   1960738 dups    705254 size   1255484 hash fail 772551 hash buckets 1188187
- 151s visitime    8.30s generated nodes  13674015 nodes/sec   90434 cur h   38 mod.depth   97 inserts   1970696 dups    708760 size   1261936 hash fail 776600 hash buckets 1194096
- 152s visitime    8.44s generated nodes  13749193 nodes/sec   90309 cur h   39 mod.depth  108 inserts   1981107 dups    712423 size   1268684 hash fail 780950 hash buckets 1200157
- 153s visitime    8.58s generated nodes  13819357 nodes/sec   90162 cur h   60 mod.depth   49 inserts   1991024 dups    715830 size   1275194 hash fail 784856 hash buckets 1206168
- 154s visitime    8.73s generated nodes  13889473 nodes/sec   90002 cur h   58 mod.depth   39 inserts   2000487 dups    719203 size   1281284 hash fail 788802 hash buckets 1211685
- 155s visitime    8.79s generated nodes  13989747 nodes/sec   90043 cur h   47 mod.depth   78 inserts   2013949 dups    724728 size   1289221 hash fail 794950 hash buckets 1218999
- 156s visitime    8.91s generated nodes  14069859 nodes/sec   89940 cur h   41 mod.depth   78 inserts   2024557 dups    728116 size   1296441 hash fail 798981 hash buckets 1225576
- 157s visitime    9.07s generated nodes  14139974 nodes/sec   89777 cur h   40 mod.depth   88 inserts   2034389 dups    731435 size   1302954 hash fail 802873 hash buckets 1231516
- 158s visitime    9.21s generated nodes  14210087 nodes/sec   89626 cur h   49 mod.depth   71 inserts   2044504 dups    734728 size   1309776 hash fail 806748 hash buckets 1237756
- 159s visitime    9.35s generated nodes  14280263 nodes/sec   89482 cur h   39 mod.depth   94 inserts   2054413 dups    738190 size   1316223 hash fail 810752 hash buckets 1243661
- 160s visitime    9.48s generated nodes  14350453 nodes/sec   89354 cur h   48 mod.depth   57 inserts   2064861 dups    742090 size   1322771 hash fail 815272 hash buckets 1249589
- 161s visitime    9.60s generated nodes  14425621 nodes/sec   89236 cur h   48 mod.depth   92 inserts   2076622 dups    746542 size   1330080 hash fail 820374 hash buckets 1256248
- 162s visitime    9.71s generated nodes  14510784 nodes/sec   89183 cur h   65 mod.depth   41 inserts   2088637 dups    751154 size   1337483 hash fail 825583 hash buckets 1263054
- 163s visitime    9.85s generated nodes  14581083 nodes/sec   89063 cur h   31 mod.depth  113 inserts   2098852 dups    754891 size   1343961 hash fail 829931 hash buckets 1268921
- 164s visitime    9.97s generated nodes  14656191 nodes/sec   88962 cur h   50 mod.depth   77 inserts   2109333 dups    758590 size   1350743 hash fail 834233 hash buckets 1275100
- 165s visitime   10.09s generated nodes  14731322 nodes/sec   88878 cur h   53 mod.depth   72 inserts   2121482 dups    763530 size   1357952 hash fail 839910 hash buckets 1281572
- 166s visitime   10.24s generated nodes  14801398 nodes/sec   88740 cur h   50 mod.depth   61 inserts   2132010 dups    767437 size   1364573 hash fail 844425 hash buckets 1287585
- 167s visitime   10.37s generated nodes  14871542 nodes/sec   88607 cur h   53 mod.depth   68 inserts   2143723 dups    772979 size   1370744 hash fail 850498 hash buckets 1293225
- 168s visitime   10.52s generated nodes  14936633 nodes/sec   88467 cur h   53 mod.depth   62 inserts   2153495 dups    776593 size   1376902 hash fail 854802 hash buckets 1298693
- 169s visitime   10.67s generated nodes  15006794 nodes/sec   88332 cur h   53 mod.depth   67 inserts   2164213 dups    780655 size   1383558 hash fail 859642 hash buckets 1304571
- 170s visitime   10.80s generated nodes  15081892 nodes/sec   88216 cur h   42 mod.depth   75 inserts   2176336 dups    785880 size   1390456 hash fail 865556 hash buckets 1310780
- 172s visitime   10.94s generated nodes  15152066 nodes/sec   88082 cur h   59 mod.depth   44 inserts   2186730 dups    790107 size   1396623 hash fail 870308 hash buckets 1316422
- 173s visitime   11.08s generated nodes  15217260 nodes/sec   87948 cur h   56 mod.depth   57 inserts   2196723 dups    793881 size   1402842 hash fail 874613 hash buckets 1322110
- 174s visitime   11.22s generated nodes  15287362 nodes/sec   87808 cur h   49 mod.depth   75 inserts   2207298 dups    797830 size   1409468 hash fail 879214 hash buckets 1328084
- 175s visitime   11.36s generated nodes  15357470 nodes/sec   87686 cur h   50 mod.depth   75 inserts   2217580 dups    801750 size   1415830 hash fail 883744 hash buckets 1333836
- 176s visitime   11.50s generated nodes  15427624 nodes/sec   87560 cur h   45 mod.depth   89 inserts   2229011 dups    806573 size   1422438 hash fail 889129 hash buckets 1339882
- 177s visitime   11.62s generated nodes  15502774 nodes/sec   87487 cur h   50 mod.depth   65 inserts   2239288 dups    810167 size   1429121 hash fail 893332 hash buckets 1345956
- 178s visitime   11.67s generated nodes  15598000 nodes/sec   87518 cur h   56 mod.depth   50 inserts   2251063 dups    814317 size   1436746 hash fail 898099 hash buckets 1352964
- 179s visitime   11.76s generated nodes  15688208 nodes/sec   87501 cur h   54 mod.depth   58 inserts   2263725 dups    818990 size   1444735 hash fail 903547 hash buckets 1360178
- 180s visitime   11.82s generated nodes  15778421 nodes/sec   87513 cur h   51 mod.depth   77 inserts   2276785 dups    824745 size   1452040 hash fail 909900 hash buckets 1366885
- 181s visitime   11.94s generated nodes  15853602 nodes/sec   87439 cur h   51 mod.depth   65 inserts   2287986 dups    829009 size   1458977 hash fail 914832 hash buckets 1373154
- 182s visitime   12.10s generated nodes  15918778 nodes/sec   87279 cur h   58 mod.depth   40 inserts   2298304 dups    833145 size   1465159 hash fail 919602 hash buckets 1378702
- 183s visitime   12.25s generated nodes  15983960 nodes/sec   87154 cur h   44 mod.depth   66 inserts   2308266 dups    837008 size   1471258 hash fail 924213 hash buckets 1384053
- 184s visitime   12.37s generated nodes  16054135 nodes/sec   87056 cur h   59 mod.depth   57 inserts   2318110 dups    840472 size   1477638 hash fail 928289 hash buckets 1389821
- 185s visitime   12.52s generated nodes  16119205 nodes/sec   86933 cur h   58 mod.depth   54 inserts   2327993 dups    844474 size   1483519 hash fail 932859 hash buckets 1395134
- 186s visitime   12.70s generated nodes  16179294 nodes/sec   86753 cur h   62 mod.depth   46 inserts   2338041 dups    848478 size   1489563 hash fail 937424 hash buckets 1400617
- 187s visitime   12.86s generated nodes  16244401 nodes/sec   86616 cur h   67 mod.depth   36 inserts   2348626 dups    852822 size   1495804 hash fail 942422 hash buckets 1406204
- 188s visitime   13.01s generated nodes  16304586 nodes/sec   86473 cur h   63 mod.depth   49 inserts   2358516 dups    856769 size   1501747 hash fail 947037 hash buckets 1411479
- 189s visitime   13.15s generated nodes  16369803 nodes/sec   86357 cur h   53 mod.depth   75 inserts   2368973 dups    861227 size   1507746 hash fail 952040 hash buckets 1416933
- 190s visitime   13.32s generated nodes  16434950 nodes/sec   86214 cur h   63 mod.depth   44 inserts   2379649 dups    865564 size   1514085 hash fail 957049 hash buckets 1422600
- 191s visitime   13.48s generated nodes  16500093 nodes/sec   86073 cur h   49 mod.depth   51 inserts   2389956 dups    869737 size   1520219 hash fail 961810 hash buckets 1428146
- 192s visitime   13.64s generated nodes  16560251 nodes/sec   85929 cur h   44 mod.depth   73 inserts   2400083 dups    874069 size   1526014 hash fail 966771 hash buckets 1433312
- 193s visitime   13.79s generated nodes  16625405 nodes/sec   85801 cur h   41 mod.depth   78 inserts   2410747 dups    878599 size   1532148 hash fail 971903 hash buckets 1438844
- 194s visitime   13.93s generated nodes  16695577 nodes/sec   85698 cur h   52 mod.depth   72 inserts   2421714 dups    883167 size   1538547 hash fail 977219 hash buckets 1444495
- 195s visitime   14.07s generated nodes  16765720 nodes/sec   85606 cur h   43 mod.depth   98 inserts   2432712 dups    887685 size   1545027 hash fail 982561 hash buckets 1450151
- 196s visitime   14.21s generated nodes  16830931 nodes/sec   85502 cur h   47 mod.depth   79 inserts   2442128 dups    891015 size   1551113 hash fail 986481 hash buckets 1455647
- 197s visitime   14.33s generated nodes  16911142 nodes/sec   85472 cur h   55 mod.depth   66 inserts   2452287 dups    894115 size   1558172 hash fail 990310 hash buckets 1461977
- 198s visitime   14.45s generated nodes  16986286 nodes/sec   85411 cur h   57 mod.depth   65 inserts   2461267 dups    896558 size   1564709 hash fail 993301 hash buckets 1467966
- 199s visitime   14.58s generated nodes  17061459 nodes/sec   85352 cur h   44 mod.depth   87 inserts   2470499 dups    899119 size   1571380 hash fail 996496 hash buckets 1474003
- 200s visitime   14.71s generated nodes  17136646 nodes/sec   85283 cur h   62 mod.depth   48 inserts   2480128 dups    901945 size   1578183 hash fail 999935 hash buckets 1480193
- 201s visitime   14.84s generated nodes  17211855 nodes/sec   85228 cur h   63 mod.depth   42 inserts   2489366 dups    904701 size   1584665 hash fail 1003280 hash buckets 1486086
- 203s visitime   14.97s generated nodes  17286929 nodes/sec   85154 cur h   45 mod.depth   79 inserts   2499699 dups    908000 size   1591699 hash fail 1007232 hash buckets 1492467
- 204s visitime   15.11s generated nodes  17362074 nodes/sec   85091 cur h   56 mod.depth   59 inserts   2509062 dups    910801 size   1598261 hash fail 1010675 hash buckets 1498387
- 205s visitime   15.22s generated nodes  17442346 nodes/sec   85060 cur h   74 mod.depth   22 inserts   2519737 dups    914835 size   1604902 hash fail 1015417 hash buckets 1504320
- 206s visitime   15.32s generated nodes  17537487 nodes/sec   85078 cur h   60 mod.depth   48 inserts   2533363 dups    920673 size   1612690 hash fail 1022182 hash buckets 1511181
- 207s visitime   15.48s generated nodes  17597621 nodes/sec   84954 cur h   56 mod.depth   57 inserts   2540935 dups    922991 size   1617944 hash fail 1024955 hash buckets 1515980
- 208s visitime   15.63s generated nodes  17662722 nodes/sec   84841 cur h   55 mod.depth   61 inserts   2549054 dups    925440 size   1623614 hash fail 1027949 hash buckets 1521105
- 209s visitime   15.79s generated nodes  17722835 nodes/sec   84715 cur h   65 mod.depth   41 inserts   2556963 dups    927811 size   1629152 hash fail 1030923 hash buckets 1526040
- 210s visitime   15.94s generated nodes  17793000 nodes/sec   84622 cur h   53 mod.depth   60 inserts   2565801 dups    930484 size   1635317 hash fail 1034149 hash buckets 1531652
- 211s visitime   16.09s generated nodes  17863226 nodes/sec   84535 cur h   60 mod.depth   51 inserts   2575401 dups    934120 size   1641281 hash fail 1038358 hash buckets 1537043
- 212s visitime   16.23s generated nodes  17928313 nodes/sec   84408 cur h   73 mod.depth   24 inserts   2584437 dups    937614 size   1646823 hash fail 1042408 hash buckets 1542029
- 213s visitime   16.40s generated nodes  17988428 nodes/sec   84262 cur h   64 mod.depth   52 inserts   2592204 dups    940137 size   1652067 hash fail 1045410 hash buckets 1546794
- 214s visitime   16.56s generated nodes  18048524 nodes/sec   84137 cur h   43 mod.depth   66 inserts   2600335 dups    942394 size   1657941 hash fail 1048569 hash buckets 1551766
- 215s visitime   16.70s generated nodes  18108635 nodes/sec   84011 cur h   63 mod.depth   32 inserts   2607999 dups    944705 size   1663294 hash fail 1051405 hash buckets 1556594
- 216s visitime   16.84s generated nodes  18168771 nodes/sec   83879 cur h   52 mod.depth   56 inserts   2615960 dups    947267 size   1668693 hash fail 1054545 hash buckets 1561415
- 217s visitime   16.99s generated nodes  18233921 nodes/sec   83779 cur h   49 mod.depth   75 inserts   2624880 dups    950247 size   1674633 hash fail 1058137 hash buckets 1566743
- 218s visitime   17.11s generated nodes  18304039 nodes/sec   83698 cur h   47 mod.depth   83 inserts   2634098 dups    953035 size   1681063 hash fail 1061639 hash buckets 1572459
- 219s visitime   17.26s generated nodes  18364205 nodes/sec   83559 cur h   54 mod.depth   72 inserts   2642215 dups    955627 size   1686588 hash fail 1064818 hash buckets 1577397
- 220s visitime   17.41s generated nodes  18424351 nodes/sec   83422 cur h   39 mod.depth  103 inserts   2650534 dups    958426 size   1692108 hash fail 1068175 hash buckets 1582359
- 221s visitime   17.56s generated nodes  18484463 nodes/sec   83288 cur h   46 mod.depth   61 inserts   2658464 dups    960978 size   1697486 hash fail 1071238 hash buckets 1587226
- 222s visitime   17.70s generated nodes  18549583 nodes/sec   83186 cur h   43 mod.depth   92 inserts   2666859 dups    963656 size   1703203 hash fail 1074531 hash buckets 1592328
- 224s visitime   17.83s generated nodes  18609774 nodes/sec   83072 cur h   63 mod.depth   47 inserts   2674480 dups    965993 size   1708487 hash fail 1077416 hash buckets 1597064
- 225s visitime   17.97s generated nodes  18669888 nodes/sec   82942 cur h   48 mod.depth   75 inserts   2682198 dups    968439 size   1713759 hash fail 1080413 hash buckets 1601785
- 226s visitime   18.09s generated nodes  18725130 nodes/sec   82775 cur h   64 mod.depth   37 inserts   2689715 dups    971054 size   1718661 hash fail 1083562 hash buckets 1606153
- 227s visitime   18.23s generated nodes  18785324 nodes/sec   82645 cur h   52 mod.depth   76 inserts   2698374 dups    974220 size   1724154 hash fail 1087338 hash buckets 1611036
- 228s visitime   18.34s generated nodes  18825422 nodes/sec   82450 cur h   57 mod.depth   57 inserts   2703992 dups    976174 size   1727818 hash fail 1089664 hash buckets 1614328
- 229s visitime   18.47s generated nodes  18885527 nodes/sec   82329 cur h   56 mod.depth   53 inserts   2712459 dups    979101 size   1733358 hash fail 1093159 hash buckets 1619300
- 230s visitime   18.58s generated nodes  18930614 nodes/sec   82124 cur h   55 mod.depth   66 inserts   2719595 dups    981852 size   1737743 hash fail 1096364 hash buckets 1623231
- 231s visitime   18.71s generated nodes  18980679 nodes/sec   81976 cur h   56 mod.depth   60 inserts   2726629 dups    984322 size   1742307 hash fail 1099331 hash buckets 1627298
- 232s visitime   18.81s generated nodes  19025776 nodes/sec   81786 cur h   66 mod.depth   38 inserts   2733121 dups    986613 size   1746508 hash fail 1102082 hash buckets 1631039
- 233s visitime   18.94s generated nodes  19085866 nodes/sec   81664 cur h   56 mod.depth   58 inserts   2741429 dups    989674 size   1751755 hash fail 1105740 hash buckets 1635689
- 234s visitime   19.06s generated nodes  19136011 nodes/sec   81529 cur h   54 mod.depth   53 inserts   2749023 dups    992719 size   1756304 hash fail 1109302 hash buckets 1639721
- 235s visitime   19.17s generated nodes  19186122 nodes/sec   81394 cur h   63 mod.depth   51 inserts   2756318 dups    995461 size   1760857 hash fail 1112678 hash buckets 1643640
- 236s visitime   19.29s generated nodes  19241202 nodes/sec   81270 cur h   72 mod.depth   26 inserts   2764547 dups    998430 size   1766117 hash fail 1116209 hash buckets 1648338
- 237s visitime   19.42s generated nodes  19291310 nodes/sec   81125 cur h   51 mod.depth   70 inserts   2771767 dups   1001038 size   1770729 hash fail 1119313 hash buckets 1652454
- 238s visitime   19.48s generated nodes  19361450 nodes/sec   81079 cur h   47 mod.depth   74 inserts   2782661 dups   1005450 size   1777211 hash fail 1124668 hash buckets 1657993
- 239s visitime   19.59s generated nodes  19426613 nodes/sec   81000 cur h   64 mod.depth   43 inserts   2792236 dups   1009078 size   1783158 hash fail 1128985 hash buckets 1663251
- 240s visitime   19.71s generated nodes  19481808 nodes/sec   80872 cur h   67 mod.depth   40 inserts   2800589 dups   1012221 size   1788368 hash fail 1132775 hash buckets 1667814
- 241s visitime   19.84s generated nodes  19526884 nodes/sec   80710 cur h   63 mod.depth   44 inserts   2807630 dups   1015026 size   1792604 hash fail 1136018 hash buckets 1671612
- 243s visitime   19.96s generated nodes  19576958 nodes/sec   80562 cur h   53 mod.depth   65 inserts   2814603 dups   1017614 size   1796989 hash fail 1139133 hash buckets 1675470
- 244s visitime   20.09s generated nodes  19627100 nodes/sec   80423 cur h   54 mod.depth   63 inserts   2822001 dups   1020542 size   1801459 hash fail 1142644 hash buckets 1679357
- 245s visitime   20.20s generated nodes  19672185 nodes/sec   80277 cur h   39 mod.depth   99 inserts   2828703 dups   1023063 size   1805640 hash fail 1145655 hash buckets 1683048
- 246s visitime   20.33s generated nodes  19727305 nodes/sec   80134 cur h   52 mod.depth   63 inserts   2836753 dups   1026328 size   1810425 hash fail 1149451 hash buckets 1687302
- 247s visitime   20.47s generated nodes  19772420 nodes/sec   79975 cur h   31 mod.depth  116 inserts   2843371 dups   1028752 size   1814619 hash fail 1152313 hash buckets 1691058
- 248s visitime   20.61s generated nodes  19827483 nodes/sec   79844 cur h   53 mod.depth   48 inserts   2851216 dups   1031481 size   1819735 hash fail 1155674 hash buckets 1695542
- 249s visitime   20.73s generated nodes  19872564 nodes/sec   79704 cur h   55 mod.depth   61 inserts   2858022 dups   1033836 size   1824186 hash fail 1158932 hash buckets 1699090
- 250s visitime   20.83s generated nodes  19917753 nodes/sec   79559 cur h   47 mod.depth   87 inserts   2865832 dups   1037691 size   1828141 hash fail 1163379 hash buckets 1702453
- 251s visitime   20.97s generated nodes  19972876 nodes/sec   79431 cur h   53 mod.depth   61 inserts   2873803 dups   1040405 size   1833398 hash fail 1166676 hash buckets 1707127
- 252s visitime   21.09s generated nodes  20032997 nodes/sec   79332 cur h   67 mod.depth   37 inserts   2882256 dups   1043901 size   1838355 hash fail 1170778 hash buckets 1711478
- 253s visitime   21.22s generated nodes  20083074 nodes/sec   79205 cur h   51 mod.depth   73 inserts   2889247 dups   1046307 size   1842940 hash fail 1173705 hash buckets 1715542
- 254s visitime   21.34s generated nodes  20133170 nodes/sec   79069 cur h   71 mod.depth   27 inserts   2896464 dups   1048825 size   1847639 hash fail 1176734 hash buckets 1719730
- 255s visitime   21.48s generated nodes  20183284 nodes/sec   78925 cur h   59 mod.depth   49 inserts   2903930 dups   1051776 size   1852154 hash fail 1180251 hash buckets 1723679
- 256s visitime   21.59s generated nodes  20228372 nodes/sec   78772 cur h   44 mod.depth   83 inserts   2910166 dups   1053982 size   1856184 hash fail 1182901 hash buckets 1727265
- 257s visitime   21.74s generated nodes  20278496 nodes/sec   78631 cur h   54 mod.depth   75 inserts   2917515 dups   1056927 size   1860588 hash fail 1186380 hash buckets 1731135
- 258s visitime   21.87s generated nodes  20328626 nodes/sec   78509 cur h   44 mod.depth   82 inserts   2924590 dups   1059561 size   1865029 hash fail 1189487 hash buckets 1735103
- 260s visitime   22.00s generated nodes  20378690 nodes/sec   78370 cur h   38 mod.depth  105 inserts   2932093 dups   1062477 size   1869616 hash fail 1192993 hash buckets 1739100
- 261s visitime   22.12s generated nodes  20423821 nodes/sec   78242 cur h   52 mod.depth   65 inserts   2939016 dups   1065127 size   1873889 hash fail 1196140 hash buckets 1742876
- 262s visitime   22.24s generated nodes  20468947 nodes/sec   78082 cur h   49 mod.depth   79 inserts   2945912 dups   1068119 size   1877793 hash fail 1199571 hash buckets 1746341
- 263s visitime   22.37s generated nodes  20514076 nodes/sec   77943 cur h   49 mod.depth   77 inserts   2953128 dups   1071221 size   1881907 hash fail 1203201 hash buckets 1749927
- 264s visitime   22.40s generated nodes  20534145 nodes/sec   77719 cur h   50 mod.depth   68 inserts   2956194 dups   1072884 size   1883310 hash fail 1205016 hash buckets 1751178
- 265s visitime   22.41s generated nodes  20539150 nodes/sec   77372 cur h   59 mod.depth   52 inserts   2956888 dups   1073138 size   1883750 hash fail 1205313 hash buckets 1751575
- 266s visitime   22.44s generated nodes  20544166 nodes/sec   77089 cur h   53 mod.depth   66 inserts   2957724 dups   1073475 size   1884249 hash fail 1205722 hash buckets 1752002
- 268s visitime   22.51s generated nodes  20574282 nodes/sec   76716 cur h   65 mod.depth   40 inserts   2961985 dups   1075022 size   1886963 hash fail 1207695 hash buckets 1754290
- 269s visitime   22.66s generated nodes  20619373 nodes/sec   76564 cur h   67 mod.depth   37 inserts   2968926 dups   1077725 size   1891201 hash fail 1210874 hash buckets 1758052
- 270s visitime   22.67s generated nodes  20624391 nodes/sec   76218 cur h   34 mod.depth  109 inserts   2969607 dups   1077974 size   1891633 hash fail 1211165 hash buckets 1758442
- 272s visitime   22.70s generated nodes  20629404 nodes/sec   75842 cur h   50 mod.depth   56 inserts   2970383 dups   1078296 size   1892087 hash fail 1211535 hash buckets 1758848
- 273s visitime   22.72s generated nodes  20634406 nodes/sec   75563 cur h   28 mod.depth  124 inserts   2971214 dups   1078654 size   1892560 hash fail 1211963 hash buckets 1759251
- 275s visitime   22.74s generated nodes  20639417 nodes/sec   75035 cur h   47 mod.depth   83 inserts   2971849 dups   1078874 size   1892975 hash fail 1212234 hash buckets 1759615
- 282s visitime   22.75s generated nodes  20644421 nodes/sec   73173 cur h   56 mod.depth   78 inserts   2972341 dups   1078979 size   1893362 hash fail 1212408 hash buckets 1759933
- 284s visitime   22.77s generated nodes  20649427 nodes/sec   72574 cur h   42 mod.depth   77 inserts   2973094 dups   1079306 size   1893788 hash fail 1212788 hash buckets 1760306
- 285s visitime   22.79s generated nodes  20654434 nodes/sec   72287 cur h   59 mod.depth   52 inserts   2973812 dups   1079595 size   1894217 hash fail 1213130 hash buckets 1760682
- 287s visitime   22.81s generated nodes  20659443 nodes/sec   71785 cur h   60 mod.depth   51 inserts   2974590 dups   1079917 size   1894673 hash fail 1213517 hash buckets 1761073
- 289s visitime   22.83s generated nodes  20664456 nodes/sec   71293 cur h   57 mod.depth   54 inserts   2975501 dups   1080316 size   1895185 hash fail 1213970 hash buckets 1761531
- 291s visitime   22.85s generated nodes  20669463 nodes/sec   70834 cur h   63 mod.depth   42 inserts   2976263 dups   1080608 size   1895655 hash fail 1214304 hash buckets 1761959
- 293s visitime   22.88s generated nodes  20674475 nodes/sec   70409 cur h   48 mod.depth   82 inserts   2977009 dups   1080911 size   1896098 hash fail 1214653 hash buckets 1762356
- 297s visitime   22.94s generated nodes  20684505 nodes/sec   69589 cur h   37 mod.depth  111 inserts   2978634 dups   1081647 size   1896987 hash fail 1215500 hash buckets 1763134
- 299s visitime   22.96s generated nodes  20689506 nodes/sec   69027 cur h   40 mod.depth   83 inserts   2979471 dups   1082039 size   1897432 hash fail 1215938 hash buckets 1763533
- 301s visitime   22.99s generated nodes  20694508 nodes/sec   68609 cur h   43 mod.depth   89 inserts   2980200 dups   1082334 size   1897866 hash fail 1216269 hash buckets 1763931
+- Search is stopped afte   1s visitime    0.06s generated nodes       1s visitime    0.06s generated nodes    160277 nodes/sec  155457 cur h   43 mod.depth  173 inserts     20824 dups      5794 size        2s visitime    0.11s generated nodes       2s visitime    0.11s generated nodes    305612 nodes/sec  148933 cur h   58 mod.depth  219 inserts     38072 dups      9937 size        3s visitime    0.17s generated nodes       3s visitime    0.17s generated nodes    465919 nodes/sec  151321 cur h   39 mod.depth  219 inserts     61964 dups     17754 size        4s visitime    0.23s generated nodes       4s visitime    0.23s generated nodes    616149 nodes/sec  150353 cur h   48 mod.depth  194 inserts     85562 dups     26689 size     Search Results
+- Search time 4.47 seconds
+-Search Results
+- Search time 4.47 seconds
+- Visited list time 0.26 seconds
+- Visited list inserts 94878
+- Visited list pruned 30954
+- Visited list contains 63924
+- Visited list hash collisions 31067
+- Visited list used hash buckets 63811
+- Generated 668236 search nodes
+  Calculated heuristic for 508588 nodes
+  One modifications 136171
+  Effectless actions 23477
+- including 136171 one modification actions
+- including 0 one modification methods
+- and       23477 progressions of effectless actions
+- Generated 113676 nodes per- Status: Solved
+- Found solution of length- Status: Solved
+- Found solution of length 286
+- Total costs of actions: 133
+==>
+8 __method_precondition_m_process_all_regular_recursive_ordering_0[s2]
+18 __method_precondition_m_process_all_sensitive_recursive_ordering_0[s6]
+28 __method_precondition_m_process_sensitive_sample_ordering_0[s6,cap1,wing_alpha,docking_station,bio_vault]
+32 __method_precondition_m_navigate_already_there_ordering_0[rov1,docking_station]
+52 __method_precondition_m_process_regular_sample_ordering_0[s2,wing_alpha,bio_vault]
+82 take-empty-capsule[rov1,cap1,docking_station,c0,c1]
+662361 __method_precondition_m_navigate_recursive_connected_ordering_0[rov1,docking_station,transfer_zone,wing_alpha]
+662362 visit[rov1,docking_station]
+662363 move[rov1,docking_station,transfer_zone]
+662377 __method_precondition_m_navigate_direct_narrow_ordering_0[rov1,transfer_zone,wing_alpha]
+662378 move-through-narrow[rov1,transfer_zone,wing_alpha]
+662379 unvisit[rov1,docking_station]
+662380 encapsulate-sample[rov1,s6,cap1,wing_alpha]
+662415 __method_precondition_m_navigate_recursive_narrow_ordering_0[rov1,wing_alpha,transfer_zone,wing_alpha]
+662416 visit[rov1,wing_alpha]
+662417 move-through-narrow[rov1,wing_alpha,transfer_zone]
+662430 __method_precondition_m_navigate_recursive_connected_ordering_0[rov1,transfer_zone,decompression_chamber,wing_alpha]
+662431 visit[rov1,transfer_zone]
+662432 move[rov1,transfer_zone,decompression_chamber]
+662433 __method_precondition_m_navigate_recursive_connected_ordering_0[rov1,decompression_chamber,bio_vault,wing_alpha]
+662481 __method_precondition_m_navigate_recursive_connected_ordering_0[rov1,decompression_chamber,bio_vault,wing_alpha]
+664405 visit[rov1,decompression_chamber]
+664407 visit[rov1,decompression_chamber]
+664410 move[rov1,decompression_chamber,bio_vault]
+664416 __method_precondition_m_navigate_direct_connected_ordering_0[rov1,bio_vault,pressure_stabilizer]
+664417 move[rov1,bio_vault,pressure_stabilizer]
+664418 unvisit[rov1,decompression_chamber]
+664419 unvisit[rov1,transfer_zone]
+664420 unvisit[rov1,wing_alpha]
+664434 drop-sensitive-sample[rov1,s6,cap1,pressure_stabilizer,c0,c1]
+664435 stabilize-capsule[rov1,s6,cap1,pressure_stabilizer]
+664440 pickup-sensitive-sample[rov1,s6,cap1,pressure_stabilizer,c0,c1]
+664456 __method_precondition_m_navigate_recursive_connected_ordering_0[rov1,pressure_stabilizer,decompression_chamber,wing_alpha]
+664457 visit[rov1,pressure_stabilizer]
+664458 move[rov1,pressure_stabilizer,decompression_chamber]
+664466 __method_precondition_m_navigate_direct_connected_ordering_0[rov1,decompression_chamber,pressure_stabilizer]
+664494 move[rov1,decompression_chamber,bio_vault]
+664555 __method_precondition_m_navigate_recursive_connected_ordering_0[rov1,bio_vault,decompression_chamber,wing_alpha]
+664556 visit[rov1,bio_vault]
+664557 move[rov1,bio_vault,decompression_chamber]
+664584 move[rov1,decompression_chamber,bio_vault]
+664585 unvisit[rov1,pressure_stabilizer]
+664586 __method_precondition_m_navigate_recursive_connected_ordering_0[rov1,bio_vault,pressure_stabilizer,wing_alpha]
+664689 store-sensitive-sample[rov1,s6,cap1,bio_vault,c0,c1]
+664690 visit[rov1,bio_vault]
+664693 move[rov1,bio_vault,pressure_stabilizer]
+664713 __method_precondition_m_navigate_recursive_connected_ordering_0[rov1,pressure_stabilizer,decompression_chamber,wing_alpha]
+664756 visit[rov1,pressure_stabilizer]
+664758 move[rov1,pressure_stabilizer,decompression_chamber]
+664764 __method_precondition_m_navigate_recursive_connected_ordering_0[rov1,decompression_chamber,transfer_zone,wing_alpha]
+664820 visit[rov1,decompression_chamber]
+664828 move[rov1,decompression_chamber,transfer_zone]
+664832 __method_precondition_m_navigate_direct_narrow_ordering_0[rov1,transfer_zone,wing_alpha]
+664860 move-through-narrow[rov1,transfer_zone,wing_alpha]
+664946 unvisit[rov1,decompression_chamber]
+664948 unvisit[rov1,pressure_stabilizer]
+664970 unvisit[rov1,bio_vault]
+664977 unvisit[rov1,bio_vault]
+664979 unvisit[rov1,decompression_chamber]
+664986 pickup-regular-sample[rov1,s2,wing_alpha,c0,c1]
+665014 __method_precondition_m_navigate_recursive_narrow_ordering_0[rov1,wing_alpha,transfer_zone,wing_alpha]
+665020 visit[rov1,wing_alpha]
+665031 move-through-narrow[rov1,wing_alpha,transfer_zone]
+665051 __method_precondition_m_navigate_recursive_connected_ordering_0[rov1,transfer_zone,decompression_chamber,wing_alpha]
+665112 visit[rov1,transfer_zone]
+665118 move[rov1,transfer_zone,decompression_chamber]
+665195 __method_precondition_m_navigate_direct_connected_ordering_0[rov1,decompression_chamber,pressure_stabilizer]
+665223 move[rov1,decompression_chamber,bio_vault]
+665234 unvisit[rov1,transfer_zone]
+665240 unvisit[rov1,wing_alpha]
+665254 store-regular-sample[rov1,s2,bio_vault,c0,c1]
+665256 mark-regular-done[s2]
+665403 __method_precondition_m_process_all_regular_recursive_ordering_0[s3]
+665409 __method_precondition_m_process_regular_sample_ordering_0[s3,wing_beta,bio_vault]
+665429 __method_precondition_m_navigate_recursive_connected_ordering_0[rov2,docking_station,transfer_zone,wing_beta]
+665439 visit[rov2,docking_station]
+665441 move[rov2,docking_station,transfer_zone]
+665448 __method_precondition_m_navigate_direct_connected_ordering_0[rov2,transfer_zone,wing_beta]
+665474 move[rov2,transfer_zone,wing_beta]
+665500 unvisit[rov2,docking_station]
+665512 pickup-regular-sample[rov2,s3,wing_beta,c2,c3]
+665539 __method_precondition_m_navigate_recursive_connected_ordering_0[rov2,wing_beta,transfer_zone,wing_beta]
+665569 visit[rov2,wing_beta]
+665571 move[rov2,wing_beta,transfer_zone]
+665582 __method_precondition_m_navigate_recursive_connected_ordering_0[rov2,transfer_zone,decompression_chamber,wing_beta]
+665626 visit[rov2,transfer_zone]
+665632 move[rov2,transfer_zone,decompression_chamber]
+665686 __method_precondition_m_navigate_direct_connected_ordering_0[rov2,decompression_chamber,bio_vault]
+665708 move[rov2,decompression_chamber,bio_vault]
+665717 unvisit[rov2,transfer_zone]
+665719 unvisit[rov2,wing_beta]
+665726 store-regular-sample[rov2,s3,bio_vault,c2,c3]
+665728 mark-regular-done[s3]
+665888 __method_precondition_m_process_all_regular_recursive_ordering_0[s1]
+665901 __method_precondition_m_process_regular_sample_ordering_0[s1,wing_alpha,bio_vault]
+665931 __method_precondition_m_navigate_recursive_connected_ordering_0[rov1,bio_vault,decompression_chamber,wing_alpha]
+665963 visit[rov1,bio_vault]
+665969 move[rov1,bio_vault,decompression_chamber]
+665975 __method_precondition_m_navigate_recursive_connected_ordering_0[rov1,decompression_chamber,transfer_zone,wing_alpha]
+666005 visit[rov1,decompression_chamber]
+666007 move[rov1,decompression_chamber,transfer_zone]
+666011 __method_precondition_m_navigate_direct_narrow_ordering_0[rov1,transfer_zone,wing_alpha]
+666041 move-through-narrow[rov1,transfer_zone,wing_alpha]
+666315 unvisit[rov1,decompression_chamber]
+666317 unvisit[rov1,bio_vault]
+666331 pickup-regular-sample[rov1,s1,wing_alpha,c0,c1]
+666362 __method_precondition_m_navigate_recursive_narrow_ordering_0[rov1,wing_alpha,transfer_zone,wing_alpha]
+666398 visit[rov1,wing_alpha]
+666400 move-through-narrow[rov1,wing_alpha,transfer_zone]
+666420 __method_precondition_m_navigate_recursive_connected_ordering_0[rov1,transfer_zone,decompression_chamber,wing_alpha]
+666546 visit[rov1,transfer_zone]
+666552 move[rov1,transfer_zone,decompression_chamber]
+666588 __method_precondition_m_navigate_direct_connected_ordering_0[rov1,decompression_chamber,pressure_stabilizer]
+666641 mark-sensitive-done[s6]
+667172 __method_precondition_m_process_all_sensitive_recursive_ordering_0[s4]
+667455 __method_precondition_m_process_sensitive_sample_ordering_0[s4,cap1,wing_beta,bio_vault,bio_vault]
+667499 move[rov1,decompression_chamber,bio_vault]
+667500 __method_precondition_m_navigate_recursive_connected_ordering_0[rov1,bio_vault,decompression_chamber,wing_alpha]
+667531 unvisit[rov1,transfer_zone]
+667533 visit[rov1,bio_vault]
+667536 move[rov1,bio_vault,decompression_chamber]
+667540 __method_precondition_m_navigate_direct_connected_ordering_0[rov1,decompression_chamber,pressure_stabilizer]
+667567 unvisit[rov1,wing_alpha]
+667584 move[rov1,decompression_chamber,bio_vault]
+667591 store-regular-sample[rov1,s1,bio_vault,c0,c1]
+667594 mark-regular-done[s1]
+667596 __method_precondition_m_process_all_regular_base_ordering_0[]
+667597 unvisit[rov1,bio_vault]
+667602 take-empty-capsule[rov1,cap1,bio_vault,c0,c1]
+667611 __method_precondition_m_navigate_recursive_connected_ordering_0[rov1,bio_vault,pressure_stabilizer,wing_alpha]
+667612 visit[rov1,bio_vault]
+667613 move[rov1,bio_vault,pressure_stabilizer]
+667655 __method_precondition_m_navigate_recursive_connected_ordering_0[rov1,pressure_stabilizer,decompression_chamber,wing_alpha]
+667656 visit[rov1,pressure_stabilizer]
+667657 move[rov1,pressure_stabilizer,decompression_chamber]
+667666 __method_precondition_m_navigate_recursive_connected_ordering_0[rov1,decompression_chamber,transfer_zone,wing_alpha]
+667667 visit[rov1,decompression_chamber]
+667668 move[rov1,decompression_chamber,transfer_zone]
+667683 __method_precondition_m_navigate_direct_narrow_ordering_0[rov1,transfer_zone,wing_alpha]
+667684 move[rov1,transfer_zone,wing_beta]
+667685 unvisit[rov1,decompression_chamber]
+667686 unvisit[rov1,pressure_stabilizer]
+667687 unvisit[rov1,bio_vault]
+667688 encapsulate-sample[rov1,s4,cap1,wing_beta]
+667769 __method_precondition_m_navigate_recursive_connected_ordering_0[rov1,wing_beta,transfer_zone,wing_alpha]
+667770 visit[rov1,wing_beta]
+667771 move[rov1,wing_beta,transfer_zone]
+667790 __method_precondition_m_navigate_recursive_connected_ordering_0[rov1,transfer_zone,decompression_chamber,wing_alpha]
+667791 visit[rov1,transfer_zone]
+667792 move[rov1,transfer_zone,decompression_chamber]
+667808 __method_precondition_m_navigate_direct_connected_ordering_0[rov1,decompression_chamber,pressure_stabilizer]
+667809 move[rov1,decompression_chamber,pressure_stabilizer]
+667810 unvisit[rov1,transfer_zone]
+667811 unvisit[rov1,wing_beta]
+667830 drop-sensitive-sample[rov1,s4,cap1,pressure_stabilizer,c0,c1]
+667831 stabilize-capsule[rov1,s4,cap1,pressure_stabilizer]
+667836 pickup-sensitive-sample[rov1,s4,cap1,pressure_stabilizer,c0,c1]
+667840 __method_precondition_m_navigate_already_there_ordering_0[rov1,pressure_stabilizer]
+667841 move[rov1,pressure_stabilizer,bio_vault]
+667859 store-sensitive-sample[rov1,s4,cap1,bio_vault,c0,c1]
+667860 mark-sensitive-done[s4]
+668005 __method_precondition_m_process_all_sensitive_recursive_ordering_0[s5]
+668016 __method_precondition_m_process_sensitive_sample_ordering_0[s5,cap1,wing_beta,bio_vault,bio_vault]
+668018 __method_precondition_m_navigate_direct_connected_ordering_0[rov1,bio_vault,pressure_stabilizer]
+668042 take-empty-capsule[rov1,cap1,bio_vault,c0,c1]
+668079 __method_precondition_m_navigate_recursive_connected_ordering_0[rov1,bio_vault,decompression_chamber,wing_alpha]
+668080 visit[rov1,bio_vault]
+668081 move[rov1,bio_vault,decompression_chamber]
+668091 __method_precondition_m_navigate_recursive_connected_ordering_0[rov1,decompression_chamber,transfer_zone,wing_alpha]
+668092 visit[rov1,decompression_chamber]
+668093 move[rov1,decompression_chamber,transfer_zone]
+668111 __method_precondition_m_navigate_direct_narrow_ordering_0[rov1,transfer_zone,wing_alpha]
+668112 move[rov1,transfer_zone,wing_beta]
+668113 unvisit[rov1,decompression_chamber]
+668114 unvisit[rov1,bio_vault]
+668115 encapsulate-sample[rov1,s5,cap1,wing_beta]
+668140 __method_precondition_m_navigate_recursive_connected_ordering_0[rov1,wing_beta,transfer_zone,wing_alpha]
+668141 visit[rov1,wing_beta]
+668142 move[rov1,wing_beta,transfer_zone]
+668161 __method_precondition_m_navigate_recursive_connected_ordering_0[rov1,transfer_zone,decompression_chamber,wing_alpha]
+668162 visit[rov1,transfer_zone]
+668163 move[rov1,transfer_zone,decompression_chamber]
+668179 __method_precondition_m_navigate_direct_connected_ordering_0[rov1,decompression_chamber,pressure_stabilizer]
+668180 move[rov1,decompression_chamber,pressure_stabilizer]
+668181 unvisit[rov1,transfer_zone]
+668182 unvisit[rov1,wing_beta]
+668201 drop-sensitive-sample[rov1,s5,cap1,pressure_stabilizer,c0,c1]
+668202 stabilize-capsule[rov1,s5,cap1,pressure_stabilizer]
+668206 pickup-sensitive-sample[rov1,s5,cap1,pressure_stabilizer,c0,c1]
+668211 __method_precondition_m_navigate_already_there_ordering_0[rov1,pressure_stabilizer]
+668212 move[rov1,pressure_stabilizer,bio_vault]
+668230 store-sensitive-sample[rov1,s5,cap1,bio_vault,c0,c1]
+668231 mark-sensitive-done[s5]
+668234 __method_precondition_m_process_all_sensitive_base_ordering_0[]
+root 0
+668233 process-all-sensitive-samples[] -> m_process_all_sensitive_base_ordering_0 668234
+668229 m_process_sensitive_sample_ordering_0_splitted_31[rov1,s5,cap1,bio_vault] -> _splitting_method_m_process_sensitive_sample_ordering_0_splitted_31 668230
+668210 navigate-to[rov1,bio_vault] -> m_navigate_direct_connected_ordering_0 668211 668212
+668205 m_process_sensitive_sample_ordering_0_splitted_29[rov1,s5,cap1,pressure_stabilizer] -> _splitting_method_m_process_sensitive_sample_ordering_0_splitted_29 668206
+668200 m_process_sensitive_sample_ordering_0_splitted_26[rov1,s5,cap1,pressure_stabilizer] -> _splitting_method_m_process_sensitive_sample_ordering_0_splitted_26 668201
+668178 navigate-to[rov1,pressure_stabilizer] -> m_navigate_direct_connected_ordering_0 668179 668180
+668160 navigate-to[rov1,pressure_stabilizer] -> m_navigate_recursive_connected_ordering_0 668161 668162 668163 668178 668181
+668139 navigate-to[rov1,pressure_stabilizer] -> m_navigate_recursive_connected_ordering_0 668140 668141 668142 668160 668182
+668110 navigate-to[rov1,wing_beta] -> m_navigate_direct_connected_ordering_0 668111 668112
+668090 navigate-to[rov1,wing_beta] -> m_navigate_recursive_connected_ordering_0 668091 668092 668093 668110 668113
+668078 navigate-to[rov1,wing_beta] -> m_navigate_recursive_connected_ordering_0 668079 668080 668081 668090 668114
+668041 _splitting_method_m_process_sensitive_sample_ordering_0_splitted_9_splitted_20[rov1,cap1,bio_vault] -> _splitting_method__splitting_method_m_process_sensitive_sample_ordering_0_splitted_9_splitted_20 668042
+668017 navigate-to[rov1,bio_vault] -> m_navigate_already_there_ordering_0 668018
+668015 m_process_sensitive_sample_ordering_0_splitted_9[rov1,cap1,s5,wing_beta,bio_vault] -> _splitting_method_m_process_sensitive_sample_ordering_0_splitted_9 668016 668017 668041
+668009 process-sensitive-sample[s5] -> <m_process_sensitive_sample_ordering_0;m_process_sensitive_sample_ordering_0_splitted_21[rov1,s5,cap1,bio_vault];_splitting_method_m_process_sensitive_sample_ordering_0_splitted_21;0;-1,-2,-3,1,2,3,4,5,6> 668015 668078 668115 668139 668200 668202 668205 668210 668229
+668004 m_process_all_sensitive_recursive_ordering_0_splitted_6[] -> _splitting_method_m_process_all_sensitive_recursive_ordering_0_splitted_6 668005 668009 668231
+667863 process-all-sensitive-samples[] -> m_process_all_sensitive_recursive_ordering_0 668004 668233
+667858 m_process_sensitive_sample_ordering_0_splitted_31[rov1,s4,cap1,bio_vault] -> _splitting_method_m_process_sensitive_sample_ordering_0_splitted_31 667859
+667839 navigate-to[rov1,bio_vault] -> m_navigate_direct_connected_ordering_0 667840 667841
+667835 m_process_sensitive_sample_ordering_0_splitted_29[rov1,s4,cap1,pressure_stabilizer] -> _splitting_method_m_process_sensitive_sample_ordering_0_splitted_29 667836
+667829 m_process_sensitive_sample_ordering_0_splitted_26[rov1,s4,cap1,pressure_stabilizer] -> _splitting_method_m_process_sensitive_sample_ordering_0_splitted_26 667830
+667807 navigate-to[rov1,pressure_stabilizer] -> m_navigate_direct_connected_ordering_0 667808 667809
+667789 navigate-to[rov1,pressure_stabilizer] -> m_navigate_recursive_connected_ordering_0 667790 667791 667792 667807 667810
+667768 navigate-to[rov1,pressure_stabilizer] -> m_navigate_recursive_connected_ordering_0 667769 667770 667771 667789 667811
+667682 navigate-to[rov1,wing_beta] -> m_navigate_direct_connected_ordering_0 667683 667684
+667665 navigate-to[rov1,wing_beta] -> m_navigate_recursive_connected_ordering_0 667666 667667 667668 667682 667685
+667654 navigate-to[rov1,wing_beta] -> m_navigate_recursive_connected_ordering_0 667655 667656 667657 667665 667686
+667610 navigate-to[rov1,wing_beta] -> m_navigate_recursive_connected_ordering_0 667611 667612 667613 667654 667687
+667601 _splitting_method_m_process_sensitive_sample_ordering_0_splitted_9_splitted_20[rov1,cap1,bio_vault] -> _splitting_method__splitting_method_m_process_sensitive_sample_ordering_0_splitted_9_splitted_20 667602
+667595 process-all-regular-samples[] -> m_process_all_regular_base_ordering_0 667596
+667583 m_process_regular_sample_ordering_0_splitted_18[rov1,s1,bio_vault] -> _splitting_method_m_process_regular_sample_ordering_0_splitted_18 667591
+667539 navigate-to[rov1,bio_vault] -> m_navigate_direct_connected_ordering_0 667540 667584
+667498 navigate-to[rov1,bio_vault] -> m_navigate_recursive_connected_ordering_0 667500 667533 667536 667539 667597
+667454 m_process_sensitive_sample_ordering_0_splitted_9[rov1,cap1,s4,wing_beta,bio_vault] -> _splitting_method_m_process_sensitive_sample_ordering_0_splitted_9 667455 667498 667601
+667174 process-sensitive-sample[s4] -> <m_process_sensitive_sample_ordering_0;m_process_sensitive_sample_ordering_0_splitted_21[rov1,s4,cap1,bio_vault];_splitting_method_m_process_sensitive_sample_ordering_0_splitted_21;0;-1,-2,-3,1,2,3,4,5,6> 667454 667610 667688 667768 667829 667831 667835 667839 667858
+667171 m_process_all_sensitive_recursive_ordering_0_splitted_6[] -> _splitting_method_m_process_all_sensitive_recursive_ordering_0_splitted_6 667172 667174 667860
+666647 process-all-sensitive-samples[] -> m_process_all_sensitive_recursive_ordering_0 667171 667863
+666587 navigate-to[rov1,bio_vault] -> m_navigate_direct_connected_ordering_0 666588 667499
+666419 navigate-to[rov1,bio_vault] -> m_navigate_recursive_connected_ordering_0 666420 666546 666552 666587 667531
+666361 navigate-to[rov1,bio_vault] -> m_navigate_recursive_narrow_ordering_0 666362 666398 666400 666419 667567
+666323 _splitting_method_m_process_regular_sample_ordering_0_splitted_7_splitted_17[rov1,s1,wing_alpha] -> _splitting_method__splitting_method_m_process_regular_sample_ordering_0_splitted_7_splitted_17 666331
+666010 navigate-to[rov1,wing_alpha] -> m_navigate_direct_narrow_ordering_0 666011 666041
+665974 navigate-to[rov1,wing_alpha] -> m_navigate_recursive_connected_ordering_0 665975 666005 666007 666010 666315
+665930 navigate-to[rov1,wing_alpha] -> m_navigate_recursive_connected_ordering_0 665931 665963 665969 665974 666317
+665900 m_process_regular_sample_ordering_0_splitted_7[rov1,s1,bio_vault] -> _splitting_method_m_process_regular_sample_ordering_0_splitted_7 665901 665930 666323
+665893 process-regular-sample[s1] -> m_process_regular_sample_ordering_0 665900 666361 667583
+665887 m_process_all_regular_recursive_ordering_0_splitted_5[] -> _splitting_method_m_process_all_regular_recursive_ordering_0_splitted_5 665888 665893 667594
+665738 process-all-regular-samples[] -> m_process_all_regular_recursive_ordering_0 665887 667595
+665724 m_process_regular_sample_ordering_0_splitted_18[rov2,s3,bio_vault] -> _splitting_method_m_process_regular_sample_ordering_0_splitted_18 665726
+665685 navigate-to[rov2,bio_vault] -> m_navigate_direct_connected_ordering_0 665686 665708
+665581 navigate-to[rov2,bio_vault] -> m_navigate_recursive_connected_ordering_0 665582 665626 665632 665685 665717
+665538 navigate-to[rov2,bio_vault] -> m_navigate_recursive_connected_ordering_0 665539 665569 665571 665581 665719
+665504 _splitting_method_m_process_regular_sample_ordering_0_splitted_7_splitted_17[rov2,s3,wing_beta] -> _splitting_method__splitting_method_m_process_regular_sample_ordering_0_splitted_7_splitted_17 665512
+665447 navigate-to[rov2,wing_beta] -> m_navigate_direct_connected_ordering_0 665448 665474
+665428 navigate-to[rov2,wing_beta] -> m_navigate_recursive_connected_ordering_0 665429 665439 665441 665447 665500
+665408 m_process_regular_sample_ordering_0_splitted_7[rov2,s3,bio_vault] -> _splitting_method_m_process_regular_sample_ordering_0_splitted_7 665409 665428 665504
+665405 process-regular-sample[s3] -> m_process_regular_sample_ordering_0 665408 665538 665724
+665402 m_process_all_regular_recursive_ordering_0_splitted_5[] -> _splitting_method_m_process_all_regular_recursive_ordering_0_splitted_5 665403 665405 665728
+665262 process-all-regular-samples[] -> m_process_all_regular_recursive_ordering_0 665402 665738
+665246 m_process_regular_sample_ordering_0_splitted_18[rov1,s2,bio_vault] -> _splitting_method_m_process_regular_sample_ordering_0_splitted_18 665254
+665194 navigate-to[rov1,bio_vault] -> m_navigate_direct_connected_ordering_0 665195 665223
+665050 navigate-to[rov1,bio_vault] -> m_navigate_recursive_connected_ordering_0 665051 665112 665118 665194 665234
+665013 navigate-to[rov1,bio_vault] -> m_navigate_recursive_narrow_ordering_0 665014 665020 665031 665050 665240
+664980 _splitting_method_m_process_regular_sample_ordering_0_splitted_7_splitted_17[rov1,s2,wing_alpha] -> _splitting_method__splitting_method_m_process_regular_sample_ordering_0_splitted_7_splitted_17 664986
+664831 navigate-to[rov1,wing_alpha] -> m_navigate_direct_narrow_ordering_0 664832 664860
+664763 navigate-to[rov1,wing_alpha] -> m_navigate_recursive_connected_ordering_0 664764 664820 664828 664831 664946
+664712 navigate-to[rov1,wing_alpha] -> m_navigate_recursive_connected_ordering_0 664713 664756 664758 664763 664948
+664681 m_process_sensitive_sample_ordering_0_splitted_31[rov1,s6,cap1,bio_vault] -> _splitting_method_m_process_sensitive_sample_ordering_0_splitted_31 664689
+664583 navigate-to[rov1,wing_alpha] -> m_navigate_recursive_connected_ordering_0 664586 664690 664693 664712 664970
+664554 navigate-to[rov1,wing_alpha] -> m_navigate_recursive_connected_ordering_0 664555 664556 664557 664583 664977
+664465 navigate-to[rov1,bio_vault] -> m_navigate_direct_connected_ordering_0 664466 664584
+664455 navigate-to[rov1,bio_vault] -> m_navigate_recursive_connected_ordering_0 664456 664457 664458 664465 664585
+664439 m_process_sensitive_sample_ordering_0_splitted_29[rov1,s6,cap1,pressure_stabilizer] -> _splitting_method_m_process_sensitive_sample_ordering_0_splitted_29 664440
+664433 m_process_sensitive_sample_ordering_0_splitted_26[rov1,s6,cap1,pressure_stabilizer] -> _splitting_method_m_process_sensitive_sample_ordering_0_splitted_26 664434
+664415 navigate-to[rov1,pressure_stabilizer] -> m_navigate_direct_connected_ordering_0 664416 664417
+662480 navigate-to[rov1,pressure_stabilizer] -> m_navigate_recursive_connected_ordering_0 662481 664407 664410 664415 664418
+662429 navigate-to[rov1,pressure_stabilizer] -> m_navigate_recursive_connected_ordering_0 662430 662431 662432 662480 664419
+662414 navigate-to[rov1,pressure_stabilizer] -> m_navigate_recursive_narrow_ordering_0 662415 662416 662417 662429 664420
+662376 navigate-to[rov1,wing_alpha] -> m_navigate_direct_narrow_ordering_0 662377 662378
+662360 navigate-to[rov1,wing_alpha] -> m_navigate_recursive_connected_ordering_0 662361 662362 662363 662376 662379
+81 navigate-to[rov1,wing_alpha] -> m_navigate_recursive_connected_ordering_0 662433 664405 664494 664554 664979
+51 m_process_regular_sample_ordering_0_splitted_7[rov1,s2,bio_vault] -> _splitting_method_m_process_regular_sample_ordering_0_splitted_7 52 81 664980
+50 _splitting_method_m_process_sensitive_sample_ordering_0_splitted_9_splitted_20[rov1,cap1,docking_station] -> _splitting_method__splitting_method_m_process_sensitive_sample_ordering_0_splitted_9_splitted_20 82
+31 navigate-to[rov1,docking_station] -> m_navigate_already_there_ordering_0 32
+27 m_process_sensitive_sample_ordering_0_splitted_9[rov1,cap1,s6,wing_alpha,bio_vault] -> _splitting_method_m_process_sensitive_sample_ordering_0_splitted_9 28 31 50
+22 process-sensitive-sample[s6] -> <m_process_sensitive_sample_ordering_0;m_process_sensitive_sample_ordering_0_splitted_21[rov1,s6,cap1,bio_vault];_splitting_method_m_process_sensitive_sample_ordering_0_splitted_21;0;-1,-2,-3,1,2,3,4,5,6> 27 662360 662380 662414 664433 664435 664439 664455 664681
+17 m_process_all_sensitive_recursive_ordering_0_splitted_6[] -> _splitting_method_m_process_all_sensitive_recursive_ordering_0_splitted_6 18 22 666641
+11 process-regular-sample[s2] -> m_process_regular_sample_ordering_0 51 665013 665246
+7 m_process_all_regular_recursive_ordering_0_splitted_5[] -> _splitting_method_m_process_all_regular_recursive_ordering_0_splitted_5 8 11 665256
+4 process-all-sensitive-samples[] -> m_process_all_sensitive_recursive_ordering_0 17 666647
+2 process-all-regular-samples[] -> m_process_all_regular_recursive_ordering_0 7 665262
+0 __top[] -> <__top_method;complete-mission[];m_complete_mission_ordering_0;0;-1,-2> 4 2
+<==
+==>
+82 take-empty-capsule rov1 cap1 docking_station c0 c1
+662362 visit rov1 docking_station
+662363 move rov1 docking_station transfer_zone
+662378 move-through-narrow rov1 transfer_zone wing_alpha
+662379 unvisit rov1 docking_station
+662380 encapsulate-sample rov1 s6 cap1 wing_alpha
+662416 visit rov1 wing_alpha
+662417 move-through-narrow rov1 wing_alpha transfer_zone
+662431 visit rov1 transfer_zone
+662432 move rov1 transfer_zone decompression_chamber
+664405 visit rov1 decompression_chamber
+664407 visit rov1 decompression_chamber
+664410 move rov1 decompression_chamber bio_vault
+664417 move rov1 bio_vault pressure_stabilizer
+664418 unvisit rov1 decompression_chamber
+664419 unvisit rov1 transfer_zone
+664420 unvisit rov1 wing_alpha
+664434 drop-sensitive-sample rov1 s6 cap1 pressure_stabilizer c0 c1
+664435 stabilize-capsule rov1 s6 cap1 pressure_stabilizer
+664440 pickup-sensitive-sample rov1 s6 cap1 pressure_stabilizer c0 c1
+664457 visit rov1 pressure_stabilizer
+664458 move rov1 pressure_stabilizer decompression_chamber
+664494 move rov1 decompression_chamber bio_vault
+664556 visit rov1 bio_vault
+664557 move rov1 bio_vault decompression_chamber
+664584 move rov1 decompression_chamber bio_vault
+664585 unvisit rov1 pressure_stabilizer
+664689 store-sensitive-sample rov1 s6 cap1 bio_vault c0 c1
+664690 visit rov1 bio_vault
+664693 move rov1 bio_vault pressure_stabilizer
+664756 visit rov1 pressure_stabilizer
+664758 move rov1 pressure_stabilizer decompression_chamber
+664820 visit rov1 decompression_chamber
+664828 move rov1 decompression_chamber transfer_zone
+664860 move-through-narrow rov1 transfer_zone wing_alpha
+664946 unvisit rov1 decompression_chamber
+664948 unvisit rov1 pressure_stabilizer
+664970 unvisit rov1 bio_vault
+664977 unvisit rov1 bio_vault
+664979 unvisit rov1 decompression_chamber
+664986 pickup-regular-sample rov1 s2 wing_alpha c0 c1
+665020 visit rov1 wing_alpha
+665031 move-through-narrow rov1 wing_alpha transfer_zone
+665112 visit rov1 transfer_zone
+665118 move rov1 transfer_zone decompression_chamber
+665223 move rov1 decompression_chamber bio_vault
+665234 unvisit rov1 transfer_zone
+665240 unvisit rov1 wing_alpha
+665254 store-regular-sample rov1 s2 bio_vault c0 c1
+665256 mark-regular-done s2
+665439 visit rov2 docking_station
+665441 move rov2 docking_station transfer_zone
+665474 move rov2 transfer_zone wing_beta
+665500 unvisit rov2 docking_station
+665512 pickup-regular-sample rov2 s3 wing_beta c2 c3
+665569 visit rov2 wing_beta
+665571 move rov2 wing_beta transfer_zone
+665626 visit rov2 transfer_zone
+665632 move rov2 transfer_zone decompression_chamber
+665708 move rov2 decompression_chamber bio_vault
+665717 unvisit rov2 transfer_zone
+665719 unvisit rov2 wing_beta
+665726 store-regular-sample rov2 s3 bio_vault c2 c3
+665728 mark-regular-done s3
+665963 visit rov1 bio_vault
+665969 move rov1 bio_vault decompression_chamber
+666005 visit rov1 decompression_chamber
+666007 move rov1 decompression_chamber transfer_zone
+666041 move-through-narrow rov1 transfer_zone wing_alpha
+666315 unvisit rov1 decompression_chamber
+666317 unvisit rov1 bio_vault
+666331 pickup-regular-sample rov1 s1 wing_alpha c0 c1
+666398 visit rov1 wing_alpha
+666400 move-through-narrow rov1 wing_alpha transfer_zone
+666546 visit rov1 transfer_zone
+666552 move rov1 transfer_zone decompression_chamber
+666641 mark-sensitive-done s6
+667499 move rov1 decompression_chamber bio_vault
+667531 unvisit rov1 transfer_zone
+667533 visit rov1 bio_vault
+667536 move rov1 bio_vault decompression_chamber
+667567 unvisit rov1 wing_alpha
+667584 move rov1 decompression_chamber bio_vault
+667591 store-regular-sample rov1 s1 bio_vault c0 c1
+667594 mark-regular-done s1
+667597 unvisit rov1 bio_vault
+667602 take-empty-capsule rov1 cap1 bio_vault c0 c1
+667612 visit rov1 bio_vault
+667613 move rov1 bio_vault pressure_stabilizer
+667656 visit rov1 pressure_stabilizer
+667657 move rov1 pressure_stabilizer decompression_chamber
+667667 visit rov1 decompression_chamber
+667668 move rov1 decompression_chamber transfer_zone
+667684 move rov1 transfer_zone wing_beta
+667685 unvisit rov1 decompression_chamber
+667686 unvisit rov1 pressure_stabilizer
+667687 unvisit rov1 bio_vault
+667688 encapsulate-sample rov1 s4 cap1 wing_beta
+667770 visit rov1 wing_beta
+667771 move rov1 wing_beta transfer_zone
+667791 visit rov1 transfer_zone
+667792 move rov1 transfer_zone decompression_chamber
+667809 move rov1 decompression_chamber pressure_stabilizer
+667810 unvisit rov1 transfer_zone
+667811 unvisit rov1 wing_beta
+667830 drop-sensitive-sample rov1 s4 cap1 pressure_stabilizer c0 c1
+667831 stabilize-capsule rov1 s4 cap1 pressure_stabilizer
+667836 pickup-sensitive-sample rov1 s4 cap1 pressure_stabilizer c0 c1
+667841 move rov1 pressure_stabilizer bio_vault
+667859 store-sensitive-sample rov1 s4 cap1 bio_vault c0 c1
+667860 mark-sensitive-done s4
+668042 take-empty-capsule rov1 cap1 bio_vault c0 c1
+668080 visit rov1 bio_vault
+668081 move rov1 bio_vault decompression_chamber
+668092 visit rov1 decompression_chamber
+668093 move rov1 decompression_chamber transfer_zone
+668112 move rov1 transfer_zone wing_beta
+668113 unvisit rov1 decompression_chamber
+668114 unvisit rov1 bio_vault
+668115 encapsulate-sample rov1 s5 cap1 wing_beta
+668141 visit rov1 wing_beta
+668142 move rov1 wing_beta transfer_zone
+668162 visit rov1 transfer_zone
+668163 move rov1 transfer_zone decompression_chamber
+668180 move rov1 decompression_chamber pressure_stabilizer
+668181 unvisit rov1 transfer_zone
+668182 unvisit rov1 wing_beta
+668201 drop-sensitive-sample rov1 s5 cap1 pressure_stabilizer c0 c1
+668202 stabilize-capsule rov1 s5 cap1 pressure_stabilizer
+668206 pickup-sensitive-sample rov1 s5 cap1 pressure_stabilizer c0 c1
+668212 move rov1 pressure_stabilizer bio_vault
+668230 store-sensitive-sample rov1 s5 cap1 bio_vault c0 c1
+668231 mark-sensitive-done s5
+root 668235
+2 process-all-regular-samples  -> m_process_all_regular_recursive_ordering_0 11 665256 665262
+4 process-all-sensitive-samples  -> m_process_all_sensitive_recursive_ordering_0 22 666641 666647
+11 process-regular-sample s2 -> m_process_regular_sample_ordering_0 81 664986 665013 665254
+22 process-sensitive-sample s6 -> m_process_sensitive_sample_ordering_0 31 82 662360 662380 662414 664434 664435 664440 664455 664689
+31 navigate-to rov1 docking_station -> m_navigate_already_there_ordering_0
+81 navigate-to rov1 wing_alpha -> m_navigate_recursive_connected_ordering_0 664405 664494 664554 664979
+662360 navigate-to rov1 wing_alpha -> m_navigate_recursive_connected_ordering_0 662362 662363 662376 662379
+662376 navigate-to rov1 wing_alpha -> m_navigate_direct_narrow_ordering_0 662378
+662414 navigate-to rov1 pressure_stabilizer -> m_navigate_recursive_narrow_ordering_0 662416 662417 662429 664420
+662429 navigate-to rov1 pressure_stabilizer -> m_navigate_recursive_connected_ordering_0 662431 662432 662480 664419
+662480 navigate-to rov1 pressure_stabilizer -> m_navigate_recursive_connected_ordering_0 664407 664410 664415 664418
+664415 navigate-to rov1 pressure_stabilizer -> m_navigate_direct_connected_ordering_0 664417
+664455 navigate-to rov1 bio_vault -> m_navigate_recursive_connected_ordering_0 664457 664458 664465 664585
+664465 navigate-to rov1 bio_vault -> m_navigate_direct_connected_ordering_0 664584
+664554 navigate-to rov1 wing_alpha -> m_navigate_recursive_connected_ordering_0 664556 664557 664583 664977
+664583 navigate-to rov1 wing_alpha -> m_navigate_recursive_connected_ordering_0 664690 664693 664712 664970
+664712 navigate-to rov1 wing_alpha -> m_navigate_recursive_connected_ordering_0 664756 664758 664763 664948
+664763 navigate-to rov1 wing_alpha -> m_navigate_recursive_connected_ordering_0 664820 664828 664831 664946
+664831 navigate-to rov1 wing_alpha -> m_navigate_direct_narrow_ordering_0 664860
+665013 navigate-to rov1 bio_vault -> m_navigate_recursive_narrow_ordering_0 665020 665031 665050 665240
+665050 navigate-to rov1 bio_vault -> m_navigate_recursive_connected_ordering_0 665112 665118 665194 665234
+665194 navigate-to rov1 bio_vault -> m_navigate_direct_connected_ordering_0 665223
+665262 process-all-regular-samples  -> m_process_all_regular_recursive_ordering_0 665405 665728 665738
+665405 process-regular-sample s3 -> m_process_regular_sample_ordering_0 665428 665512 665538 665726
+665428 navigate-to rov2 wing_beta -> m_navigate_recursive_connected_ordering_0 665439 665441 665447 665500
+665447 navigate-to rov2 wing_beta -> m_navigate_direct_connected_ordering_0 665474
+665538 navigate-to rov2 bio_vault -> m_navigate_recursive_connected_ordering_0 665569 665571 665581 665719
+665581 navigate-to rov2 bio_vault -> m_navigate_recursive_connected_ordering_0 665626 665632 665685 665717
+665685 navigate-to rov2 bio_vault -> m_navigate_direct_connected_ordering_0 665708
+665738 process-all-regular-samples  -> m_process_all_regular_recursive_ordering_0 665893 667594 667595
+665893 process-regular-sample s1 -> m_process_regular_sample_ordering_0 665930 666331 666361 667591
+665930 navigate-to rov1 wing_alpha -> m_navigate_recursive_connected_ordering_0 665963 665969 665974 666317
+665974 navigate-to rov1 wing_alpha -> m_navigate_recursive_connected_ordering_0 666005 666007 666010 666315
+666010 navigate-to rov1 wing_alpha -> m_navigate_direct_narrow_ordering_0 666041
+666361 navigate-to rov1 bio_vault -> m_navigate_recursive_narrow_ordering_0 666398 666400 666419 667567
+666419 navigate-to rov1 bio_vault -> m_navigate_recursive_connected_ordering_0 666546 666552 666587 667531
+666587 navigate-to rov1 bio_vault -> m_navigate_direct_connected_ordering_0 667499
+666647 process-all-sensitive-samples  -> m_process_all_sensitive_recursive_ordering_0 667174 667860 667863
+667174 process-sensitive-sample s4 -> m_process_sensitive_sample_ordering_0 667498 667602 667610 667688 667768 667830 667831 667836 667839 667859
+667498 navigate-to rov1 bio_vault -> m_navigate_recursive_connected_ordering_0 667533 667536 667539 667597
+667539 navigate-to rov1 bio_vault -> m_navigate_direct_connected_ordering_0 667584
+667595 process-all-regular-samples  -> m_process_all_regular_base_ordering_0
+667610 navigate-to rov1 wing_beta -> m_navigate_recursive_connected_ordering_0 667612 667613 667654 667687
+667654 navigate-to rov1 wing_beta -> m_navigate_recursive_connected_ordering_0 667656 667657 667665 667686
+667665 navigate-to rov1 wing_beta -> m_navigate_recursive_connected_ordering_0 667667 667668 667682 667685
+667682 navigate-to rov1 wing_beta -> m_navigate_direct_connected_ordering_0 667684
+667768 navigate-to rov1 pressure_stabilizer -> m_navigate_recursive_connected_ordering_0 667770 667771 667789 667811
+667789 navigate-to rov1 pressure_stabilizer -> m_navigate_recursive_connected_ordering_0 667791 667792 667807 667810
+667807 navigate-to rov1 pressure_stabilizer -> m_navigate_direct_connected_ordering_0 667809
+667839 navigate-to rov1 bio_vault -> m_navigate_direct_connected_ordering_0 667841
+667863 process-all-sensitive-samples  -> m_process_all_sensitive_recursive_ordering_0 668009 668231 668233
+668009 process-sensitive-sample s5 -> m_process_sensitive_sample_ordering_0 668017 668042 668078 668115 668139 668201 668202 668206 668210 668230
+668017 navigate-to rov1 bio_vault -> m_navigate_already_there_ordering_0
+668078 navigate-to rov1 wing_beta -> m_navigate_recursive_connected_ordering_0 668080 668081 668090 668114
+668090 navigate-to rov1 wing_beta -> m_navigate_recursive_connected_ordering_0 668092 668093 668110 668113
+668110 navigate-to rov1 wing_beta -> m_navigate_direct_connected_ordering_0 668112
+668139 navigate-to rov1 pressure_stabilizer -> m_navigate_recursive_connected_ordering_0 668141 668142 668160 668182
+668160 navigate-to rov1 pressure_stabilizer -> m_navigate_recursive_connected_ordering_0 668162 668163 668178 668181
+668178 navigate-to rov1 pressure_stabilizer -> m_navigate_direct_connected_ordering_0 668180
+668210 navigate-to rov1 bio_vault -> m_navigate_direct_connected_ordering_0 668212
+668233 process-all-sensitive-samples  -> m_process_all_sensitive_base_ordering_0
+668235 complete-mission  -> m_complete_mission_ordering_0 4 2

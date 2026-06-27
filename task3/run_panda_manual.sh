@@ -27,14 +27,6 @@ elif [ "$MODE" = "action_astar" ]; then
         --progression \
         --gValue action \
         --astarweight 1 \
-        --timelimit 900 \
-        output.sas | tee panda.log
-
-elif [ "$MODE" = "sat" ]; then
-    apptainer exec "$SIF" /planner/pandaPIengine \
-        --sat \
-        --optimisation \
-        --timelimit 300 \
         output.sas | tee panda.log
 
 else
