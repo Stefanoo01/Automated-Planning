@@ -14,6 +14,7 @@
     :durative-actions
     ;; :numeric-fluents
     :fluents
+    :action-costs
 )
 
 (:types
