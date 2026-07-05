@@ -75,7 +75,7 @@ sort_for_s6 1 13
 0
 #function_declarations_with_number_of_arguments_and_argument_sorts
 #number_primitive_tasks_and_number_abstract_tasks
-38 42
+50 50
 #begin_task_name_number_of_original_variables_and_number_of_variables
 visit 2 2
 #sorts_of_variables
@@ -590,6 +590,38 @@ const 0
 0
 #end_of_task
 #begin_task_name_number_of_original_variables_and_number_of_variables
+__method_precondition_m_bring_two_regular_to_handover_ordering_0 5 5
+#sorts_of_variables
+6 7 7 3 3 
+#end_variables
+#number_of_cost_statements
+1
+#begin_cost_statements
+const 0
+#end_cost_statements
+#preconditions_each_predicate_and_argument_variables
+8
+15 1
+15 2
+4 1
+4 2
+0 1 3
+0 2 3
+2 3 4
+8 0
+#add_each_predicate_and_argument_variables
+0
+#conditional_add_each_with_conditions_and_effect
+0
+#del_each_predicate_and_argument_variables
+0
+#conditional_del_each_with_conditions_and_effect
+0
+#variable_constraints_first_number_then_individual_constraints
+1
+!= 1 2
+#end_of_task
+#begin_task_name_number_of_original_variables_and_number_of_variables
 __method_precondition_m_continue_regular_from_handover_ordering_0 3 3
 #sorts_of_variables
 7 3 3 
@@ -643,6 +675,40 @@ const 0
 0
 #variable_constraints_first_number_then_individual_constraints
 0
+#end_of_task
+#begin_task_name_number_of_original_variables_and_number_of_variables
+__method_precondition_m_continue_two_regular_from_handover_ordering_0 8 8
+#sorts_of_variables
+6 7 7 3 3 0 0 0 
+#end_variables
+#number_of_cost_statements
+1
+#begin_cost_statements
+const 0
+#end_cost_statements
+#preconditions_each_predicate_and_argument_variables
+10
+15 1
+15 2
+4 1
+4 2
+0 1 3
+0 2 3
+9 4
+19 0 7
+20 6 7
+20 5 6
+#add_each_predicate_and_argument_variables
+0
+#conditional_add_each_with_conditions_and_effect
+0
+#del_each_predicate_and_argument_variables
+0
+#conditional_del_each_with_conditions_and_effect
+0
+#variable_constraints_first_number_then_individual_constraints
+1
+!= 1 2
 #end_of_task
 #begin_task_name_number_of_original_variables_and_number_of_variables
 __method_precondition_m_navigate_already_there_ordering_0 2 2
@@ -832,6 +898,38 @@ const 0
 0
 #end_of_task
 #begin_task_name_number_of_original_variables_and_number_of_variables
+__method_precondition_m_process_all_regular_two_handover_ordering_0 5 5
+#sorts_of_variables
+7 7 3 3 3 
+#end_variables
+#number_of_cost_statements
+1
+#begin_cost_statements
+const 0
+#end_cost_statements
+#preconditions_each_predicate_and_argument_variables
+8
+15 0
+15 1
+4 0
+4 1
+0 0 2
+0 1 2
+2 2 3
+9 4
+#add_each_predicate_and_argument_variables
+0
+#conditional_add_each_with_conditions_and_effect
+0
+#del_each_predicate_and_argument_variables
+0
+#conditional_del_each_with_conditions_and_effect
+0
+#variable_constraints_first_number_then_individual_constraints
+1
+!= 0 1
+#end_of_task
+#begin_task_name_number_of_original_variables_and_number_of_variables
 __method_precondition_m_process_all_sensitive_recursive_ordering_0 1 1
 #sorts_of_variables
 4 
@@ -992,6 +1090,35 @@ const 0
 0
 #end_of_task
 #begin_task_name_number_of_original_variables_and_number_of_variables
+__method_precondition_m_process_two_regular_samples_via_handover_ordering_0 3 3
+#sorts_of_variables
+7 7 3 
+#end_variables
+#number_of_cost_statements
+1
+#begin_cost_statements
+const 0
+#end_cost_statements
+#preconditions_each_predicate_and_argument_variables
+5
+15 0
+15 1
+4 0
+4 1
+9 2
+#add_each_predicate_and_argument_variables
+0
+#conditional_add_each_with_conditions_and_effect
+0
+#del_each_predicate_and_argument_variables
+0
+#conditional_del_each_with_conditions_and_effect
+0
+#variable_constraints_first_number_then_individual_constraints
+1
+!= 0 1
+#end_of_task
+#begin_task_name_number_of_original_variables_and_number_of_variables
 __method_precondition_m_bring_regular_to_handover_ordering_0_base 2 2
 #sorts_of_variables
 6 7 
@@ -1029,6 +1156,59 @@ __method_precondition_m_bring_regular_to_handover_ordering_0_split 3 3
 2
 0 0 1
 2 1 2
+#add_each_predicate_and_argument_variables
+0
+#conditional_add_each_with_conditions_and_effect
+0
+#del_each_predicate_and_argument_variables
+0
+#conditional_del_each_with_conditions_and_effect
+0
+#variable_constraints_first_number_then_individual_constraints
+0
+#end_of_task
+#begin_task_name_number_of_original_variables_and_number_of_variables
+__method_precondition_m_process_all_regular_two_handover_ordering_0_base 2 2
+#sorts_of_variables
+7 7 
+#end_variables
+#number_of_cost_statements
+0
+#begin_cost_statements
+#end_cost_statements
+#preconditions_each_predicate_and_argument_variables
+4
+15 0
+15 1
+4 0
+4 1
+#add_each_predicate_and_argument_variables
+0
+#conditional_add_each_with_conditions_and_effect
+0
+#del_each_predicate_and_argument_variables
+0
+#conditional_del_each_with_conditions_and_effect
+0
+#variable_constraints_first_number_then_individual_constraints
+1
+!= 0 1
+#end_of_task
+#begin_task_name_number_of_original_variables_and_number_of_variables
+__method_precondition_m_process_all_regular_two_handover_ordering_0_split 5 5
+#sorts_of_variables
+7 7 3 3 3 
+#end_variables
+#number_of_cost_statements
+0
+#begin_cost_statements
+#end_cost_statements
+#preconditions_each_predicate_and_argument_variables
+4
+0 0 2
+0 1 2
+2 2 3
+9 4
 #add_each_predicate_and_argument_variables
 0
 #conditional_add_each_with_conditions_and_effect
@@ -1138,6 +1318,149 @@ __method_precondition_m_process_sensitive_sample_handover_ordering_0_split 3 3
 0
 #end_of_task
 #begin_task_name_number_of_original_variables_and_number_of_variables
+__method_precondition_m_process_all_regular_two_handover_ordering_0_split_base 1 1
+#sorts_of_variables
+3 
+#end_variables
+#number_of_cost_statements
+0
+#begin_cost_statements
+#end_cost_statements
+#preconditions_each_predicate_and_argument_variables
+1
+9 0
+#add_each_predicate_and_argument_variables
+0
+#conditional_add_each_with_conditions_and_effect
+0
+#del_each_predicate_and_argument_variables
+0
+#conditional_del_each_with_conditions_and_effect
+0
+#variable_constraints_first_number_then_individual_constraints
+0
+#end_of_task
+#begin_task_name_number_of_original_variables_and_number_of_variables
+__method_precondition_m_process_all_regular_two_handover_ordering_0_split_split 4 4
+#sorts_of_variables
+7 7 3 3 
+#end_variables
+#number_of_cost_statements
+0
+#begin_cost_statements
+#end_cost_statements
+#preconditions_each_predicate_and_argument_variables
+3
+0 0 2
+0 1 2
+2 2 3
+#add_each_predicate_and_argument_variables
+0
+#conditional_add_each_with_conditions_and_effect
+0
+#del_each_predicate_and_argument_variables
+0
+#conditional_del_each_with_conditions_and_effect
+0
+#variable_constraints_first_number_then_individual_constraints
+0
+#end_of_task
+#begin_task_name_number_of_original_variables_and_number_of_variables
+__method_precondition_m_process_all_regular_two_handover_ordering_0_base_base 1 1
+#sorts_of_variables
+7 
+#end_variables
+#number_of_cost_statements
+0
+#begin_cost_statements
+#end_cost_statements
+#preconditions_each_predicate_and_argument_variables
+2
+15 0
+4 0
+#add_each_predicate_and_argument_variables
+0
+#conditional_add_each_with_conditions_and_effect
+0
+#del_each_predicate_and_argument_variables
+0
+#conditional_del_each_with_conditions_and_effect
+0
+#variable_constraints_first_number_then_individual_constraints
+0
+#end_of_task
+#begin_task_name_number_of_original_variables_and_number_of_variables
+__method_precondition_m_process_all_regular_two_handover_ordering_0_base_split 2 2
+#sorts_of_variables
+7 7 
+#end_variables
+#number_of_cost_statements
+0
+#begin_cost_statements
+#end_cost_statements
+#preconditions_each_predicate_and_argument_variables
+2
+15 0
+4 0
+#add_each_predicate_and_argument_variables
+0
+#conditional_add_each_with_conditions_and_effect
+0
+#del_each_predicate_and_argument_variables
+0
+#conditional_del_each_with_conditions_and_effect
+0
+#variable_constraints_first_number_then_individual_constraints
+1
+!= 0 1
+#end_of_task
+#begin_task_name_number_of_original_variables_and_number_of_variables
+__method_precondition_m_process_all_regular_two_handover_ordering_0_base_base_base 0 0
+#sorts_of_variables
+
+#end_variables
+#number_of_cost_statements
+0
+#begin_cost_statements
+#end_cost_statements
+#preconditions_each_predicate_and_argument_variables
+0
+#add_each_predicate_and_argument_variables
+0
+#conditional_add_each_with_conditions_and_effect
+0
+#del_each_predicate_and_argument_variables
+0
+#conditional_del_each_with_conditions_and_effect
+0
+#variable_constraints_first_number_then_individual_constraints
+0
+#end_of_task
+#begin_task_name_number_of_original_variables_and_number_of_variables
+__method_precondition_m_process_all_regular_two_handover_ordering_0_base_base_split 1 1
+#sorts_of_variables
+7 
+#end_variables
+#number_of_cost_statements
+0
+#begin_cost_statements
+#end_cost_statements
+#preconditions_each_predicate_and_argument_variables
+2
+15 0
+4 0
+#add_each_predicate_and_argument_variables
+0
+#conditional_add_each_with_conditions_and_effect
+0
+#del_each_predicate_and_argument_variables
+0
+#conditional_del_each_with_conditions_and_effect
+0
+#variable_constraints_first_number_then_individual_constraints
+0
+#end_of_task
+#begin_task_name_number_of_original_variables_and_number_of_variables
 complete-mission 0 0
 #sorts_of_variables
 
@@ -1198,6 +1521,24 @@ continue-sensitive-from-handover 5 5
 #end_variables
 #end_of_task
 #begin_task_name_number_of_original_variables_and_number_of_variables
+process-two-regular-samples-via-handover 4 4
+#sorts_of_variables
+7 7 3 3 
+#end_variables
+#end_of_task
+#begin_task_name_number_of_original_variables_and_number_of_variables
+bring-two-regular-to-handover 3 3
+#sorts_of_variables
+7 7 3 
+#end_variables
+#end_of_task
+#begin_task_name_number_of_original_variables_and_number_of_variables
+continue-two-regular-from-handover 4 4
+#sorts_of_variables
+7 7 3 3 
+#end_variables
+#end_of_task
+#begin_task_name_number_of_original_variables_and_number_of_variables
 __top 0 0
 #sorts_of_variables
 
@@ -1234,165 +1575,195 @@ m_process_all_regular_recursive_ordering_0_splitted_5 0 0
 #end_variables
 #end_of_task
 #begin_task_name_number_of_original_variables_and_number_of_variables
-m_process_all_sensitive_recursive_ordering_0_splitted_6 0 0
+m_process_all_regular_two_handover_ordering_0_splitted_6 2 2
+#sorts_of_variables
+7 7 
+#end_variables
+#end_of_task
+#begin_task_name_number_of_original_variables_and_number_of_variables
+m_process_all_sensitive_recursive_ordering_0_splitted_7 0 0
 #sorts_of_variables
 
 #end_variables
 #end_of_task
 #begin_task_name_number_of_original_variables_and_number_of_variables
-m_process_regular_sample_ordering_0_splitted_7 3 3
+m_process_regular_sample_ordering_0_splitted_8 3 3
 #sorts_of_variables
 6 7 3 
 #end_variables
 #end_of_task
 #begin_task_name_number_of_original_variables_and_number_of_variables
-m_process_regular_sample_handover_ordering_0_splitted_8 2 2
+m_process_regular_sample_handover_ordering_0_splitted_9 2 2
 #sorts_of_variables
 7 3 
 #end_variables
 #end_of_task
 #begin_task_name_number_of_original_variables_and_number_of_variables
-m_process_sensitive_sample_ordering_0_splitted_9 5 5
+m_process_sensitive_sample_ordering_0_splitted_10 5 5
 #sorts_of_variables
 6 1 4 3 3 
 #end_variables
 #end_of_task
 #begin_task_name_number_of_original_variables_and_number_of_variables
-m_process_sensitive_sample_handover_ordering_0_splitted_10 2 2
+m_process_sensitive_sample_handover_ordering_0_splitted_11 2 2
 #sorts_of_variables
 4 3 
 #end_variables
 #end_of_task
 #begin_task_name_number_of_original_variables_and_number_of_variables
-_splitting_method_m_bring_regular_to_handover_ordering_0_splitted_1_splitted_11 3 3
+_splitting_method_m_bring_regular_to_handover_ordering_0_splitted_1_splitted_12 3 3
 #sorts_of_variables
 6 7 3 
 #end_variables
 #end_of_task
 #begin_task_name_number_of_original_variables_and_number_of_variables
-m_bring_regular_to_handover_ordering_0_splitted_12 3 3
+m_bring_regular_to_handover_ordering_0_splitted_13 3 3
 #sorts_of_variables
 6 7 3 
 #end_variables
 #end_of_task
 #begin_task_name_number_of_original_variables_and_number_of_variables
-_splitting_method_m_bring_sensitive_to_handover_ordering_0_splitted_2_splitted_13 3 3
+_splitting_method_m_bring_sensitive_to_handover_ordering_0_splitted_2_splitted_14 3 3
 #sorts_of_variables
 6 1 3 
 #end_variables
 #end_of_task
 #begin_task_name_number_of_original_variables_and_number_of_variables
-m_bring_sensitive_to_handover_ordering_0_splitted_14 4 4
+m_bring_sensitive_to_handover_ordering_0_splitted_15 4 4
 #sorts_of_variables
 6 4 1 3 
 #end_variables
 #end_of_task
 #begin_task_name_number_of_original_variables_and_number_of_variables
-m_continue_regular_from_handover_ordering_0_splitted_15 3 3
+m_continue_regular_from_handover_ordering_0_splitted_16 3 3
 #sorts_of_variables
 6 7 3 
 #end_variables
 #end_of_task
 #begin_task_name_number_of_original_variables_and_number_of_variables
-m_continue_sensitive_from_handover_ordering_0_splitted_16 4 4
+m_continue_sensitive_from_handover_ordering_0_splitted_17 4 4
 #sorts_of_variables
 6 4 1 5 
 #end_variables
 #end_of_task
 #begin_task_name_number_of_original_variables_and_number_of_variables
-_splitting_method_m_process_regular_sample_ordering_0_splitted_7_splitted_17 3 3
+_splitting_method_m_process_all_regular_two_handover_ordering_0_splitted_6_splitted_18 3 3
+#sorts_of_variables
+7 7 3 
+#end_variables
+#end_of_task
+#begin_task_name_number_of_original_variables_and_number_of_variables
+m_process_all_regular_two_handover_ordering_0_splitted_19 1 1
+#sorts_of_variables
+7 
+#end_variables
+#end_of_task
+#begin_task_name_number_of_original_variables_and_number_of_variables
+_splitting_method_m_process_regular_sample_ordering_0_splitted_8_splitted_20 3 3
 #sorts_of_variables
 6 7 3 
 #end_variables
 #end_of_task
 #begin_task_name_number_of_original_variables_and_number_of_variables
-m_process_regular_sample_ordering_0_splitted_18 3 3
+m_process_regular_sample_ordering_0_splitted_21 3 3
 #sorts_of_variables
 6 7 3 
 #end_variables
 #end_of_task
 #begin_task_name_number_of_original_variables_and_number_of_variables
-m_process_regular_sample_handover_ordering_0_splitted_19 2 2
+m_process_regular_sample_handover_ordering_0_splitted_22 2 2
 #sorts_of_variables
 7 3 
 #end_variables
 #end_of_task
 #begin_task_name_number_of_original_variables_and_number_of_variables
-_splitting_method_m_process_sensitive_sample_ordering_0_splitted_9_splitted_20 3 3
+_splitting_method_m_process_sensitive_sample_ordering_0_splitted_10_splitted_23 3 3
 #sorts_of_variables
 6 1 3 
 #end_variables
 #end_of_task
 #begin_task_name_number_of_original_variables_and_number_of_variables
-m_process_sensitive_sample_ordering_0_splitted_21 4 4
+m_process_sensitive_sample_ordering_0_splitted_24 4 4
 #sorts_of_variables
 6 4 1 3 
 #end_variables
 #end_of_task
 #begin_task_name_number_of_original_variables_and_number_of_variables
-m_process_sensitive_sample_handover_ordering_0_splitted_22 3 3
+m_process_sensitive_sample_handover_ordering_0_splitted_25 3 3
 #sorts_of_variables
 4 5 3 
 #end_variables
 #end_of_task
 #begin_task_name_number_of_original_variables_and_number_of_variables
-m_bring_sensitive_to_handover_ordering_0_splitted_23 4 4
+m_bring_sensitive_to_handover_ordering_0_splitted_26 4 4
 #sorts_of_variables
 6 4 1 3 
 #end_variables
 #end_of_task
 #begin_task_name_number_of_original_variables_and_number_of_variables
-m_continue_regular_from_handover_ordering_0_splitted_24 3 3
+m_continue_regular_from_handover_ordering_0_splitted_27 3 3
 #sorts_of_variables
 3 3 7 
 #end_variables
 #end_of_task
 #begin_task_name_number_of_original_variables_and_number_of_variables
-m_continue_sensitive_from_handover_ordering_0_splitted_25 4 4
-#sorts_of_variables
-6 4 1 5 
-#end_variables
-#end_of_task
-#begin_task_name_number_of_original_variables_and_number_of_variables
-m_process_sensitive_sample_ordering_0_splitted_26 4 4
-#sorts_of_variables
-6 4 1 5 
-#end_variables
-#end_of_task
-#begin_task_name_number_of_original_variables_and_number_of_variables
-_splitting_method_m_process_sensitive_sample_handover_ordering_0_splitted_22_splitted_27 4 4
-#sorts_of_variables
-4 3 5 3 
-#end_variables
-#end_of_task
-#begin_task_name_number_of_original_variables_and_number_of_variables
 m_continue_sensitive_from_handover_ordering_0_splitted_28 4 4
 #sorts_of_variables
-6 4 1 3 
-#end_variables
-#end_of_task
-#begin_task_name_number_of_original_variables_and_number_of_variables
-m_process_sensitive_sample_ordering_0_splitted_29 4 4
-#sorts_of_variables
 6 4 1 5 
 #end_variables
 #end_of_task
 #begin_task_name_number_of_original_variables_and_number_of_variables
-m_continue_sensitive_from_handover_ordering_0_splitted_30 5 5
+_splitting_method_m_process_all_regular_two_handover_ordering_0_splitted_6_splitted_29 3 3
 #sorts_of_variables
-3 5 4 1 3 
+7 7 3 
+#end_variables
+#end_of_task
+#begin_task_name_number_of_original_variables_and_number_of_variables
+m_process_all_regular_two_handover_ordering_0_splitted_30 0 0
+#sorts_of_variables
+
 #end_variables
 #end_of_task
 #begin_task_name_number_of_original_variables_and_number_of_variables
 m_process_sensitive_sample_ordering_0_splitted_31 4 4
 #sorts_of_variables
+6 4 1 5 
+#end_variables
+#end_of_task
+#begin_task_name_number_of_original_variables_and_number_of_variables
+_splitting_method_m_process_sensitive_sample_handover_ordering_0_splitted_25_splitted_32 4 4
+#sorts_of_variables
+4 3 5 3 
+#end_variables
+#end_of_task
+#begin_task_name_number_of_original_variables_and_number_of_variables
+m_continue_sensitive_from_handover_ordering_0_splitted_33 4 4
+#sorts_of_variables
+6 4 1 3 
+#end_variables
+#end_of_task
+#begin_task_name_number_of_original_variables_and_number_of_variables
+m_process_sensitive_sample_ordering_0_splitted_34 4 4
+#sorts_of_variables
+6 4 1 5 
+#end_variables
+#end_of_task
+#begin_task_name_number_of_original_variables_and_number_of_variables
+m_continue_sensitive_from_handover_ordering_0_splitted_35 5 5
+#sorts_of_variables
+3 5 4 1 3 
+#end_variables
+#end_of_task
+#begin_task_name_number_of_original_variables_and_number_of_variables
+m_process_sensitive_sample_ordering_0_splitted_36 4 4
+#sorts_of_variables
 6 4 1 3 
 #end_variables
 #end_of_task
 #number_of_methods
-50
+59
 #begin_method_name_abstract_task_number_of_variables
-__top_method 48 0
+__top_method 63 0
 #variable_sorts
 
 #parameter_of_abstract_task
@@ -1400,14 +1771,14 @@ __top_method 48 0
 #number_of_subtasks
 1
 #subtasks_each_with_task_id_and_parameter_variables
-38
+50
 #number_of_ordering_constraints_and_ordering
 0
 #variable_constraints
 0
 #end_of_method
 #begin_method_name_abstract_task_number_of_variables
-_splitting_method__splitting_method_m_bring_regular_to_handover_ordering_0_splitted_1_splitted_11 59 5
+_splitting_method__splitting_method_m_bring_regular_to_handover_ordering_0_splitted_1_splitted_12 75 5
 #variable_sorts
 6 7 3 0 0 
 #parameter_of_abstract_task
@@ -1422,7 +1793,7 @@ _splitting_method__splitting_method_m_bring_regular_to_handover_ordering_0_split
 0
 #end_of_method
 #begin_method_name_abstract_task_number_of_variables
-_splitting_method_m_bring_regular_to_handover_ordering_0_splitted_1 49 4
+_splitting_method_m_bring_regular_to_handover_ordering_0_splitted_1 64 4
 #variable_sorts
 6 3 7 3 
 #parameter_of_abstract_task
@@ -1430,9 +1801,9 @@ _splitting_method_m_bring_regular_to_handover_ordering_0_splitted_1 49 4
 #number_of_subtasks
 3
 #subtasks_each_with_task_id_and_parameter_variables
-43 0 1
-33 2 1 3
-59 0 2 1
+55 0 1
+37 2 1 3
+75 0 2 1
 #number_of_ordering_constraints_and_ordering
 3
 1 0
@@ -1442,7 +1813,7 @@ _splitting_method_m_bring_regular_to_handover_ordering_0_splitted_1 49 4
 0
 #end_of_method
 #begin_method_name_abstract_task_number_of_variables
-_splitting_method_m_bring_regular_to_handover_ordering_0_splitted_12 60 5
+_splitting_method_m_bring_regular_to_handover_ordering_0_splitted_13 76 5
 #variable_sorts
 6 7 3 0 0 
 #parameter_of_abstract_task
@@ -1457,7 +1828,7 @@ _splitting_method_m_bring_regular_to_handover_ordering_0_splitted_12 60 5
 0
 #end_of_method
 #begin_method_name_abstract_task_number_of_variables
-m_bring_regular_to_handover_ordering_0 44 3
+m_bring_regular_to_handover_ordering_0 56 3
 #variable_sorts
 6 7 3 
 #parameter_of_abstract_task
@@ -1465,10 +1836,10 @@ m_bring_regular_to_handover_ordering_0 44 3
 #number_of_subtasks
 4
 #subtasks_each_with_task_id_and_parameter_variables
-43 0 2
-32 0 1
-49 0 1 2
-60 0 1 2
+55 0 2
+36 0 1
+64 0 1 2
+76 0 1 2
 #number_of_ordering_constraints_and_ordering
 6
 1 0
@@ -1481,7 +1852,7 @@ m_bring_regular_to_handover_ordering_0 44 3
 0
 #end_of_method
 #begin_method_name_abstract_task_number_of_variables
-_splitting_method__splitting_method_m_bring_sensitive_to_handover_ordering_0_splitted_2_splitted_13 61 5
+_splitting_method__splitting_method_m_bring_sensitive_to_handover_ordering_0_splitted_2_splitted_14 77 5
 #variable_sorts
 6 1 3 0 0 
 #parameter_of_abstract_task
@@ -1496,7 +1867,7 @@ _splitting_method__splitting_method_m_bring_sensitive_to_handover_ordering_0_spl
 0
 #end_of_method
 #begin_method_name_abstract_task_number_of_variables
-_splitting_method_m_bring_sensitive_to_handover_ordering_0_splitted_2 50 6
+_splitting_method_m_bring_sensitive_to_handover_ordering_0_splitted_2 65 6
 #variable_sorts
 6 3 1 4 3 3 
 #parameter_of_abstract_task
@@ -1504,9 +1875,9 @@ _splitting_method_m_bring_sensitive_to_handover_ordering_0_splitted_2 50 6
 #number_of_subtasks
 3
 #subtasks_each_with_task_id_and_parameter_variables
-43 0 1
+55 0 1
 16 0 3 2 4 1 5
-61 0 2 1
+77 0 2 1
 #number_of_ordering_constraints_and_ordering
 3
 1 0
@@ -1516,7 +1887,7 @@ _splitting_method_m_bring_sensitive_to_handover_ordering_0_splitted_2 50 6
 0
 #end_of_method
 #begin_method_name_abstract_task_number_of_variables
-_splitting_method_m_bring_sensitive_to_handover_ordering_0_splitted_14 62 5
+_splitting_method_m_bring_sensitive_to_handover_ordering_0_splitted_15 78 5
 #variable_sorts
 6 3 4 1 3 
 #parameter_of_abstract_task
@@ -1524,9 +1895,9 @@ _splitting_method_m_bring_sensitive_to_handover_ordering_0_splitted_14 62 5
 #number_of_subtasks
 3
 #subtasks_each_with_task_id_and_parameter_variables
-43 0 1
+55 0 1
 10 0 2 3 1
-50 0 3 2 1 4
+65 0 3 2 1 4
 #number_of_ordering_constraints_and_ordering
 3
 0 1
@@ -1536,7 +1907,7 @@ _splitting_method_m_bring_sensitive_to_handover_ordering_0_splitted_14 62 5
 0
 #end_of_method
 #begin_method_name_abstract_task_number_of_variables
-_splitting_method_m_bring_sensitive_to_handover_ordering_0_splitted_23 71 6
+_splitting_method_m_bring_sensitive_to_handover_ordering_0_splitted_26 89 6
 #variable_sorts
 6 4 1 3 0 0 
 #parameter_of_abstract_task
@@ -1551,7 +1922,7 @@ _splitting_method_m_bring_sensitive_to_handover_ordering_0_splitted_23 71 6
 0
 #end_of_method
 #begin_method_name_abstract_task_number_of_variables
-m_bring_sensitive_to_handover_ordering_0 46 4
+m_bring_sensitive_to_handover_ordering_0 58 4
 #variable_sorts
 6 4 1 3 
 #parameter_of_abstract_task
@@ -1559,9 +1930,9 @@ m_bring_sensitive_to_handover_ordering_0 46 4
 #number_of_subtasks
 3
 #subtasks_each_with_task_id_and_parameter_variables
-43 0 3
-62 0 1 2 3
-71 0 1 2 3
+55 0 3
+78 0 1 2 3
+89 0 1 2 3
 #number_of_ordering_constraints_and_ordering
 3
 1 0
@@ -1571,7 +1942,45 @@ m_bring_sensitive_to_handover_ordering_0 46 4
 0
 #end_of_method
 #begin_method_name_abstract_task_number_of_variables
-m_complete_mission_ordering_0 38 0
+m_bring_two_regular_to_handover_ordering_0 61 9
+#variable_sorts
+6 7 7 3 3 0 0 0 0 
+#parameter_of_abstract_task
+1 2 4 
+#number_of_subtasks
+9
+#subtasks_each_with_task_id_and_parameter_variables
+55 0 3
+6 0 1 3 5 6
+55 0 4
+7 0 1 4 5 6
+55 0 3
+6 0 2 3 7 8
+55 0 4
+7 0 2 4 7 8
+17 0 1 2 3 4
+#number_of_ordering_constraints_and_ordering
+15
+8 0
+8 1
+8 2
+8 3
+8 4
+8 5
+8 6
+8 7
+0 1
+1 2
+2 3
+3 4
+4 5
+5 6
+6 7
+#variable_constraints
+0
+#end_of_method
+#begin_method_name_abstract_task_number_of_variables
+m_complete_mission_ordering_0 50 0
 #variable_sorts
 
 #parameter_of_abstract_task
@@ -1579,15 +1988,15 @@ m_complete_mission_ordering_0 38 0
 #number_of_subtasks
 2
 #subtasks_each_with_task_id_and_parameter_variables
-39
-41
+51
+53
 #number_of_ordering_constraints_and_ordering
 0
 #variable_constraints
 0
 #end_of_method
 #begin_method_name_abstract_task_number_of_variables
-_splitting_method_m_continue_regular_from_handover_ordering_0_splitted_3 51 5
+_splitting_method_m_continue_regular_from_handover_ordering_0_splitted_3 66 5
 #variable_sorts
 6 7 3 0 0 
 #parameter_of_abstract_task
@@ -1602,7 +2011,7 @@ _splitting_method_m_continue_regular_from_handover_ordering_0_splitted_3 51 5
 0
 #end_of_method
 #begin_method_name_abstract_task_number_of_variables
-_splitting_method_m_continue_regular_from_handover_ordering_0_splitted_15 63 5
+_splitting_method_m_continue_regular_from_handover_ordering_0_splitted_16 79 5
 #variable_sorts
 6 7 3 0 0 
 #parameter_of_abstract_task
@@ -1617,7 +2026,7 @@ _splitting_method_m_continue_regular_from_handover_ordering_0_splitted_15 63 5
 0
 #end_of_method
 #begin_method_name_abstract_task_number_of_variables
-_splitting_method_m_continue_regular_from_handover_ordering_0_splitted_24 72 4
+_splitting_method_m_continue_regular_from_handover_ordering_0_splitted_27 90 4
 #variable_sorts
 6 3 3 7 
 #parameter_of_abstract_task
@@ -1625,10 +2034,10 @@ _splitting_method_m_continue_regular_from_handover_ordering_0_splitted_24 72 4
 #number_of_subtasks
 4
 #subtasks_each_with_task_id_and_parameter_variables
-43 0 1
-43 0 2
-51 0 3 1
-63 0 3 2
+55 0 1
+55 0 2
+66 0 3 1
+79 0 3 2
 #number_of_ordering_constraints_and_ordering
 3
 0 2
@@ -1638,7 +2047,7 @@ _splitting_method_m_continue_regular_from_handover_ordering_0_splitted_24 72 4
 0
 #end_of_method
 #begin_method_name_abstract_task_number_of_variables
-m_continue_regular_from_handover_ordering_0 45 3
+m_continue_regular_from_handover_ordering_0 57 3
 #variable_sorts
 7 3 3 
 #parameter_of_abstract_task
@@ -1646,8 +2055,8 @@ m_continue_regular_from_handover_ordering_0 45 3
 #number_of_subtasks
 2
 #subtasks_each_with_task_id_and_parameter_variables
-17 0 1 2
-72 1 2 0
+18 0 1 2
+90 1 2 0
 #number_of_ordering_constraints_and_ordering
 1
 0 1
@@ -1655,7 +2064,7 @@ m_continue_regular_from_handover_ordering_0 45 3
 0
 #end_of_method
 #begin_method_name_abstract_task_number_of_variables
-_splitting_method_m_continue_sensitive_from_handover_ordering_0_splitted_4 52 6
+_splitting_method_m_continue_sensitive_from_handover_ordering_0_splitted_4 67 6
 #variable_sorts
 6 4 1 3 0 0 
 #parameter_of_abstract_task
@@ -1670,7 +2079,7 @@ _splitting_method_m_continue_sensitive_from_handover_ordering_0_splitted_4 52 6
 0
 #end_of_method
 #begin_method_name_abstract_task_number_of_variables
-_splitting_method_m_continue_sensitive_from_handover_ordering_0_splitted_16 64 6
+_splitting_method_m_continue_sensitive_from_handover_ordering_0_splitted_17 80 6
 #variable_sorts
 6 4 1 5 0 0 
 #parameter_of_abstract_task
@@ -1685,7 +2094,7 @@ _splitting_method_m_continue_sensitive_from_handover_ordering_0_splitted_16 64 6
 0
 #end_of_method
 #begin_method_name_abstract_task_number_of_variables
-_splitting_method_m_continue_sensitive_from_handover_ordering_0_splitted_25 73 6
+_splitting_method_m_continue_sensitive_from_handover_ordering_0_splitted_28 91 6
 #variable_sorts
 6 4 1 5 0 0 
 #parameter_of_abstract_task
@@ -1700,7 +2109,7 @@ _splitting_method_m_continue_sensitive_from_handover_ordering_0_splitted_25 73 6
 0
 #end_of_method
 #begin_method_name_abstract_task_number_of_variables
-_splitting_method_m_continue_sensitive_from_handover_ordering_0_splitted_28 76 6
+_splitting_method_m_continue_sensitive_from_handover_ordering_0_splitted_33 96 6
 #variable_sorts
 6 4 1 3 0 0 
 #parameter_of_abstract_task
@@ -1715,7 +2124,7 @@ _splitting_method_m_continue_sensitive_from_handover_ordering_0_splitted_28 76 6
 0
 #end_of_method
 #begin_method_name_abstract_task_number_of_variables
-_splitting_method_m_continue_sensitive_from_handover_ordering_0_splitted_30 78 6
+_splitting_method_m_continue_sensitive_from_handover_ordering_0_splitted_35 98 6
 #variable_sorts
 6 3 5 4 1 3 
 #parameter_of_abstract_task
@@ -1723,14 +2132,14 @@ _splitting_method_m_continue_sensitive_from_handover_ordering_0_splitted_30 78 6
 #number_of_subtasks
 8
 #subtasks_each_with_task_id_and_parameter_variables
-43 0 1
-43 0 2
+55 0 1
+55 0 2
 13 0 3 4 2
-43 0 5
-52 0 3 4 1
-64 0 3 4 2
-73 0 3 4 2
-76 0 3 4 5
+55 0 5
+67 0 3 4 1
+80 0 3 4 2
+91 0 3 4 2
+96 0 3 4 5
 #number_of_ordering_constraints_and_ordering
 7
 0 4
@@ -1744,7 +2153,7 @@ _splitting_method_m_continue_sensitive_from_handover_ordering_0_splitted_30 78 6
 0
 #end_of_method
 #begin_method_name_abstract_task_number_of_variables
-m_continue_sensitive_from_handover_ordering_0 47 5
+m_continue_sensitive_from_handover_ordering_0 59 5
 #variable_sorts
 4 1 3 5 3 
 #parameter_of_abstract_task
@@ -1752,8 +2161,8 @@ m_continue_sensitive_from_handover_ordering_0 47 5
 #number_of_subtasks
 2
 #subtasks_each_with_task_id_and_parameter_variables
-18 0 1 2 4
-78 2 3 0 1 4
+19 0 1 2 4
+98 2 3 0 1 4
 #number_of_ordering_constraints_and_ordering
 1
 0 1
@@ -1761,7 +2170,39 @@ m_continue_sensitive_from_handover_ordering_0 47 5
 0
 #end_of_method
 #begin_method_name_abstract_task_number_of_variables
-m_navigate_already_there_ordering_0 43 2
+m_continue_two_regular_from_handover_ordering_0 62 8
+#variable_sorts
+6 7 7 3 3 0 0 0 
+#parameter_of_abstract_task
+1 2 3 4 
+#number_of_subtasks
+7
+#subtasks_each_with_task_id_and_parameter_variables
+55 0 3
+6 0 1 3 6 7
+6 0 2 3 5 6
+55 0 4
+8 0 1 4 5 6
+8 0 2 4 6 7
+20 0 1 2 3 4 5 6 7
+#number_of_ordering_constraints_and_ordering
+11
+6 0
+6 1
+6 2
+6 3
+6 4
+6 5
+0 1
+1 2
+2 3
+3 4
+4 5
+#variable_constraints
+0
+#end_of_method
+#begin_method_name_abstract_task_number_of_variables
+m_navigate_already_there_ordering_0 55 2
 #variable_sorts
 6 3 
 #parameter_of_abstract_task
@@ -1769,14 +2210,14 @@ m_navigate_already_there_ordering_0 43 2
 #number_of_subtasks
 1
 #subtasks_each_with_task_id_and_parameter_variables
-19 0 1
+21 0 1
 #number_of_ordering_constraints_and_ordering
 0
 #variable_constraints
 0
 #end_of_method
 #begin_method_name_abstract_task_number_of_variables
-m_navigate_direct_connected_ordering_0 43 3
+m_navigate_direct_connected_ordering_0 55 3
 #variable_sorts
 6 3 3 
 #parameter_of_abstract_task
@@ -1785,7 +2226,7 @@ m_navigate_direct_connected_ordering_0 43 3
 2
 #subtasks_each_with_task_id_and_parameter_variables
 4 0 1 2
-20 0 1 2
+22 0 1 2
 #number_of_ordering_constraints_and_ordering
 1
 1 0
@@ -1793,7 +2234,7 @@ m_navigate_direct_connected_ordering_0 43 3
 0
 #end_of_method
 #begin_method_name_abstract_task_number_of_variables
-m_navigate_direct_narrow_ordering_0 43 3
+m_navigate_direct_narrow_ordering_0 55 3
 #variable_sorts
 6 3 3 
 #parameter_of_abstract_task
@@ -1802,7 +2243,7 @@ m_navigate_direct_narrow_ordering_0 43 3
 2
 #subtasks_each_with_task_id_and_parameter_variables
 5 0 1 2
-21 0 1 2
+23 0 1 2
 #number_of_ordering_constraints_and_ordering
 1
 1 0
@@ -1810,7 +2251,7 @@ m_navigate_direct_narrow_ordering_0 43 3
 0
 #end_of_method
 #begin_method_name_abstract_task_number_of_variables
-m_navigate_recursive_connected_ordering_0 43 4
+m_navigate_recursive_connected_ordering_0 55 4
 #variable_sorts
 6 3 3 3 
 #parameter_of_abstract_task
@@ -1820,9 +2261,9 @@ m_navigate_recursive_connected_ordering_0 43 4
 #subtasks_each_with_task_id_and_parameter_variables
 0 0 1
 4 0 1 2
-43 0 3
+55 0 3
 1 0 1
-22 0 1 2 3
+24 0 1 2 3
 #number_of_ordering_constraints_and_ordering
 7
 4 0
@@ -1836,7 +2277,7 @@ m_navigate_recursive_connected_ordering_0 43 4
 0
 #end_of_method
 #begin_method_name_abstract_task_number_of_variables
-m_navigate_recursive_narrow_ordering_0 43 4
+m_navigate_recursive_narrow_ordering_0 55 4
 #variable_sorts
 6 3 3 3 
 #parameter_of_abstract_task
@@ -1846,9 +2287,9 @@ m_navigate_recursive_narrow_ordering_0 43 4
 #subtasks_each_with_task_id_and_parameter_variables
 0 0 1
 5 0 1 2
-43 0 3
+55 0 3
 1 0 1
-23 0 1 2 3
+25 0 1 2 3
 #number_of_ordering_constraints_and_ordering
 7
 4 0
@@ -1862,7 +2303,7 @@ m_navigate_recursive_narrow_ordering_0 43 4
 0
 #end_of_method
 #begin_method_name_abstract_task_number_of_variables
-_splitting_method_m_process_all_regular_recursive_ordering_0_splitted_5 53 1
+_splitting_method_m_process_all_regular_recursive_ordering_0_splitted_5 68 1
 #variable_sorts
 7 
 #parameter_of_abstract_task
@@ -1870,60 +2311,8 @@ _splitting_method_m_process_all_regular_recursive_ordering_0_splitted_5 53 1
 #number_of_subtasks
 3
 #subtasks_each_with_task_id_and_parameter_variables
-42 0
+54 0
 3 0
-24 0
-#number_of_ordering_constraints_and_ordering
-3
-2 0
-2 1
-0 1
-#variable_constraints
-0
-#end_of_method
-#begin_method_name_abstract_task_number_of_variables
-m_process_all_regular_recursive_ordering_0 41 0
-#variable_sorts
-
-#parameter_of_abstract_task
-
-#number_of_subtasks
-2
-#subtasks_each_with_task_id_and_parameter_variables
-41
-53
-#number_of_ordering_constraints_and_ordering
-1
-1 0
-#variable_constraints
-0
-#end_of_method
-#begin_method_name_abstract_task_number_of_variables
-m_process_all_regular_base_ordering_0 41 6
-#variable_sorts
-8 9 10 11 12 13 
-#parameter_of_abstract_task
-
-#number_of_subtasks
-1
-#subtasks_each_with_task_id_and_parameter_variables
-25 0 1 2 3 4 5
-#number_of_ordering_constraints_and_ordering
-0
-#variable_constraints
-0
-#end_of_method
-#begin_method_name_abstract_task_number_of_variables
-_splitting_method_m_process_all_sensitive_recursive_ordering_0_splitted_6 54 1
-#variable_sorts
-4 
-#parameter_of_abstract_task
-
-#number_of_subtasks
-3
-#subtasks_each_with_task_id_and_parameter_variables
-40 0
-2 0
 26 0
 #number_of_ordering_constraints_and_ordering
 3
@@ -1934,7 +2323,7 @@ _splitting_method_m_process_all_sensitive_recursive_ordering_0_splitted_6 54 1
 0
 #end_of_method
 #begin_method_name_abstract_task_number_of_variables
-m_process_all_sensitive_recursive_ordering_0 39 0
+m_process_all_regular_recursive_ordering_0 53 0
 #variable_sorts
 
 #parameter_of_abstract_task
@@ -1942,8 +2331,8 @@ m_process_all_sensitive_recursive_ordering_0 39 0
 #number_of_subtasks
 2
 #subtasks_each_with_task_id_and_parameter_variables
-39
-54
+53
+68
 #number_of_ordering_constraints_and_ordering
 1
 1 0
@@ -1951,7 +2340,168 @@ m_process_all_sensitive_recursive_ordering_0 39 0
 0
 #end_of_method
 #begin_method_name_abstract_task_number_of_variables
-m_process_all_sensitive_base_ordering_0 39 3
+m_process_all_regular_base_ordering_0 53 6
+#variable_sorts
+8 9 10 11 12 13 
+#parameter_of_abstract_task
+
+#number_of_subtasks
+1
+#subtasks_each_with_task_id_and_parameter_variables
+27 0 1 2 3 4 5
+#number_of_ordering_constraints_and_ordering
+0
+#variable_constraints
+0
+#end_of_method
+#begin_method_name_abstract_task_number_of_variables
+_splitting_method__splitting_method_m_process_all_regular_two_handover_ordering_0_splitted_6_splitted_18 81 4
+#variable_sorts
+7 7 3 3 
+#parameter_of_abstract_task
+0 1 3 
+#number_of_subtasks
+1
+#subtasks_each_with_task_id_and_parameter_variables
+45 0 1 2 3
+#number_of_ordering_constraints_and_ordering
+0
+#variable_constraints
+0
+#end_of_method
+#begin_method_name_abstract_task_number_of_variables
+_splitting_method__splitting_method_m_process_all_regular_two_handover_ordering_0_splitted_6_splitted_29 92 4
+#variable_sorts
+7 7 3 3 
+#parameter_of_abstract_task
+0 1 3 
+#number_of_subtasks
+2
+#subtasks_each_with_task_id_and_parameter_variables
+60 0 1 2 3
+81 0 1 2
+#number_of_ordering_constraints_and_ordering
+1
+1 0
+#variable_constraints
+0
+#end_of_method
+#begin_method_name_abstract_task_number_of_variables
+_splitting_method_m_process_all_regular_two_handover_ordering_0_splitted_6 69 3
+#variable_sorts
+7 7 3 
+#parameter_of_abstract_task
+0 1 
+#number_of_subtasks
+2
+#subtasks_each_with_task_id_and_parameter_variables
+44 2
+92 0 1 2
+#number_of_ordering_constraints_and_ordering
+1
+0 1
+#variable_constraints
+0
+#end_of_method
+#begin_method_name_abstract_task_number_of_variables
+_splitting_method_m_process_all_regular_two_handover_ordering_0_splitted_19 82 2
+#variable_sorts
+7 7 
+#parameter_of_abstract_task
+1 
+#number_of_subtasks
+3
+#subtasks_each_with_task_id_and_parameter_variables
+3 0
+47 0 1
+69 0 1
+#number_of_ordering_constraints_and_ordering
+3
+2 0
+1 0
+1 2
+#variable_constraints
+0
+#end_of_method
+#begin_method_name_abstract_task_number_of_variables
+_splitting_method_m_process_all_regular_two_handover_ordering_0_splitted_30 93 1
+#variable_sorts
+7 
+#parameter_of_abstract_task
+
+#number_of_subtasks
+3
+#subtasks_each_with_task_id_and_parameter_variables
+3 0
+49 0
+82 0
+#number_of_ordering_constraints_and_ordering
+3
+2 0
+1 0
+1 2
+#variable_constraints
+0
+#end_of_method
+#begin_method_name_abstract_task_number_of_variables
+m_process_all_regular_two_handover_ordering_0 53 0
+#variable_sorts
+
+#parameter_of_abstract_task
+
+#number_of_subtasks
+3
+#subtasks_each_with_task_id_and_parameter_variables
+53
+48
+93
+#number_of_ordering_constraints_and_ordering
+3
+1 0
+1 2
+2 0
+#variable_constraints
+0
+#end_of_method
+#begin_method_name_abstract_task_number_of_variables
+_splitting_method_m_process_all_sensitive_recursive_ordering_0_splitted_7 70 1
+#variable_sorts
+4 
+#parameter_of_abstract_task
+
+#number_of_subtasks
+3
+#subtasks_each_with_task_id_and_parameter_variables
+52 0
+2 0
+29 0
+#number_of_ordering_constraints_and_ordering
+3
+2 0
+2 1
+0 1
+#variable_constraints
+0
+#end_of_method
+#begin_method_name_abstract_task_number_of_variables
+m_process_all_sensitive_recursive_ordering_0 51 0
+#variable_sorts
+
+#parameter_of_abstract_task
+
+#number_of_subtasks
+2
+#subtasks_each_with_task_id_and_parameter_variables
+51
+70
+#number_of_ordering_constraints_and_ordering
+1
+1 0
+#variable_constraints
+0
+#end_of_method
+#begin_method_name_abstract_task_number_of_variables
+m_process_all_sensitive_base_ordering_0 51 3
 #variable_sorts
 11 12 13 
 #parameter_of_abstract_task
@@ -1959,14 +2509,14 @@ m_process_all_sensitive_base_ordering_0 39 3
 #number_of_subtasks
 1
 #subtasks_each_with_task_id_and_parameter_variables
-27 0 1 2
+30 0 1 2
 #number_of_ordering_constraints_and_ordering
 0
 #variable_constraints
 0
 #end_of_method
 #begin_method_name_abstract_task_number_of_variables
-_splitting_method__splitting_method_m_process_regular_sample_ordering_0_splitted_7_splitted_17 65 5
+_splitting_method__splitting_method_m_process_regular_sample_ordering_0_splitted_8_splitted_20 83 5
 #variable_sorts
 6 7 3 0 0 
 #parameter_of_abstract_task
@@ -1981,7 +2531,7 @@ _splitting_method__splitting_method_m_process_regular_sample_ordering_0_splitted
 0
 #end_of_method
 #begin_method_name_abstract_task_number_of_variables
-_splitting_method_m_process_regular_sample_ordering_0_splitted_7 55 4
+_splitting_method_m_process_regular_sample_ordering_0_splitted_8 71 4
 #variable_sorts
 6 3 7 3 
 #parameter_of_abstract_task
@@ -1989,9 +2539,9 @@ _splitting_method_m_process_regular_sample_ordering_0_splitted_7 55 4
 #number_of_subtasks
 3
 #subtasks_each_with_task_id_and_parameter_variables
-43 0 1
-28 2 1 3
-65 0 2 1
+55 0 1
+31 2 1 3
+83 0 2 1
 #number_of_ordering_constraints_and_ordering
 3
 1 0
@@ -2001,7 +2551,7 @@ _splitting_method_m_process_regular_sample_ordering_0_splitted_7 55 4
 0
 #end_of_method
 #begin_method_name_abstract_task_number_of_variables
-_splitting_method_m_process_regular_sample_ordering_0_splitted_18 66 5
+_splitting_method_m_process_regular_sample_ordering_0_splitted_21 84 5
 #variable_sorts
 6 7 3 0 0 
 #parameter_of_abstract_task
@@ -2016,7 +2566,7 @@ _splitting_method_m_process_regular_sample_ordering_0_splitted_18 66 5
 0
 #end_of_method
 #begin_method_name_abstract_task_number_of_variables
-m_process_regular_sample_ordering_0 42 3
+m_process_regular_sample_ordering_0 54 3
 #variable_sorts
 6 7 3 
 #parameter_of_abstract_task
@@ -2024,9 +2574,9 @@ m_process_regular_sample_ordering_0 42 3
 #number_of_subtasks
 3
 #subtasks_each_with_task_id_and_parameter_variables
-43 0 2
-55 0 1 2
-66 0 1 2
+55 0 2
+71 0 1 2
+84 0 1 2
 #number_of_ordering_constraints_and_ordering
 3
 1 0
@@ -2036,7 +2586,7 @@ m_process_regular_sample_ordering_0 42 3
 0
 #end_of_method
 #begin_method_name_abstract_task_number_of_variables
-_splitting_method_m_process_regular_sample_handover_ordering_0_splitted_8 56 3
+_splitting_method_m_process_regular_sample_handover_ordering_0_splitted_9 72 3
 #variable_sorts
 7 3 3 
 #parameter_of_abstract_task
@@ -2044,14 +2594,14 @@ _splitting_method_m_process_regular_sample_handover_ordering_0_splitted_8 56 3
 #number_of_subtasks
 1
 #subtasks_each_with_task_id_and_parameter_variables
-35 0 1 2
+41 0 1 2
 #number_of_ordering_constraints_and_ordering
 0
 #variable_constraints
 0
 #end_of_method
 #begin_method_name_abstract_task_number_of_variables
-_splitting_method_m_process_regular_sample_handover_ordering_0_splitted_19 67 3
+_splitting_method_m_process_regular_sample_handover_ordering_0_splitted_22 85 3
 #variable_sorts
 7 3 3 
 #parameter_of_abstract_task
@@ -2059,9 +2609,9 @@ _splitting_method_m_process_regular_sample_handover_ordering_0_splitted_19 67 3
 #number_of_subtasks
 3
 #subtasks_each_with_task_id_and_parameter_variables
-44 0 1
-45 0 1 2
 56 0 1
+57 0 1 2
+72 0 1
 #number_of_ordering_constraints_and_ordering
 3
 0 1
@@ -2071,7 +2621,7 @@ _splitting_method_m_process_regular_sample_handover_ordering_0_splitted_19 67 3
 0
 #end_of_method
 #begin_method_name_abstract_task_number_of_variables
-m_process_regular_sample_handover_ordering_0 42 2
+m_process_regular_sample_handover_ordering_0 54 2
 #variable_sorts
 7 3 
 #parameter_of_abstract_task
@@ -2079,8 +2629,8 @@ m_process_regular_sample_handover_ordering_0 42 2
 #number_of_subtasks
 2
 #subtasks_each_with_task_id_and_parameter_variables
-34 0 1
-67 0 1
+40 0 1
+85 0 1
 #number_of_ordering_constraints_and_ordering
 1
 0 1
@@ -2088,7 +2638,7 @@ m_process_regular_sample_handover_ordering_0 42 2
 0
 #end_of_method
 #begin_method_name_abstract_task_number_of_variables
-_splitting_method__splitting_method_m_process_sensitive_sample_ordering_0_splitted_9_splitted_20 68 5
+_splitting_method__splitting_method_m_process_sensitive_sample_ordering_0_splitted_10_splitted_23 86 5
 #variable_sorts
 6 1 3 0 0 
 #parameter_of_abstract_task
@@ -2103,7 +2653,7 @@ _splitting_method__splitting_method_m_process_sensitive_sample_ordering_0_splitt
 0
 #end_of_method
 #begin_method_name_abstract_task_number_of_variables
-_splitting_method_m_process_sensitive_sample_ordering_0_splitted_9 57 6
+_splitting_method_m_process_sensitive_sample_ordering_0_splitted_10 73 6
 #variable_sorts
 6 3 1 4 3 3 
 #parameter_of_abstract_task
@@ -2111,9 +2661,9 @@ _splitting_method_m_process_sensitive_sample_ordering_0_splitted_9 57 6
 #number_of_subtasks
 3
 #subtasks_each_with_task_id_and_parameter_variables
-43 0 1
-30 3 2 4 1 5
-68 0 2 1
+55 0 1
+33 3 2 4 1 5
+86 0 2 1
 #number_of_ordering_constraints_and_ordering
 3
 1 0
@@ -2123,7 +2673,7 @@ _splitting_method_m_process_sensitive_sample_ordering_0_splitted_9 57 6
 0
 #end_of_method
 #begin_method_name_abstract_task_number_of_variables
-_splitting_method_m_process_sensitive_sample_ordering_0_splitted_21 69 5
+_splitting_method_m_process_sensitive_sample_ordering_0_splitted_24 87 5
 #variable_sorts
 6 3 4 1 3 
 #parameter_of_abstract_task
@@ -2131,9 +2681,9 @@ _splitting_method_m_process_sensitive_sample_ordering_0_splitted_21 69 5
 #number_of_subtasks
 3
 #subtasks_each_with_task_id_and_parameter_variables
-43 0 1
+55 0 1
 10 0 2 3 1
-57 0 3 2 1 4
+73 0 3 2 1 4
 #number_of_ordering_constraints_and_ordering
 3
 0 1
@@ -2143,7 +2693,7 @@ _splitting_method_m_process_sensitive_sample_ordering_0_splitted_21 69 5
 0
 #end_of_method
 #begin_method_name_abstract_task_number_of_variables
-_splitting_method_m_process_sensitive_sample_ordering_0_splitted_26 74 6
+_splitting_method_m_process_sensitive_sample_ordering_0_splitted_31 94 6
 #variable_sorts
 6 4 1 5 0 0 
 #parameter_of_abstract_task
@@ -2158,7 +2708,7 @@ _splitting_method_m_process_sensitive_sample_ordering_0_splitted_26 74 6
 0
 #end_of_method
 #begin_method_name_abstract_task_number_of_variables
-_splitting_method_m_process_sensitive_sample_ordering_0_splitted_29 77 6
+_splitting_method_m_process_sensitive_sample_ordering_0_splitted_34 97 6
 #variable_sorts
 6 4 1 5 0 0 
 #parameter_of_abstract_task
@@ -2173,7 +2723,7 @@ _splitting_method_m_process_sensitive_sample_ordering_0_splitted_29 77 6
 0
 #end_of_method
 #begin_method_name_abstract_task_number_of_variables
-_splitting_method_m_process_sensitive_sample_ordering_0_splitted_31 79 6
+_splitting_method_m_process_sensitive_sample_ordering_0_splitted_36 99 6
 #variable_sorts
 6 4 1 3 0 0 
 #parameter_of_abstract_task
@@ -2188,7 +2738,7 @@ _splitting_method_m_process_sensitive_sample_ordering_0_splitted_31 79 6
 0
 #end_of_method
 #begin_method_name_abstract_task_number_of_variables
-m_process_sensitive_sample_ordering_0 40 5
+m_process_sensitive_sample_ordering_0 52 5
 #variable_sorts
 6 4 1 5 3 
 #parameter_of_abstract_task
@@ -2196,13 +2746,13 @@ m_process_sensitive_sample_ordering_0 40 5
 #number_of_subtasks
 7
 #subtasks_each_with_task_id_and_parameter_variables
-43 0 3
+55 0 3
 13 0 1 2 3
-43 0 4
-69 0 1 2 4
-74 0 1 2 3
-77 0 1 2 3
-79 0 1 2 4
+55 0 4
+87 0 1 2 4
+94 0 1 2 3
+97 0 1 2 3
+99 0 1 2 4
 #number_of_ordering_constraints_and_ordering
 11
 3 0
@@ -2220,7 +2770,7 @@ m_process_sensitive_sample_ordering_0 40 5
 0
 #end_of_method
 #begin_method_name_abstract_task_number_of_variables
-_splitting_method_m_process_sensitive_sample_handover_ordering_0_splitted_10 58 3
+_splitting_method_m_process_sensitive_sample_handover_ordering_0_splitted_11 74 3
 #variable_sorts
 4 3 3 
 #parameter_of_abstract_task
@@ -2228,14 +2778,14 @@ _splitting_method_m_process_sensitive_sample_handover_ordering_0_splitted_10 58 
 #number_of_subtasks
 1
 #subtasks_each_with_task_id_and_parameter_variables
-37 0 1 2
+43 0 1 2
 #number_of_ordering_constraints_and_ordering
 0
 #variable_constraints
 0
 #end_of_method
 #begin_method_name_abstract_task_number_of_variables
-_splitting_method__splitting_method_m_process_sensitive_sample_handover_ordering_0_splitted_22_splitted_27 75 5
+_splitting_method__splitting_method_m_process_sensitive_sample_handover_ordering_0_splitted_25_splitted_32 95 5
 #variable_sorts
 4 1 3 5 3 
 #parameter_of_abstract_task
@@ -2243,8 +2793,8 @@ _splitting_method__splitting_method_m_process_sensitive_sample_handover_ordering
 #number_of_subtasks
 2
 #subtasks_each_with_task_id_and_parameter_variables
-46 0 1 2
-47 0 1 2 3 4
+58 0 1 2
+59 0 1 2 3 4
 #number_of_ordering_constraints_and_ordering
 1
 0 1
@@ -2252,7 +2802,7 @@ _splitting_method__splitting_method_m_process_sensitive_sample_handover_ordering
 0
 #end_of_method
 #begin_method_name_abstract_task_number_of_variables
-_splitting_method_m_process_sensitive_sample_handover_ordering_0_splitted_22 70 4
+_splitting_method_m_process_sensitive_sample_handover_ordering_0_splitted_25 88 4
 #variable_sorts
 4 3 5 3 
 #parameter_of_abstract_task
@@ -2260,8 +2810,8 @@ _splitting_method_m_process_sensitive_sample_handover_ordering_0_splitted_22 70 
 #number_of_subtasks
 2
 #subtasks_each_with_task_id_and_parameter_variables
-58 0 1
-75 0 1 2 3
+74 0 1
+95 0 1 2 3
 #number_of_ordering_constraints_and_ordering
 1
 0 1
@@ -2269,7 +2819,7 @@ _splitting_method_m_process_sensitive_sample_handover_ordering_0_splitted_22 70 
 0
 #end_of_method
 #begin_method_name_abstract_task_number_of_variables
-m_process_sensitive_sample_handover_ordering_0 40 3
+m_process_sensitive_sample_handover_ordering_0 52 3
 #variable_sorts
 4 5 3 
 #parameter_of_abstract_task
@@ -2277,10 +2827,30 @@ m_process_sensitive_sample_handover_ordering_0 40 3
 #number_of_subtasks
 2
 #subtasks_each_with_task_id_and_parameter_variables
-36 0 2
-70 0 1 2
+42 0 2
+88 0 1 2
 #number_of_ordering_constraints_and_ordering
 1
+0 1
+#variable_constraints
+0
+#end_of_method
+#begin_method_name_abstract_task_number_of_variables
+m_process_two_regular_samples_via_handover_ordering_0 60 4
+#variable_sorts
+7 7 3 3 
+#parameter_of_abstract_task
+0 1 2 3 
+#number_of_subtasks
+3
+#subtasks_each_with_task_id_and_parameter_variables
+61 0 1 2
+62 0 1 2 3
+35 0 1 3
+#number_of_ordering_constraints_and_ordering
+3
+2 0
+2 1
 0 1
 #variable_constraints
 0
@@ -2363,4 +2933,4 @@ m_process_sensitive_sample_handover_ordering_0 40 3
 #init_function_facts
 0
 #initial_task
-48
+63

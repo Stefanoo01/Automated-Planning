@@ -2,9 +2,9 @@
     (:domain abyssus-base)
 
     (:objects
-        rov1 rov2 - rov
-        s1 s2 s3 - sample
-        s4 s5 s6 - pressure-sensitive
+        rov1 rov2 rov3 - rov
+        s1 s2 s3 s4 s9 - sample
+        s5 s6 s7 s8 - pressure-sensitive
         cap1 cap2 - capsule
         wing_alpha wing_beta transfer_zone decompression_chamber bio_vault - location
         docking_station - docking-station
@@ -38,16 +38,23 @@
 
         (at rov1 docking_station)
         (at rov2 docking_station)
+        (at rov3 docking_station)
         (small-robot rov1)
+        (small-robot rov3)
         (regular-sample s1)
         (regular-sample s2)
         (regular-sample s3)
+        (regular-sample s4)
+        (regular-sample s9)
         (at s1 wing_alpha)
         (at s2 wing_alpha)
         (at s6 wing_alpha)
         (at s5 wing_beta)
         (at s3 wing_beta)
         (at s4 wing_beta)
+        (at s7 wing_alpha)
+        (at s8 wing_beta)
+        (at s9 wing_alpha)
 
         (at cap1 docking_station)
         (at cap2 docking_station)
@@ -57,9 +64,12 @@
         (todo-regular s1)
         (todo-regular s2)
         (todo-regular s3)
-        (todo-sensitive s4)
+        (todo-regular s4)
+        (todo-regular s9)
         (todo-sensitive s5)
         (todo-sensitive s6)
+        (todo-sensitive s7)
+        (todo-sensitive s8)
 
         (capacity-predecessor c0 c1)
         (capacity-predecessor c1 c2)
@@ -67,6 +77,7 @@
 
         (capacity rov1 c1)
         (capacity rov2 c3)
+        (capacity rov3 c2)
     )
 
     (:goal
