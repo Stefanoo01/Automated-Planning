@@ -9,326 +9,431 @@
 by Dominik Schreiber <dominik.schreiber@kit.edu> 2020-2021
 using SAT solver glucose4
 
-0.029 Parser finished.
-0.032 Structures extracted.
-0.037 51 operators and 37 methods created.
-0.046 Mined 100 new reduction preconditions (+129.9%).
-0.047 Iteration 0.
-0.047 Creating initial layer of size 2
-0.055 Attempting to solve formula with 15 clauses (21 literals) and 1 assumptions
-0.056 Unsolvable at layer 0 -- expanding.
-0.056 Iteration 1.
-0.057 New layer size: 2
-0.057 Instantiating ...
-0.060 Collected 6 relevant facts at this layer
-0.060 Encoding ...
-0.061 Attempting to solve formula with 20 clauses (30 literals) and 1 assumptions
-0.061 Unsolvable at layer 1 -- expanding.
-0.061 Iteration 2.
-0.061 New layer size: 3
-0.061 Instantiating ...
-0.065 Collected 6 relevant facts at this layer
-0.065 Encoding ...
-0.065 Attempting to solve formula with 36 clauses (64 literals) and 2 assumptions
-0.065 Unsolvable at layer 2 -- expanding.
-0.065 Iteration 3.
-0.065 New layer size: 7
-0.065 Instantiating ...
-0.069 Collected 36 relevant facts at this layer
-0.069 Encoding ...
-0.071 Attempting to solve formula with 409 clauses (1052 literals) and 4 assumptions
-0.071 Unsolvable at layer 3 -- expanding.
-0.071 Iteration 4.
-0.071 New layer size: 23
-0.071 Instantiating ...
-0.072 Retroactively prune action (__SURROGATE*m_navigate_direct_connected_ordering_0*move* Q_3,0_rov:0_c17bf1d1a9314f06 Q_4,0_location:0_a7f8116695971924 docking_station) due to impossible effect !(at Q_3,0_rov:0_c17bf1d1a9314f06 Q_4,0_location:0_a7f8116695971924)
-0.077 Collected 105 relevant facts at this layer
-0.077 Encoding ...
-0.080 Attempting to solve formula with 5022 clauses (15152 literals) and 12 assumptions
-0.080 Unsolvable at layer 4 -- expanding.
-0.080 Iteration 5.
-0.080 New layer size: 69
-0.080 Instantiating ...
-0.081 Retroactively prune action (__SURROGATE*m_navigate_direct_connected_ordering_0*move* rov1 Q_5,0_location:0_a7f8116695971924 docking_station) due to impossible effect !(at rov1 Q_5,0_location:0_a7f8116695971924)
-0.093 Collected 105 relevant facts at this layer
+0.033 Parser finished.
+0.038 Structures extracted.
+0.044 51 operators and 37 methods created.
+0.056 Mined 100 new reduction preconditions (+112.4%).
+0.057 Iteration 0.
+0.057 Creating initial layer of size 2
+0.066 Attempting to solve formula with 21 clauses (30 literals) and 1 assumptions
+0.068 Unsolvable at layer 0 -- expanding.
+0.068 Iteration 1.
+0.068 New layer size: 2
+0.068 Instantiating ...
+0.072 Collected 9 relevant facts at this layer
+0.072 Encoding ...
+0.073 Attempting to solve formula with 26 clauses (39 literals) and 1 assumptions
+0.073 Unsolvable at layer 1 -- expanding.
+0.073 Iteration 2.
+0.073 New layer size: 3
+0.073 Instantiating ...
+0.078 Collected 9 relevant facts at this layer
+0.078 Encoding ...
+0.078 Attempting to solve formula with 52 clauses (96 literals) and 2 assumptions
+0.078 Unsolvable at layer 2 -- expanding.
+0.078 Iteration 3.
+0.078 New layer size: 7
+0.078 Instantiating ...
+0.083 Collected 57 relevant facts at this layer
+0.083 Encoding ...
+0.085 Attempting to solve formula with 612 clauses (1585 literals) and 4 assumptions
+0.085 Unsolvable at layer 3 -- expanding.
+0.085 Iteration 4.
+0.085 New layer size: 23
+0.085 Instantiating ...
+0.086 Retroactively prune action (__SURROGATE*m_navigate_direct_connected_ordering_0*move* Q_3,0_rov:0_6e6c7bb1798f2a55 Q_4,0_location:0_a437e58b7bc6a9ed docking_station) due to impossible effect !(at Q_3,0_rov:0_6e6c7bb1798f2a55 Q_4,0_location:0_a437e58b7bc6a9ed)
+0.093 Collected 158 relevant facts at this layer
 0.093 Encoding ...
-0.098 Attempting to solve formula with 20086 clauses (63078 literals) and 26 assumptions
-0.099 Unsolvable at layer 5 -- expanding.
-0.099 Iteration 6.
-0.099 New layer size: 157
-0.099 Instantiating ...
-0.099 Retroactively prune action (move-through-narrow rov1 Q_5,0_location:0_a7f8116695971924 Q_5,0_location:1_a7f8116695971924) due to impossible effect !(at rov1 Q_5,0_location:0_a7f8116695971924)
-0.119 Collected 105 relevant facts at this layer
-0.119 Encoding ...
-0.130 Attempting to solve formula with 48202 clauses (154090 literals) and 40 assumptions
-0.146 Unsolvable at layer 6 -- expanding.
-0.146 Iteration 7.
-0.146 New layer size: 287
-0.146 Instantiating ...
-0.182 Collected 105 relevant facts at this layer
-0.182 Encoding ...
-0.199 Attempting to solve formula with 88860 clauses (286221 literals) and 54 assumptions
-0.264 Unsolvable at layer 7 -- expanding.
-0.264 Iteration 8.
-0.264 New layer size: 459
-0.264 Instantiating ...
-0.308 Collected 105 relevant facts at this layer
-0.308 Encoding ...
-0.336 Attempting to solve formula with 142320 clauses (459584 literals) and 68 assumptions
-c last restart ## conflicts  :  806 3893 
-0.359 Found a solution at layer 8.
+0.096 Attempting to solve formula with 6659 clauses (20656 literals) and 12 assumptions
+0.097 Unsolvable at layer 4 -- expanding.
+0.097 Iteration 5.
+0.097 New layer size: 69
+0.097 Instantiating ...
+0.097 Retroactively prune action (__SURROGATE*m_navigate_direct_connected_ordering_0*move* Q_3,0_rov:0_6e6c7bb1798f2a55 Q_5,0_location:0_a437e58b7bc6a9ed docking_station) due to impossible effect !(at Q_3,0_rov:0_6e6c7bb1798f2a55 Q_5,0_location:0_a437e58b7bc6a9ed)
+0.113 Collected 158 relevant facts at this layer
+0.113 Encoding ...
+0.121 Attempting to solve formula with 26945 clauses (88823 literals) and 26 assumptions
+0.122 Unsolvable at layer 5 -- expanding.
+0.122 Iteration 6.
+0.122 New layer size: 157
+0.122 Instantiating ...
+0.147 Collected 158 relevant facts at this layer
+0.147 Encoding ...
+0.164 Attempting to solve formula with 65890 clauses (223408 literals) and 40 assumptions
+0.164 Unsolvable at layer 6 -- expanding.
+0.164 Iteration 7.
+0.164 New layer size: 287
+0.164 Instantiating ...
+0.205 Collected 158 relevant facts at this layer
+0.205 Encoding ...
+0.232 Attempting to solve formula with 123395 clauses (423805 literals) and 54 assumptions
+0.233 Unsolvable at layer 7 -- expanding.
+0.233 Iteration 8.
+0.233 New layer size: 459
+0.233 Instantiating ...
+0.291 Collected 158 relevant facts at this layer
+0.291 Encoding ...
+0.332 Attempting to solve formula with 199419 clauses (689026 literals) and 68 assumptions
+1.983 Unsolvable at layer 8 -- expanding.
+1.983 Iteration 9.
+1.983 New layer size: 673
+1.983 Instantiating ...
+2.060 Collected 158 relevant facts at this layer
+2.060 Encoding ...
+2.117 Attempting to solve formula with 294335 clauses (1019815 literals) and 82 assumptions
+c
+c Try to adapt solver strategies
+c 
+c Nothing extreme in this problem, continue with glucose default strategies.
+c
+11.260 Unsolvable at layer 9 -- expanding.
+11.260 Iteration 10.
+11.260 New layer size: 929
+11.260 Instantiating ...
+11.359 Collected 158 relevant facts at this layer
+11.359 Encoding ...
+11.433 Attempting to solve formula with 408518 clauses (1416922 literals) and 96 assumptions
+c last restart ## conflicts  :  7750 7893 
+12.195 Found a solution at layer 10.
 ==>
-13853 visit rov2 docking_station
-13946 move rov2 docking_station transfer_zone
-13950 move rov2 transfer_zone docking_station
-14104 unvisit rov2 docking_station
-14217 take-empty-capsule rov2 cap1 docking_station c2 c3
-14639 visit rov2 docking_station
-14644 move rov2 docking_station transfer_zone
-14649 move rov2 transfer_zone wing_beta
-14789 unvisit rov2 docking_station
-14791 encapsulate-sample rov2 s4 cap1 wing_beta
-14794 visit rov2 wing_beta
-14800 move rov2 wing_beta transfer_zone
-14804 visit rov2 transfer_zone
-14806 move rov2 transfer_zone decompression_chamber
-14810 visit rov2 decompression_chamber
-14816 move rov2 decompression_chamber bio_vault
-14819 move rov2 bio_vault pressure_stabilizer
-14930 unvisit rov2 decompression_chamber
-14935 unvisit rov2 transfer_zone
-14938 unvisit rov2 wing_beta
-14941 drop-sensitive-sample rov2 s4 cap1 pressure_stabilizer c2 c3
-14943 stabilize-capsule rov2 s4 cap1 pressure_stabilizer
-14947 pickup-sensitive-sample rov2 s4 cap1 pressure_stabilizer c2 c3
-14951 visit rov2 pressure_stabilizer
-14953 move rov2 pressure_stabilizer decompression_chamber
-14957 move rov2 decompression_chamber bio_vault
-15093 unvisit rov2 pressure_stabilizer
-15095 store-sensitive-sample rov2 s4 cap1 bio_vault c2 c3
-15098 mark-sensitive-done s4
-15106 visit rov1 docking_station
-15199 move rov1 docking_station transfer_zone
-15204 visit rov1 transfer_zone
-15209 move rov1 transfer_zone decompression_chamber
-15216 visit rov1 decompression_chamber
-15220 move rov1 decompression_chamber pressure_stabilizer
-15255 move rov1 pressure_stabilizer bio_vault
-15304 unvisit rov1 decompression_chamber
-15341 unvisit rov1 transfer_zone
-15347 unvisit rov1 docking_station
-15443 take-empty-capsule rov1 cap1 bio_vault c0 c1
-15835 visit rov1 bio_vault
-15842 move rov1 bio_vault pressure_stabilizer
-15847 visit rov1 pressure_stabilizer
-15850 move rov1 pressure_stabilizer decompression_chamber
-15854 visit rov1 decompression_chamber
-15859 move rov1 decompression_chamber transfer_zone
-15893 move-through-narrow rov1 transfer_zone wing_alpha
-15934 unvisit rov1 decompression_chamber
-15969 unvisit rov1 pressure_stabilizer
-15972 unvisit rov1 bio_vault
-15975 encapsulate-sample rov1 s6 cap1 wing_alpha
-15978 visit rov1 wing_alpha
-15983 move-through-narrow rov1 wing_alpha transfer_zone
-15986 visit rov1 transfer_zone
-15991 move rov1 transfer_zone decompression_chamber
-15995 visit rov1 decompression_chamber
-15999 move rov1 decompression_chamber bio_vault
-16033 move rov1 bio_vault pressure_stabilizer
-16073 unvisit rov1 decompression_chamber
-16107 unvisit rov1 transfer_zone
-16111 unvisit rov1 wing_alpha
-16113 drop-sensitive-sample rov1 s6 cap1 pressure_stabilizer c0 c1
-16117 stabilize-capsule rov1 s6 cap1 pressure_stabilizer
-16119 pickup-sensitive-sample rov1 s6 cap1 pressure_stabilizer c0 c1
-16124 visit rov1 pressure_stabilizer
-16126 move rov1 pressure_stabilizer decompression_chamber
-16130 move rov1 decompression_chamber bio_vault
-16254 unvisit rov1 pressure_stabilizer
-16257 store-sensitive-sample rov1 s6 cap1 bio_vault c0 c1
-16260 mark-sensitive-done s6
-16583 take-empty-capsule rov1 cap1 bio_vault c0 c1
-16962 visit rov1 bio_vault
-16969 move rov1 bio_vault decompression_chamber
-16971 visit rov1 decompression_chamber
-16977 move rov1 decompression_chamber transfer_zone
-17012 move rov1 transfer_zone wing_beta
-17053 unvisit rov1 decompression_chamber
-17087 unvisit rov1 bio_vault
-17090 encapsulate-sample rov1 s5 cap1 wing_beta
-17095 visit rov1 wing_beta
-17099 move rov1 wing_beta transfer_zone
-17103 visit rov1 transfer_zone
-17106 move rov1 transfer_zone decompression_chamber
-17140 move rov1 decompression_chamber pressure_stabilizer
-17180 unvisit rov1 transfer_zone
-17213 unvisit rov1 wing_beta
-17217 drop-sensitive-sample rov1 s5 cap1 pressure_stabilizer c0 c1
-17220 stabilize-capsule rov1 s5 cap1 pressure_stabilizer
-17224 pickup-sensitive-sample rov1 s5 cap1 pressure_stabilizer c0 c1
-17227 visit rov1 pressure_stabilizer
-17232 move rov1 pressure_stabilizer decompression_chamber
-17234 move rov1 decompression_chamber bio_vault
-17346 unvisit rov1 pressure_stabilizer
-17350 store-sensitive-sample rov1 s5 cap1 bio_vault c0 c1
-17354 mark-sensitive-done s5
-18900 visit rov2 bio_vault
-19009 move rov2 bio_vault decompression_chamber
-19013 visit rov2 decompression_chamber
-19018 move rov2 decompression_chamber transfer_zone
-19024 move rov2 transfer_zone wing_beta
-19162 unvisit rov2 decompression_chamber
-19166 unvisit rov2 bio_vault
-19171 pickup-regular-sample rov2 s3 wing_beta c2 c3
-19452 visit rov2 wing_beta
-19456 move rov2 wing_beta transfer_zone
-19459 visit rov2 transfer_zone
-19463 move rov2 transfer_zone decompression_chamber
-19467 visit rov2 decompression_chamber
-19473 move rov2 decompression_chamber pressure_stabilizer
-19475 move rov2 pressure_stabilizer bio_vault
-19588 unvisit rov2 decompression_chamber
-19591 unvisit rov2 transfer_zone
-19595 unvisit rov2 wing_beta
-19598 store-regular-sample rov2 s3 bio_vault c2 c3
-19600 mark-regular-done s3
-19605 visit rov1 bio_vault
-19610 move rov1 bio_vault decompression_chamber
-19617 visit rov1 decompression_chamber
-19621 move rov1 decompression_chamber transfer_zone
-19641 move-through-narrow rov1 transfer_zone wing_alpha
-19674 unvisit rov1 decompression_chamber
-19695 unvisit rov1 bio_vault
-19701 pickup-regular-sample rov1 s2 wing_alpha c0 c1
-19705 move-through-narrow rov1 wing_alpha transfer_zone
-19831 drop-regular-sample rov1 s2 transfer_zone c0 c1
-19836 visit rov1 transfer_zone
-19841 move-through-narrow rov1 transfer_zone wing_alpha
-19847 move-through-narrow rov1 wing_alpha transfer_zone
-19960 unvisit rov1 transfer_zone
-19965 pickup-regular-sample rov1 s2 transfer_zone c0 c1
-19967 visit rov1 transfer_zone
-19973 move rov1 transfer_zone decompression_chamber
-19975 visit rov1 decompression_chamber
-19982 move rov1 decompression_chamber pressure_stabilizer
-20014 move rov1 pressure_stabilizer bio_vault
-20054 unvisit rov1 decompression_chamber
-20087 unvisit rov1 transfer_zone
-20091 store-regular-sample rov1 s2 bio_vault c0 c1
-20233 mark-regular-done s2
-20240 visit rov1 bio_vault
-20334 move rov1 bio_vault decompression_chamber
-20340 visit rov1 decompression_chamber
-20344 move rov1 decompression_chamber transfer_zone
-20380 move-through-narrow rov1 transfer_zone wing_alpha
-20426 unvisit rov1 decompression_chamber
-20465 unvisit rov1 bio_vault
-20472 pickup-regular-sample rov1 s1 wing_alpha c0 c1
-20740 visit rov1 wing_alpha
-20745 move-through-narrow rov1 wing_alpha transfer_zone
-20747 visit rov1 transfer_zone
-20752 move rov1 transfer_zone decompression_chamber
-20786 move rov1 decompression_chamber bio_vault
-20826 unvisit rov1 transfer_zone
-20860 unvisit rov1 wing_alpha
-20863 store-regular-sample rov1 s1 bio_vault c0 c1
-20866 mark-regular-done s1
-root 17
-17 complete-mission -> m_complete_mission_ordering_0 21 26
-21 process-all-sensitive-samples -> m_process_all_sensitive_recursive_ordering_0 40 15098 114
-26 process-all-regular-samples -> m_process_all_regular_recursive_ordering_0 126 19600 204
-40 process-sensitive-sample s4 -> m_process_sensitive_sample_ordering_0 246 14217 410 14791 541 14941 14943 14947 659 15095
-114 process-all-sensitive-samples -> m_process_all_sensitive_recursive_ordering_0 779 16260 897
-126 process-regular-sample s3 -> m_process_regular_sample_ordering_0 911 19171 1081 19598
-204 process-all-regular-samples -> m_process_all_regular_recursive_ordering_0 1234 20233 1341
-246 navigate-to rov2 docking_station -> m_navigate_recursive_connected_ordering_0 13853 13946 13949 14104
-410 navigate-to rov2 wing_beta -> m_navigate_recursive_connected_ordering_0 14639 14644 14648 14789
-541 navigate-to rov2 pressure_stabilizer -> m_navigate_recursive_connected_ordering_0 14794 14800 2113 14938
-659 navigate-to rov2 bio_vault -> m_navigate_recursive_connected_ordering_0 14951 14953 14956 15093
-779 process-sensitive-sample s6 -> m_process_sensitive_sample_ordering_0 2317 15443 2429 15975 2559 16113 16117 16119 2681 16257
-897 process-all-sensitive-samples -> m_process_all_sensitive_recursive_ordering_0 2776 17354 2896
-911 navigate-to rov2 wing_beta -> m_navigate_recursive_connected_ordering_0 18900 19009 2985 19166
-1081 navigate-to rov2 bio_vault -> m_navigate_recursive_connected_ordering_0 19452 19456 3348 19595
-1234 process-regular-sample s2 -> m_process_regular_sample_handover_ordering_0 3431 3453
-1341 process-all-regular-samples -> m_process_all_regular_recursive_ordering_0 3670 20866 3777
-2113 navigate-to rov2 pressure_stabilizer -> m_navigate_recursive_connected_ordering_0 14804 14806 4634 14935
-2317 navigate-to rov1 bio_vault -> m_navigate_recursive_connected_ordering_0 15106 15199 4931 15347
-2429 navigate-to rov1 wing_alpha -> m_navigate_recursive_connected_ordering_0 15835 15842 5475 15972
-2559 navigate-to rov1 pressure_stabilizer -> m_navigate_recursive_narrow_ordering_0 15978 15983 5593 16111
-2681 navigate-to rov1 bio_vault -> m_navigate_recursive_connected_ordering_0 16124 16126 16129 16254
-2776 process-sensitive-sample s5 -> m_process_sensitive_sample_ordering_0 5795 16583 5910 17090 6041 17217 17220 17224 6162 17350
-2896 process-all-sensitive-samples -> m_process_all_sensitive_base_ordering_0
-2985 navigate-to rov2 wing_beta -> m_navigate_recursive_connected_ordering_0 19013 19018 19023 19162
-3348 navigate-to rov2 bio_vault -> m_navigate_recursive_connected_ordering_0 19459 19463 6942 19591
-3431 bring-regular-to-handover s2 transfer_zone -> m_bring_regular_to_handover_ordering_0 7030 19701 19704 19831
-3453 continue-regular-from-handover s2 transfer_zone bio_vault -> m_continue_regular_from_handover_ordering_0 7228 19965 7336 20091
-3670 process-regular-sample s1 -> m_process_regular_sample_ordering_0 7551 20472 7649 20863
-3777 process-all-regular-samples -> m_process_all_regular_base_ordering_0
-4634 navigate-to rov2 pressure_stabilizer -> m_navigate_recursive_connected_ordering_0 14810 14816 14818 14930
-4931 navigate-to rov1 bio_vault -> m_navigate_recursive_connected_ordering_0 15204 15209 9206 15341
-5475 navigate-to rov1 wing_alpha -> m_navigate_recursive_connected_ordering_0 15847 15850 9805 15969
-5593 navigate-to rov1 pressure_stabilizer -> m_navigate_recursive_connected_ordering_0 15986 15991 9934 16107
-5795 navigate-to rov1 bio_vault -> m_navigate_already_there_ordering_0
-5910 navigate-to rov1 wing_beta -> m_navigate_recursive_connected_ordering_0 16962 16969 10778 17087
-6041 navigate-to rov1 pressure_stabilizer -> m_navigate_recursive_connected_ordering_0 17095 17099 10894 17213
-6162 navigate-to rov1 bio_vault -> m_navigate_recursive_connected_ordering_0 17227 17232 17233 17346
-6942 navigate-to rov2 bio_vault -> m_navigate_recursive_connected_ordering_0 19467 19473 19474 19588
-7030 navigate-to rov1 wing_alpha -> m_navigate_recursive_connected_ordering_0 19605 19610 12380 19695
-7228 navigate-to rov1 transfer_zone -> m_navigate_recursive_narrow_ordering_0 19836 19841 19846 19960
-7336 navigate-to rov1 bio_vault -> m_navigate_recursive_connected_ordering_0 19967 19973 12760 20087
-7551 navigate-to rov1 wing_alpha -> m_navigate_recursive_connected_ordering_0 20240 20334 13047 20465
-7649 navigate-to rov1 bio_vault -> m_navigate_recursive_narrow_ordering_0 20740 20745 13410 20860
-9206 navigate-to rov1 bio_vault -> m_navigate_recursive_connected_ordering_0 15216 15220 15254 15304
-9805 navigate-to rov1 wing_alpha -> m_navigate_recursive_connected_ordering_0 15854 15859 15892 15934
-9934 navigate-to rov1 pressure_stabilizer -> m_navigate_recursive_connected_ordering_0 15995 15999 16032 16073
-10778 navigate-to rov1 wing_beta -> m_navigate_recursive_connected_ordering_0 16971 16977 17011 17053
-10894 navigate-to rov1 pressure_stabilizer -> m_navigate_recursive_connected_ordering_0 17103 17106 17139 17180
-12380 navigate-to rov1 wing_alpha -> m_navigate_recursive_connected_ordering_0 19617 19621 19640 19674
-12760 navigate-to rov1 bio_vault -> m_navigate_recursive_connected_ordering_0 19975 19982 20013 20054
-13047 navigate-to rov1 wing_alpha -> m_navigate_recursive_connected_ordering_0 20340 20344 20379 20426
-13410 navigate-to rov1 bio_vault -> m_navigate_recursive_connected_ordering_0 20747 20752 20785 20826
-13949 navigate-to rov2 docking_station -> m_navigate_direct_connected_ordering_0 13950
-14648 navigate-to rov2 wing_beta -> m_navigate_direct_connected_ordering_0 14649
-14818 navigate-to rov2 pressure_stabilizer -> m_navigate_direct_connected_ordering_0 14819
-14956 navigate-to rov2 bio_vault -> m_navigate_direct_connected_ordering_0 14957
-15254 navigate-to rov1 bio_vault -> m_navigate_direct_connected_ordering_0 15255
-15892 navigate-to rov1 wing_alpha -> m_navigate_direct_narrow_ordering_0 15893
-16032 navigate-to rov1 pressure_stabilizer -> m_navigate_direct_connected_ordering_0 16033
-16129 navigate-to rov1 bio_vault -> m_navigate_direct_connected_ordering_0 16130
-17011 navigate-to rov1 wing_beta -> m_navigate_direct_connected_ordering_0 17012
-17139 navigate-to rov1 pressure_stabilizer -> m_navigate_direct_connected_ordering_0 17140
-17233 navigate-to rov1 bio_vault -> m_navigate_direct_connected_ordering_0 17234
-19023 navigate-to rov2 wing_beta -> m_navigate_direct_connected_ordering_0 19024
-19474 navigate-to rov2 bio_vault -> m_navigate_direct_connected_ordering_0 19475
-19640 navigate-to rov1 wing_alpha -> m_navigate_direct_narrow_ordering_0 19641
-19704 navigate-to rov1 transfer_zone -> m_navigate_direct_narrow_ordering_0 19705
-19846 navigate-to rov1 transfer_zone -> m_navigate_direct_narrow_ordering_0 19847
-20013 navigate-to rov1 bio_vault -> m_navigate_direct_connected_ordering_0 20014
-20379 navigate-to rov1 wing_alpha -> m_navigate_direct_narrow_ordering_0 20380
-20785 navigate-to rov1 bio_vault -> m_navigate_direct_connected_ordering_0 20786
+41480 visit rov3 docking_station
+41673 move rov3 docking_station transfer_zone
+41678 move rov3 transfer_zone docking_station
+41888 unvisit rov3 docking_station
+42096 take-empty-capsule rov3 cap1 docking_station c1 c2
+42695 visit rov3 docking_station
+42699 move rov3 docking_station transfer_zone
+42702 move rov3 transfer_zone wing_beta
+42900 unvisit rov3 docking_station
+42904 encapsulate-sample rov3 s5 cap1 wing_beta
+42906 visit rov3 wing_beta
+42911 move rov3 wing_beta transfer_zone
+42916 visit rov3 transfer_zone
+42918 move rov3 transfer_zone decompression_chamber
+42922 move rov3 decompression_chamber pressure_stabilizer
+43104 unvisit rov3 transfer_zone
+43106 unvisit rov3 wing_beta
+43109 drop-sensitive-sample rov3 s5 cap1 pressure_stabilizer c1 c2
+43112 stabilize-capsule rov3 s5 cap1 pressure_stabilizer
+43116 pickup-sensitive-sample rov3 s5 cap1 pressure_stabilizer c1 c2
+43120 visit rov3 pressure_stabilizer
+43122 move rov3 pressure_stabilizer decompression_chamber
+43127 move rov3 decompression_chamber bio_vault
+43319 unvisit rov3 pressure_stabilizer
+43321 store-sensitive-sample rov3 s5 cap1 bio_vault c1 c2
+43324 mark-sensitive-done s5
+43326 visit rov2 docking_station
+43519 move rov2 docking_station transfer_zone
+43525 visit rov2 transfer_zone
+43528 move rov2 transfer_zone decompression_chamber
+43537 visit rov2 decompression_chamber
+43539 move rov2 decompression_chamber pressure_stabilizer
+43543 move rov2 pressure_stabilizer bio_vault
+43719 unvisit rov2 decompression_chamber
+43722 unvisit rov2 transfer_zone
+43724 unvisit rov2 docking_station
+43919 take-empty-capsule rov2 cap1 bio_vault c2 c3
+44483 visit rov2 bio_vault
+44490 move rov2 bio_vault pressure_stabilizer
+44494 visit rov2 pressure_stabilizer
+44498 move rov2 pressure_stabilizer decompression_chamber
+44503 visit rov2 decompression_chamber
+44506 move rov2 decompression_chamber transfer_zone
+44511 move rov2 transfer_zone wing_beta
+44673 unvisit rov2 decompression_chamber
+44676 unvisit rov2 pressure_stabilizer
+44679 unvisit rov2 bio_vault
+44683 encapsulate-sample rov2 s8 cap1 wing_beta
+44685 visit rov2 wing_beta
+44689 move rov2 wing_beta transfer_zone
+44694 visit rov2 transfer_zone
+44697 move rov2 transfer_zone decompression_chamber
+44701 move rov2 decompression_chamber pressure_stabilizer
+44871 unvisit rov2 transfer_zone
+44875 unvisit rov2 wing_beta
+44878 drop-sensitive-sample rov2 s8 cap1 pressure_stabilizer c2 c3
+44881 stabilize-capsule rov2 s8 cap1 pressure_stabilizer
+44883 pickup-sensitive-sample rov2 s8 cap1 pressure_stabilizer c2 c3
+44887 visit rov2 pressure_stabilizer
+44890 move rov2 pressure_stabilizer decompression_chamber
+44894 move rov2 decompression_chamber bio_vault
+45075 unvisit rov2 pressure_stabilizer
+45079 store-sensitive-sample rov2 s8 cap1 bio_vault c2 c3
+45081 mark-sensitive-done s8
+45086 visit rov3 bio_vault
+45092 move rov3 bio_vault pressure_stabilizer
+45096 move rov3 pressure_stabilizer bio_vault
+45259 unvisit rov3 bio_vault
+45264 take-empty-capsule rov3 cap1 bio_vault c1 c2
+45272 visit rov3 bio_vault
+45275 move rov3 bio_vault decompression_chamber
+45278 visit rov3 decompression_chamber
+45287 move rov3 decompression_chamber transfer_zone
+45294 move-through-narrow rov3 transfer_zone wing_alpha
+45449 unvisit rov3 decompression_chamber
+45454 unvisit rov3 bio_vault
+45458 encapsulate-sample rov3 s6 cap1 wing_alpha
+45461 move-through-narrow rov3 wing_alpha transfer_zone
+45635 drop-sensitive-sample rov3 s6 cap1 transfer_zone c1 c2
+45642 move rov1 docking_station transfer_zone
+45815 pickup-sensitive-sample rov1 s6 cap1 transfer_zone c0 c1
+45819 visit rov1 transfer_zone
+45821 move rov1 transfer_zone decompression_chamber
+45827 move rov1 decompression_chamber pressure_stabilizer
+45985 unvisit rov1 transfer_zone
+45987 drop-sensitive-sample rov1 s6 cap1 pressure_stabilizer c0 c1
+45991 stabilize-capsule rov1 s6 cap1 pressure_stabilizer
+45993 pickup-sensitive-sample rov1 s6 cap1 pressure_stabilizer c0 c1
+45996 visit rov1 pressure_stabilizer
+46002 move rov1 pressure_stabilizer decompression_chamber
+46004 move rov1 decompression_chamber bio_vault
+46164 unvisit rov1 pressure_stabilizer
+46167 store-sensitive-sample rov1 s6 cap1 bio_vault c0 c1
+46733 mark-sensitive-done s6
+46738 visit rov1 bio_vault
+46903 move rov1 bio_vault decompression_chamber
+46910 visit rov1 decompression_chamber
+46916 move rov1 decompression_chamber transfer_zone
+46921 move rov1 transfer_zone docking_station
+47079 unvisit rov1 decompression_chamber
+47084 unvisit rov1 bio_vault
+47252 take-empty-capsule rov1 cap2 docking_station c0 c1
+47750 visit rov1 docking_station
+47754 move rov1 docking_station transfer_zone
+47761 move-through-narrow rov1 transfer_zone wing_alpha
+47921 unvisit rov1 docking_station
+47924 encapsulate-sample rov1 s7 cap2 wing_alpha
+47928 visit rov1 wing_alpha
+47932 move-through-narrow rov1 wing_alpha transfer_zone
+47937 visit rov1 transfer_zone
+47939 move rov1 transfer_zone decompression_chamber
+47943 visit rov1 decompression_chamber
+47949 move rov1 decompression_chamber bio_vault
+47996 move rov1 bio_vault pressure_stabilizer
+48043 unvisit rov1 decompression_chamber
+48091 unvisit rov1 transfer_zone
+48095 unvisit rov1 wing_alpha
+48098 drop-sensitive-sample rov1 s7 cap2 pressure_stabilizer c0 c1
+48101 stabilize-capsule rov1 s7 cap2 pressure_stabilizer
+48103 pickup-sensitive-sample rov1 s7 cap2 pressure_stabilizer c0 c1
+48106 visit rov1 pressure_stabilizer
+48110 move rov1 pressure_stabilizer decompression_chamber
+48114 move rov1 decompression_chamber bio_vault
+48273 unvisit rov1 pressure_stabilizer
+48276 store-sensitive-sample rov1 s7 cap2 bio_vault c0 c1
+48279 mark-sensitive-done s7
+51661 visit rov1 bio_vault
+51865 move rov1 bio_vault pressure_stabilizer
+51867 visit rov1 pressure_stabilizer
+51874 move rov1 pressure_stabilizer decompression_chamber
+51876 visit rov1 decompression_chamber
+51883 move rov1 decompression_chamber transfer_zone
+51885 move rov1 transfer_zone wing_beta
+52061 unvisit rov1 decompression_chamber
+52063 unvisit rov1 pressure_stabilizer
+52068 unvisit rov1 bio_vault
+52074 pickup-regular-sample rov1 s3 wing_beta c0 c1
+52468 visit rov1 wing_beta
+52472 move rov1 wing_beta transfer_zone
+52477 visit rov1 transfer_zone
+52481 move rov1 transfer_zone decompression_chamber
+52485 move rov1 decompression_chamber bio_vault
+52665 unvisit rov1 transfer_zone
+52669 unvisit rov1 wing_beta
+52671 store-regular-sample rov1 s3 bio_vault c0 c1
+52674 mark-regular-done s3
+52681 move-through-narrow rov3 transfer_zone wing_alpha
+53066 pickup-regular-sample rov3 s2 wing_alpha c1 c2
+53439 visit rov3 wing_alpha
+53441 move-through-narrow rov3 wing_alpha transfer_zone
+53446 visit rov3 transfer_zone
+53451 move rov3 transfer_zone decompression_chamber
+53453 visit rov3 decompression_chamber
+53457 move rov3 decompression_chamber pressure_stabilizer
+53463 move rov3 pressure_stabilizer bio_vault
+53621 unvisit rov3 decompression_chamber
+53623 unvisit rov3 transfer_zone
+53627 unvisit rov3 wing_alpha
+53629 store-regular-sample rov3 s2 bio_vault c1 c2
+53633 mark-regular-done s2
+53635 visit rov3 bio_vault
+53816 move rov3 bio_vault decompression_chamber
+53820 visit rov3 decompression_chamber
+53824 move rov3 decompression_chamber transfer_zone
+53827 move rov3 transfer_zone wing_beta
+53990 unvisit rov3 decompression_chamber
+53994 unvisit rov3 bio_vault
+53999 pickup-regular-sample rov3 s4 wing_beta c1 c2
+54349 visit rov3 wing_beta
+54354 move rov3 wing_beta transfer_zone
+54357 visit rov3 transfer_zone
+54361 move rov3 transfer_zone decompression_chamber
+54365 visit rov3 decompression_chamber
+54371 move rov3 decompression_chamber pressure_stabilizer
+54374 move rov3 pressure_stabilizer bio_vault
+54520 unvisit rov3 decompression_chamber
+54524 unvisit rov3 transfer_zone
+54527 unvisit rov3 wing_beta
+54530 store-regular-sample rov3 s4 bio_vault c1 c2
+54534 mark-regular-done s4
+54537 visit rov3 bio_vault
+54704 move rov3 bio_vault pressure_stabilizer
+54708 visit rov3 pressure_stabilizer
+54712 move rov3 pressure_stabilizer decompression_chamber
+54717 visit rov3 decompression_chamber
+54722 move rov3 decompression_chamber transfer_zone
+54770 move-through-narrow rov3 transfer_zone wing_alpha
+54818 unvisit rov3 decompression_chamber
+54866 unvisit rov3 pressure_stabilizer
+54871 unvisit rov3 bio_vault
+54876 pickup-regular-sample rov3 s9 wing_alpha c1 c2
+55205 visit rov3 wing_alpha
+55208 move-through-narrow rov3 wing_alpha transfer_zone
+55213 visit rov3 transfer_zone
+55217 move rov3 transfer_zone decompression_chamber
+55219 move rov3 decompression_chamber bio_vault
+55366 unvisit rov3 transfer_zone
+55371 unvisit rov3 wing_alpha
+55374 store-regular-sample rov3 s9 bio_vault c1 c2
+55376 mark-regular-done s9
+55384 visit rov3 bio_vault
+55532 move rov3 bio_vault decompression_chamber
+55539 visit rov3 decompression_chamber
+55544 move rov3 decompression_chamber transfer_zone
+55593 move-through-narrow rov3 transfer_zone wing_alpha
+55640 unvisit rov3 decompression_chamber
+55688 unvisit rov3 bio_vault
+55693 pickup-regular-sample rov3 s1 wing_alpha c1 c2
+56061 visit rov3 wing_alpha
+56065 move-through-narrow rov3 wing_alpha transfer_zone
+56070 visit rov3 transfer_zone
+56075 move rov3 transfer_zone decompression_chamber
+56122 move rov3 decompression_chamber bio_vault
+56169 unvisit rov3 transfer_zone
+56216 unvisit rov3 wing_alpha
+56220 store-regular-sample rov3 s1 bio_vault c1 c2
+56224 mark-regular-done s1
+root 23
+23 complete-mission -> m_complete_mission_ordering_0 27 33
+27 process-all-sensitive-samples -> m_process_all_sensitive_recursive_ordering_0 51 43324 129
+33 process-all-regular-samples -> m_process_all_regular_recursive_ordering_0 144 52674 256
+51 process-sensitive-sample s5 -> m_process_sensitive_sample_ordering_0 317 42096 536 42904 704 43109 43112 43116 848 43321
+129 process-all-sensitive-samples -> m_process_all_sensitive_recursive_ordering_0 995 45081 1123
+144 process-regular-sample s3 -> m_process_regular_sample_ordering_0 1140 52074 1380 52671
+256 process-all-regular-samples -> m_process_all_regular_recursive_ordering_0 1605 53633 1745
+317 navigate-to rov3 docking_station -> m_navigate_recursive_connected_ordering_0 41480 41673 41677 41888
+536 navigate-to rov3 wing_beta -> m_navigate_recursive_connected_ordering_0 42695 42699 42701 42900
+704 navigate-to rov3 pressure_stabilizer -> m_navigate_recursive_connected_ordering_0 42906 42911 2758 43106
+848 navigate-to rov3 bio_vault -> m_navigate_recursive_connected_ordering_0 43120 43122 43126 43319
+995 process-sensitive-sample s8 -> m_process_sensitive_sample_ordering_0 3015 43919 3152 44683 3319 44878 44881 44883 3463 45079
+1123 process-all-sensitive-samples -> m_process_all_sensitive_recursive_ordering_0 3581 46733 3707
+1140 navigate-to rov1 wing_beta -> m_navigate_recursive_connected_ordering_0 51661 51865 3810 52068
+1380 navigate-to rov1 bio_vault -> m_navigate_recursive_connected_ordering_0 52468 52472 4310 52669
+1605 process-regular-sample s2 -> m_process_regular_sample_ordering_0 52680 53066 4555 53629
+1745 process-all-regular-samples -> m_process_all_regular_recursive_ordering_0 4753 54534 4893
+2758 navigate-to rov3 pressure_stabilizer -> m_navigate_recursive_connected_ordering_0 42916 42918 42921 43104
+3015 navigate-to rov2 bio_vault -> m_navigate_recursive_connected_ordering_0 43326 43519 6437 43724
+3152 navigate-to rov2 wing_beta -> m_navigate_recursive_connected_ordering_0 44483 44490 7132 44679
+3319 navigate-to rov2 pressure_stabilizer -> m_navigate_recursive_connected_ordering_0 44685 44689 7283 44875
+3463 navigate-to rov2 bio_vault -> m_navigate_recursive_connected_ordering_0 44887 44890 44893 45075
+3581 process-sensitive-sample s6 -> m_process_sensitive_sample_handover_ordering_0 7541 7575
+3707 process-all-sensitive-samples -> m_process_all_sensitive_recursive_ordering_0 8107 48279 8234
+3810 navigate-to rov1 wing_beta -> m_navigate_recursive_connected_ordering_0 51867 51874 8463 52063
+4310 navigate-to rov1 bio_vault -> m_navigate_recursive_connected_ordering_0 52477 52481 52484 52665
+4555 navigate-to rov3 bio_vault -> m_navigate_recursive_narrow_ordering_0 53439 53441 9685 53627
+4753 process-regular-sample s4 -> m_process_regular_sample_ordering_0 9787 53999 9927 54530
+4893 process-all-regular-samples -> m_process_all_regular_recursive_ordering_0 10127 55376 10267
+6437 navigate-to rov2 bio_vault -> m_navigate_recursive_connected_ordering_0 43525 43528 12039 43722
+7132 navigate-to rov2 wing_beta -> m_navigate_recursive_connected_ordering_0 44494 44498 12855 44676
+7283 navigate-to rov2 pressure_stabilizer -> m_navigate_recursive_connected_ordering_0 44694 44697 44700 44871
+7541 bring-sensitive-to-handover rov3 s6 cap1 transfer_zone -> m_bring_sensitive_to_handover_ordering_0 13294 45264 13385 45458 45460 45635
+7575 continue-sensitive-from-handover rov1 s6 cap1 transfer_zone pressure_stabilizer bio_vault -> m_continue_sensitive_from_handover_ordering_0 45641 45815 13758 45987 45991 45993 13909 46167
+8107 process-sensitive-sample s7 -> m_process_sensitive_sample_ordering_0 14493 47252 14626 47924 14794 48098 48101 48103 14940 48276
+8234 process-all-sensitive-samples -> m_process_all_sensitive_base_ordering_0
+8463 navigate-to rov1 wing_beta -> m_navigate_recursive_connected_ordering_0 51876 51883 51884 52061
+9685 navigate-to rov3 bio_vault -> m_navigate_recursive_connected_ordering_0 53446 53451 16785 53623
+9787 navigate-to rov3 wing_beta -> m_navigate_recursive_connected_ordering_0 53635 53816 16976 53994
+9927 navigate-to rov3 bio_vault -> m_navigate_recursive_connected_ordering_0 54349 54354 17477 54527
+10127 process-regular-sample s9 -> m_process_regular_sample_ordering_0 17578 54876 17721 55374
+10267 process-all-regular-samples -> m_process_all_regular_recursive_ordering_0 17919 56224 18061
+12039 navigate-to rov2 bio_vault -> m_navigate_recursive_connected_ordering_0 43537 43539 43542 43719
+12855 navigate-to rov2 wing_beta -> m_navigate_recursive_connected_ordering_0 44503 44506 44510 44673
+13294 navigate-to rov3 bio_vault -> m_navigate_recursive_connected_ordering_0 45086 45092 45095 45259
+13385 navigate-to rov3 wing_alpha -> m_navigate_recursive_connected_ordering_0 45272 45275 21484 45454
+13758 navigate-to rov1 pressure_stabilizer -> m_navigate_recursive_connected_ordering_0 45819 45821 45826 45985
+13909 navigate-to rov1 bio_vault -> m_navigate_recursive_connected_ordering_0 45996 46002 46003 46164
+14493 navigate-to rov1 docking_station -> m_navigate_recursive_connected_ordering_0 46738 46903 22825 47084
+14626 navigate-to rov1 wing_alpha -> m_navigate_recursive_connected_ordering_0 47750 47754 47760 47921
+14794 navigate-to rov1 pressure_stabilizer -> m_navigate_recursive_narrow_ordering_0 47928 47932 23675 48095
+14940 navigate-to rov1 bio_vault -> m_navigate_recursive_connected_ordering_0 48106 48110 48113 48273
+16785 navigate-to rov3 bio_vault -> m_navigate_recursive_connected_ordering_0 53453 53457 53462 53621
+16976 navigate-to rov3 wing_beta -> m_navigate_recursive_connected_ordering_0 53820 53824 53826 53990
+17477 navigate-to rov3 bio_vault -> m_navigate_recursive_connected_ordering_0 54357 54361 27128 54524
+17578 navigate-to rov3 wing_alpha -> m_navigate_recursive_connected_ordering_0 54537 54704 27321 54871
+17721 navigate-to rov3 bio_vault -> m_navigate_recursive_narrow_ordering_0 55205 55208 27822 55371
+17919 process-regular-sample s1 -> m_process_regular_sample_ordering_0 27922 55693 28065 56220
+18061 process-all-regular-samples -> m_process_all_regular_base_ordering_0
+21484 navigate-to rov3 wing_alpha -> m_navigate_recursive_connected_ordering_0 45278 45287 45293 45449
+22825 navigate-to rov1 docking_station -> m_navigate_recursive_connected_ordering_0 46910 46916 46920 47079
+23675 navigate-to rov1 pressure_stabilizer -> m_navigate_recursive_connected_ordering_0 47937 47939 34560 48091
+27128 navigate-to rov3 bio_vault -> m_navigate_recursive_connected_ordering_0 54365 54371 54373 54520
+27321 navigate-to rov3 wing_alpha -> m_navigate_recursive_connected_ordering_0 54708 54712 39658 54866
+27822 navigate-to rov3 bio_vault -> m_navigate_recursive_connected_ordering_0 55213 55217 55218 55366
+27922 navigate-to rov3 wing_alpha -> m_navigate_recursive_connected_ordering_0 55384 55532 40379 55688
+28065 navigate-to rov3 bio_vault -> m_navigate_recursive_narrow_ordering_0 56061 56065 40880 56216
+34560 navigate-to rov1 pressure_stabilizer -> m_navigate_recursive_connected_ordering_0 47943 47949 47995 48043
+39658 navigate-to rov3 wing_alpha -> m_navigate_recursive_connected_ordering_0 54717 54722 54769 54818
+40379 navigate-to rov3 wing_alpha -> m_navigate_recursive_connected_ordering_0 55539 55544 55592 55640
+40880 navigate-to rov3 bio_vault -> m_navigate_recursive_connected_ordering_0 56070 56075 56121 56169
+41677 navigate-to rov3 docking_station -> m_navigate_direct_connected_ordering_0 41678
+42701 navigate-to rov3 wing_beta -> m_navigate_direct_connected_ordering_0 42702
+42921 navigate-to rov3 pressure_stabilizer -> m_navigate_direct_connected_ordering_0 42922
+43126 navigate-to rov3 bio_vault -> m_navigate_direct_connected_ordering_0 43127
+43542 navigate-to rov2 bio_vault -> m_navigate_direct_connected_ordering_0 43543
+44510 navigate-to rov2 wing_beta -> m_navigate_direct_connected_ordering_0 44511
+44700 navigate-to rov2 pressure_stabilizer -> m_navigate_direct_connected_ordering_0 44701
+44893 navigate-to rov2 bio_vault -> m_navigate_direct_connected_ordering_0 44894
+45095 navigate-to rov3 bio_vault -> m_navigate_direct_connected_ordering_0 45096
+45293 navigate-to rov3 wing_alpha -> m_navigate_direct_narrow_ordering_0 45294
+45460 navigate-to rov3 transfer_zone -> m_navigate_direct_narrow_ordering_0 45461
+45641 navigate-to rov1 transfer_zone -> m_navigate_direct_connected_ordering_0 45642
+45826 navigate-to rov1 pressure_stabilizer -> m_navigate_direct_connected_ordering_0 45827
+46003 navigate-to rov1 bio_vault -> m_navigate_direct_connected_ordering_0 46004
+46920 navigate-to rov1 docking_station -> m_navigate_direct_connected_ordering_0 46921
+47760 navigate-to rov1 wing_alpha -> m_navigate_direct_narrow_ordering_0 47761
+47995 navigate-to rov1 pressure_stabilizer -> m_navigate_direct_connected_ordering_0 47996
+48113 navigate-to rov1 bio_vault -> m_navigate_direct_connected_ordering_0 48114
+51884 navigate-to rov1 wing_beta -> m_navigate_direct_connected_ordering_0 51885
+52484 navigate-to rov1 bio_vault -> m_navigate_direct_connected_ordering_0 52485
+52680 navigate-to rov3 wing_alpha -> m_navigate_direct_narrow_ordering_0 52681
+53462 navigate-to rov3 bio_vault -> m_navigate_direct_connected_ordering_0 53463
+53826 navigate-to rov3 wing_beta -> m_navigate_direct_connected_ordering_0 53827
+54373 navigate-to rov3 bio_vault -> m_navigate_direct_connected_ordering_0 54374
+54769 navigate-to rov3 wing_alpha -> m_navigate_direct_narrow_ordering_0 54770
+55218 navigate-to rov3 bio_vault -> m_navigate_direct_connected_ordering_0 55219
+55592 navigate-to rov3 wing_alpha -> m_navigate_direct_narrow_ordering_0 55593
+56121 navigate-to rov3 bio_vault -> m_navigate_direct_connected_ordering_0 56122
 <==
-0.374 End of solution plan. (counted length of 156)
-0.374 Total amount of clauses encoded: 142320
-0.374 - directframeaxioms : 33918 cls
-0.374 - indirectframeaxioms : 33128 cls
-0.374 - qfactsemantics : 18680 cls
-0.374 - reductionconstraints : 18528 cls
-0.374 - substitutionconstraints : 9721 cls
-0.374 - actionconstraints : 8696 cls
-0.374 - atmostoneelement : 5634 cls
-0.374 - qconstequality : 4518 cls
-0.374 - expansions : 4401 cls
-0.374 - predecessors : 3397 cls
-0.374 - actioneffects : 1591 cls
-0.374 - truefacts : 105 cls
-0.374 - axiomaticops : 2 cls
-0.374 - forbiddenoperations : 1 cls
-0.375 # instantiated positions: 1008
-0.375 # instantiated actions: 2771
-0.375 # instantiated reductions: 630
-0.375 # introduced pseudo-constants: 572
-0.375 # retroactive prunings: 3
-0.375 # retroactively pruned operations: 4
-0.375 # dominated operations: 63
-0.375 Exiting happily (no cleaning up).
+12.216 End of solution plan. (counted length of 217)
+12.216 Total amount of clauses encoded: 408518
+12.216 - indirectframeaxioms : 129738 cls
+12.216 - directframeaxioms : 102996 cls
+12.216 - qfactsemantics : 59920 cls
+12.216 - reductionconstraints : 35398 cls
+12.216 - substitutionconstraints : 19603 cls
+12.216 - actionconstraints : 16276 cls
+12.216 - atmostoneelement : 12917 cls
+12.216 - expansions : 10678 cls
+12.216 - qconstequality : 9165 cls
+12.216 - predecessors : 8546 cls
+12.216 - actioneffects : 3121 cls
+12.216 - truefacts : 158 cls
+12.216 - axiomaticops : 2 cls
+12.216 # instantiated positions: 2610
+12.216 # instantiated actions: 7382
+12.216 # instantiated reductions: 1167
+12.216 # introduced pseudo-constants: 1002
+12.216 # retroactive prunings: 2
+12.216 # retroactively pruned operations: 2
+12.216 # dominated operations: 30
+12.216 Exiting happily (no cleaning up).
