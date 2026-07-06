@@ -1,3 +1,3 @@
 downward/
-**/scalability-test/*.pddl
+**/scalability-test/*.plan
 **/scalability-test/*.log
