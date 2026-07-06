@@ -1,2 +1,3 @@
 downward/
-scalability-test
+**/scalability-test/*.pddl
+**/scalability-test/*.log
