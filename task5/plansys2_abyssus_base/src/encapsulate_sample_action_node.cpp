@@ -21,7 +21,7 @@ private:
   void do_work()
   {
     if (progress_ < 1.0) {
-      progress_ += 0.02;
+      progress_ = std::min(1.0f, progress_ + 0.09090909f);
       send_feedback(progress_, "Encapsulate sample running");
     } else {
       finish(true, 1.0, "Encapsulate sample completed");
@@ -45,6 +45,7 @@ int main(int argc, char ** argv)
 
   node->set_parameter(rclcpp::Parameter("action_name", "encapsulate_sample"));
   node->trigger_transition(lifecycle_msgs::msg::Transition::TRANSITION_CONFIGURE);
+   
 
   rclcpp::spin(node->get_node_base_interface());
 
