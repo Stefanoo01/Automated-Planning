@@ -21,8 +21,8 @@
     (:predicates
         ;; Positions and movement
         (at ?x - locatable ?l - location)
-       (connected ?from - location ?to - location)
-     (narrow-connected ?from - location ?to - location)
+        (connected ?from - location ?to - location)
+    (narrow-connected ?from - location ?to - location)
 
         ;; ROV state
         (carrying ?r - rov ?x - locatable)
@@ -69,7 +69,7 @@
             (not (at ?r ?from))
             (at ?r ?to)
             (decrease (battery-level ?r) 2)
-            (increase (total-cost) 2)
+            (increase (total-cost) 10)
         )
     )
 
@@ -87,7 +87,7 @@
             (not (at ?r ?from))
             (at ?r ?to)
             (decrease (battery-level ?r) 2)
-            (increase (total-cost) 2)
+            (increase (total-cost) 10)
         )
     )
 
@@ -230,6 +230,7 @@
         :parameters (?r - rov ?s - pressure-sensitive ?c - capsule ?l - pressure-stabilizer)
         :precondition (and
             (at ?r ?l)
+            (or (at ?c ?l) (carrying ?r ?c))
             (sample-in-capsule ?s ?c)
             (capsule-sealed ?c)
             (not (stabilized ?s))

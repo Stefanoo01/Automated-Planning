@@ -2,7 +2,7 @@
 
 start=$(date +%s.%N)
 
-planutils run enhsp "-o domain.pddl -f problem.pddl -planner sat-hadd" | grep '^[0-9]' > solution.plan
+planutils run enhsp "-o domain.pddl -f problem.pddl -planner opt-blind" | grep '^[0-9]' > solution.plan
 
 end=$(date +%s.%N)
 

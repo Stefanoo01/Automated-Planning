@@ -1,11 +1,11 @@
-(define (problem t1-medium)
+(define (problem t1-hard)
     (:domain abyssus-base-t1)
 
     (:objects
         rov1 - rov
 
-        s1 s2 - sample
-        s3 s4 - pressure-sensitive
+        s1 s2 s3 - sample
+        s4 s5 s6 - pressure-sensitive
 
         cap1 - capsule
 
@@ -48,6 +48,7 @@
         ;; Regular samples
         (regular-sample s1)
         (regular-sample s2)
+        (regular-sample s3)
 
         ;; Sample positions
         (at s1 wing_alpha)

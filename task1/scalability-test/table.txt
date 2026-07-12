@@ -1,0 +1,21 @@
+\begin{tabular}{lcccc}
+\hline
+Problem & Heuristic & \# Actions & $\tilde{t_S}$ (s) & $\sigma_{tS}$ (s)\\
+\hline
+\hline
+\multirow{4}{*}{\textsc{easy}} & opt-blind & 23 & 1.41 & 0.13 \\
+& opt-hmax & 23 & 2.07 & 0.12 \\
+& sat-aibr & 23 & 8.08 & 0.68 \\
+& sat-hadd & 23 & 1.13 & 0.13 \\
+\hline
+\multirow{4}{*}{\textsc{medium}} & opt-blind & 47 & 7.73 & 0.74 \\
+& opt-hmax & 47 & 34.95 & 2.50 \\
+& sat-aibr & N/A & N/A & N/A \\
+& sat-hadd & 73 & 1.86 & 0.04 \\
+\hline
+\multirow{4}{*}{\textsc{hard}} & opt-blind & N/A & N/A & N/A \\
+& opt-hmax & N/A & N/A & N/A \\
+& sat-aibr & N/A & N/A & N/A \\
+& sat-hadd & 107 & 2.15 & 0.23 \\
+\hline
+\end{tabular}
