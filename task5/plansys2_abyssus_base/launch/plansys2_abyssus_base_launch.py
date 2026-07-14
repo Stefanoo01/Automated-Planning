@@ -3,8 +3,7 @@ import os
 from ament_index_python.packages import get_package_share_directory
 
 from launch import LaunchDescription
-from launch.actions import IncludeLaunchDescription, DeclareLaunchArgument, OpaqueFunction, SetEnvironmentVariable
-from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch.actions import DeclareLaunchArgument, OpaqueFunction, SetEnvironmentVariable
 from launch.substitutions import LaunchConfiguration
 
 from launch_ros.actions import Node
@@ -39,47 +38,77 @@ def launch_setup(context, *args, **kwargs):
 
     nodes = []
 
+    bringup_dir = get_package_share_directory('plansys2_bringup')
+    default_action_bt_xml_filename = os.path.join(
+        get_package_share_directory('plansys2_executor'),
+        'behavior_trees',
+        'plansys2_action_bt.xml'
+    )
+    params_file = os.path.join(bringup_dir, 'params', 'plansys2_params.yaml')
+
     # PlanSys2 bringup node
-    plansys2_cmd = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            os.path.join(
-                get_package_share_directory('plansys2_bringup'),
-                'launch',
-                'plansys2_bringup_launch_monolithic.py'
-            )
-        ),
-        launch_arguments={
-            'model_file': domain_file,
-            'namespace': namespace
-        }.items()
+    plansys2_cmd = Node(
+        package='plansys2_bringup',
+        executable='plansys2_node',
+        output='screen',
+        namespace=namespace,
+        parameters=[
+            {
+                'model_file': domain_file,
+                'default_action_bt_xml_filename': default_action_bt_xml_filename
+            },
+            params_file
+        ],
+        arguments=[
+            '--ros-args',
+            '--log-level', 'rcl.logging_rosout:=error',
+            '--log-level', 'LifecyclePublisher:=error',
+        ],
     )
 
-    # Action nodes creation
+    # Action nodes creation.
+    # Each PlanSys2 performer handles one active goal at a time. Since every task
+    # action is parameterized by the ROV as its first argument, launch one performer
+    # per ROV and specialize that first argument. This allows parallel actions on
+    # different ROVs without multiple performers competing for the same request.
     actions = [
-        "move_action_node",
-        "move_through_narrow_action_node",
-        "pickup_regular_sample_action_node",
-        "drop_regular_sample_action_node",
-        "store_regular_sample_action_node",
-        "take_empty_capsule_action_node",
-        "encapsulate_sample_action_node",
-        "pickup_sensitive_sample_action_node",
-        "drop_sensitive_sample_action_node",
-        "stabilize_capsule_action_node",
-        "store_sensitive_sample_action_node",
-        "recharge_action_node",
+        ("move_action_node", 3),
+        ("move_through_narrow_action_node", 3),
+        ("pickup_regular_sample_action_node", 5),
+        ("drop_regular_sample_action_node", 5),
+        ("store_regular_sample_action_node", 5),
+        ("take_empty_capsule_action_node", 5),
+        ("encapsulate_sample_action_node", 4),
+        ("pickup_sensitive_sample_action_node", 6),
+        ("drop_sensitive_sample_action_node", 6),
+        ("stabilize_capsule_action_node", 4),
+        ("store_sensitive_sample_action_node", 6),
     ]
 
-    for action in actions:
-        nodes.append(
-            Node(
-                package=pkg_name,
-                executable=action,
-                name=action,
-                namespace=namespace,
-                output='screen',
+    for action, arg_count in actions:
+        for rov in ("rov1", "rov2"):
+            nodes.append(
+                Node(
+                    package=pkg_name,
+                    executable=action,
+                    name=f"{action}_{rov}",
+                    namespace=namespace,
+                    output='screen',
+                    parameters=[{
+                        "specialized_arguments": [rov] + [""] * (arg_count - 1),
+                    }],
+                )
             )
+
+    nodes.append(
+        Node(
+            package=pkg_name,
+            executable="recharge_action_node",
+            name="recharge_action_node",
+            namespace=namespace,
+            output='screen',
         )
+    )
 
     return [plansys2_cmd] + nodes
 
@@ -103,7 +132,11 @@ def generate_launch_description():
 
         # Make logs easier to read
         SetEnvironmentVariable(
-            'RCUTILS_CONSOLE_STDOUT_LINE_BUFFERED',
+            'RCUTILS_LOGGING_USE_STDOUT',
+            '1'
+        ),
+        SetEnvironmentVariable(
+            'RCUTILS_LOGGING_BUFFERED_STREAM',
             '1'
         ),
 
