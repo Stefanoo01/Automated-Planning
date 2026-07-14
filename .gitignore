@@ -1,3 +1,5 @@
 downward/
+
 **/scalability-test/**/*.plan
 **/scalability-test/**/*.log
+seed-results

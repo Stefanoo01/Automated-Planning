@@ -33,6 +33,13 @@ RUN sed -i '/#include <algorithm>/a #include <limits>' src/util/robin_hood.h && 
     sed -i '/#include "algo\/plan_writer.h"/a #include <optional>' src/algo/planner.h && \
     sed -i '/#include <vector>/a #include <cstddef>' src/sat/binary_amo.h
 
+# Lilotane's Glucose helper downloads from a DNS-fragile Labri URL. Use a
+# GitHub mirror of the same glucose-syrup-4.1 source layout instead.
+RUN sed -i '2i set -e' lib/glucose4/fetch_and_build.sh && \
+    sed -i 's|wget www.labri.fr/perso/lsimon/downloads/softwares/glucose-syrup-4.1.tgz|git clone --depth 1 https://github.com/hriener/glucose-syrup-4.1.git glucose-src|' lib/glucose4/fetch_and_build.sh && \
+    sed -i '/tar xzvf glucose-syrup-4.1.tgz/d' lib/glucose4/fetch_and_build.sh && \
+    sed -i 's|mv glucose-syrup-4.1 glucose-4|mv glucose-src/glucose glucose-4 \&\& rm -rf glucose-src|' lib/glucose4/fetch_and_build.sh
+
 RUN mkdir -p build && \
     cd build && \
     cmake .. -DCMAKE_BUILD_TYPE=RELEASE -DIPASIRSOLVER=glucose4 && \
@@ -46,4 +53,4 @@ RUN perl -pi.bak -e "s/mount hostfs = no/mount hostfs = yes/g" /etc/apptainer/ap
 
 WORKDIR /project
 
-CMD /bin/bash
+CMD ["/bin/bash"]
