@@ -3,7 +3,8 @@ import os
 from ament_index_python.packages import get_package_share_directory
 
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, OpaqueFunction, SetEnvironmentVariable
+from launch.actions import IncludeLaunchDescription, DeclareLaunchArgument, OpaqueFunction, SetEnvironmentVariable
+from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration
 
 from launch_ros.actions import Node
@@ -38,32 +39,19 @@ def launch_setup(context, *args, **kwargs):
 
     nodes = []
 
-    bringup_dir = get_package_share_directory('plansys2_bringup')
-    default_action_bt_xml_filename = os.path.join(
-        get_package_share_directory('plansys2_executor'),
-        'behavior_trees',
-        'plansys2_action_bt.xml'
-    )
-    params_file = os.path.join(bringup_dir, 'params', 'plansys2_params.yaml')
-
     # PlanSys2 bringup node
-    plansys2_cmd = Node(
-        package='plansys2_bringup',
-        executable='plansys2_node',
-        output='screen',
-        namespace=namespace,
-        parameters=[
-            {
-                'model_file': domain_file,
-                'default_action_bt_xml_filename': default_action_bt_xml_filename
-            },
-            params_file
-        ],
-        arguments=[
-            '--ros-args',
-            '--log-level', 'rcl.logging_rosout:=error',
-            '--log-level', 'LifecyclePublisher:=error',
-        ],
+    plansys2_cmd = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(
+                get_package_share_directory('plansys2_bringup'),
+                'launch',
+                'plansys2_bringup_launch_monolithic.py'
+            )
+        ),
+        launch_arguments={
+            'model_file': domain_file,
+            'namespace': namespace
+        }.items()
     )
 
     # Action nodes creation.
