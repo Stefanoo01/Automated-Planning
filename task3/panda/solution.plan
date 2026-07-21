@@ -1,0 +1,170 @@
+58 take-empty-capsule rov1 cap2 docking_station c0 c1
+95 visit rov1 docking_station
+96 move rov1 docking_station transfer_zone
+106 move-through-narrow rov1 transfer_zone wing_alpha
+107 unvisit rov1 docking_station
+108 encapsulate-sample rov1 s6 cap2 wing_alpha
+143 visit rov1 wing_alpha
+144 move-through-narrow rov1 wing_alpha transfer_zone
+155 visit rov1 transfer_zone
+156 move rov1 transfer_zone decompression_chamber
+204 move rov1 decompression_chamber pressure_stabilizer
+205 unvisit rov1 transfer_zone
+206 unvisit rov1 wing_alpha
+223 drop-sensitive-sample rov1 s6 cap2 pressure_stabilizer c0 c1
+224 stabilize-capsule rov1 s6 cap2 pressure_stabilizer
+228 pickup-sensitive-sample rov1 s6 cap2 pressure_stabilizer c0 c1
+234 move rov1 pressure_stabilizer bio_vault
+274 store-sensitive-sample rov1 s6 cap2 bio_vault c0 c1
+275 mark-sensitive-done s6
+891 take-empty-capsule rov2 cap1 docking_station c2 c3
+897 visit rov2 docking_station
+898 move rov2 docking_station transfer_zone
+912 move rov2 transfer_zone wing_beta
+913 unvisit rov2 docking_station
+914 encapsulate-sample rov2 s8 cap1 wing_beta
+941 visit rov2 wing_beta
+942 move rov2 wing_beta transfer_zone
+955 visit rov2 transfer_zone
+956 move rov2 transfer_zone decompression_chamber
+967 move rov2 decompression_chamber pressure_stabilizer
+968 unvisit rov2 transfer_zone
+969 unvisit rov2 wing_beta
+985 drop-sensitive-sample rov2 s8 cap1 pressure_stabilizer c2 c3
+986 stabilize-capsule rov2 s8 cap1 pressure_stabilizer
+992 pickup-sensitive-sample rov2 s8 cap1 pressure_stabilizer c2 c3
+996 move rov2 pressure_stabilizer bio_vault
+1012 store-sensitive-sample rov2 s8 cap1 bio_vault c2 c3
+1013 mark-sensitive-done s8
+1227 take-empty-capsule rov2 cap1 bio_vault c2 c3
+1239 visit rov2 bio_vault
+1240 move rov2 bio_vault pressure_stabilizer
+1275 visit rov2 pressure_stabilizer
+1276 move rov2 pressure_stabilizer decompression_chamber
+1296 visit rov2 decompression_chamber
+1297 move rov2 decompression_chamber transfer_zone
+1303 move rov2 transfer_zone wing_beta
+1304 unvisit rov2 decompression_chamber
+1305 unvisit rov2 pressure_stabilizer
+1306 unvisit rov2 bio_vault
+1307 encapsulate-sample rov2 s5 cap1 wing_beta
+1334 visit rov2 wing_beta
+1335 move rov2 wing_beta transfer_zone
+1348 visit rov2 transfer_zone
+1349 move rov2 transfer_zone decompression_chamber
+1373 move rov2 decompression_chamber pressure_stabilizer
+1374 unvisit rov2 transfer_zone
+1375 unvisit rov2 wing_beta
+1392 drop-sensitive-sample rov2 s5 cap1 pressure_stabilizer c2 c3
+1393 stabilize-capsule rov2 s5 cap1 pressure_stabilizer
+1398 pickup-sensitive-sample rov2 s5 cap1 pressure_stabilizer c2 c3
+1402 move rov2 pressure_stabilizer bio_vault
+1418 store-sensitive-sample rov2 s5 cap1 bio_vault c2 c3
+1419 mark-sensitive-done s5
+2716 visit rov3 docking_station
+2717 move rov3 docking_station transfer_zone
+2734 move-through-narrow rov3 transfer_zone wing_alpha
+2761 pickup-regular-sample rov3 s1 wing_alpha c1 c2
+2779 visit rov3 wing_alpha
+2780 move-through-narrow rov3 wing_alpha transfer_zone
+2787 visit rov3 transfer_zone
+2788 move rov3 transfer_zone decompression_chamber
+2805 move rov3 decompression_chamber bio_vault
+2852 unvisit rov3 docking_station
+2936 take-empty-capsule rov3 cap2 bio_vault c0 c1
+3045 unvisit rov3 transfer_zone
+3048 unvisit rov3 wing_alpha
+3051 visit rov3 bio_vault
+3052 move rov3 bio_vault pressure_stabilizer
+3071 visit rov3 pressure_stabilizer
+3072 move rov3 pressure_stabilizer decompression_chamber
+3084 visit rov3 decompression_chamber
+3085 move rov3 decompression_chamber transfer_zone
+3097 move-through-narrow rov3 transfer_zone wing_alpha
+3098 unvisit rov3 decompression_chamber
+3099 unvisit rov3 pressure_stabilizer
+3100 unvisit rov3 bio_vault
+3101 encapsulate-sample rov3 s7 cap2 wing_alpha
+3136 visit rov3 wing_alpha
+3137 move-through-narrow rov3 wing_alpha transfer_zone
+3144 visit rov3 transfer_zone
+3145 move rov3 transfer_zone decompression_chamber
+3167 move rov3 decompression_chamber pressure_stabilizer
+3168 unvisit rov3 transfer_zone
+3169 unvisit rov3 wing_alpha
+3188 drop-sensitive-sample rov3 s7 cap2 pressure_stabilizer c0 c1
+3189 stabilize-capsule rov3 s7 cap2 pressure_stabilizer
+3192 pickup-sensitive-sample rov3 s7 cap2 pressure_stabilizer c0 c1
+3197 move rov3 pressure_stabilizer bio_vault
+3262 store-sensitive-sample rov3 s7 cap2 bio_vault c0 c1
+3264 mark-sensitive-done s7
+3267 store-regular-sample rov3 s1 bio_vault c1 c2
+3268 mark-regular-done s1
+3299 visit rov1 bio_vault
+3300 move rov1 bio_vault decompression_chamber
+3326 visit rov1 decompression_chamber
+3327 move rov1 decompression_chamber transfer_zone
+3338 move rov1 transfer_zone wing_beta
+3339 unvisit rov1 decompression_chamber
+3340 unvisit rov1 bio_vault
+3361 pickup-regular-sample rov1 s4 wing_beta c0 c1
+3376 visit rov1 wing_beta
+3377 move rov1 wing_beta transfer_zone
+3392 visit rov1 transfer_zone
+3393 move rov1 transfer_zone decompression_chamber
+3410 move rov1 decompression_chamber bio_vault
+3411 unvisit rov1 transfer_zone
+3412 unvisit rov1 wing_beta
+3459 store-regular-sample rov1 s4 bio_vault c0 c1
+3460 mark-regular-done s4
+4061 visit rov1 bio_vault
+4062 move rov1 bio_vault decompression_chamber
+4088 visit rov1 decompression_chamber
+4089 move rov1 decompression_chamber transfer_zone
+4100 move rov1 transfer_zone wing_beta
+4101 unvisit rov1 decompression_chamber
+4102 unvisit rov1 bio_vault
+4123 pickup-regular-sample rov1 s3 wing_beta c0 c1
+4138 visit rov1 wing_beta
+4139 move rov1 wing_beta transfer_zone
+4154 visit rov1 transfer_zone
+4155 move rov1 transfer_zone decompression_chamber
+4172 move rov1 decompression_chamber bio_vault
+4173 unvisit rov1 transfer_zone
+4174 unvisit rov1 wing_beta
+4193 store-regular-sample rov1 s3 bio_vault c0 c1
+4194 mark-regular-done s3
+4411 visit rov1 bio_vault
+4412 move rov1 bio_vault decompression_chamber
+4438 visit rov1 decompression_chamber
+4439 move rov1 decompression_chamber transfer_zone
+4449 move-through-narrow rov1 transfer_zone wing_alpha
+4450 unvisit rov1 decompression_chamber
+4451 unvisit rov1 bio_vault
+4474 pickup-regular-sample rov1 s9 wing_alpha c0 c1
+4491 visit rov1 wing_alpha
+4492 move-through-narrow rov1 wing_alpha transfer_zone
+4506 visit rov1 transfer_zone
+4507 move rov1 transfer_zone decompression_chamber
+4521 move rov1 decompression_chamber bio_vault
+4522 unvisit rov1 transfer_zone
+4523 unvisit rov1 wing_alpha
+4542 store-regular-sample rov1 s9 bio_vault c0 c1
+4543 mark-regular-done s9
+5173 visit rov1 bio_vault
+5174 move rov1 bio_vault decompression_chamber
+5200 visit rov1 decompression_chamber
+5201 move rov1 decompression_chamber transfer_zone
+5211 move-through-narrow rov1 transfer_zone wing_alpha
+5212 unvisit rov1 decompression_chamber
+5213 unvisit rov1 bio_vault
+5236 pickup-regular-sample rov1 s2 wing_alpha c0 c1
+5253 visit rov1 wing_alpha
+5254 move-through-narrow rov1 wing_alpha transfer_zone
+5268 visit rov1 transfer_zone
+5269 move rov1 transfer_zone decompression_chamber
+5283 move rov1 decompression_chamber bio_vault
+5284 unvisit rov1 transfer_zone
+5285 unvisit rov1 wing_alpha
+5304 store-regular-sample rov1 s2 bio_vault c0 c1
+5305 mark-regular-done s2

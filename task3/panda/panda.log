@@ -1,0 +1,690 @@
+Parsing /project/task3/domain-noho.hddl
+Parsing /project/task3/problem.hddl
+Random seed: 42
+Time limit: 1800 seconds
+Reading input from domain-noho-problem.psas.
+- State has 132 bits divided into 132 mutex groups.
+- Domain contains 535 actions.
+- Domain contains 685 tasks.
+- Domain contains 614 methods.
+- The initial state contains 52 set bits.
+- The initial task is "__top[]".
+- State-based goal contains 13 bits.
+- Instance is totally-ordered: no
+- Instance has unique paths: yes
+- Instance is parallel sequences: yes
+Calculate SCCs...
+- Number of SCCs: 685
+- The problem is cyclic
+- Number of cyclic SCCs: 16
+- Number of cyclic SCCs of size 1: 16
+Selected Planning Algorithm: progression searchParsing heuristics ...
+Number of specified heuristics: 1
+Generate 3
+
+RC Factory: CMA 1
+- the option "store cuts" of the RC heuristic can only be used with the inner heuristic LM-Cut. It will be disabled.
+- Calculating minimal implied distances and estimated costs (1 ms)
+Heuristic #0 = hhRC2(ff;distance;correct count)
+Search config:
+ - type: greedy
+ - weight: 1
+ - suboptimal: true
+Visited List configured
+- mode: parallel sequences order
+- hashs to use: state task task-sequence
+- memory information: topological ordering
+- Visited list allows deletion of search nodes: true
+Search Configuration
+- Using JAIR 2020 progression algorithm
+- Search is stopped after first solution is found.
+- Greedy Search
+Search Results
+- Search time 0.106 seconds
+- Visited list time 0.005521 seconds
+- Visited list inserts 607
+- Visited list pruned 49
+- Visited list contains 558
+- Visited list hash collisions 49
+- Visited list used hash buckets 558
+- Generated 5309 search nodes
+  Calculated heuristic for 4018 nodes
+  One modifications 901
+  Effectless actions 390
+- including 901 one modification actions
+- including 0 one modification methods
+- and       390 progressions of effectless actions
+- Generated 37905 nodes per second
+- Final fringe contains 171 nodes
+- Status: Solved
+- Found solution of length 372
+- Total costs of actions: 170
+==>
+6 __method_precondition_m_process_all_regular_recursive_ordering_0[s1]
+22 __method_precondition_m_process_all_sensitive_recursive_ordering_0[s6]
+26 __method_precondition_m_process_regular_sample_ordering_0[s1,wing_alpha,bio_vault]
+34 __method_precondition_m_process_sensitive_sample_ordering_0[s6,cap2,wing_alpha,docking_station,bio_vault]
+36 __method_precondition_m_navigate_already_there_ordering_0[rov1,docking_station]
+58 take-empty-capsule[rov1,cap2,docking_station,c0,c1]
+94 __method_precondition_m_navigate_recursive_connected_ordering_0[rov1,docking_station,transfer_zone,wing_alpha]
+95 visit[rov1,docking_station]
+96 move[rov1,docking_station,transfer_zone]
+105 __method_precondition_m_navigate_direct_narrow_ordering_0[rov1,transfer_zone,wing_alpha]
+106 move-through-narrow[rov1,transfer_zone,wing_alpha]
+107 unvisit[rov1,docking_station]
+108 encapsulate-sample[rov1,s6,cap2,wing_alpha]
+142 __method_precondition_m_navigate_recursive_narrow_ordering_0[rov1,wing_alpha,transfer_zone,wing_alpha]
+143 visit[rov1,wing_alpha]
+144 move-through-narrow[rov1,wing_alpha,transfer_zone]
+154 __method_precondition_m_navigate_recursive_connected_ordering_0[rov1,transfer_zone,decompression_chamber,wing_alpha]
+155 visit[rov1,transfer_zone]
+156 move[rov1,transfer_zone,decompression_chamber]
+203 __method_precondition_m_navigate_direct_connected_ordering_0[rov1,decompression_chamber,bio_vault]
+204 move[rov1,decompression_chamber,pressure_stabilizer]
+205 unvisit[rov1,transfer_zone]
+206 unvisit[rov1,wing_alpha]
+223 drop-sensitive-sample[rov1,s6,cap2,pressure_stabilizer,c0,c1]
+224 stabilize-capsule[rov1,s6,cap2,pressure_stabilizer]
+228 pickup-sensitive-sample[rov1,s6,cap2,pressure_stabilizer,c0,c1]
+233 __method_precondition_m_navigate_direct_connected_ordering_0[rov1,pressure_stabilizer,bio_vault]
+234 move[rov1,pressure_stabilizer,bio_vault]
+274 store-sensitive-sample[rov1,s6,cap2,bio_vault,c0,c1]
+275 mark-sensitive-done[s6]
+856 __method_precondition_m_process_all_sensitive_recursive_ordering_0[s8]
+869 __method_precondition_m_process_sensitive_sample_ordering_0[s8,cap1,wing_beta,docking_station,bio_vault]
+873 __method_precondition_m_navigate_already_there_ordering_0[rov2,docking_station]
+891 take-empty-capsule[rov2,cap1,docking_station,c2,c3]
+896 __method_precondition_m_navigate_recursive_connected_ordering_0[rov2,docking_station,transfer_zone,wing_beta]
+897 visit[rov2,docking_station]
+898 move[rov2,docking_station,transfer_zone]
+911 __method_precondition_m_navigate_direct_connected_ordering_0[rov2,transfer_zone,wing_beta]
+912 move[rov2,transfer_zone,wing_beta]
+913 unvisit[rov2,docking_station]
+914 encapsulate-sample[rov2,s8,cap1,wing_beta]
+940 __method_precondition_m_navigate_recursive_connected_ordering_0[rov2,wing_beta,transfer_zone,wing_beta]
+941 visit[rov2,wing_beta]
+942 move[rov2,wing_beta,transfer_zone]
+954 __method_precondition_m_navigate_recursive_connected_ordering_0[rov2,transfer_zone,decompression_chamber,wing_beta]
+955 visit[rov2,transfer_zone]
+956 move[rov2,transfer_zone,decompression_chamber]
+966 __method_precondition_m_navigate_direct_connected_ordering_0[rov2,decompression_chamber,bio_vault]
+967 move[rov2,decompression_chamber,pressure_stabilizer]
+968 unvisit[rov2,transfer_zone]
+969 unvisit[rov2,wing_beta]
+985 drop-sensitive-sample[rov2,s8,cap1,pressure_stabilizer,c2,c3]
+986 stabilize-capsule[rov2,s8,cap1,pressure_stabilizer]
+992 pickup-sensitive-sample[rov2,s8,cap1,pressure_stabilizer,c2,c3]
+995 __method_precondition_m_navigate_direct_connected_ordering_0[rov2,pressure_stabilizer,bio_vault]
+996 move[rov2,pressure_stabilizer,bio_vault]
+1012 store-sensitive-sample[rov2,s8,cap1,bio_vault,c2,c3]
+1013 mark-sensitive-done[s8]
+1192 __method_precondition_m_process_all_sensitive_recursive_ordering_0[s5]
+1204 __method_precondition_m_process_sensitive_sample_ordering_0[s5,cap1,wing_beta,bio_vault,bio_vault]
+1207 __method_precondition_m_navigate_already_there_ordering_0[rov2,bio_vault]
+1227 take-empty-capsule[rov2,cap1,bio_vault,c2,c3]
+1238 __method_precondition_m_navigate_recursive_connected_ordering_0[rov2,bio_vault,pressure_stabilizer,wing_beta]
+1239 visit[rov2,bio_vault]
+1240 move[rov2,bio_vault,pressure_stabilizer]
+1274 __method_precondition_m_navigate_recursive_connected_ordering_0[rov2,pressure_stabilizer,decompression_chamber,wing_beta]
+1275 visit[rov2,pressure_stabilizer]
+1276 move[rov2,pressure_stabilizer,decompression_chamber]
+1295 __method_precondition_m_navigate_recursive_connected_ordering_0[rov2,decompression_chamber,transfer_zone,wing_beta]
+1296 visit[rov2,decompression_chamber]
+1297 move[rov2,decompression_chamber,transfer_zone]
+1302 __method_precondition_m_navigate_direct_connected_ordering_0[rov2,transfer_zone,wing_beta]
+1303 move[rov2,transfer_zone,wing_beta]
+1304 unvisit[rov2,decompression_chamber]
+1305 unvisit[rov2,pressure_stabilizer]
+1306 unvisit[rov2,bio_vault]
+1307 encapsulate-sample[rov2,s5,cap1,wing_beta]
+1333 __method_precondition_m_navigate_recursive_connected_ordering_0[rov2,wing_beta,transfer_zone,wing_beta]
+1334 visit[rov2,wing_beta]
+1335 move[rov2,wing_beta,transfer_zone]
+1347 __method_precondition_m_navigate_recursive_connected_ordering_0[rov2,transfer_zone,decompression_chamber,wing_beta]
+1348 visit[rov2,transfer_zone]
+1349 move[rov2,transfer_zone,decompression_chamber]
+1372 __method_precondition_m_navigate_direct_connected_ordering_0[rov2,decompression_chamber,bio_vault]
+1373 move[rov2,decompression_chamber,pressure_stabilizer]
+1374 unvisit[rov2,transfer_zone]
+1375 unvisit[rov2,wing_beta]
+1392 drop-sensitive-sample[rov2,s5,cap1,pressure_stabilizer,c2,c3]
+1393 stabilize-capsule[rov2,s5,cap1,pressure_stabilizer]
+1398 pickup-sensitive-sample[rov2,s5,cap1,pressure_stabilizer,c2,c3]
+1401 __method_precondition_m_navigate_direct_connected_ordering_0[rov2,pressure_stabilizer,bio_vault]
+1402 move[rov2,pressure_stabilizer,bio_vault]
+1418 store-sensitive-sample[rov2,s5,cap1,bio_vault,c2,c3]
+1419 mark-sensitive-done[s5]
+1509 __method_precondition_m_process_all_sensitive_recursive_ordering_0[s7]
+2708 __method_precondition_m_process_sensitive_sample_ordering_0[s7,cap2,wing_alpha,bio_vault,bio_vault]
+2715 __method_precondition_m_navigate_recursive_connected_ordering_0[rov3,docking_station,transfer_zone,wing_alpha]
+2716 visit[rov3,docking_station]
+2717 move[rov3,docking_station,transfer_zone]
+2718 __method_precondition_m_navigate_direct_narrow_ordering_0[rov3,transfer_zone,wing_alpha]
+2734 move-through-narrow[rov3,transfer_zone,wing_alpha]
+2761 pickup-regular-sample[rov3,s1,wing_alpha,c1,c2]
+2778 __method_precondition_m_navigate_recursive_narrow_ordering_0[rov3,wing_alpha,transfer_zone,wing_alpha]
+2779 visit[rov3,wing_alpha]
+2780 move-through-narrow[rov3,wing_alpha,transfer_zone]
+2786 __method_precondition_m_navigate_recursive_connected_ordering_0[rov3,transfer_zone,decompression_chamber,wing_alpha]
+2787 visit[rov3,transfer_zone]
+2788 move[rov3,transfer_zone,decompression_chamber]
+2789 __method_precondition_m_navigate_direct_connected_ordering_0[rov3,decompression_chamber,bio_vault]
+2805 move[rov3,decompression_chamber,bio_vault]
+2806 __method_precondition_m_navigate_already_there_ordering_0[rov3,bio_vault]
+2852 unvisit[rov3,docking_station]
+2936 take-empty-capsule[rov3,cap2,bio_vault,c0,c1]
+2968 __method_precondition_m_navigate_recursive_connected_ordering_0[rov3,bio_vault,pressure_stabilizer,wing_alpha]
+3045 unvisit[rov3,transfer_zone]
+3048 unvisit[rov3,wing_alpha]
+3051 visit[rov3,bio_vault]
+3052 move[rov3,bio_vault,pressure_stabilizer]
+3070 __method_precondition_m_navigate_recursive_connected_ordering_0[rov3,pressure_stabilizer,decompression_chamber,wing_alpha]
+3071 visit[rov3,pressure_stabilizer]
+3072 move[rov3,pressure_stabilizer,decompression_chamber]
+3083 __method_precondition_m_navigate_recursive_connected_ordering_0[rov3,decompression_chamber,transfer_zone,wing_alpha]
+3084 visit[rov3,decompression_chamber]
+3085 move[rov3,decompression_chamber,transfer_zone]
+3096 __method_precondition_m_navigate_direct_narrow_ordering_0[rov3,transfer_zone,wing_alpha]
+3097 move-through-narrow[rov3,transfer_zone,wing_alpha]
+3098 unvisit[rov3,decompression_chamber]
+3099 unvisit[rov3,pressure_stabilizer]
+3100 unvisit[rov3,bio_vault]
+3101 encapsulate-sample[rov3,s7,cap2,wing_alpha]
+3135 __method_precondition_m_navigate_recursive_narrow_ordering_0[rov3,wing_alpha,transfer_zone,wing_alpha]
+3136 visit[rov3,wing_alpha]
+3137 move-through-narrow[rov3,wing_alpha,transfer_zone]
+3143 __method_precondition_m_navigate_recursive_connected_ordering_0[rov3,transfer_zone,decompression_chamber,wing_alpha]
+3144 visit[rov3,transfer_zone]
+3145 move[rov3,transfer_zone,decompression_chamber]
+3166 __method_precondition_m_navigate_direct_connected_ordering_0[rov3,decompression_chamber,bio_vault]
+3167 move[rov3,decompression_chamber,pressure_stabilizer]
+3168 unvisit[rov3,transfer_zone]
+3169 unvisit[rov3,wing_alpha]
+3188 drop-sensitive-sample[rov3,s7,cap2,pressure_stabilizer,c0,c1]
+3189 stabilize-capsule[rov3,s7,cap2,pressure_stabilizer]
+3192 pickup-sensitive-sample[rov3,s7,cap2,pressure_stabilizer,c0,c1]
+3196 __method_precondition_m_navigate_direct_connected_ordering_0[rov3,pressure_stabilizer,bio_vault]
+3197 move[rov3,pressure_stabilizer,bio_vault]
+3262 store-sensitive-sample[rov3,s7,cap2,bio_vault,c0,c1]
+3264 mark-sensitive-done[s7]
+3266 __method_precondition_m_process_all_sensitive_base_ordering_0[]
+3267 store-regular-sample[rov3,s1,bio_vault,c1,c2]
+3268 mark-regular-done[s1]
+3286 __method_precondition_m_process_all_regular_recursive_ordering_0[s4]
+3290 __method_precondition_m_process_regular_sample_ordering_0[s4,wing_beta,bio_vault]
+3298 __method_precondition_m_navigate_recursive_connected_ordering_0[rov1,bio_vault,decompression_chamber,wing_alpha]
+3299 visit[rov1,bio_vault]
+3300 move[rov1,bio_vault,decompression_chamber]
+3325 __method_precondition_m_navigate_recursive_connected_ordering_0[rov1,decompression_chamber,transfer_zone,wing_alpha]
+3326 visit[rov1,decompression_chamber]
+3327 move[rov1,decompression_chamber,transfer_zone]
+3337 __method_precondition_m_navigate_direct_narrow_ordering_0[rov1,transfer_zone,wing_alpha]
+3338 move[rov1,transfer_zone,wing_beta]
+3339 unvisit[rov1,decompression_chamber]
+3340 unvisit[rov1,bio_vault]
+3361 pickup-regular-sample[rov1,s4,wing_beta,c0,c1]
+3375 __method_precondition_m_navigate_recursive_connected_ordering_0[rov1,wing_beta,transfer_zone,wing_alpha]
+3376 visit[rov1,wing_beta]
+3377 move[rov1,wing_beta,transfer_zone]
+3391 __method_precondition_m_navigate_recursive_connected_ordering_0[rov1,transfer_zone,decompression_chamber,wing_alpha]
+3392 visit[rov1,transfer_zone]
+3393 move[rov1,transfer_zone,decompression_chamber]
+3409 __method_precondition_m_navigate_direct_connected_ordering_0[rov1,decompression_chamber,bio_vault]
+3410 move[rov1,decompression_chamber,bio_vault]
+3411 unvisit[rov1,transfer_zone]
+3412 unvisit[rov1,wing_beta]
+3459 store-regular-sample[rov1,s4,bio_vault,c0,c1]
+3460 mark-regular-done[s4]
+3524 __method_precondition_m_process_all_regular_recursive_ordering_0[s3]
+4052 __method_precondition_m_process_regular_sample_ordering_0[s3,wing_beta,bio_vault]
+4060 __method_precondition_m_navigate_recursive_connected_ordering_0[rov1,bio_vault,decompression_chamber,wing_alpha]
+4061 visit[rov1,bio_vault]
+4062 move[rov1,bio_vault,decompression_chamber]
+4087 __method_precondition_m_navigate_recursive_connected_ordering_0[rov1,decompression_chamber,transfer_zone,wing_alpha]
+4088 visit[rov1,decompression_chamber]
+4089 move[rov1,decompression_chamber,transfer_zone]
+4099 __method_precondition_m_navigate_direct_narrow_ordering_0[rov1,transfer_zone,wing_alpha]
+4100 move[rov1,transfer_zone,wing_beta]
+4101 unvisit[rov1,decompression_chamber]
+4102 unvisit[rov1,bio_vault]
+4123 pickup-regular-sample[rov1,s3,wing_beta,c0,c1]
+4137 __method_precondition_m_navigate_recursive_connected_ordering_0[rov1,wing_beta,transfer_zone,wing_alpha]
+4138 visit[rov1,wing_beta]
+4139 move[rov1,wing_beta,transfer_zone]
+4153 __method_precondition_m_navigate_recursive_connected_ordering_0[rov1,transfer_zone,decompression_chamber,wing_alpha]
+4154 visit[rov1,transfer_zone]
+4155 move[rov1,transfer_zone,decompression_chamber]
+4171 __method_precondition_m_navigate_direct_connected_ordering_0[rov1,decompression_chamber,bio_vault]
+4172 move[rov1,decompression_chamber,bio_vault]
+4173 unvisit[rov1,transfer_zone]
+4174 unvisit[rov1,wing_beta]
+4193 store-regular-sample[rov1,s3,bio_vault,c0,c1]
+4194 mark-regular-done[s3]
+4201 __method_precondition_m_process_all_regular_recursive_ordering_0[s9]
+4401 __method_precondition_m_process_regular_sample_ordering_0[s9,wing_alpha,bio_vault]
+4410 __method_precondition_m_navigate_recursive_connected_ordering_0[rov1,bio_vault,decompression_chamber,wing_alpha]
+4411 visit[rov1,bio_vault]
+4412 move[rov1,bio_vault,decompression_chamber]
+4437 __method_precondition_m_navigate_recursive_connected_ordering_0[rov1,decompression_chamber,transfer_zone,wing_alpha]
+4438 visit[rov1,decompression_chamber]
+4439 move[rov1,decompression_chamber,transfer_zone]
+4448 __method_precondition_m_navigate_direct_narrow_ordering_0[rov1,transfer_zone,wing_alpha]
+4449 move-through-narrow[rov1,transfer_zone,wing_alpha]
+4450 unvisit[rov1,decompression_chamber]
+4451 unvisit[rov1,bio_vault]
+4474 pickup-regular-sample[rov1,s9,wing_alpha,c0,c1]
+4490 __method_precondition_m_navigate_recursive_narrow_ordering_0[rov1,wing_alpha,transfer_zone,wing_alpha]
+4491 visit[rov1,wing_alpha]
+4492 move-through-narrow[rov1,wing_alpha,transfer_zone]
+4505 __method_precondition_m_navigate_recursive_connected_ordering_0[rov1,transfer_zone,decompression_chamber,wing_alpha]
+4506 visit[rov1,transfer_zone]
+4507 move[rov1,transfer_zone,decompression_chamber]
+4520 __method_precondition_m_navigate_direct_connected_ordering_0[rov1,decompression_chamber,bio_vault]
+4521 move[rov1,decompression_chamber,bio_vault]
+4522 unvisit[rov1,transfer_zone]
+4523 unvisit[rov1,wing_alpha]
+4542 store-regular-sample[rov1,s9,bio_vault,c0,c1]
+4543 mark-regular-done[s9]
+5158 __method_precondition_m_process_all_regular_recursive_ordering_0[s2]
+5163 __method_precondition_m_process_regular_sample_ordering_0[s2,wing_alpha,bio_vault]
+5172 __method_precondition_m_navigate_recursive_connected_ordering_0[rov1,bio_vault,decompression_chamber,wing_alpha]
+5173 visit[rov1,bio_vault]
+5174 move[rov1,bio_vault,decompression_chamber]
+5199 __method_precondition_m_navigate_recursive_connected_ordering_0[rov1,decompression_chamber,transfer_zone,wing_alpha]
+5200 visit[rov1,decompression_chamber]
+5201 move[rov1,decompression_chamber,transfer_zone]
+5210 __method_precondition_m_navigate_direct_narrow_ordering_0[rov1,transfer_zone,wing_alpha]
+5211 move-through-narrow[rov1,transfer_zone,wing_alpha]
+5212 unvisit[rov1,decompression_chamber]
+5213 unvisit[rov1,bio_vault]
+5236 pickup-regular-sample[rov1,s2,wing_alpha,c0,c1]
+5252 __method_precondition_m_navigate_recursive_narrow_ordering_0[rov1,wing_alpha,transfer_zone,wing_alpha]
+5253 visit[rov1,wing_alpha]
+5254 move-through-narrow[rov1,wing_alpha,transfer_zone]
+5267 __method_precondition_m_navigate_recursive_connected_ordering_0[rov1,transfer_zone,decompression_chamber,wing_alpha]
+5268 visit[rov1,transfer_zone]
+5269 move[rov1,transfer_zone,decompression_chamber]
+5282 __method_precondition_m_navigate_direct_connected_ordering_0[rov1,decompression_chamber,bio_vault]
+5283 move[rov1,decompression_chamber,bio_vault]
+5284 unvisit[rov1,transfer_zone]
+5285 unvisit[rov1,wing_alpha]
+5304 store-regular-sample[rov1,s2,bio_vault,c0,c1]
+5305 mark-regular-done[s2]
+5307 __method_precondition_m_process_all_regular_base_ordering_0[]
+root 0
+5306 process-all-regular-samples[] -> m_process_all_regular_base_ordering_0 5307
+5303 m_process_regular_sample_ordering_0_splitted_6[rov1,s2,bio_vault] -> _splitting_method_m_process_regular_sample_ordering_0_splitted_6 5304
+5281 navigate-to[rov1,bio_vault] -> m_navigate_direct_connected_ordering_0 5282 5283
+5266 navigate-to[rov1,bio_vault] -> m_navigate_recursive_connected_ordering_0 5267 5268 5269 5281 5284
+5251 navigate-to[rov1,bio_vault] -> m_navigate_recursive_narrow_ordering_0 5252 5253 5254 5266 5285
+5235 _splitting_method_m_process_regular_sample_ordering_0_splitted_3_splitted_5[rov1,s2,wing_alpha] -> _splitting_method__splitting_method_m_process_regular_sample_ordering_0_splitted_3_splitted_5 5236
+5209 navigate-to[rov1,wing_alpha] -> m_navigate_direct_narrow_ordering_0 5210 5211
+5198 navigate-to[rov1,wing_alpha] -> m_navigate_recursive_connected_ordering_0 5199 5200 5201 5209 5212
+5171 navigate-to[rov1,wing_alpha] -> m_navigate_recursive_connected_ordering_0 5172 5173 5174 5198 5213
+5162 process-regular-sample[s2] -> <m_process_regular_sample_ordering_0;m_process_regular_sample_ordering_0_splitted_3[rov1,s2,bio_vault];_splitting_method_m_process_regular_sample_ordering_0_splitted_3;0;-1,-2,-3,1,2> 5163 5171 5235 5251 5303
+5157 m_process_all_regular_recursive_ordering_0_splitted_1[] -> _splitting_method_m_process_all_regular_recursive_ordering_0_splitted_1 5158 5162 5305
+4545 process-all-regular-samples[] -> m_process_all_regular_recursive_ordering_0 5157 5306
+4541 m_process_regular_sample_ordering_0_splitted_6[rov1,s9,bio_vault] -> _splitting_method_m_process_regular_sample_ordering_0_splitted_6 4542
+4519 navigate-to[rov1,bio_vault] -> m_navigate_direct_connected_ordering_0 4520 4521
+4504 navigate-to[rov1,bio_vault] -> m_navigate_recursive_connected_ordering_0 4505 4506 4507 4519 4522
+4489 navigate-to[rov1,bio_vault] -> m_navigate_recursive_narrow_ordering_0 4490 4491 4492 4504 4523
+4473 _splitting_method_m_process_regular_sample_ordering_0_splitted_3_splitted_5[rov1,s9,wing_alpha] -> _splitting_method__splitting_method_m_process_regular_sample_ordering_0_splitted_3_splitted_5 4474
+4447 navigate-to[rov1,wing_alpha] -> m_navigate_direct_narrow_ordering_0 4448 4449
+4436 navigate-to[rov1,wing_alpha] -> m_navigate_recursive_connected_ordering_0 4437 4438 4439 4447 4450
+4409 navigate-to[rov1,wing_alpha] -> m_navigate_recursive_connected_ordering_0 4410 4411 4412 4436 4451
+4400 process-regular-sample[s9] -> <m_process_regular_sample_ordering_0;m_process_regular_sample_ordering_0_splitted_3[rov1,s9,bio_vault];_splitting_method_m_process_regular_sample_ordering_0_splitted_3;0;-1,-2,-3,1,2> 4401 4409 4473 4489 4541
+4200 m_process_all_regular_recursive_ordering_0_splitted_1[] -> _splitting_method_m_process_all_regular_recursive_ordering_0_splitted_1 4201 4400 4543
+4196 process-all-regular-samples[] -> m_process_all_regular_recursive_ordering_0 4200 4545
+4192 m_process_regular_sample_ordering_0_splitted_6[rov1,s3,bio_vault] -> _splitting_method_m_process_regular_sample_ordering_0_splitted_6 4193
+4170 navigate-to[rov1,bio_vault] -> m_navigate_direct_connected_ordering_0 4171 4172
+4152 navigate-to[rov1,bio_vault] -> m_navigate_recursive_connected_ordering_0 4153 4154 4155 4170 4173
+4136 navigate-to[rov1,bio_vault] -> m_navigate_recursive_connected_ordering_0 4137 4138 4139 4152 4174
+4122 _splitting_method_m_process_regular_sample_ordering_0_splitted_3_splitted_5[rov1,s3,wing_beta] -> _splitting_method__splitting_method_m_process_regular_sample_ordering_0_splitted_3_splitted_5 4123
+4098 navigate-to[rov1,wing_beta] -> m_navigate_direct_connected_ordering_0 4099 4100
+4086 navigate-to[rov1,wing_beta] -> m_navigate_recursive_connected_ordering_0 4087 4088 4089 4098 4101
+4059 navigate-to[rov1,wing_beta] -> m_navigate_recursive_connected_ordering_0 4060 4061 4062 4086 4102
+4051 process-regular-sample[s3] -> <m_process_regular_sample_ordering_0;m_process_regular_sample_ordering_0_splitted_3[rov1,s3,bio_vault];_splitting_method_m_process_regular_sample_ordering_0_splitted_3;0;-1,-2,-3,1,2> 4052 4059 4122 4136 4192
+3523 m_process_all_regular_recursive_ordering_0_splitted_1[] -> _splitting_method_m_process_all_regular_recursive_ordering_0_splitted_1 3524 4051 4194
+3464 process-all-regular-samples[] -> m_process_all_regular_recursive_ordering_0 3523 4196
+3458 m_process_regular_sample_ordering_0_splitted_6[rov1,s4,bio_vault] -> _splitting_method_m_process_regular_sample_ordering_0_splitted_6 3459
+3408 navigate-to[rov1,bio_vault] -> m_navigate_direct_connected_ordering_0 3409 3410
+3390 navigate-to[rov1,bio_vault] -> m_navigate_recursive_connected_ordering_0 3391 3392 3393 3408 3411
+3374 navigate-to[rov1,bio_vault] -> m_navigate_recursive_connected_ordering_0 3375 3376 3377 3390 3412
+3360 _splitting_method_m_process_regular_sample_ordering_0_splitted_3_splitted_5[rov1,s4,wing_beta] -> _splitting_method__splitting_method_m_process_regular_sample_ordering_0_splitted_3_splitted_5 3361
+3336 navigate-to[rov1,wing_beta] -> m_navigate_direct_connected_ordering_0 3337 3338
+3324 navigate-to[rov1,wing_beta] -> m_navigate_recursive_connected_ordering_0 3325 3326 3327 3336 3339
+3297 navigate-to[rov1,wing_beta] -> m_navigate_recursive_connected_ordering_0 3298 3299 3300 3324 3340
+3289 process-regular-sample[s4] -> <m_process_regular_sample_ordering_0;m_process_regular_sample_ordering_0_splitted_3[rov1,s4,bio_vault];_splitting_method_m_process_regular_sample_ordering_0_splitted_3;0;-1,-2,-3,1,2> 3290 3297 3360 3374 3458
+3285 m_process_all_regular_recursive_ordering_0_splitted_1[] -> _splitting_method_m_process_all_regular_recursive_ordering_0_splitted_1 3286 3289 3460
+3271 process-all-regular-samples[] -> m_process_all_regular_recursive_ordering_0 3285 3464
+3265 process-all-sensitive-samples[] -> m_process_all_sensitive_base_ordering_0 3266
+3261 m_process_sensitive_sample_ordering_0_splitted_11[rov3,s7,cap2,bio_vault] -> _splitting_method_m_process_sensitive_sample_ordering_0_splitted_11 3262
+3195 navigate-to[rov3,bio_vault] -> m_navigate_direct_connected_ordering_0 3196 3197
+3191 m_process_sensitive_sample_ordering_0_splitted_10[rov3,s7,cap2,pressure_stabilizer] -> _splitting_method_m_process_sensitive_sample_ordering_0_splitted_10 3192
+3187 m_process_sensitive_sample_ordering_0_splitted_9[rov3,s7,cap2,pressure_stabilizer] -> _splitting_method_m_process_sensitive_sample_ordering_0_splitted_9 3188
+3165 navigate-to[rov3,pressure_stabilizer] -> m_navigate_direct_connected_ordering_0 3166 3167
+3142 navigate-to[rov3,pressure_stabilizer] -> m_navigate_recursive_connected_ordering_0 3143 3144 3145 3165 3168
+3134 navigate-to[rov3,pressure_stabilizer] -> m_navigate_recursive_narrow_ordering_0 3135 3136 3137 3142 3169
+3095 navigate-to[rov3,wing_alpha] -> m_navigate_direct_narrow_ordering_0 3096 3097
+3082 navigate-to[rov3,wing_alpha] -> m_navigate_recursive_connected_ordering_0 3083 3084 3085 3095 3098
+3069 navigate-to[rov3,wing_alpha] -> m_navigate_recursive_connected_ordering_0 3070 3071 3072 3082 3099
+3050 m_process_regular_sample_ordering_0_splitted_6[rov3,s1,bio_vault] -> _splitting_method_m_process_regular_sample_ordering_0_splitted_6 3267
+2967 navigate-to[rov3,wing_alpha] -> m_navigate_recursive_connected_ordering_0 2968 3051 3052 3069 3100
+2862 _splitting_method_m_process_sensitive_sample_ordering_0_splitted_4_splitted_7[rov3,cap2,bio_vault] -> _splitting_method__splitting_method_m_process_sensitive_sample_ordering_0_splitted_4_splitted_7 2936
+2804 navigate-to[rov3,bio_vault] -> m_navigate_already_there_ordering_0 2806
+2785 navigate-to[rov3,bio_vault] -> m_navigate_recursive_connected_ordering_0 2786 2787 2788 2804 3045
+2777 navigate-to[rov3,bio_vault] -> m_navigate_recursive_narrow_ordering_0 2778 2779 2780 2785 3048
+2760 _splitting_method_m_process_regular_sample_ordering_0_splitted_3_splitted_5[rov3,s1,wing_alpha] -> _splitting_method__splitting_method_m_process_regular_sample_ordering_0_splitted_3_splitted_5 2761
+2733 navigate-to[rov3,bio_vault] -> m_navigate_direct_connected_ordering_0 2789 2805
+2714 navigate-to[rov3,bio_vault] -> m_navigate_recursive_connected_ordering_0 2715 2716 2717 2733 2852
+2707 m_process_sensitive_sample_ordering_0_splitted_4[rov3,cap2,s7,wing_alpha,bio_vault] -> _splitting_method_m_process_sensitive_sample_ordering_0_splitted_4 2708 2714 2862
+1513 process-sensitive-sample[s7] -> <m_process_sensitive_sample_ordering_0;m_process_sensitive_sample_ordering_0_splitted_8[rov3,s7,cap2,bio_vault];_splitting_method_m_process_sensitive_sample_ordering_0_splitted_8;0;-1,-2,-3,1,2,3,4,5,6> 2707 2967 3101 3134 3187 3189 3191 3195 3261
+1508 m_process_all_sensitive_recursive_ordering_0_splitted_2[] -> _splitting_method_m_process_all_sensitive_recursive_ordering_0_splitted_2 1509 1513 3264
+1423 process-all-sensitive-samples[] -> m_process_all_sensitive_recursive_ordering_0 1508 3265
+1417 m_process_sensitive_sample_ordering_0_splitted_11[rov2,s5,cap1,bio_vault] -> _splitting_method_m_process_sensitive_sample_ordering_0_splitted_11 1418
+1400 navigate-to[rov2,bio_vault] -> m_navigate_direct_connected_ordering_0 1401 1402
+1397 m_process_sensitive_sample_ordering_0_splitted_10[rov2,s5,cap1,pressure_stabilizer] -> _splitting_method_m_process_sensitive_sample_ordering_0_splitted_10 1398
+1391 m_process_sensitive_sample_ordering_0_splitted_9[rov2,s5,cap1,pressure_stabilizer] -> _splitting_method_m_process_sensitive_sample_ordering_0_splitted_9 1392
+1371 navigate-to[rov2,pressure_stabilizer] -> m_navigate_direct_connected_ordering_0 1372 1373
+1346 navigate-to[rov2,pressure_stabilizer] -> m_navigate_recursive_connected_ordering_0 1347 1348 1349 1371 1374
+1332 navigate-to[rov2,pressure_stabilizer] -> m_navigate_recursive_connected_ordering_0 1333 1334 1335 1346 1375
+1301 navigate-to[rov2,wing_beta] -> m_navigate_direct_connected_ordering_0 1302 1303
+1294 navigate-to[rov2,wing_beta] -> m_navigate_recursive_connected_ordering_0 1295 1296 1297 1301 1304
+1273 navigate-to[rov2,wing_beta] -> m_navigate_recursive_connected_ordering_0 1274 1275 1276 1294 1305
+1237 navigate-to[rov2,wing_beta] -> m_navigate_recursive_connected_ordering_0 1238 1239 1240 1273 1306
+1226 _splitting_method_m_process_sensitive_sample_ordering_0_splitted_4_splitted_7[rov2,cap1,bio_vault] -> _splitting_method__splitting_method_m_process_sensitive_sample_ordering_0_splitted_4_splitted_7 1227
+1206 navigate-to[rov2,bio_vault] -> m_navigate_already_there_ordering_0 1207
+1203 m_process_sensitive_sample_ordering_0_splitted_4[rov2,cap1,s5,wing_beta,bio_vault] -> _splitting_method_m_process_sensitive_sample_ordering_0_splitted_4 1204 1206 1226
+1196 process-sensitive-sample[s5] -> <m_process_sensitive_sample_ordering_0;m_process_sensitive_sample_ordering_0_splitted_8[rov2,s5,cap1,bio_vault];_splitting_method_m_process_sensitive_sample_ordering_0_splitted_8;0;-1,-2,-3,1,2,3,4,5,6> 1203 1237 1307 1332 1391 1393 1397 1400 1417
+1191 m_process_all_sensitive_recursive_ordering_0_splitted_2[] -> _splitting_method_m_process_all_sensitive_recursive_ordering_0_splitted_2 1192 1196 1419
+1017 process-all-sensitive-samples[] -> m_process_all_sensitive_recursive_ordering_0 1191 1423
+1011 m_process_sensitive_sample_ordering_0_splitted_11[rov2,s8,cap1,bio_vault] -> _splitting_method_m_process_sensitive_sample_ordering_0_splitted_11 1012
+994 navigate-to[rov2,bio_vault] -> m_navigate_direct_connected_ordering_0 995 996
+991 m_process_sensitive_sample_ordering_0_splitted_10[rov2,s8,cap1,pressure_stabilizer] -> _splitting_method_m_process_sensitive_sample_ordering_0_splitted_10 992
+984 m_process_sensitive_sample_ordering_0_splitted_9[rov2,s8,cap1,pressure_stabilizer] -> _splitting_method_m_process_sensitive_sample_ordering_0_splitted_9 985
+965 navigate-to[rov2,pressure_stabilizer] -> m_navigate_direct_connected_ordering_0 966 967
+953 navigate-to[rov2,pressure_stabilizer] -> m_navigate_recursive_connected_ordering_0 954 955 956 965 968
+939 navigate-to[rov2,pressure_stabilizer] -> m_navigate_recursive_connected_ordering_0 940 941 942 953 969
+910 navigate-to[rov2,wing_beta] -> m_navigate_direct_connected_ordering_0 911 912
+895 navigate-to[rov2,wing_beta] -> m_navigate_recursive_connected_ordering_0 896 897 898 910 913
+890 _splitting_method_m_process_sensitive_sample_ordering_0_splitted_4_splitted_7[rov2,cap1,docking_station] -> _splitting_method__splitting_method_m_process_sensitive_sample_ordering_0_splitted_4_splitted_7 891
+872 navigate-to[rov2,docking_station] -> m_navigate_already_there_ordering_0 873
+868 m_process_sensitive_sample_ordering_0_splitted_4[rov2,cap1,s8,wing_beta,bio_vault] -> _splitting_method_m_process_sensitive_sample_ordering_0_splitted_4 869 872 890
+863 process-sensitive-sample[s8] -> <m_process_sensitive_sample_ordering_0;m_process_sensitive_sample_ordering_0_splitted_8[rov2,s8,cap1,bio_vault];_splitting_method_m_process_sensitive_sample_ordering_0_splitted_8;0;-1,-2,-3,1,2,3,4,5,6> 868 895 914 939 984 986 991 994 1011
+855 m_process_all_sensitive_recursive_ordering_0_splitted_2[] -> _splitting_method_m_process_all_sensitive_recursive_ordering_0_splitted_2 856 863 1013
+278 process-all-sensitive-samples[] -> m_process_all_sensitive_recursive_ordering_0 855 1017
+273 m_process_sensitive_sample_ordering_0_splitted_11[rov1,s6,cap2,bio_vault] -> _splitting_method_m_process_sensitive_sample_ordering_0_splitted_11 274
+232 navigate-to[rov1,bio_vault] -> m_navigate_direct_connected_ordering_0 233 234
+227 m_process_sensitive_sample_ordering_0_splitted_10[rov1,s6,cap2,pressure_stabilizer] -> _splitting_method_m_process_sensitive_sample_ordering_0_splitted_10 228
+222 m_process_sensitive_sample_ordering_0_splitted_9[rov1,s6,cap2,pressure_stabilizer] -> _splitting_method_m_process_sensitive_sample_ordering_0_splitted_9 223
+202 navigate-to[rov1,pressure_stabilizer] -> m_navigate_direct_connected_ordering_0 203 204
+153 navigate-to[rov1,pressure_stabilizer] -> m_navigate_recursive_connected_ordering_0 154 155 156 202 205
+141 navigate-to[rov1,pressure_stabilizer] -> m_navigate_recursive_narrow_ordering_0 142 143 144 153 206
+104 navigate-to[rov1,wing_alpha] -> m_navigate_direct_narrow_ordering_0 105 106
+93 navigate-to[rov1,wing_alpha] -> m_navigate_recursive_connected_ordering_0 94 95 96 104 107
+57 navigate-to[rov3,wing_alpha] -> m_navigate_direct_narrow_ordering_0 2718 2734
+54 _splitting_method_m_process_sensitive_sample_ordering_0_splitted_4_splitted_7[rov1,cap2,docking_station] -> _splitting_method__splitting_method_m_process_sensitive_sample_ordering_0_splitted_4_splitted_7 58
+35 navigate-to[rov1,docking_station] -> m_navigate_already_there_ordering_0 36
+33 m_process_sensitive_sample_ordering_0_splitted_4[rov1,cap2,s6,wing_alpha,bio_vault] -> _splitting_method_m_process_sensitive_sample_ordering_0_splitted_4 34 35 54
+27 process-sensitive-sample[s6] -> <m_process_sensitive_sample_ordering_0;m_process_sensitive_sample_ordering_0_splitted_8[rov1,s6,cap2,bio_vault];_splitting_method_m_process_sensitive_sample_ordering_0_splitted_8;0;-1,-2,-3,1,2,3,4,5,6> 33 93 108 141 222 224 227 232 273
+25 process-regular-sample[s1] -> <m_process_regular_sample_ordering_0;m_process_regular_sample_ordering_0_splitted_3[rov3,s1,bio_vault];_splitting_method_m_process_regular_sample_ordering_0_splitted_3;0;-1,-2,-3,1,2> 26 57 2760 2777 3050
+21 m_process_all_sensitive_recursive_ordering_0_splitted_2[] -> _splitting_method_m_process_all_sensitive_recursive_ordering_0_splitted_2 22 27 275
+5 m_process_all_regular_recursive_ordering_0_splitted_1[] -> _splitting_method_m_process_all_regular_recursive_ordering_0_splitted_1 6 25 3268
+4 process-all-sensitive-samples[] -> m_process_all_sensitive_recursive_ordering_0 21 278
+2 process-all-regular-samples[] -> m_process_all_regular_recursive_ordering_0 5 3271
+0 __top[] -> <__top_method;complete-mission[];m_complete_mission_ordering_0;0;-1,-2> 4 2
+<==
+==>
+58 take-empty-capsule rov1 cap2 docking_station c0 c1
+95 visit rov1 docking_station
+96 move rov1 docking_station transfer_zone
+106 move-through-narrow rov1 transfer_zone wing_alpha
+107 unvisit rov1 docking_station
+108 encapsulate-sample rov1 s6 cap2 wing_alpha
+143 visit rov1 wing_alpha
+144 move-through-narrow rov1 wing_alpha transfer_zone
+155 visit rov1 transfer_zone
+156 move rov1 transfer_zone decompression_chamber
+204 move rov1 decompression_chamber pressure_stabilizer
+205 unvisit rov1 transfer_zone
+206 unvisit rov1 wing_alpha
+223 drop-sensitive-sample rov1 s6 cap2 pressure_stabilizer c0 c1
+224 stabilize-capsule rov1 s6 cap2 pressure_stabilizer
+228 pickup-sensitive-sample rov1 s6 cap2 pressure_stabilizer c0 c1
+234 move rov1 pressure_stabilizer bio_vault
+274 store-sensitive-sample rov1 s6 cap2 bio_vault c0 c1
+275 mark-sensitive-done s6
+891 take-empty-capsule rov2 cap1 docking_station c2 c3
+897 visit rov2 docking_station
+898 move rov2 docking_station transfer_zone
+912 move rov2 transfer_zone wing_beta
+913 unvisit rov2 docking_station
+914 encapsulate-sample rov2 s8 cap1 wing_beta
+941 visit rov2 wing_beta
+942 move rov2 wing_beta transfer_zone
+955 visit rov2 transfer_zone
+956 move rov2 transfer_zone decompression_chamber
+967 move rov2 decompression_chamber pressure_stabilizer
+968 unvisit rov2 transfer_zone
+969 unvisit rov2 wing_beta
+985 drop-sensitive-sample rov2 s8 cap1 pressure_stabilizer c2 c3
+986 stabilize-capsule rov2 s8 cap1 pressure_stabilizer
+992 pickup-sensitive-sample rov2 s8 cap1 pressure_stabilizer c2 c3
+996 move rov2 pressure_stabilizer bio_vault
+1012 store-sensitive-sample rov2 s8 cap1 bio_vault c2 c3
+1013 mark-sensitive-done s8
+1227 take-empty-capsule rov2 cap1 bio_vault c2 c3
+1239 visit rov2 bio_vault
+1240 move rov2 bio_vault pressure_stabilizer
+1275 visit rov2 pressure_stabilizer
+1276 move rov2 pressure_stabilizer decompression_chamber
+1296 visit rov2 decompression_chamber
+1297 move rov2 decompression_chamber transfer_zone
+1303 move rov2 transfer_zone wing_beta
+1304 unvisit rov2 decompression_chamber
+1305 unvisit rov2 pressure_stabilizer
+1306 unvisit rov2 bio_vault
+1307 encapsulate-sample rov2 s5 cap1 wing_beta
+1334 visit rov2 wing_beta
+1335 move rov2 wing_beta transfer_zone
+1348 visit rov2 transfer_zone
+1349 move rov2 transfer_zone decompression_chamber
+1373 move rov2 decompression_chamber pressure_stabilizer
+1374 unvisit rov2 transfer_zone
+1375 unvisit rov2 wing_beta
+1392 drop-sensitive-sample rov2 s5 cap1 pressure_stabilizer c2 c3
+1393 stabilize-capsule rov2 s5 cap1 pressure_stabilizer
+1398 pickup-sensitive-sample rov2 s5 cap1 pressure_stabilizer c2 c3
+1402 move rov2 pressure_stabilizer bio_vault
+1418 store-sensitive-sample rov2 s5 cap1 bio_vault c2 c3
+1419 mark-sensitive-done s5
+2716 visit rov3 docking_station
+2717 move rov3 docking_station transfer_zone
+2734 move-through-narrow rov3 transfer_zone wing_alpha
+2761 pickup-regular-sample rov3 s1 wing_alpha c1 c2
+2779 visit rov3 wing_alpha
+2780 move-through-narrow rov3 wing_alpha transfer_zone
+2787 visit rov3 transfer_zone
+2788 move rov3 transfer_zone decompression_chamber
+2805 move rov3 decompression_chamber bio_vault
+2852 unvisit rov3 docking_station
+2936 take-empty-capsule rov3 cap2 bio_vault c0 c1
+3045 unvisit rov3 transfer_zone
+3048 unvisit rov3 wing_alpha
+3051 visit rov3 bio_vault
+3052 move rov3 bio_vault pressure_stabilizer
+3071 visit rov3 pressure_stabilizer
+3072 move rov3 pressure_stabilizer decompression_chamber
+3084 visit rov3 decompression_chamber
+3085 move rov3 decompression_chamber transfer_zone
+3097 move-through-narrow rov3 transfer_zone wing_alpha
+3098 unvisit rov3 decompression_chamber
+3099 unvisit rov3 pressure_stabilizer
+3100 unvisit rov3 bio_vault
+3101 encapsulate-sample rov3 s7 cap2 wing_alpha
+3136 visit rov3 wing_alpha
+3137 move-through-narrow rov3 wing_alpha transfer_zone
+3144 visit rov3 transfer_zone
+3145 move rov3 transfer_zone decompression_chamber
+3167 move rov3 decompression_chamber pressure_stabilizer
+3168 unvisit rov3 transfer_zone
+3169 unvisit rov3 wing_alpha
+3188 drop-sensitive-sample rov3 s7 cap2 pressure_stabilizer c0 c1
+3189 stabilize-capsule rov3 s7 cap2 pressure_stabilizer
+3192 pickup-sensitive-sample rov3 s7 cap2 pressure_stabilizer c0 c1
+3197 move rov3 pressure_stabilizer bio_vault
+3262 store-sensitive-sample rov3 s7 cap2 bio_vault c0 c1
+3264 mark-sensitive-done s7
+3267 store-regular-sample rov3 s1 bio_vault c1 c2
+3268 mark-regular-done s1
+3299 visit rov1 bio_vault
+3300 move rov1 bio_vault decompression_chamber
+3326 visit rov1 decompression_chamber
+3327 move rov1 decompression_chamber transfer_zone
+3338 move rov1 transfer_zone wing_beta
+3339 unvisit rov1 decompression_chamber
+3340 unvisit rov1 bio_vault
+3361 pickup-regular-sample rov1 s4 wing_beta c0 c1
+3376 visit rov1 wing_beta
+3377 move rov1 wing_beta transfer_zone
+3392 visit rov1 transfer_zone
+3393 move rov1 transfer_zone decompression_chamber
+3410 move rov1 decompression_chamber bio_vault
+3411 unvisit rov1 transfer_zone
+3412 unvisit rov1 wing_beta
+3459 store-regular-sample rov1 s4 bio_vault c0 c1
+3460 mark-regular-done s4
+4061 visit rov1 bio_vault
+4062 move rov1 bio_vault decompression_chamber
+4088 visit rov1 decompression_chamber
+4089 move rov1 decompression_chamber transfer_zone
+4100 move rov1 transfer_zone wing_beta
+4101 unvisit rov1 decompression_chamber
+4102 unvisit rov1 bio_vault
+4123 pickup-regular-sample rov1 s3 wing_beta c0 c1
+4138 visit rov1 wing_beta
+4139 move rov1 wing_beta transfer_zone
+4154 visit rov1 transfer_zone
+4155 move rov1 transfer_zone decompression_chamber
+4172 move rov1 decompression_chamber bio_vault
+4173 unvisit rov1 transfer_zone
+4174 unvisit rov1 wing_beta
+4193 store-regular-sample rov1 s3 bio_vault c0 c1
+4194 mark-regular-done s3
+4411 visit rov1 bio_vault
+4412 move rov1 bio_vault decompression_chamber
+4438 visit rov1 decompression_chamber
+4439 move rov1 decompression_chamber transfer_zone
+4449 move-through-narrow rov1 transfer_zone wing_alpha
+4450 unvisit rov1 decompression_chamber
+4451 unvisit rov1 bio_vault
+4474 pickup-regular-sample rov1 s9 wing_alpha c0 c1
+4491 visit rov1 wing_alpha
+4492 move-through-narrow rov1 wing_alpha transfer_zone
+4506 visit rov1 transfer_zone
+4507 move rov1 transfer_zone decompression_chamber
+4521 move rov1 decompression_chamber bio_vault
+4522 unvisit rov1 transfer_zone
+4523 unvisit rov1 wing_alpha
+4542 store-regular-sample rov1 s9 bio_vault c0 c1
+4543 mark-regular-done s9
+5173 visit rov1 bio_vault
+5174 move rov1 bio_vault decompression_chamber
+5200 visit rov1 decompression_chamber
+5201 move rov1 decompression_chamber transfer_zone
+5211 move-through-narrow rov1 transfer_zone wing_alpha
+5212 unvisit rov1 decompression_chamber
+5213 unvisit rov1 bio_vault
+5236 pickup-regular-sample rov1 s2 wing_alpha c0 c1
+5253 visit rov1 wing_alpha
+5254 move-through-narrow rov1 wing_alpha transfer_zone
+5268 visit rov1 transfer_zone
+5269 move rov1 transfer_zone decompression_chamber
+5283 move rov1 decompression_chamber bio_vault
+5284 unvisit rov1 transfer_zone
+5285 unvisit rov1 wing_alpha
+5304 store-regular-sample rov1 s2 bio_vault c0 c1
+5305 mark-regular-done s2
+root 5308
+2 process-all-regular-samples  -> m_process_all_regular_recursive_ordering_0 25 3268 3271
+4 process-all-sensitive-samples  -> m_process_all_sensitive_recursive_ordering_0 27 275 278
+25 process-regular-sample s1 -> m_process_regular_sample_ordering_0 57 2761 2777 3267
+27 process-sensitive-sample s6 -> m_process_sensitive_sample_ordering_0 35 58 93 108 141 223 224 228 232 274
+35 navigate-to rov1 docking_station -> m_navigate_already_there_ordering_0
+57 navigate-to rov3 wing_alpha -> m_navigate_direct_narrow_ordering_0 2734
+93 navigate-to rov1 wing_alpha -> m_navigate_recursive_connected_ordering_0 95 96 104 107
+104 navigate-to rov1 wing_alpha -> m_navigate_direct_narrow_ordering_0 106
+141 navigate-to rov1 pressure_stabilizer -> m_navigate_recursive_narrow_ordering_0 143 144 153 206
+153 navigate-to rov1 pressure_stabilizer -> m_navigate_recursive_connected_ordering_0 155 156 202 205
+202 navigate-to rov1 pressure_stabilizer -> m_navigate_direct_connected_ordering_0 204
+232 navigate-to rov1 bio_vault -> m_navigate_direct_connected_ordering_0 234
+278 process-all-sensitive-samples  -> m_process_all_sensitive_recursive_ordering_0 863 1013 1017
+863 process-sensitive-sample s8 -> m_process_sensitive_sample_ordering_0 872 891 895 914 939 985 986 992 994 1012
+872 navigate-to rov2 docking_station -> m_navigate_already_there_ordering_0
+895 navigate-to rov2 wing_beta -> m_navigate_recursive_connected_ordering_0 897 898 910 913
+910 navigate-to rov2 wing_beta -> m_navigate_direct_connected_ordering_0 912
+939 navigate-to rov2 pressure_stabilizer -> m_navigate_recursive_connected_ordering_0 941 942 953 969
+953 navigate-to rov2 pressure_stabilizer -> m_navigate_recursive_connected_ordering_0 955 956 965 968
+965 navigate-to rov2 pressure_stabilizer -> m_navigate_direct_connected_ordering_0 967
+994 navigate-to rov2 bio_vault -> m_navigate_direct_connected_ordering_0 996
+1017 process-all-sensitive-samples  -> m_process_all_sensitive_recursive_ordering_0 1196 1419 1423
+1196 process-sensitive-sample s5 -> m_process_sensitive_sample_ordering_0 1206 1227 1237 1307 1332 1392 1393 1398 1400 1418
+1206 navigate-to rov2 bio_vault -> m_navigate_already_there_ordering_0
+1237 navigate-to rov2 wing_beta -> m_navigate_recursive_connected_ordering_0 1239 1240 1273 1306
+1273 navigate-to rov2 wing_beta -> m_navigate_recursive_connected_ordering_0 1275 1276 1294 1305
+1294 navigate-to rov2 wing_beta -> m_navigate_recursive_connected_ordering_0 1296 1297 1301 1304
+1301 navigate-to rov2 wing_beta -> m_navigate_direct_connected_ordering_0 1303
+1332 navigate-to rov2 pressure_stabilizer -> m_navigate_recursive_connected_ordering_0 1334 1335 1346 1375
+1346 navigate-to rov2 pressure_stabilizer -> m_navigate_recursive_connected_ordering_0 1348 1349 1371 1374
+1371 navigate-to rov2 pressure_stabilizer -> m_navigate_direct_connected_ordering_0 1373
+1400 navigate-to rov2 bio_vault -> m_navigate_direct_connected_ordering_0 1402
+1423 process-all-sensitive-samples  -> m_process_all_sensitive_recursive_ordering_0 1513 3264 3265
+1513 process-sensitive-sample s7 -> m_process_sensitive_sample_ordering_0 2714 2936 2967 3101 3134 3188 3189 3192 3195 3262
+2714 navigate-to rov3 bio_vault -> m_navigate_recursive_connected_ordering_0 2716 2717 2733 2852
+2733 navigate-to rov3 bio_vault -> m_navigate_direct_connected_ordering_0 2805
+2777 navigate-to rov3 bio_vault -> m_navigate_recursive_narrow_ordering_0 2779 2780 2785 3048
+2785 navigate-to rov3 bio_vault -> m_navigate_recursive_connected_ordering_0 2787 2788 2804 3045
+2804 navigate-to rov3 bio_vault -> m_navigate_already_there_ordering_0
+2967 navigate-to rov3 wing_alpha -> m_navigate_recursive_connected_ordering_0 3051 3052 3069 3100
+3069 navigate-to rov3 wing_alpha -> m_navigate_recursive_connected_ordering_0 3071 3072 3082 3099
+3082 navigate-to rov3 wing_alpha -> m_navigate_recursive_connected_ordering_0 3084 3085 3095 3098
+3095 navigate-to rov3 wing_alpha -> m_navigate_direct_narrow_ordering_0 3097
+3134 navigate-to rov3 pressure_stabilizer -> m_navigate_recursive_narrow_ordering_0 3136 3137 3142 3169
+3142 navigate-to rov3 pressure_stabilizer -> m_navigate_recursive_connected_ordering_0 3144 3145 3165 3168
+3165 navigate-to rov3 pressure_stabilizer -> m_navigate_direct_connected_ordering_0 3167
+3195 navigate-to rov3 bio_vault -> m_navigate_direct_connected_ordering_0 3197
+3265 process-all-sensitive-samples  -> m_process_all_sensitive_base_ordering_0
+3271 process-all-regular-samples  -> m_process_all_regular_recursive_ordering_0 3289 3460 3464
+3289 process-regular-sample s4 -> m_process_regular_sample_ordering_0 3297 3361 3374 3459
+3297 navigate-to rov1 wing_beta -> m_navigate_recursive_connected_ordering_0 3299 3300 3324 3340
+3324 navigate-to rov1 wing_beta -> m_navigate_recursive_connected_ordering_0 3326 3327 3336 3339
+3336 navigate-to rov1 wing_beta -> m_navigate_direct_connected_ordering_0 3338
+3374 navigate-to rov1 bio_vault -> m_navigate_recursive_connected_ordering_0 3376 3377 3390 3412
+3390 navigate-to rov1 bio_vault -> m_navigate_recursive_connected_ordering_0 3392 3393 3408 3411
+3408 navigate-to rov1 bio_vault -> m_navigate_direct_connected_ordering_0 3410
+3464 process-all-regular-samples  -> m_process_all_regular_recursive_ordering_0 4051 4194 4196
+4051 process-regular-sample s3 -> m_process_regular_sample_ordering_0 4059 4123 4136 4193
+4059 navigate-to rov1 wing_beta -> m_navigate_recursive_connected_ordering_0 4061 4062 4086 4102
+4086 navigate-to rov1 wing_beta -> m_navigate_recursive_connected_ordering_0 4088 4089 4098 4101
+4098 navigate-to rov1 wing_beta -> m_navigate_direct_connected_ordering_0 4100
+4136 navigate-to rov1 bio_vault -> m_navigate_recursive_connected_ordering_0 4138 4139 4152 4174
+4152 navigate-to rov1 bio_vault -> m_navigate_recursive_connected_ordering_0 4154 4155 4170 4173
+4170 navigate-to rov1 bio_vault -> m_navigate_direct_connected_ordering_0 4172
+4196 process-all-regular-samples  -> m_process_all_regular_recursive_ordering_0 4400 4543 4545
+4400 process-regular-sample s9 -> m_process_regular_sample_ordering_0 4409 4474 4489 4542
+4409 navigate-to rov1 wing_alpha -> m_navigate_recursive_connected_ordering_0 4411 4412 4436 4451
+4436 navigate-to rov1 wing_alpha -> m_navigate_recursive_connected_ordering_0 4438 4439 4447 4450
+4447 navigate-to rov1 wing_alpha -> m_navigate_direct_narrow_ordering_0 4449
+4489 navigate-to rov1 bio_vault -> m_navigate_recursive_narrow_ordering_0 4491 4492 4504 4523
+4504 navigate-to rov1 bio_vault -> m_navigate_recursive_connected_ordering_0 4506 4507 4519 4522
+4519 navigate-to rov1 bio_vault -> m_navigate_direct_connected_ordering_0 4521
+4545 process-all-regular-samples  -> m_process_all_regular_recursive_ordering_0 5162 5305 5306
+5162 process-regular-sample s2 -> m_process_regular_sample_ordering_0 5171 5236 5251 5304
+5171 navigate-to rov1 wing_alpha -> m_navigate_recursive_connected_ordering_0 5173 5174 5198 5213
+5198 navigate-to rov1 wing_alpha -> m_navigate_recursive_connected_ordering_0 5200 5201 5209 5212
+5209 navigate-to rov1 wing_alpha -> m_navigate_direct_narrow_ordering_0 5211
+5251 navigate-to rov1 bio_vault -> m_navigate_recursive_narrow_ordering_0 5253 5254 5266 5285
+5266 navigate-to rov1 bio_vault -> m_navigate_recursive_connected_ordering_0 5268 5269 5281 5284
+5281 navigate-to rov1 bio_vault -> m_navigate_direct_connected_ordering_0 5283
+5306 process-all-regular-samples  -> m_process_all_regular_base_ordering_0
+5308 complete-mission  -> m_complete_mission_ordering_0 4 2

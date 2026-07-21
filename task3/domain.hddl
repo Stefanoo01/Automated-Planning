@@ -1,4 +1,4 @@
-(define (domain abyssus-htn)
+(define (domain abyssus-base)
     (:requirements
         :strips
         :typing
@@ -6,8 +6,6 @@
         :equality
         :disjunctive-preconditions
         :quantified-preconditions
-        :fluents
-        :action-costs
         :hierachie
     )
 
@@ -16,6 +14,7 @@
         rov sample capsule - locatable
         pressure-sensitive - sample
         pressure-stabilizer docking-station - location
+        capacity-number - object
     )
 
     (:predicates
@@ -47,12 +46,10 @@
         (todo-sensitive ?s - pressure-sensitive)
         (todo-regular ?s - sample)
         (visited ?r - rov ?l - location)
-    )
 
-    (:functions
-        (battery-level ?r - rov)
-        (total-cost)
-        (capacity ?r - rov)
+        ;; Discrete capacity
+        (capacity ?r - rov ?c - capacity-number)
+        (capacity-predecessor ?lower - capacity-number ?higher - capacity-number)
     )
 
     ;; ------------------------------------------------------------
@@ -95,32 +92,30 @@
         :effect ()
     )
 
-    (:task recharge-if-needed
-        :parameters (?r - rov)
-        :precondition ()
-        :effect ()
-    )
+    ;; ------------------------------------------------------------
+    ;; Handover abstract tasks
+    ;; ------------------------------------------------------------
 
     (:task bring-regular-to-handover
-        :parameters (?s - sample ?h - location)
+        :parameters (?r - rov ?s - sample ?h - location)
         :precondition ()
         :effect ()
     )
 
     (:task continue-regular-from-handover
-        :parameters (?s - sample ?h - location ?vault - location)
+        :parameters (?r - rov ?s - sample ?h - location ?vault - location)
         :precondition ()
         :effect ()
     )
 
     (:task bring-sensitive-to-handover
-        :parameters (?s - pressure-sensitive ?c - capsule ?h - location)
+        :parameters (?r - rov ?s - pressure-sensitive ?c - capsule ?h - location)
         :precondition ()
         :effect ()
     )
 
     (:task continue-sensitive-from-handover
-        :parameters (?s - pressure-sensitive ?c - capsule ?h - location ?st - pressure-stabilizer ?vault - location)
+        :parameters (?r - rov ?s - pressure-sensitive ?c - capsule ?h - location ?st - pressure-stabilizer ?vault - location)
         :precondition ()
         :effect ()
     )
@@ -175,6 +170,14 @@
             ?capsule-loc - location
             ?stabilizer - pressure-stabilizer
             ?vault - location
+            ?cap-low1 - capacity-number
+            ?cap-high1 - capacity-number
+            ?cap-low2 - capacity-number
+            ?cap-high2 - capacity-number
+            ?cap-low3 - capacity-number
+            ?cap-high3 - capacity-number
+            ?cap-low4 - capacity-number
+            ?cap-high4 - capacity-number
         )
         :task (process-sensitive-sample ?s)
         :precondition (and
@@ -185,19 +188,16 @@
             (bio-vault ?vault)
         )
         :subtasks (and
-            (task0 (recharge-if-needed ?r))
-            (task1 (navigate-to ?r ?capsule-loc))
-            (task2 (take-empty-capsule ?r ?c ?capsule-loc))
-            (task3 (navigate-to ?r ?sample-loc))
-            (task4 (encapsulate-sample ?r ?s ?c ?sample-loc))
-            (task5 (recharge-if-needed ?r))
-            (task6 (navigate-to ?r ?stabilizer))
-            (task7 (drop-sensitive-sample ?r ?s ?c ?stabilizer))
-            (task8 (stabilize-capsule ?r ?s ?c ?stabilizer))
-            (task9 (pickup-sensitive-sample ?r ?s ?c ?stabilizer))
-            (task10 (recharge-if-needed ?r))
-            (task11 (navigate-to ?r ?vault))
-            (task12 (store-sensitive-sample ?r ?s ?c ?vault))
+            (task0 (navigate-to ?r ?capsule-loc))
+            (task1 (take-empty-capsule ?r ?c ?capsule-loc ?cap-low1 ?cap-high1))
+            (task2 (navigate-to ?r ?sample-loc))
+            (task3 (encapsulate-sample ?r ?s ?c ?sample-loc))
+            (task4 (navigate-to ?r ?stabilizer))
+            (task5 (drop-sensitive-sample ?r ?s ?c ?stabilizer ?cap-low2 ?cap-high2))
+            (task6 (stabilize-capsule ?r ?s ?c ?stabilizer))
+            (task7 (pickup-sensitive-sample ?r ?s ?c ?stabilizer ?cap-low3 ?cap-high3))
+            (task8 (navigate-to ?r ?vault))
+            (task9 (store-sensitive-sample ?r ?s ?c ?vault ?cap-low4 ?cap-high4))
         )
         :ordering (and
             (task0 < task1)
@@ -209,9 +209,6 @@
             (task6 < task7)
             (task7 < task8)
             (task8 < task9)
-            (task9 < task10)
-            (task10 < task11)
-            (task11 < task12)
         )
     )
 
@@ -249,6 +246,10 @@
             ?s - sample
             ?sample-loc - location
             ?vault - location
+            ?cap-low1 - capacity-number
+            ?cap-high1 - capacity-number
+            ?cap-low2 - capacity-number
+            ?cap-high2 - capacity-number
         )
         :task (process-regular-sample ?s)
         :precondition (and
@@ -258,19 +259,15 @@
             (bio-vault ?vault)
         )
         :subtasks (and
-            (task0 (recharge-if-needed ?r))
-            (task1 (navigate-to ?r ?sample-loc))
-            (task2 (pickup-regular-sample ?r ?s ?sample-loc))
-            (task3 (recharge-if-needed ?r))
-            (task4 (navigate-to ?r ?vault))
-            (task5 (store-regular-sample ?r ?s ?vault))
+            (task0 (navigate-to ?r ?sample-loc))
+            (task1 (pickup-regular-sample ?r ?s ?sample-loc ?cap-low1 ?cap-high1))
+            (task2 (navigate-to ?r ?vault))
+            (task3 (store-regular-sample ?r ?s ?vault ?cap-low2 ?cap-high2))
         )
         :ordering (and
             (task0 < task1)
             (task1 < task2)
             (task2 < task3)
-            (task3 < task4)
-            (task4 < task5)
         )
     )
 
@@ -357,32 +354,10 @@
         )
     )
 
-    (:method m_recharge_not_needed_ordering_0
-        :parameters (?r - rov)
-        :task (recharge-if-needed ?r)
-        :precondition (and
-            (>= (battery-level ?r) 10)
-        )
-        :subtasks ()
-    )
-
-    (:method m_recharge_needed_ordering_0
-        :parameters (?r - rov ?dock - docking-station)
-        :task (recharge-if-needed ?r)
-        :precondition (and
-            (< (battery-level ?r) 10)
-        )
-        :subtasks (and
-            (task0 (navigate-to ?r ?dock))
-            (task1 (recharge ?r ?dock))
-        )
-        :ordering (and
-            (task0 < task1)
-        )
-    )
-
     (:method m_process_regular_sample_handover_ordering_0
         :parameters (
+            ?r1 - rov
+            ?r2 - rov
             ?s - sample
             ?sample-loc - location
             ?h - location
@@ -394,11 +369,13 @@
             (regular-sample ?s)
             (at ?s ?sample-loc)
             (narrow-connected ?sample-loc ?h)
+            (small-robot ?r1)
+            (not (= ?r1 ?r2))
             (bio-vault ?vault)
         )
         :subtasks (and
-            (task0 (bring-regular-to-handover ?s ?h))
-            (task1 (continue-regular-from-handover ?s ?h ?vault))
+            (task0 (bring-regular-to-handover ?r1 ?s ?h))
+            (task1 (continue-regular-from-handover ?r2 ?s ?h ?vault))
         )
         :ordering (and
             (task0 < task1)
@@ -406,13 +383,17 @@
     )
 
     (:method m_bring_regular_to_handover_ordering_0
-    :parameters (
-        ?r - rov
-        ?s - sample
-        ?sample-loc - location
-        ?h - location
-    )
-    :task (bring-regular-to-handover ?s ?h)
+        :parameters (
+            ?r - rov
+            ?s - sample
+            ?sample-loc - location
+            ?h - location
+            ?cap-low1 - capacity-number
+            ?cap-high1 - capacity-number
+            ?cap-low2 - capacity-number
+            ?cap-high2 - capacity-number
+        )
+        :task (bring-regular-to-handover ?r ?s ?h)
         :precondition (and
             (todo-regular ?s)
             (regular-sample ?s)
@@ -421,28 +402,30 @@
             (small-robot ?r)
         )
         :subtasks (and
-            (task0 (recharge-if-needed ?r))
-            (task1 (navigate-to ?r ?sample-loc))
-            (task2 (pickup-regular-sample ?r ?s ?sample-loc))
-            (task3 (navigate-to ?r ?h))
-            (task4 (drop-regular-sample ?r ?s ?h))
+            (task0 (navigate-to ?r ?sample-loc))
+            (task1 (pickup-regular-sample ?r ?s ?sample-loc ?cap-low1 ?cap-high1))
+            (task2 (navigate-to ?r ?h))
+            (task3 (drop-regular-sample ?r ?s ?h ?cap-low2 ?cap-high2))
         )
         :ordering (and
             (task0 < task1)
             (task1 < task2)
             (task2 < task3)
-            (task3 < task4)
         )
     )
 
     (:method m_continue_regular_from_handover_ordering_0
-    :parameters (
-        ?r - rov
-        ?s - sample
-        ?h - location
-        ?vault - location
-    )
-    :task (continue-regular-from-handover ?s ?h ?vault)
+        :parameters (
+            ?r - rov
+            ?s - sample
+            ?h - location
+            ?vault - location
+            ?cap-low1 - capacity-number
+            ?cap-high1 - capacity-number
+            ?cap-low2 - capacity-number
+            ?cap-high2 - capacity-number
+        )
+        :task (continue-regular-from-handover ?r ?s ?h ?vault)
         :precondition (and
             (todo-regular ?s)
             (regular-sample ?s)
@@ -450,24 +433,22 @@
             (bio-vault ?vault)
         )
         :subtasks (and
-            (task0 (recharge-if-needed ?r))
-            (task1 (navigate-to ?r ?h))
-            (task2 (pickup-regular-sample ?r ?s ?h))
-            (task3 (recharge-if-needed ?r))
-            (task4 (navigate-to ?r ?vault))
-            (task5 (store-regular-sample ?r ?s ?vault))
+            (task0 (navigate-to ?r ?h))
+            (task1 (pickup-regular-sample ?r ?s ?h ?cap-low1 ?cap-high1))
+            (task2 (navigate-to ?r ?vault))
+            (task3 (store-regular-sample ?r ?s ?vault ?cap-low2 ?cap-high2))
         )
         :ordering (and
             (task0 < task1)
             (task1 < task2)
             (task2 < task3)
-            (task3 < task4)
-            (task4 < task5)
         )
     )
 
     (:method m_process_sensitive_sample_handover_ordering_0
         :parameters (
+            ?r1 - rov
+            ?r2 - rov
             ?s - pressure-sensitive
             ?c - capsule
             ?sample-loc - location
@@ -480,11 +461,13 @@
             (todo-sensitive ?s)
             (at ?s ?sample-loc)
             (narrow-connected ?sample-loc ?h)
+            (small-robot ?r1)
+            (not (= ?r1 ?r2))
             (bio-vault ?vault)
         )
         :subtasks (and
-            (task0 (bring-sensitive-to-handover ?s ?c ?h))
-            (task1 (continue-sensitive-from-handover ?s ?c ?h ?st ?vault))
+            (task0 (bring-sensitive-to-handover ?r1 ?s ?c ?h))
+            (task1 (continue-sensitive-from-handover ?r2 ?s ?c ?h ?st ?vault))
         )
         :ordering (and
             (task0 < task1)
@@ -492,15 +475,19 @@
     )
 
     (:method m_bring_sensitive_to_handover_ordering_0
-    :parameters (
-        ?r - rov
-        ?s - pressure-sensitive
-        ?c - capsule
-        ?sample-loc - location
-        ?capsule-loc - location
-        ?h - location
-    )
-    :task (bring-sensitive-to-handover ?s ?c ?h)
+        :parameters (
+            ?r - rov
+            ?s - pressure-sensitive
+            ?c - capsule
+            ?sample-loc - location
+            ?capsule-loc - location
+            ?h - location
+            ?cap-low1 - capacity-number
+            ?cap-high1 - capacity-number
+            ?cap-low2 - capacity-number
+            ?cap-high2 - capacity-number
+        )
+        :task (bring-sensitive-to-handover ?r ?s ?c ?h)
         :precondition (and
             (todo-sensitive ?s)
             (at ?s ?sample-loc)
@@ -510,13 +497,12 @@
             (small-robot ?r)
         )
         :subtasks (and
-            (task0 (recharge-if-needed ?r))
-            (task1 (navigate-to ?r ?capsule-loc))
-            (task2 (take-empty-capsule ?r ?c ?capsule-loc))
-            (task3 (navigate-to ?r ?sample-loc))
-            (task4 (encapsulate-sample ?r ?s ?c ?sample-loc))
-            (task5 (navigate-to ?r ?h))
-            (task6 (drop-sensitive-sample ?r ?s ?c ?h))
+            (task0 (navigate-to ?r ?capsule-loc))
+            (task1 (take-empty-capsule ?r ?c ?capsule-loc ?cap-low1 ?cap-high1))
+            (task2 (navigate-to ?r ?sample-loc))
+            (task3 (encapsulate-sample ?r ?s ?c ?sample-loc))
+            (task4 (navigate-to ?r ?h))
+            (task5 (drop-sensitive-sample ?r ?s ?c ?h ?cap-low2 ?cap-high2))
         )
         :ordering (and
             (task0 < task1)
@@ -524,20 +510,27 @@
             (task2 < task3)
             (task3 < task4)
             (task4 < task5)
-            (task5 < task6)
         )
     )
 
     (:method m_continue_sensitive_from_handover_ordering_0
-    :parameters (
-        ?r - rov
-        ?s - pressure-sensitive
-        ?c - capsule
-        ?h - location
-        ?st - pressure-stabilizer
-        ?vault - location
-    )
-    :task (continue-sensitive-from-handover ?s ?c ?h ?st ?vault)
+        :parameters (
+            ?r - rov
+            ?s - pressure-sensitive
+            ?c - capsule
+            ?h - location
+            ?st - pressure-stabilizer
+            ?vault - location
+            ?cap-low1 - capacity-number
+            ?cap-high1 - capacity-number
+            ?cap-low2 - capacity-number
+            ?cap-high2 - capacity-number
+            ?cap-low3 - capacity-number
+            ?cap-high3 - capacity-number
+            ?cap-low4 - capacity-number
+            ?cap-high4 - capacity-number
+        )
+        :task (continue-sensitive-from-handover ?r ?s ?c ?h ?st ?vault)
         :precondition (and
             (todo-sensitive ?s)
             (at ?c ?h)
@@ -546,17 +539,14 @@
             (bio-vault ?vault)
         )
         :subtasks (and
-            (task0 (recharge-if-needed ?r))
-            (task1 (navigate-to ?r ?h))
-            (task2 (pickup-sensitive-sample ?r ?s ?c ?h))
-            (task3 (recharge-if-needed ?r))
-            (task4 (navigate-to ?r ?st))
-            (task5 (drop-sensitive-sample ?r ?s ?c ?st))
-            (task6 (stabilize-capsule ?r ?s ?c ?st))
-            (task7 (pickup-sensitive-sample ?r ?s ?c ?st))
-            (task8 (recharge-if-needed ?r))
-            (task9 (navigate-to ?r ?vault))
-            (task10 (store-sensitive-sample ?r ?s ?c ?vault))
+            (task0 (navigate-to ?r ?h))
+            (task1 (pickup-sensitive-sample ?r ?s ?c ?h ?cap-low1 ?cap-high1))
+            (task2 (navigate-to ?r ?st))
+            (task3 (drop-sensitive-sample ?r ?s ?c ?st ?cap-low2 ?cap-high2))
+            (task4 (stabilize-capsule ?r ?s ?c ?st))
+            (task5 (pickup-sensitive-sample ?r ?s ?c ?st ?cap-low3 ?cap-high3))
+            (task6 (navigate-to ?r ?vault))
+            (task7 (store-sensitive-sample ?r ?s ?c ?vault ?cap-low4 ?cap-high4))
         )
         :ordering (and
             (task0 < task1)
@@ -566,9 +556,6 @@
             (task4 < task5)
             (task5 < task6)
             (task6 < task7)
-            (task7 < task8)
-            (task8 < task9)
-            (task9 < task10)
         )
     )
 
@@ -626,14 +613,11 @@
             (not (= ?from ?to))
             (at ?r ?from)
             (connected ?from ?to) 
-            (>= (battery-level ?r) 2)
         )
         :effect
         (and
             (not (at ?r ?from))
             (at ?r ?to)
-            (decrease (battery-level ?r) 2)
-            (increase (total-cost) 2)
         )
     )
 
@@ -644,14 +628,11 @@
             (at ?r ?from)
             (narrow-connected ?from ?to)
             (small-robot ?r)
-            (>= (battery-level ?r) 2)
         )
         :effect
         (and
             (not (at ?r ?from))
             (at ?r ?to)
-            (decrease (battery-level ?r) 2)
-            (increase (total-cost) 2)
         )
     )
 
@@ -660,55 +641,54 @@
     ;; ------------------------------------------------------------
 
     (:action pickup-regular-sample
-        :parameters (?r - rov ?s - sample ?l - location)
+        :parameters (?r - rov ?s - sample ?l - location ?c-low - capacity-number ?c-high - capacity-number)
         :precondition (and
             (at ?r ?l)
             (at ?s ?l)
             (regular-sample ?s)
-            (>= (capacity ?r) 1)
-            (>= (battery-level ?r) 1)
+            (capacity ?r ?c-high)
+            (capacity-predecessor ?c-low ?c-high)
         )
         :effect (and
             (not (at ?s ?l))
             (carrying ?r ?s)
-            (decrease (capacity ?r) 1)
-            (decrease (battery-level ?r) 1)
-            (increase (total-cost) 1)
+            (not (capacity ?r ?c-high))
+            (capacity ?r ?c-low)
         )
     )
 
     (:action drop-regular-sample
-        :parameters (?r - rov ?s - sample ?l - location)
+        :parameters (?r - rov ?s - sample ?l - location ?c-low - capacity-number ?c-high - capacity-number)
         :precondition (and
             (at ?r ?l)
             (carrying ?r ?s)
             (regular-sample ?s)
-            (>= (battery-level ?r) 1)
+            (capacity ?r ?c-low)
+            (capacity-predecessor ?c-low ?c-high)
         )
         :effect (and
             (not (carrying ?r ?s))
             (at ?s ?l)
-            (increase (capacity ?r) 1)
-            (decrease (battery-level ?r) 1)
-            (increase (total-cost) 50)
+            (not (capacity ?r ?c-low))
+            (capacity ?r ?c-high)
         )
     )
 
     (:action store-regular-sample
-        :parameters (?r - rov ?s - sample ?l - location)
+        :parameters (?r - rov ?s - sample ?l - location ?c-low - capacity-number ?c-high - capacity-number)
         :precondition (and
             (at ?r ?l)
             (bio-vault ?l)
             (carrying ?r ?s)
             (regular-sample ?s)
-            (>= (battery-level ?r) 1)
+            (capacity ?r ?c-low)
+            (capacity-predecessor ?c-low ?c-high)
         )
         :effect (and
             (not (carrying ?r ?s))
             (stored ?s)
-            (increase (capacity ?r) 1)
-            (decrease (battery-level ?r) 1)
-            (increase (total-cost) 0)
+            (not (capacity ?r ?c-low))
+            (capacity ?r ?c-high)
         )
     )
 
@@ -717,20 +697,19 @@
     ;; ------------------------------------------------------------
 
     (:action take-empty-capsule
-        :parameters (?r - rov ?c - capsule ?l - location)
+        :parameters (?r - rov ?c - capsule ?l - location ?c-low - capacity-number ?c-high - capacity-number)
         :precondition (and
             (at ?r ?l)
             (at ?c ?l)
             (empty-capsule ?c)
-            (>= (capacity ?r) 1)
-            (>= (battery-level ?r) 1)
+            (capacity ?r ?c-high)
+            (capacity-predecessor ?c-low ?c-high)
         )
         :effect (and
             (not (at ?c ?l))
             (carrying ?r ?c)
-            (decrease (capacity ?r) 1)
-            (decrease (battery-level ?r) 1)
-            (increase (total-cost) 1)
+            (not (capacity ?r ?c-high))
+            (capacity ?r ?c-low)
         )
     )
 
@@ -741,52 +720,48 @@
             (at ?s ?l)
             (carrying ?r ?c)
             (empty-capsule ?c)
-            (>= (battery-level ?r) 1)
         )
         :effect (and
             (not (empty-capsule ?c))
             (not (at ?s ?l))
             (sample-in-capsule ?s ?c)
             (capsule-sealed ?c)
-            (decrease (battery-level ?r) 1)
-            (increase (total-cost) 5)
         )
     )
 
     (:action pickup-sensitive-sample
-        :parameters (?r - rov ?s - pressure-sensitive ?c - capsule ?l - location)
+        :parameters (?r - rov ?s - pressure-sensitive ?c - capsule ?l - location ?c-low - capacity-number ?c-high - capacity-number)
         :precondition (and
             (at ?r ?l)
             (at ?c ?l)
             (sample-in-capsule ?s ?c)
             (capsule-sealed ?c)
-            (>= (capacity ?r) 1)
-            (>= (battery-level ?r) 1)
+            (capacity ?r ?c-high)
+            (capacity-predecessor ?c-low ?c-high)
         )
         :effect (and
             (not (at ?c ?l))
             (carrying ?r ?c)
-            (decrease (capacity ?r) 1)
-            (decrease (battery-level ?r) 1)
-            (increase (total-cost) 1)
+            (not (capacity ?r ?c-high))
+            (capacity ?r ?c-low)
         )
     )
 
     (:action drop-sensitive-sample
-        :parameters (?r - rov ?s - pressure-sensitive ?c - capsule ?l - location)
+        :parameters (?r - rov ?s - pressure-sensitive ?c - capsule ?l - location ?c-low - capacity-number ?c-high - capacity-number)
         :precondition (and
             (at ?r ?l)
             (carrying ?r ?c)
             (sample-in-capsule ?s ?c)
             (capsule-sealed ?c)
-            (>= (battery-level ?r) 1)
+            (capacity ?r ?c-low)
+            (capacity-predecessor ?c-low ?c-high)
         )
         :effect (and
             (not (carrying ?r ?c))
             (at ?c ?l)
-            (increase (capacity ?r) 1)
-            (decrease (battery-level ?r) 1)
-            (increase (total-cost) 100)
+            (not (capacity ?r ?c-low))
+            (capacity ?r ?c-high)
         )
     )
 
@@ -801,12 +776,11 @@
         )
         :effect (and
             (stabilized ?s)
-            (increase (total-cost) 10)
         )
     )
 
     (:action store-sensitive-sample
-        :parameters (?r - rov ?s - pressure-sensitive ?c - capsule ?l - location)
+        :parameters (?r - rov ?s - pressure-sensitive ?c - capsule ?l - location ?c-low - capacity-number ?c-high - capacity-number)
         :precondition (and
             (at ?r ?l)
             (bio-vault ?l)
@@ -814,7 +788,8 @@
             (sample-in-capsule ?s ?c)
             (capsule-sealed ?c)
             (stabilized ?s)
-            (>= (battery-level ?r) 1)
+            (capacity ?r ?c-low)
+            (capacity-predecessor ?c-low ?c-high)
         )
         :effect (and
             (not (capsule-sealed ?c))
@@ -823,18 +798,8 @@
             (not (sample-in-capsule ?s ?c))
             (not (carrying ?r ?c))
             (at ?c ?l)
-            (increase (capacity ?r) 1)
-            (decrease (battery-level ?r) 1)
-            (increase (total-cost) 1)
+            (not (capacity ?r ?c-low))
+            (capacity ?r ?c-high)
         )
     )
-
-    ;; ------------------------------------------------------------
-    ;; Recharge
-    ;; ------------------------------------------------------------
-
-    (:action recharge
-        :parameters (?r - rov ?l - docking-station)
-        :precondition (and (at ?r ?l) (< (battery-level ?r) 30))
-        :effect (and (assign (battery-level ?r) 30) (increase (total-cost) 4))
-    )
+)

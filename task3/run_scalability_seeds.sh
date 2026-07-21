@@ -4,7 +4,7 @@ set -uo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-DOMAIN="${DOMAIN:-$SCRIPT_DIR/domain2.hddl}"
+DOMAIN="${DOMAIN:-$SCRIPT_DIR/domain.hddl}"
 TEST_ROOT="${TEST_ROOT:-$SCRIPT_DIR/scalability-test}"
 RUN_ID="${RUN_ID:-$(date +%Y%m%d-%H%M%S)}"
 RESULTS_DIR="${RESULTS_DIR:-$TEST_ROOT/seed-results/$RUN_ID}"

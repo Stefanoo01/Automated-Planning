@@ -56,6 +56,8 @@ In general:
 2. Run the corresponding planner.
 3. Inspect the generated `.plan` files.
 
+Task 3 can also be run without handovers by passing `noho` to either planner script (for example, `./task3/panda/run.sh noho`).
+
 For **Task 5**, follow the instructions contained in:
 
 ```text
@@ -63,4 +65,3 @@ task5/README.md
 ```
 
 which explains how to launch the Docker container and execute the PlanSys2 simulation.
-
